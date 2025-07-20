@@ -1,0 +1,144 @@
+{
+  "menus": [
+    {
+      "id": "region",
+      "type": "menu_1",
+      "name": {
+        "en": "Region",
+        "fr": "Région"
+      },
+      "content": [
+        {
+          "name": {
+            "en": "World",
+            "fr": "Monde"
+          },
+          "linkto": "gamemode"
+        },
+        {
+          "name": {
+            "en": "Continent",
+            "fr": "Continent"
+          },
+          "linkto": "gamemode"
+        },
+        {
+          "name": {
+            "en": "Custom",
+            "fr": "Personnalisé"
+          },
+          "linkto": "gamemode",
+          "submenu": true
+        }
+      ]
+    },
+    {
+      "id": "gamemode",
+      "type": "menu_2",
+      "name": {
+        "en": "Game Mode",
+        "fr": "Mode de jeu"
+      },
+      "content": [
+        {
+          "name": {
+            "en": "GeoNovis",
+            "fr": "GeoNovis"
+          },
+          "start": true
+        },
+        {
+          "name": {
+            "en": "Capitals",
+            "fr": "Capitales"
+          },
+          "linkto": "capitals"
+        },
+        {
+          "name": {
+            "en": "Flags",
+            "fr": "Drapeaux"
+          },
+          "linkto": "flags"
+        },
+        {
+          "name": {
+            "en": "Custom",
+            "fr": "Personnalisé"
+          },
+          "start": true,
+          "submenu": true
+        }
+      ]
+    },
+    {
+      "id": "capitals",
+      "type": "menu_3",
+      "name": {
+        "en": "Capitals",
+        "fr": "Capitales"
+      },
+      "content": [
+        {
+          "name": {
+            "en": "Find the Capital",
+            "fr": "Trouver la capitale"
+          },
+          "start": true
+        },
+        {
+          "name": {
+            "en": "Write the Capital",
+            "fr": "Écrire la capitale"
+          },
+          "start": true
+        },
+        {
+          "name": {
+            "en": "Find the Country",
+            "fr": "Trouver le pays"
+          },
+          "start": true
+        },
+        {
+          "name": {
+            "en": "Find the Capital or write it",
+            "fr": "Trouver la capitale ou l'écrire"
+          },
+          "start": true
+        }
+      ]
+    },
+    {
+      "id": "flags",
+      "type": "menu_3",
+      "name": {
+        "en": "Flags",
+        "fr": "Drapeaux"
+      },
+      "content": [
+        {
+          "name": {
+            "en": "Find the Flag",
+            "fr": "Trouver le drapeau"
+          },
+          "start": true
+        },
+        {
+          "name": {
+            "en": "Find the Country",
+            "fr": "Trouver le pays"
+          },
+          "start": true
+        },
+        {
+          "name": {
+            "en": "Find the Flag or write it",
+            "fr": "Trouver le drapeau ou l'écrire"
+          },
+          "start": true
+        }
+      ]
+    }
+  ]
+}
