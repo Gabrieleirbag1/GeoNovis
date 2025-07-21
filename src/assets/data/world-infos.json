@@ -1,6 +1,6 @@
 [
   {
-    "code": "ad",
+    "flag": "ad",
     "country": {
       "en": "Andorra",
       "fr": "Andorre"
@@ -9,11 +9,15 @@
       "en": "Andorra la Vella",
       "fr": "Andorre-la-Vieille"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ae",
+    "flag": "ae",
     "country": {
       "en": "United Arab Emirates",
       "fr": "Émirats arabes unis"
@@ -22,11 +26,15 @@
       "en": "Abu Dhabi",
       "fr": "Abou Dabi"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "af",
+    "flag": "af",
     "country": {
       "en": "Afghanistan",
       "fr": "Afghanistan"
@@ -35,11 +43,15 @@
       "en": "Kabul",
       "fr": "Kaboul"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "al",
+    "flag": "al",
     "country": {
       "en": "Albania",
       "fr": "Albanie"
@@ -48,11 +60,15 @@
       "en": "Tirana",
       "fr": "Tirana"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "dz",
+    "flag": "dz",
     "country": {
       "en": "Algeria",
       "fr": "Algérie"
@@ -61,11 +77,15 @@
       "en": "Algiers",
       "fr": "Alger"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ao",
+    "flag": "ao",
     "country": {
       "en": "Angola",
       "fr": "Angola"
@@ -74,11 +94,15 @@
       "en": "Luanda",
       "fr": "Luanda"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ag",
+    "flag": "ag",
     "country": {
       "en": "Antigua and Barbuda",
       "fr": "Antigua-et-Barbuda"
@@ -87,11 +111,15 @@
       "en": "St. John's",
       "fr": "St. John's"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ar",
+    "flag": "ar",
     "country": {
       "en": "Argentina",
       "fr": "Argentine"
@@ -100,11 +128,15 @@
       "en": "Buenos Aires",
       "fr": "Buenos Aires"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "am",
+    "flag": "am",
     "country": {
       "en": "Armenia",
       "fr": "Arménie"
@@ -113,11 +145,15 @@
       "en": "Yerevan",
       "fr": "Erevan"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "au",
+    "flag": "au",
     "country": {
       "en": "Australia",
       "fr": "Australie"
@@ -126,11 +162,15 @@
       "en": "Canberra",
       "fr": "Canberra"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "at",
+    "flag": "at",
     "country": {
       "en": "Austria",
       "fr": "Autriche"
@@ -139,11 +179,15 @@
       "en": "Vienna",
       "fr": "Vienne"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "az",
+    "flag": "az",
     "country": {
       "en": "Azerbaijan",
       "fr": "Azerbaïdjan"
@@ -152,11 +196,15 @@
       "en": "Baku",
       "fr": "Baku"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bs",
+    "flag": "bs",
     "country": {
       "en": "Bahamas",
       "fr": "Bahamas"
@@ -165,11 +213,15 @@
       "en": "Nassau",
       "fr": "Nassau"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bh",
+    "flag": "bh",
     "country": {
       "en": "Bahrain",
       "fr": "Bahreïn"
@@ -178,11 +230,15 @@
       "en": "Manama",
       "fr": "Manama"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bd",
+    "flag": "bd",
     "country": {
       "en": "Bangladesh",
       "fr": "Bangladesh"
@@ -191,11 +247,15 @@
       "en": "Dhaka",
       "fr": "Dhaka"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bb",
+    "flag": "bb",
     "country": {
       "en": "Barbados",
       "fr": "Barbade"
@@ -204,11 +264,15 @@
       "en": "Bridgetown",
       "fr": "Bridgetown"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "by",
+    "flag": "by",
     "country": {
       "en": "Belarus",
       "fr": "Biélorussie"
@@ -217,11 +281,15 @@
       "en": "Minsk",
       "fr": "Minsk"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "be",
+    "flag": "be",
     "country": {
       "en": "Belgium",
       "fr": "Belgique"
@@ -230,11 +298,15 @@
       "en": "Brussels",
       "fr": "Bruxelles"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bz",
+    "flag": "bz",
     "country": {
       "en": "Belize",
       "fr": "Belize"
@@ -243,11 +315,15 @@
       "en": "Belmopan",
       "fr": "Belmopan"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bj",
+    "flag": "bj",
     "country": {
       "en": "Benin",
       "fr": "Bénin"
@@ -256,11 +332,15 @@
       "en": "Porto-Novo",
       "fr": "Porto-Novo"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bt",
+    "flag": "bt",
     "country": {
       "en": "Bhutan",
       "fr": "Bhoutan"
@@ -269,11 +349,15 @@
       "en": "Thimphu",
       "fr": "Thimphu"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bo",
+    "flag": "bo",
     "country": {
       "en": "Bolivia",
       "fr": "Bolivie"
@@ -282,11 +366,15 @@
       "en": "Sucre (constitutional), La Paz (administrative)",
       "fr": "Sucre (constitutionnel), La Paz (administratif)"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ba",
+    "flag": "ba",
     "country": {
       "en": "Bosnia and Herzegovina",
       "fr": "Bosnie-Herzégovine"
@@ -295,11 +383,15 @@
       "en": "Sarajevo",
       "fr": "Sarajevo"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bw",
+    "flag": "bw",
     "country": {
       "en": "Botswana",
       "fr": "Botswana"
@@ -308,11 +400,15 @@
       "en": "Gaborone",
       "fr": "Gaborone"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "br",
+    "flag": "br",
     "country": {
       "en": "Brazil",
       "fr": "Brésil"
@@ -321,11 +417,15 @@
       "en": "Brasília",
       "fr": "Brasília"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bn",
+    "flag": "bn",
     "country": {
       "en": "Brunei",
       "fr": "Brunei"
@@ -334,11 +434,15 @@
       "en": "Bandar Seri Begawan",
       "fr": "Bandar Seri Begawan"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bg",
+    "flag": "bg",
     "country": {
       "en": "Bulgaria",
       "fr": "Bulgarie"
@@ -347,11 +451,15 @@
       "en": "Sofia",
       "fr": "Sofia"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bf",
+    "flag": "bf",
     "country": {
       "en": "Burkina Faso",
       "fr": "Burkina Faso"
@@ -360,11 +468,15 @@
       "en": "Ouagadougou",
       "fr": "Ouagadougou"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "bi",
+    "flag": "bi",
     "country": {
       "en": "Burundi",
       "fr": "Burundi"
@@ -373,11 +485,15 @@
       "en": "Gitega",
       "fr": "Gitega"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kh",
+    "flag": "kh",
     "country": {
       "en": "Cambodia",
       "fr": "Cambodge"
@@ -386,11 +502,15 @@
       "en": "Phnom Penh",
       "fr": "Phnom Penh"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cm",
+    "flag": "cm",
     "country": {
       "en": "Cameroon",
       "fr": "Cameroun"
@@ -399,11 +519,15 @@
       "en": "Yaoundé",
       "fr": "Yaoundé"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ca",
+    "flag": "ca",
     "country": {
       "en": "Canada",
       "fr": "Canada"
@@ -412,11 +536,15 @@
       "en": "Ottawa",
       "fr": "Ottawa"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cv",
+    "flag": "cv",
     "country": {
       "en": "Cape Verde",
       "fr": "Cap-Vert"
@@ -425,11 +553,15 @@
       "en": "Praia",
       "fr": "Praia"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cf",
+    "flag": "cf",
     "country": {
       "en": "Central African Republic",
       "fr": "République centrafricaine"
@@ -438,11 +570,15 @@
       "en": "Bangui",
       "fr": "Bangui"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "td",
+    "flag": "td",
     "country": {
       "en": "Chad",
       "fr": "Tchad"
@@ -451,11 +587,15 @@
       "en": "N'Djamena",
       "fr": "N'Djamena"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cl",
+    "flag": "cl",
     "country": {
       "en": "Chile",
       "fr": "Chili"
@@ -464,11 +604,15 @@
       "en": "Santiago",
       "fr": "Santiago"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cn",
+    "flag": "cn",
     "country": {
       "en": "China",
       "fr": "Chine"
@@ -477,11 +621,15 @@
       "en": "Beijing",
       "fr": "Pékin"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "co",
+    "flag": "co",
     "country": {
       "en": "Colombia",
       "fr": "Colombie"
@@ -490,11 +638,15 @@
       "en": "Bogotá",
       "fr": "Bogotá"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "km",
+    "flag": "km",
     "country": {
       "en": "Comoros",
       "fr": "Comores"
@@ -503,11 +655,15 @@
       "en": "Moroni",
       "fr": "Moroni"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cg",
+    "flag": "cg",
     "country": {
       "en": "Congo (Brazzaville)",
       "fr": "Congo (Brazzaville)"
@@ -516,11 +672,15 @@
       "en": "Brazzaville",
       "fr": "Brazzaville"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cd",
+    "flag": "cd",
     "country": {
       "en": "Congo (Kinshasa)",
       "fr": "Congo (Kinshasa)"
@@ -529,11 +689,15 @@
       "en": "Kinshasa",
       "fr": "Kinshasa"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cr",
+    "flag": "cr",
     "country": {
       "en": "Costa Rica",
       "fr": "Costa Rica"
@@ -542,11 +706,15 @@
       "en": "San José",
       "fr": "San José"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "hr",
+    "flag": "hr",
     "country": {
       "en": "Croatia",
       "fr": "Croatie"
@@ -555,11 +723,15 @@
       "en": "Zagreb",
       "fr": "Zagreb"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cu",
+    "flag": "cu",
     "country": {
       "en": "Cuba",
       "fr": "Cuba"
@@ -568,11 +740,15 @@
       "en": "Havana",
       "fr": "La Havane"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cy",
+    "flag": "cy",
     "country": {
       "en": "Cyprus",
       "fr": "Chypre"
@@ -581,11 +757,15 @@
       "en": "Nicosia",
       "fr": "Nicosie"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "cz",
+    "flag": "cz",
     "country": {
       "en": "Czechia",
       "fr": "République tchèque"
@@ -594,11 +774,15 @@
       "en": "Prague",
       "fr": "Prague"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "dk",
+    "flag": "dk",
     "country": {
       "en": "Denmark",
       "fr": "Danemark"
@@ -607,11 +791,15 @@
       "en": "Copenhagen",
       "fr": "Copenhague"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "dj",
+    "flag": "dj",
     "country": {
       "en": "Djibouti",
       "fr": "Djibouti"
@@ -620,11 +808,15 @@
       "en": "Djibouti",
       "fr": "Djibouti"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "dm",
+    "flag": "dm",
     "country": {
       "en": "Dominica",
       "fr": "Dominique"
@@ -633,11 +825,15 @@
       "en": "Roseau",
       "fr": "Roseau"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "do",
+    "flag": "do",
     "country": {
       "en": "Dominican Republic",
       "fr": "République dominicaine"
@@ -646,11 +842,15 @@
       "en": "Santo Domingo",
       "fr": "Santo Domingo"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ec",
+    "flag": "ec",
     "country": {
       "en": "Ecuador",
       "fr": "Équateur"
@@ -659,11 +859,15 @@
       "en": "Quito",
       "fr": "Quito"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "eg",
+    "flag": "eg",
     "country": {
       "en": "Egypt",
       "fr": "Égypte"
@@ -672,11 +876,15 @@
       "en": "Cairo",
       "fr": "Le Caire"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sv",
+    "flag": "sv",
     "country": {
       "en": "El Salvador",
       "fr": "El Salvador"
@@ -685,11 +893,15 @@
       "en": "San Salvador",
       "fr": "San Salvador"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gq",
+    "flag": "gq",
     "country": {
       "en": "Equatorial Guinea",
       "fr": "Guinée équatoriale"
@@ -698,11 +910,15 @@
       "en": "Malabo",
       "fr": "Malabo"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "er",
+    "flag": "er",
     "country": {
       "en": "Eritrea",
       "fr": "Érythrée"
@@ -711,11 +927,15 @@
       "en": "Asmara",
       "fr": "Asmara"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ee",
+    "flag": "ee",
     "country": {
       "en": "Estonia",
       "fr": "Estonie"
@@ -724,11 +944,15 @@
       "en": "Tallinn",
       "fr": "Tallinn"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sz",
+    "flag": "sz",
     "country": {
       "en": "Eswatini",
       "fr": "Eswatini"
@@ -737,11 +961,15 @@
       "en": "Mbabane (administrative), Lobamba (royal and legislative)",
       "fr": "Mbabane (administratif), Lobamba (royal et législatif)"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "et",
+    "flag": "et",
     "country": {
       "en": "Ethiopia",
       "fr": "Éthiopie"
@@ -750,11 +978,15 @@
       "en": "Addis Ababa",
       "fr": "Addis-Abeba"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "fj",
+    "flag": "fj",
     "country": {
       "en": "Fiji",
       "fr": "Fidji"
@@ -763,11 +995,15 @@
       "en": "Suva",
       "fr": "Suva"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "fi",
+    "flag": "fi",
     "country": {
       "en": "Finland",
       "fr": "Finlande"
@@ -776,11 +1012,15 @@
       "en": "Helsinki",
       "fr": "Helsinki"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "fr",
+    "flag": "fr",
     "country": {
       "en": "France",
       "fr": "France"
@@ -789,11 +1029,15 @@
       "en": "Paris",
       "fr": "Paris"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ga",
+    "flag": "ga",
     "country": {
       "en": "Gabon",
       "fr": "Gabon"
@@ -802,11 +1046,15 @@
       "en": "Libreville",
       "fr": "Libreville"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gm",
+    "flag": "gm",
     "country": {
       "en": "Gambia",
       "fr": "Gambie"
@@ -815,11 +1063,15 @@
       "en": "Banjul",
       "fr": "Banjul"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ge",
+    "flag": "ge",
     "country": {
       "en": "Georgia",
       "fr": "Géorgie"
@@ -828,11 +1080,15 @@
       "en": "Tbilisi",
       "fr": "Tbilissi"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "de",
+    "flag": "de",
     "country": {
       "en": "Germany",
       "fr": "Allemagne"
@@ -841,11 +1097,15 @@
       "en": "Berlin",
       "fr": "Berlin"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gh",
+    "flag": "gh",
     "country": {
       "en": "Ghana",
       "fr": "Ghana"
@@ -854,11 +1114,15 @@
       "en": "Accra",
       "fr": "Accra"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gr",
+    "flag": "gr",
     "country": {
       "en": "Greece",
       "fr": "Grèce"
@@ -867,11 +1131,15 @@
       "en": "Athens",
       "fr": "Athènes"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gd",
+    "flag": "gd",
     "country": {
       "en": "Grenada",
       "fr": "Grenade"
@@ -880,11 +1148,15 @@
       "en": "St. George's",
       "fr": "St. George's"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gt",
+    "flag": "gt",
     "country": {
       "en": "Guatemala",
       "fr": "Guatemala"
@@ -893,11 +1165,15 @@
       "en": "Guatemala City",
       "fr": "Guatemala City"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gn",
+    "flag": "gn",
     "country": {
       "en": "Guinea",
       "fr": "Guinée"
@@ -906,11 +1182,15 @@
       "en": "Conakry",
       "fr": "Conakry"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gw",
+    "flag": "gw",
     "country": {
       "en": "Guinea-Bissau",
       "fr": "Guinée-Bissau"
@@ -919,11 +1199,15 @@
       "en": "Bissau",
       "fr": "Bissau"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gy",
+    "flag": "gy",
     "country": {
       "en": "Guyana",
       "fr": "Guyane"
@@ -932,11 +1216,15 @@
       "en": "Georgetown",
       "fr": "Georgetown"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ht",
+    "flag": "ht",
     "country": {
       "en": "Haiti",
       "fr": "Haïti"
@@ -945,11 +1233,15 @@
       "en": "Port-au-Prince",
       "fr": "Port-au-Prince"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "hn",
+    "flag": "hn",
     "country": {
       "en": "Honduras",
       "fr": "Honduras"
@@ -958,11 +1250,15 @@
       "en": "Tegucigalpa",
       "fr": "Tegucigalpa"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "hu",
+    "flag": "hu",
     "country": {
       "en": "Hungary",
       "fr": "Hongrie"
@@ -971,11 +1267,15 @@
       "en": "Budapest",
       "fr": "Budapest"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "is",
+    "flag": "is",
     "country": {
       "en": "Iceland",
       "fr": "Islande"
@@ -984,11 +1284,15 @@
       "en": "Reykjavík",
       "fr": "Reykjavík"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "in",
+    "flag": "in",
     "country": {
       "en": "India",
       "fr": "Inde"
@@ -997,11 +1301,15 @@
       "en": "New Delhi",
       "fr": "New Delhi"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "id",
+    "flag": "id",
     "country": {
       "en": "Indonesia",
       "fr": "Indonésie"
@@ -1010,11 +1318,15 @@
       "en": "Jakarta",
       "fr": "Jakarta"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ir",
+    "flag": "ir",
     "country": {
       "en": "Iran",
       "fr": "Iran"
@@ -1023,11 +1335,15 @@
       "en": "Tehran",
       "fr": "Téhéran"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "iq",
+    "flag": "iq",
     "country": {
       "en": "Iraq",
       "fr": "Irak"
@@ -1036,11 +1352,15 @@
       "en": "Baghdad",
       "fr": "Bagdad"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ie",
+    "flag": "ie",
     "country": {
       "en": "Ireland",
       "fr": "Irlande"
@@ -1049,11 +1369,15 @@
       "en": "Dublin",
       "fr": "Dublin"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "il",
+    "flag": "il",
     "country": {
       "en": "Israel",
       "fr": "Israël"
@@ -1062,11 +1386,15 @@
       "en": "Jerusalem",
       "fr": "Jérusalem"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "it",
+    "flag": "it",
     "country": {
       "en": "Italy",
       "fr": "Italie"
@@ -1075,11 +1403,15 @@
       "en": "Rome",
       "fr": "Rome"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "jm",
+    "flag": "jm",
     "country": {
       "en": "Jamaica",
       "fr": "Jamaïque"
@@ -1088,11 +1420,15 @@
       "en": "Kingston",
       "fr": "Kingston"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "jp",
+    "flag": "jp",
     "country": {
       "en": "Japan",
       "fr": "Japon"
@@ -1101,11 +1437,15 @@
       "en": "Tokyo",
       "fr": "Tokyo"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "jo",
+    "flag": "jo",
     "country": {
       "en": "Jordan",
       "fr": "Jordanie"
@@ -1114,11 +1454,15 @@
       "en": "Amman",
       "fr": "Amman"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kz",
+    "flag": "kz",
     "country": {
       "en": "Kazakhstan",
       "fr": "Kazakhstan"
@@ -1127,11 +1471,15 @@
       "en": "Astana",
       "fr": "Astana"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ke",
+    "flag": "ke",
     "country": {
       "en": "Kenya",
       "fr": "Kenya"
@@ -1140,11 +1488,15 @@
       "en": "Nairobi",
       "fr": "Nairobi"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ki",
+    "flag": "ki",
     "country": {
       "en": "Kiribati",
       "fr": "Kiribati"
@@ -1153,11 +1505,15 @@
       "en": "South Tarawa",
       "fr": "South Tarawa"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "xk",
+    "flag": "xk",
     "country": {
       "en": "Kosovo",
       "fr": "Kosovo"
@@ -1166,11 +1522,15 @@
       "en": "Pristina",
       "fr": "Pristina"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kw",
+    "flag": "kw",
     "country": {
       "en": "Kuwait",
       "fr": "Koweït"
@@ -1179,11 +1539,15 @@
       "en": "Kuwait City",
       "fr": "Koweït City"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kg",
+    "flag": "kg",
     "country": {
       "en": "Kyrgyzstan",
       "fr": "Kirghizistan"
@@ -1192,11 +1556,15 @@
       "en": "Bishkek",
       "fr": "Bishkek"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "la",
+    "flag": "la",
     "country": {
       "en": "Laos",
       "fr": "Laos"
@@ -1205,11 +1573,15 @@
       "en": "Vientiane",
       "fr": "Vientiane"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lv",
+    "flag": "lv",
     "country": {
       "en": "Latvia",
       "fr": "Lettonie"
@@ -1218,11 +1590,15 @@
       "en": "Riga",
       "fr": "Riga"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lb",
+    "flag": "lb",
     "country": {
       "en": "Lebanon",
       "fr": "Liban"
@@ -1231,11 +1607,15 @@
       "en": "Beirut",
       "fr": "Beyrouth"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ls",
+    "flag": "ls",
     "country": {
       "en": "Lesotho",
       "fr": "Lesotho"
@@ -1244,11 +1624,15 @@
       "en": "Maseru",
       "fr": "Maseru"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lr",
+    "flag": "lr",
     "country": {
       "en": "Liberia",
       "fr": "Liberia"
@@ -1257,11 +1641,15 @@
       "en": "Monrovia",
       "fr": "Monrovia"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ly",
+    "flag": "ly",
     "country": {
       "en": "Libya",
       "fr": "Libye"
@@ -1270,11 +1658,15 @@
       "en": "Tripoli",
       "fr": "Tripoli"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "li",
+    "flag": "li",
     "country": {
       "en": "Liechtenstein",
       "fr": "Liechtenstein"
@@ -1283,11 +1675,15 @@
       "en": "Vaduz",
       "fr": "Vaduz"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lt",
+    "flag": "lt",
     "country": {
       "en": "Lithuania",
       "fr": "Lituanie"
@@ -1296,11 +1692,15 @@
       "en": "Vilnius",
       "fr": "Vilnius"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lu",
+    "flag": "lu",
     "country": {
       "en": "Luxembourg",
       "fr": "Luxembourg"
@@ -1309,11 +1709,15 @@
       "en": "Luxembourg",
       "fr": "Luxembourg"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mk",
+    "flag": "mk",
     "country": {
       "en": "North Macedonia",
       "fr": "Macédoine du Nord"
@@ -1322,11 +1726,15 @@
       "en": "Skopje",
       "fr": "Skopje"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mg",
+    "flag": "mg",
     "country": {
       "en": "Madagascar",
       "fr": "Madagascar"
@@ -1335,11 +1743,15 @@
       "en": "Antananarivo",
       "fr": "Antananarivo"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mw",
+    "flag": "mw",
     "country": {
       "en": "Malawi",
       "fr": "Malawi"
@@ -1348,11 +1760,15 @@
       "en": "Lilongwe",
       "fr": "Lilongwe"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "my",
+    "flag": "my",
     "country": {
       "en": "Malaysia",
       "fr": "Malaisie"
@@ -1361,11 +1777,15 @@
       "en": "Kuala Lumpur",
       "fr": "Kuala Lumpur"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mv",
+    "flag": "mv",
     "country": {
       "en": "Maldives",
       "fr": "Maldives"
@@ -1374,11 +1794,15 @@
       "en": "Malé",
       "fr": "Malé"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ml",
+    "flag": "ml",
     "country": {
       "en": "Mali",
       "fr": "Mali"
@@ -1387,11 +1811,15 @@
       "en": "Bamako",
       "fr": "Bamako"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mt",
+    "flag": "mt",
     "country": {
       "en": "Malta",
       "fr": "Malte"
@@ -1400,11 +1828,15 @@
       "en": "Valletta",
       "fr": "La Valette"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mh",
+    "flag": "mh",
     "country": {
       "en": "Marshall Islands",
       "fr": "Îles Marshall"
@@ -1413,11 +1845,15 @@
       "en": "Majuro",
       "fr": "Majuro"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mr",
+    "flag": "mr",
     "country": {
       "en": "Mauritania",
       "fr": "Mauritanie"
@@ -1426,11 +1862,15 @@
       "en": "Nouakchott",
       "fr": "Nouakchott"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mu",
+    "flag": "mu",
     "country": {
       "en": "Mauritius",
       "fr": "Maurice"
@@ -1439,11 +1879,15 @@
       "en": "Port Louis",
       "fr": "Port Louis"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mx",
+    "flag": "mx",
     "country": {
       "en": "Mexico",
       "fr": "Mexique"
@@ -1452,11 +1896,15 @@
       "en": "Mexico City",
       "fr": "Mexico"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "fm",
+    "flag": "fm",
     "country": {
       "en": "Micronesia",
       "fr": "Micronésie"
@@ -1465,11 +1913,15 @@
       "en": "Palikir",
       "fr": "Palikir"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "md",
+    "flag": "md",
     "country": {
       "en": "Moldova",
       "fr": "Moldavie"
@@ -1478,11 +1930,15 @@
       "en": "Chișinău",
       "fr": "Chișinău"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mc",
+    "flag": "mc",
     "country": {
       "en": "Monaco",
       "fr": "Monaco"
@@ -1491,11 +1947,15 @@
       "en": "Monaco",
       "fr": "Monaco"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mn",
+    "flag": "mn",
     "country": {
       "en": "Mongolia",
       "fr": "Mongolie"
@@ -1504,11 +1964,15 @@
       "en": "Ulaanbaatar",
       "fr": "Ulaanbaatar"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "me",
+    "flag": "me",
     "country": {
       "en": "Montenegro",
       "fr": "Monténégro"
@@ -1517,11 +1981,15 @@
       "en": "Podgorica",
       "fr": "Podgorica"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ma",
+    "flag": "ma",
     "country": {
       "en": "Morocco",
       "fr": "Maroc"
@@ -1530,11 +1998,15 @@
       "en": "Rabat",
       "fr": "Rabat"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mz",
+    "flag": "mz",
     "country": {
       "en": "Mozambique",
       "fr": "Mozambique"
@@ -1543,11 +2015,15 @@
       "en": "Maputo",
       "fr": "Maputo"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "mm",
+    "flag": "mm",
     "country": {
       "en": "Myanmar",
       "fr": "Myanmar (Birmanie)"
@@ -1556,11 +2032,15 @@
       "en": "Naypyidaw",
       "fr": "Naypyidaw"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "na",
+    "flag": "na",
     "country": {
       "en": "Namibia",
       "fr": "Namibie"
@@ -1569,11 +2049,15 @@
       "en": "Windhoek",
       "fr": "Windhoek"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "nr",
+    "flag": "nr",
     "country": {
       "en": "Nauru",
       "fr": "Nauru"
@@ -1582,11 +2066,15 @@
       "en": "No official capital (government offices in Yaren)",
       "fr": "Pas de capitale officielle (bureaux du gouvernement à Yaren)"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "np",
+    "flag": "np",
     "country": {
       "en": "Nepal",
       "fr": "Népal"
@@ -1595,11 +2083,15 @@
       "en": "Kathmandu",
       "fr": "Katmandou"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "nl",
+    "flag": "nl",
     "country": {
       "en": "Netherlands",
       "fr": "Pays-Bas"
@@ -1608,11 +2100,15 @@
       "en": "Amsterdam (official), The Hague (seat of government)",
       "fr": "Amsterdam (officielle), La Haye (siège du gouvernement)"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "nz",
+    "flag": "nz",
     "country": {
       "en": "New Zealand",
       "fr": "Nouvelle-Zélande"
@@ -1621,11 +2117,15 @@
       "en": "Wellington",
       "fr": "Wellington"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ni",
+    "flag": "ni",
     "country": {
       "en": "Nicaragua",
       "fr": "Nicaragua"
@@ -1634,11 +2134,15 @@
       "en": "Managua",
       "fr": "Managua"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ne",
+    "flag": "ne",
     "country": {
       "en": "Niger",
       "fr": "Niger"
@@ -1647,11 +2151,15 @@
       "en": "Niamey",
       "fr": "Niamey"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ng",
+    "flag": "ng",
     "country": {
       "en": "Nigeria",
       "fr": "Nigeria"
@@ -1660,11 +2168,15 @@
       "en": "Abuja",
       "fr": "Abuja"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kp",
+    "flag": "kp",
     "country": {
       "en": "North Korea",
       "fr": "Corée du Nord"
@@ -1673,11 +2185,15 @@
       "en": "Pyongyang",
       "fr": "Pyongyang"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "no",
+    "flag": "no",
     "country": {
       "en": "Norway",
       "fr": "Norvège"
@@ -1686,11 +2202,15 @@
       "en": "Oslo",
       "fr": "Oslo"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "om",
+    "flag": "om",
     "country": {
       "en": "Oman",
       "fr": "Oman"
@@ -1699,11 +2219,15 @@
       "en": "Muscat",
       "fr": "Muscat"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pk",
+    "flag": "pk",
     "country": {
       "en": "Pakistan",
       "fr": "Pakistan"
@@ -1712,11 +2236,15 @@
       "en": "Islamabad",
       "fr": "Islamabad"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pw",
+    "flag": "pw",
     "country": {
       "en": "Palau",
       "fr": "Palau"
@@ -1725,11 +2253,15 @@
       "en": "Ngerulmud",
       "fr": "Ngerulmud"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ps",
+    "flag": "ps",
     "country": {
       "en": "Palestine",
       "fr": "Palestine"
@@ -1738,11 +2270,15 @@
       "en": "Ramallah (administrative), East Jerusalem (claimed)",
       "fr": "Ramallah (administrative), Jérusalem-Est (revendiquée)"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pa",
+    "flag": "pa",
     "country": {
       "en": "Panama",
       "fr": "Panama"
@@ -1751,11 +2287,15 @@
       "en": "Panama City",
       "fr": "Panama City"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pg",
+    "flag": "pg",
     "country": {
       "en": "Papua New Guinea",
       "fr": "Papouasie-Nouvelle-Guinée"
@@ -1764,11 +2304,15 @@
       "en": "Port Moresby",
       "fr": "Port Moresby"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "py",
+    "flag": "py",
     "country": {
       "en": "Paraguay",
       "fr": "Paraguay"
@@ -1777,11 +2321,15 @@
       "en": "Asunción",
       "fr": "Asunción"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pe",
+    "flag": "pe",
     "country": {
       "en": "Peru",
       "fr": "Pérou"
@@ -1790,11 +2338,15 @@
       "en": "Lima",
       "fr": "Lima"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ph",
+    "flag": "ph",
     "country": {
       "en": "Philippines",
       "fr": "Philippines"
@@ -1803,11 +2355,15 @@
       "en": "Manila",
       "fr": "Manille"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pl",
+    "flag": "pl",
     "country": {
       "en": "Poland",
       "fr": "Pologne"
@@ -1816,11 +2372,15 @@
       "en": "Warsaw",
       "fr": "Varsovie"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "pt",
+    "flag": "pt",
     "country": {
       "en": "Portugal",
       "fr": "Portugal"
@@ -1829,11 +2389,15 @@
       "en": "Lisbon",
       "fr": "Lisbonne"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "qa",
+    "flag": "qa",
     "country": {
       "en": "Qatar",
       "fr": "Qatar"
@@ -1842,11 +2406,15 @@
       "en": "Doha",
       "fr": "Doha"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ro",
+    "flag": "ro",
     "country": {
       "en": "Romania",
       "fr": "Roumanie"
@@ -1855,11 +2423,15 @@
       "en": "Bucharest",
       "fr": "Bucarest"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ru",
+    "flag": "ru",
     "country": {
       "en": "Russia",
       "fr": "Russie"
@@ -1868,11 +2440,15 @@
       "en": "Moscow",
       "fr": "Moscou"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "rw",
+    "flag": "rw",
     "country": {
       "en": "Rwanda",
       "fr": "Rwanda"
@@ -1881,11 +2457,15 @@
       "en": "Kigali",
       "fr": "Kigali"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kn",
+    "flag": "kn",
     "country": {
       "en": "Saint Kitts and Nevis",
       "fr": "Saint-Kitts-et-Nevis"
@@ -1894,11 +2474,15 @@
       "en": "Basseterre",
       "fr": "Basseterre"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lc",
+    "flag": "lc",
     "country": {
       "en": "Saint Lucia",
       "fr": "Sainte-Lucie"
@@ -1907,11 +2491,15 @@
       "en": "Castries",
       "fr": "Castries"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "vc",
+    "flag": "vc",
     "country": {
       "en": "Saint Vincent and the Grenadines",
       "fr": "Saint-Vincent-et-les-Grenadines"
@@ -1920,11 +2508,15 @@
       "en": "Kingstown",
       "fr": "Kingstown"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ws",
+    "flag": "ws",
     "country": {
       "en": "Samoa",
       "fr": "Samoa"
@@ -1933,11 +2525,15 @@
       "en": "Apia",
       "fr": "Apia"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sm",
+    "flag": "sm",
     "country": {
       "en": "San Marino",
       "fr": "Saint-Marin"
@@ -1946,11 +2542,15 @@
       "en": "San Marino",
       "fr": "San Marino"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "st",
+    "flag": "st",
     "country": {
       "en": "São Tomé and Príncipe",
       "fr": "São Tomé et Príncipe"
@@ -1959,11 +2559,15 @@
       "en": "São Tomé",
       "fr": "São Tomé"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sa",
+    "flag": "sa",
     "country": {
       "en": "Saudi Arabia",
       "fr": "Arabie Saoudite"
@@ -1972,11 +2576,15 @@
       "en": "Riyadh",
       "fr": "Riyadh"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sn",
+    "flag": "sn",
     "country": {
       "en": "Senegal",
       "fr": "Sénégal"
@@ -1985,11 +2593,15 @@
       "en": "Dakar",
       "fr": "Dakar"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "rs",
+    "flag": "rs",
     "country": {
       "en": "Serbia",
       "fr": "Serbie"
@@ -1998,11 +2610,15 @@
       "en": "Belgrade",
       "fr": "Belgrade"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sc",
+    "flag": "sc",
     "country": {
       "en": "Seychelles",
       "fr": "Seychelles"
@@ -2011,11 +2627,15 @@
       "en": "Victoria",
       "fr": "Victoria"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sl",
+    "flag": "sl",
     "country": {
       "en": "Sierra Leone",
       "fr": "Sierra Leone"
@@ -2024,11 +2644,15 @@
       "en": "Freetown",
       "fr": "Freetown"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sg",
+    "flag": "sg",
     "country": {
       "en": "Singapore",
       "fr": "Singapour"
@@ -2037,11 +2661,15 @@
       "en": "Singapore",
       "fr": "Singapour"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sk",
+    "flag": "sk",
     "country": {
       "en": "Slovakia",
       "fr": "Slovaquie"
@@ -2050,11 +2678,15 @@
       "en": "Bratislava",
       "fr": "Bratislava"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "si",
+    "flag": "si",
     "country": {
       "en": "Slovenia",
       "fr": "Slovénie"
@@ -2063,11 +2695,15 @@
       "en": "Ljubljana",
       "fr": "Ljubljana"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "hk",
+    "flag": "hk",
     "country": {
       "en": "Hong Kong",
       "fr": "Hong Kong"
@@ -2076,11 +2712,15 @@
       "en": "Hong Kong",
       "fr": "Hong Kong"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null 
   },
   {
-    "code": "sb",
+    "flag": "sb",
     "country": {
       "en": "Solomon Islands",
       "fr": "Îles Salomon"
@@ -2089,11 +2729,15 @@
       "en": "Honiara",
       "fr": "Honiara"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "so",
+    "flag": "so",
     "country": {
       "en": "Somalia",
       "fr": "Somalie"
@@ -2102,11 +2746,15 @@
       "en": "Mogadishu",
       "fr": "Mogadiscio"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "za",
+    "flag": "za",
     "country": {
       "en": "South Africa",
       "fr": "Afrique du Sud"
@@ -2115,11 +2763,15 @@
       "en": "Pretoria (administrative), Bloemfontein (judicial), Cape Town (legislative)",
       "fr": "Pretoria (administratif), Bloemfontein (judiciaire), Le Cap (législatif)"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "kr",
+    "flag": "kr",
     "country": {
       "en": "South Korea",
       "fr": "Corée du Sud"
@@ -2128,11 +2780,15 @@
       "en": "Seoul",
       "fr": "Séoul"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ss",
+    "flag": "ss",
     "country": {
       "en": "South Sudan",
       "fr": "Soudan du Sud"
@@ -2141,11 +2797,15 @@
       "en": "Juba",
       "fr": "Juba"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "es",
+    "flag": "es",
     "country": {
       "en": "Spain",
       "fr": "Espagne"
@@ -2154,11 +2814,15 @@
       "en": "Madrid",
       "fr": "Madrid"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "lk",
+    "flag": "lk",
     "country": {
       "en": "Sri Lanka",
       "fr": "Sri Lanka"
@@ -2167,11 +2831,15 @@
       "en": "Sri Jayawardenepura Kotte (official), Colombo (commercial)",
       "fr": "Sri Jayawardenepura Kotte (officielle), Colombo (commerciale)"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sd",
+    "flag": "sd",
     "country": {
       "en": "Sudan",
       "fr": "Soudan"
@@ -2180,11 +2848,15 @@
       "en": "Khartoum",
       "fr": "Khartoum"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sr",
+    "flag": "sr",
     "country": {
       "en": "Suriname",
       "fr": "Suriname"
@@ -2193,11 +2865,15 @@
       "en": "Paramaribo",
       "fr": "Paramaribo"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "se",
+    "flag": "se",
     "country": {
       "en": "Sweden",
       "fr": "Suède"
@@ -2206,11 +2882,15 @@
       "en": "Stockholm",
       "fr": "Stockholm"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ch",
+    "flag": "ch",
     "country": {
       "en": "Switzerland",
       "fr": "Suisse"
@@ -2219,11 +2899,15 @@
       "en": "Bern",
       "fr": "Berne"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "sy",
+    "flag": "sy",
     "country": {
       "en": "Syria",
       "fr": "Syrie"
@@ -2232,11 +2916,15 @@
       "en": "Damascus",
       "fr": "Damas"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tw",
+    "flag": "tw",
     "country": {
       "en": "Taiwan",
       "fr": "Taïwan"
@@ -2245,11 +2933,15 @@
       "en": "Taipei",
       "fr": "Taipei"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tj",
+    "flag": "tj",
     "country": {
       "en": "Tajikistan",
       "fr": "Tadjikistan"
@@ -2258,11 +2950,15 @@
       "en": "Dushanbe",
       "fr": "Douchanbé"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tz",
+    "flag": "tz",
     "country": {
       "en": "Tanzania",
       "fr": "Tanzanie"
@@ -2271,11 +2967,15 @@
       "en": "Dodoma",
       "fr": "Dodoma"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "th",
+    "flag": "th",
     "country": {
       "en": "Thailand",
       "fr": "Thaïlande"
@@ -2284,11 +2984,15 @@
       "en": "Bangkok",
       "fr": "Bangkok"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tl",
+    "flag": "tl",
     "country": {
       "en": "Timor-Leste",
       "fr": "Timor-Leste"
@@ -2297,11 +3001,15 @@
       "en": "Dili",
       "fr": "Dili"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tg",
+    "flag": "tg",
     "country": {
       "en": "Togo",
       "fr": "Togo"
@@ -2310,11 +3018,15 @@
       "en": "Lomé",
       "fr": "Lomé"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tk",
+    "flag": "tk",
     "country": {
       "en": "Tokelau",
       "fr": "Tokelau"
@@ -2323,11 +3035,15 @@
       "en": "Fakaofo",
       "fr": "Fakaofo"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "to",
+    "flag": "to",
     "country": {
       "en": "Tonga",
       "fr": "Tonga"
@@ -2336,11 +3052,15 @@
       "en": "Nukuʻalofa",
       "fr": "Nukuʻalofa"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tt",
+    "flag": "tt",
     "country": {
       "en": "Trinidad and Tobago",
       "fr": "Trinité-et-Tobago"
@@ -2349,11 +3069,15 @@
       "en": "Port of Spain",
       "fr": "Port of Spain"
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tn",
+    "flag": "tn",
     "country": {
       "en": "Tunisia",
       "fr": "Tunisie"
@@ -2362,11 +3086,15 @@
       "en": "Tunis",
       "fr": "Tunis"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tr",
+    "flag": "tr",
     "country": {
       "en": "Turkey",
       "fr": "Turquie"
@@ -2375,11 +3103,15 @@
       "en": "Ankara",
       "fr": "Ankara"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tm",
+    "flag": "tm",
     "country": {
       "en": "Turkmenistan",
       "fr": "Turkménistan"
@@ -2388,11 +3120,15 @@
       "en": "Ashgabat",
       "fr": "Achgabat"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "tv",
+    "flag": "tv",
     "country": {
       "en": "Tuvalu",
       "fr": "Tuvalu"
@@ -2401,11 +3137,15 @@
       "en": "Funafuti",
       "fr": "Funafuti"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ug",
+    "flag": "ug",
     "country": {
       "en": "Uganda",
       "fr": "Ouganda"
@@ -2414,11 +3154,15 @@
       "en": "Kampala",
       "fr": "Kampala"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ua",
+    "flag": "ua",
     "country": {
       "en": "Ukraine",
       "fr": "Ukraine"
@@ -2427,11 +3171,15 @@
       "en": "Kyiv",
       "fr": "Kiev"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "gb",
+    "flag": "gb",
     "country": {
       "en": "United Kingdom",
       "fr": "Royaume-Uni"
@@ -2440,11 +3188,15 @@
       "en": "London",
       "fr": "Londres"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "us",
+    "flag": "us",
     "country": {
       "en": "United States",
       "fr": "États-Unis"
@@ -2453,11 +3205,15 @@
       "en": "Washington, D.C.",
       "fr": "Washington, D.C."
     },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "uy",
+    "flag": "uy",
     "country": {
       "en": "Uruguay",
       "fr": "Uruguay"
@@ -2466,11 +3222,15 @@
       "en": "Montevideo",
       "fr": "Montevideo"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "uz",
+    "flag": "uz",
     "country": {
       "en": "Uzbekistan",
       "fr": "Ouzbékistan"
@@ -2479,11 +3239,15 @@
       "en": "Tashkent",
       "fr": "Tachkent"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "vu",
+    "flag": "vu",
     "country": {
       "en": "Vanuatu",
       "fr": "Vanuatu"
@@ -2492,11 +3256,15 @@
       "en": "Port Vila",
       "fr": "Port-Vila"
     },
+    "continent": {
+      "en": "Oceania",
+      "fr": "Océanie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "va",
+    "flag": "va",
     "country": {
       "en": "Vatican City (Holy See)",
       "fr": "Cité du Vatican"
@@ -2505,11 +3273,15 @@
       "en": "Vatican City",
       "fr": "Cité du Vatican"
     },
+    "continent": {
+      "en": "Europe",
+      "fr": "Europe"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ve",
+    "flag": "ve",
     "country": {
       "en": "Venezuela",
       "fr": "Venezuela"
@@ -2518,11 +3290,15 @@
       "en": "Caracas",
       "fr": "Caracas"
     },
+    "continent": {
+      "en": "South America",
+      "fr": "Amérique du Sud"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "vn",
+    "flag": "vn",
     "country": {
       "en": "Vietnam",
       "fr": "Viêt Nam"
@@ -2531,11 +3307,15 @@
       "en": "Hanoi",
       "fr": "Hanoï"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "ye",
+    "flag": "ye",
     "country": {
       "en": "Yemen",
       "fr": "Yémen"
@@ -2544,11 +3324,15 @@
       "en": "Sana'a",
       "fr": "Sanaa"
     },
+    "continent": {
+      "en": "Asia",
+      "fr": "Asie"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "zm",
+    "flag": "zm",
     "country": {
       "en": "Zambia",
       "fr": "Zambie"
@@ -2557,11 +3341,15 @@
       "en": "Lusaka",
       "fr": "Lusaka"
     },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
   },
   {
-    "code": "zw",
+    "flag": "zw",
     "country": {
       "en": "Zimbabwe",
       "fr": "Zimbabwe"
@@ -2569,6 +3357,10 @@
     "capital": {
       "en": "Harare",
       "fr": "Harare"
+    },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
     },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
