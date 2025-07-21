@@ -19,6 +19,9 @@ export class Menu implements OnInit {
 
   ngOnInit() {
     this.menuConfig = menuConfigData.menus[this.currentRoute as keyof typeof menuConfigData.menus];
+    if (!this.menuConfig) {
+      this.menuConfig = menuConfigData.menus["region" as keyof typeof menuConfigData.menus];
+    }
     console.log('Menu Config:', this.menuConfig);
   }
 
