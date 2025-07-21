@@ -11,6 +11,7 @@ import menuConfigData from '../../../assets/menu-configs/menu-config.json';
 export class Menu implements OnInit {
   currentRoute: string;
   menuConfig: any;
+  language: string = 'fr'; // default
 
   constructor() {
     this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
