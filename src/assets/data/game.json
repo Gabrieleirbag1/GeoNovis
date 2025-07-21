@@ -1,6 +1,19 @@
 {
   "region": ["world", "continents", "majorRegions", "custom"],
-  "subregion": [null, "Europe", "Asia", "Africa", "Americas", "Oceania"],
+  "subregion": [
+    { "world": null },
+    {
+      "continents": [
+        "Europe",
+        "Asia",
+        "Africa",
+        "North America",
+        "South America",
+        "Oceania"
+      ]
+    },
+    { "majorRegions": [] }
+  ],
   "gamemode": [
     "geonovis",
     "map",
