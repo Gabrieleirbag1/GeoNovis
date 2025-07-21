@@ -1,0 +1,14 @@
+<section>
+    <div *ngIf="countries.length > 0">
+        <p>Country name</p>
+        <p>{{countries[0].name}}</p>
+    </div>
+    <div *ngIf="countries.length > 0">
+        <p>Capital name</p>
+        <p>{{countries[0].capital}}</p>
+    </div>
+
+    <div *ngFor="let country of countries">
+        <p>{{country.name}} - Capital: {{country.capital}} - Continent: {{country.continent}}</p>
+    </div>
+</section>
