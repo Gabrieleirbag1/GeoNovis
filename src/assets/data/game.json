@@ -1,0 +1,29 @@
+{
+  "region": ["world", "continents", "majorRegions", "custom"],
+  "subregion": [null, "Europe", "Asia", "Africa", "Americas", "Oceania"],
+  "gamemode": [
+    "geonovis",
+    "map",
+    {
+      "capitals": [
+        "findCapital",
+        "writeCapital",
+        "findCountryByCapital",
+        "findOrWriteByCapital"
+      ]
+    },
+    {
+      "flags": [
+        "findFlag",
+        "writeFlag",
+        "findCountryByFlag",
+        "findOrWriteByFlag"
+      ]
+    },
+    "plates",
+    "custom"
+  ],
+  "time": [null, 10, 20, 30, 40, 50, 60],
+  "rounds": [20, 50, 100, 150, "all"],
+  "started": false
+}
