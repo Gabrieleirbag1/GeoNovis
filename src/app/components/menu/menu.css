@@ -1,5 +1,6 @@
 .main-menu {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 90vh;
@@ -21,4 +22,8 @@
     transition: background-color 0.3s ease;
     width: 100%;
     text-align: center;
+}
+
+.menu-header {
+    height: 100px;
 }

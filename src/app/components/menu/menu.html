@@ -1,4 +1,9 @@
 <section class="main-menu">
+  <div class="menu-header">
+    <button class="back-button" *ngIf="menuConfig.referrer" (click)="handleBackMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+    </button>
+  </div>
   <div class="menu">
     <div
       class="menu-item"

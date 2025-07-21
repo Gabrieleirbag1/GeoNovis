@@ -3,6 +3,7 @@
     "region": {
       "id": "region",
       "type": "menu_1",
+      "referrer": null,
       "name": {
         "en": "Region",
         "fr": "Région"
@@ -35,6 +36,7 @@
     "gamemode": {
       "id": "gamemode",
       "type": "menu_2",
+      "referrer": "region",
       "name": {
         "en": "Game Mode",
         "fr": "Mode de jeu"
@@ -52,14 +54,14 @@
             "en": "Capitals",
             "fr": "Capitales"
           },
-          "linkto": "capitals"
+          "linkto": "gamemode/capitals"
         },
         {
           "name": {
             "en": "Flags",
             "fr": "Drapeaux"
           },
-          "linkto": "flags"
+          "linkto": "gamemode/flags"
         },
         {
           "name": {
@@ -74,6 +76,7 @@
     "capitals": {
       "id": "capitals",
       "type": "menu_3",
+      "referrer": "gamemode",
       "name": {
         "en": "Capitals",
         "fr": "Capitales"
@@ -112,6 +115,7 @@
     "flags": {
       "id": "flags",
       "type": "menu_3",
+      "referrer": "gamemode",
       "name": {
         "en": "Flags",
         "fr": "Drapeaux"

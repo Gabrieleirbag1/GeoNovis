@@ -37,4 +37,9 @@ export class Menu implements OnInit {
     window.location.href = `/${route}`;
   }
 
+  handleBackMenu(): void {
+    const previousRoute = this.menuConfig.referrer || 'region';
+    window.location.href = previousRoute;
+  }
+
 }
