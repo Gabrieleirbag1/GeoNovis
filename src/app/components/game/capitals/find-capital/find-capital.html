@@ -1,9 +1,8 @@
 <section>
-    <div *ngIf="countries.length > 0">
-        <p>Country name</p>
+    <div class="country-name">
         <p>{{countries[0].name}}</p>
     </div>
-    <div *ngIf="countries.length > 0">
-        <p *ngFor="let country of countries">{{country.capital}}</p>
+    <div class="capitals" *ngIf="countries.length > 0">
+        <button *ngFor="let country of countries">{{country.capital}}</button>
     </div>
 </section>
