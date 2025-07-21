@@ -1,0 +1,2576 @@
+[
+  {
+    "code": "ad",
+    "country": {
+      "en": "Andorra",
+      "fr": "Andorre"
+    },
+    "capital": {
+      "en": "Andorra la Vella",
+      "fr": "Andorre-la-Vieille"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ae",
+    "country": {
+      "en": "United Arab Emirates",
+      "fr": "Émirats arabes unis"
+    },
+    "capital": {
+      "en": "Abu Dhabi",
+      "fr": "Abou Dabi"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "af",
+    "country": {
+      "en": "Afghanistan",
+      "fr": "Afghanistan"
+    },
+    "capital": {
+      "en": "Kabul",
+      "fr": "Kaboul"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "al",
+    "country": {
+      "en": "Albania",
+      "fr": "Albanie"
+    },
+    "capital": {
+      "en": "Tirana",
+      "fr": "Tirana"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "dz",
+    "country": {
+      "en": "Algeria",
+      "fr": "Algérie"
+    },
+    "capital": {
+      "en": "Algiers",
+      "fr": "Alger"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ao",
+    "country": {
+      "en": "Angola",
+      "fr": "Angola"
+    },
+    "capital": {
+      "en": "Luanda",
+      "fr": "Luanda"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ag",
+    "country": {
+      "en": "Antigua and Barbuda",
+      "fr": "Antigua-et-Barbuda"
+    },
+    "capital": {
+      "en": "St. John's",
+      "fr": "St. John's"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ar",
+    "country": {
+      "en": "Argentina",
+      "fr": "Argentine"
+    },
+    "capital": {
+      "en": "Buenos Aires",
+      "fr": "Buenos Aires"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "am",
+    "country": {
+      "en": "Armenia",
+      "fr": "Arménie"
+    },
+    "capital": {
+      "en": "Yerevan",
+      "fr": "Erevan"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "au",
+    "country": {
+      "en": "Australia",
+      "fr": "Australie"
+    },
+    "capital": {
+      "en": "Canberra",
+      "fr": "Canberra"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "at",
+    "country": {
+      "en": "Austria",
+      "fr": "Autriche"
+    },
+    "capital": {
+      "en": "Vienna",
+      "fr": "Vienne"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "az",
+    "country": {
+      "en": "Azerbaijan",
+      "fr": "Azerbaïdjan"
+    },
+    "capital": {
+      "en": "Baku",
+      "fr": "Baku"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bs",
+    "country": {
+      "en": "Bahamas",
+      "fr": "Bahamas"
+    },
+    "capital": {
+      "en": "Nassau",
+      "fr": "Nassau"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bh",
+    "country": {
+      "en": "Bahrain",
+      "fr": "Bahreïn"
+    },
+    "capital": {
+      "en": "Manama",
+      "fr": "Manama"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bd",
+    "country": {
+      "en": "Bangladesh",
+      "fr": "Bangladesh"
+    },
+    "capital": {
+      "en": "Dhaka",
+      "fr": "Dhaka"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bb",
+    "country": {
+      "en": "Barbados",
+      "fr": "Barbade"
+    },
+    "capital": {
+      "en": "Bridgetown",
+      "fr": "Bridgetown"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "by",
+    "country": {
+      "en": "Belarus",
+      "fr": "Biélorussie"
+    },
+    "capital": {
+      "en": "Minsk",
+      "fr": "Minsk"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "be",
+    "country": {
+      "en": "Belgium",
+      "fr": "Belgique"
+    },
+    "capital": {
+      "en": "Brussels",
+      "fr": "Bruxelles"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bz",
+    "country": {
+      "en": "Belize",
+      "fr": "Belize"
+    },
+    "capital": {
+      "en": "Belmopan",
+      "fr": "Belmopan"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bj",
+    "country": {
+      "en": "Benin",
+      "fr": "Bénin"
+    },
+    "capital": {
+      "en": "Porto-Novo",
+      "fr": "Porto-Novo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bt",
+    "country": {
+      "en": "Bhutan",
+      "fr": "Bhoutan"
+    },
+    "capital": {
+      "en": "Thimphu",
+      "fr": "Thimphu"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bo",
+    "country": {
+      "en": "Bolivia",
+      "fr": "Bolivie"
+    },
+    "capital": {
+      "en": "Sucre (constitutional), La Paz (administrative)",
+      "fr": "Sucre (constitutionnel), La Paz (administratif)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ba",
+    "country": {
+      "en": "Bosnia and Herzegovina",
+      "fr": "Bosnie-Herzégovine"
+    },
+    "capital": {
+      "en": "Sarajevo",
+      "fr": "Sarajevo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bw",
+    "country": {
+      "en": "Botswana",
+      "fr": "Botswana"
+    },
+    "capital": {
+      "en": "Gaborone",
+      "fr": "Gaborone"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "br",
+    "country": {
+      "en": "Brazil",
+      "fr": "Brésil"
+    },
+    "capital": {
+      "en": "Brasília",
+      "fr": "Brasília"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bn",
+    "country": {
+      "en": "Brunei",
+      "fr": "Brunei"
+    },
+    "capital": {
+      "en": "Bandar Seri Begawan",
+      "fr": "Bandar Seri Begawan"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bg",
+    "country": {
+      "en": "Bulgaria",
+      "fr": "Bulgarie"
+    },
+    "capital": {
+      "en": "Sofia",
+      "fr": "Sofia"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bf",
+    "country": {
+      "en": "Burkina Faso",
+      "fr": "Burkina Faso"
+    },
+    "capital": {
+      "en": "Ouagadougou",
+      "fr": "Ouagadougou"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "bi",
+    "country": {
+      "en": "Burundi",
+      "fr": "Burundi"
+    },
+    "capital": {
+      "en": "Gitega",
+      "fr": "Gitega"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kh",
+    "country": {
+      "en": "Cambodia",
+      "fr": "Cambodge"
+    },
+    "capital": {
+      "en": "Phnom Penh",
+      "fr": "Phnom Penh"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cm",
+    "country": {
+      "en": "Cameroon",
+      "fr": "Cameroun"
+    },
+    "capital": {
+      "en": "Yaoundé",
+      "fr": "Yaoundé"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ca",
+    "country": {
+      "en": "Canada",
+      "fr": "Canada"
+    },
+    "capital": {
+      "en": "Ottawa",
+      "fr": "Ottawa"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cv",
+    "country": {
+      "en": "Cape Verde",
+      "fr": "Cap-Vert"
+    },
+    "capital": {
+      "en": "Praia",
+      "fr": "Praia"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cf",
+    "country": {
+      "en": "Central African Republic",
+      "fr": "République centrafricaine"
+    },
+    "capital": {
+      "en": "Bangui",
+      "fr": "Bangui"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "td",
+    "country": {
+      "en": "Chad",
+      "fr": "Tchad"
+    },
+    "capital": {
+      "en": "N'Djamena",
+      "fr": "N'Djamena"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cl",
+    "country": {
+      "en": "Chile",
+      "fr": "Chili"
+    },
+    "capital": {
+      "en": "Santiago",
+      "fr": "Santiago"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cn",
+    "country": {
+      "en": "China",
+      "fr": "Chine"
+    },
+    "capital": {
+      "en": "Beijing",
+      "fr": "Pékin"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "co",
+    "country": {
+      "en": "Colombia",
+      "fr": "Colombie"
+    },
+    "capital": {
+      "en": "Bogotá",
+      "fr": "Bogotá"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "km",
+    "country": {
+      "en": "Comoros",
+      "fr": "Comores"
+    },
+    "capital": {
+      "en": "Moroni",
+      "fr": "Moroni"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cg",
+    "country": {
+      "en": "Congo (Brazzaville)",
+      "fr": "Congo (Brazzaville)"
+    },
+    "capital": {
+      "en": "Brazzaville",
+      "fr": "Brazzaville"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cd",
+    "country": {
+      "en": "Congo (Kinshasa)",
+      "fr": "Congo (Kinshasa)"
+    },
+    "capital": {
+      "en": "Kinshasa",
+      "fr": "Kinshasa"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cr",
+    "country": {
+      "en": "Costa Rica",
+      "fr": "Costa Rica"
+    },
+    "capital": {
+      "en": "San José",
+      "fr": "San José"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "hr",
+    "country": {
+      "en": "Croatia",
+      "fr": "Croatie"
+    },
+    "capital": {
+      "en": "Zagreb",
+      "fr": "Zagreb"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cu",
+    "country": {
+      "en": "Cuba",
+      "fr": "Cuba"
+    },
+    "capital": {
+      "en": "Havana",
+      "fr": "La Havane"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cy",
+    "country": {
+      "en": "Cyprus",
+      "fr": "Chypre"
+    },
+    "capital": {
+      "en": "Nicosia",
+      "fr": "Nicosie"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "cz",
+    "country": {
+      "en": "Czechia",
+      "fr": "République tchèque"
+    },
+    "capital": {
+      "en": "Prague",
+      "fr": "Prague"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "dk",
+    "country": {
+      "en": "Denmark",
+      "fr": "Danemark"
+    },
+    "capital": {
+      "en": "Copenhagen",
+      "fr": "Copenhague"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "dj",
+    "country": {
+      "en": "Djibouti",
+      "fr": "Djibouti"
+    },
+    "capital": {
+      "en": "Djibouti",
+      "fr": "Djibouti"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "dm",
+    "country": {
+      "en": "Dominica",
+      "fr": "Dominique"
+    },
+    "capital": {
+      "en": "Roseau",
+      "fr": "Roseau"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "do",
+    "country": {
+      "en": "Dominican Republic",
+      "fr": "République dominicaine"
+    },
+    "capital": {
+      "en": "Santo Domingo",
+      "fr": "Santo Domingo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ec",
+    "country": {
+      "en": "Ecuador",
+      "fr": "Équateur"
+    },
+    "capital": {
+      "en": "Quito",
+      "fr": "Quito"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "eg",
+    "country": {
+      "en": "Egypt",
+      "fr": "Égypte"
+    },
+    "capital": {
+      "en": "Cairo",
+      "fr": "Le Caire"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sv",
+    "country": {
+      "en": "El Salvador",
+      "fr": "El Salvador"
+    },
+    "capital": {
+      "en": "San Salvador",
+      "fr": "San Salvador"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gq",
+    "country": {
+      "en": "Equatorial Guinea",
+      "fr": "Guinée équatoriale"
+    },
+    "capital": {
+      "en": "Malabo",
+      "fr": "Malabo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "er",
+    "country": {
+      "en": "Eritrea",
+      "fr": "Érythrée"
+    },
+    "capital": {
+      "en": "Asmara",
+      "fr": "Asmara"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ee",
+    "country": {
+      "en": "Estonia",
+      "fr": "Estonie"
+    },
+    "capital": {
+      "en": "Tallinn",
+      "fr": "Tallinn"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sz",
+    "country": {
+      "en": "Eswatini",
+      "fr": "Eswatini"
+    },
+    "capital": {
+      "en": "Mbabane (administrative), Lobamba (royal and legislative)",
+      "fr": "Mbabane (administratif), Lobamba (royal et législatif)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "et",
+    "country": {
+      "en": "Ethiopia",
+      "fr": "Éthiopie"
+    },
+    "capital": {
+      "en": "Addis Ababa",
+      "fr": "Addis-Abeba"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "fj",
+    "country": {
+      "en": "Fiji",
+      "fr": "Fidji"
+    },
+    "capital": {
+      "en": "Suva",
+      "fr": "Suva"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "fi",
+    "country": {
+      "en": "Finland",
+      "fr": "Finlande"
+    },
+    "capital": {
+      "en": "Helsinki",
+      "fr": "Helsinki"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "fr",
+    "country": {
+      "en": "France",
+      "fr": "France"
+    },
+    "capital": {
+      "en": "Paris",
+      "fr": "Paris"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ga",
+    "country": {
+      "en": "Gabon",
+      "fr": "Gabon"
+    },
+    "capital": {
+      "en": "Libreville",
+      "fr": "Libreville"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gm",
+    "country": {
+      "en": "Gambia",
+      "fr": "Gambie"
+    },
+    "capital": {
+      "en": "Banjul",
+      "fr": "Banjul"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ge",
+    "country": {
+      "en": "Georgia",
+      "fr": "Géorgie"
+    },
+    "capital": {
+      "en": "Tbilisi",
+      "fr": "Tbilissi"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "de",
+    "country": {
+      "en": "Germany",
+      "fr": "Allemagne"
+    },
+    "capital": {
+      "en": "Berlin",
+      "fr": "Berlin"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gh",
+    "country": {
+      "en": "Ghana",
+      "fr": "Ghana"
+    },
+    "capital": {
+      "en": "Accra",
+      "fr": "Accra"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gr",
+    "country": {
+      "en": "Greece",
+      "fr": "Grèce"
+    },
+    "capital": {
+      "en": "Athens",
+      "fr": "Athènes"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gd",
+    "country": {
+      "en": "Grenada",
+      "fr": "Grenade"
+    },
+    "capital": {
+      "en": "St. George's",
+      "fr": "St. George's"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gt",
+    "country": {
+      "en": "Guatemala",
+      "fr": "Guatemala"
+    },
+    "capital": {
+      "en": "Guatemala City",
+      "fr": "Guatemala City"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gn",
+    "country": {
+      "en": "Guinea",
+      "fr": "Guinée"
+    },
+    "capital": {
+      "en": "Conakry",
+      "fr": "Conakry"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gw",
+    "country": {
+      "en": "Guinea-Bissau",
+      "fr": "Guinée-Bissau"
+    },
+    "capital": {
+      "en": "Bissau",
+      "fr": "Bissau"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gy",
+    "country": {
+      "en": "Guyana",
+      "fr": "Guyane"
+    },
+    "capital": {
+      "en": "Georgetown",
+      "fr": "Georgetown"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ht",
+    "country": {
+      "en": "Haiti",
+      "fr": "Haïti"
+    },
+    "capital": {
+      "en": "Port-au-Prince",
+      "fr": "Port-au-Prince"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "hn",
+    "country": {
+      "en": "Honduras",
+      "fr": "Honduras"
+    },
+    "capital": {
+      "en": "Tegucigalpa",
+      "fr": "Tegucigalpa"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "hu",
+    "country": {
+      "en": "Hungary",
+      "fr": "Hongrie"
+    },
+    "capital": {
+      "en": "Budapest",
+      "fr": "Budapest"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "is",
+    "country": {
+      "en": "Iceland",
+      "fr": "Islande"
+    },
+    "capital": {
+      "en": "Reykjavík",
+      "fr": "Reykjavík"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "in",
+    "country": {
+      "en": "India",
+      "fr": "Inde"
+    },
+    "capital": {
+      "en": "New Delhi",
+      "fr": "New Delhi"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "id",
+    "country": {
+      "en": "Indonesia",
+      "fr": "Indonésie"
+    },
+    "capital": {
+      "en": "Jakarta",
+      "fr": "Jakarta"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ir",
+    "country": {
+      "en": "Iran",
+      "fr": "Iran"
+    },
+    "capital": {
+      "en": "Tehran",
+      "fr": "Téhéran"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "iq",
+    "country": {
+      "en": "Iraq",
+      "fr": "Irak"
+    },
+    "capital": {
+      "en": "Baghdad",
+      "fr": "Bagdad"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ie",
+    "country": {
+      "en": "Ireland",
+      "fr": "Irlande"
+    },
+    "capital": {
+      "en": "Dublin",
+      "fr": "Dublin"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "il",
+    "country": {
+      "en": "Israel",
+      "fr": "Israël"
+    },
+    "capital": {
+      "en": "Jerusalem",
+      "fr": "Jérusalem"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "it",
+    "country": {
+      "en": "Italy",
+      "fr": "Italie"
+    },
+    "capital": {
+      "en": "Rome",
+      "fr": "Rome"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "jm",
+    "country": {
+      "en": "Jamaica",
+      "fr": "Jamaïque"
+    },
+    "capital": {
+      "en": "Kingston",
+      "fr": "Kingston"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "jp",
+    "country": {
+      "en": "Japan",
+      "fr": "Japon"
+    },
+    "capital": {
+      "en": "Tokyo",
+      "fr": "Tokyo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "jo",
+    "country": {
+      "en": "Jordan",
+      "fr": "Jordanie"
+    },
+    "capital": {
+      "en": "Amman",
+      "fr": "Amman"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kz",
+    "country": {
+      "en": "Kazakhstan",
+      "fr": "Kazakhstan"
+    },
+    "capital": {
+      "en": "Astana",
+      "fr": "Astana"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ke",
+    "country": {
+      "en": "Kenya",
+      "fr": "Kenya"
+    },
+    "capital": {
+      "en": "Nairobi",
+      "fr": "Nairobi"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ki",
+    "country": {
+      "en": "Kiribati",
+      "fr": "Kiribati"
+    },
+    "capital": {
+      "en": "South Tarawa",
+      "fr": "South Tarawa"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "xk",
+    "country": {
+      "en": "Kosovo",
+      "fr": "Kosovo"
+    },
+    "capital": {
+      "en": "Pristina",
+      "fr": "Pristina"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kw",
+    "country": {
+      "en": "Kuwait",
+      "fr": "Koweït"
+    },
+    "capital": {
+      "en": "Kuwait City",
+      "fr": "Koweït City"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kg",
+    "country": {
+      "en": "Kyrgyzstan",
+      "fr": "Kirghizistan"
+    },
+    "capital": {
+      "en": "Bishkek",
+      "fr": "Bishkek"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "la",
+    "country": {
+      "en": "Laos",
+      "fr": "Laos"
+    },
+    "capital": {
+      "en": "Vientiane",
+      "fr": "Vientiane"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lv",
+    "country": {
+      "en": "Latvia",
+      "fr": "Lettonie"
+    },
+    "capital": {
+      "en": "Riga",
+      "fr": "Riga"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lb",
+    "country": {
+      "en": "Lebanon",
+      "fr": "Liban"
+    },
+    "capital": {
+      "en": "Beirut",
+      "fr": "Beyrouth"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ls",
+    "country": {
+      "en": "Lesotho",
+      "fr": "Lesotho"
+    },
+    "capital": {
+      "en": "Maseru",
+      "fr": "Maseru"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lr",
+    "country": {
+      "en": "Liberia",
+      "fr": "Liberia"
+    },
+    "capital": {
+      "en": "Monrovia",
+      "fr": "Monrovia"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ly",
+    "country": {
+      "en": "Libya",
+      "fr": "Libye"
+    },
+    "capital": {
+      "en": "Tripoli",
+      "fr": "Tripoli"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "li",
+    "country": {
+      "en": "Liechtenstein",
+      "fr": "Liechtenstein"
+    },
+    "capital": {
+      "en": "Vaduz",
+      "fr": "Vaduz"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lt",
+    "country": {
+      "en": "Lithuania",
+      "fr": "Lituanie"
+    },
+    "capital": {
+      "en": "Vilnius",
+      "fr": "Vilnius"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lu",
+    "country": {
+      "en": "Luxembourg",
+      "fr": "Luxembourg"
+    },
+    "capital": {
+      "en": "Luxembourg",
+      "fr": "Luxembourg"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mk",
+    "country": {
+      "en": "North Macedonia",
+      "fr": "Macédoine du Nord"
+    },
+    "capital": {
+      "en": "Skopje",
+      "fr": "Skopje"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mg",
+    "country": {
+      "en": "Madagascar",
+      "fr": "Madagascar"
+    },
+    "capital": {
+      "en": "Antananarivo",
+      "fr": "Antananarivo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mw",
+    "country": {
+      "en": "Malawi",
+      "fr": "Malawi"
+    },
+    "capital": {
+      "en": "Lilongwe",
+      "fr": "Lilongwe"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "my",
+    "country": {
+      "en": "Malaysia",
+      "fr": "Malaisie"
+    },
+    "capital": {
+      "en": "Kuala Lumpur",
+      "fr": "Kuala Lumpur"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mv",
+    "country": {
+      "en": "Maldives",
+      "fr": "Maldives"
+    },
+    "capital": {
+      "en": "Malé",
+      "fr": "Malé"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ml",
+    "country": {
+      "en": "Mali",
+      "fr": "Mali"
+    },
+    "capital": {
+      "en": "Bamako",
+      "fr": "Bamako"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mt",
+    "country": {
+      "en": "Malta",
+      "fr": "Malte"
+    },
+    "capital": {
+      "en": "Valletta",
+      "fr": "La Valette"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mh",
+    "country": {
+      "en": "Marshall Islands",
+      "fr": "Îles Marshall"
+    },
+    "capital": {
+      "en": "Majuro",
+      "fr": "Majuro"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mr",
+    "country": {
+      "en": "Mauritania",
+      "fr": "Mauritanie"
+    },
+    "capital": {
+      "en": "Nouakchott",
+      "fr": "Nouakchott"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mu",
+    "country": {
+      "en": "Mauritius",
+      "fr": "Maurice"
+    },
+    "capital": {
+      "en": "Port Louis",
+      "fr": "Port Louis"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mx",
+    "country": {
+      "en": "Mexico",
+      "fr": "Mexique"
+    },
+    "capital": {
+      "en": "Mexico City",
+      "fr": "Mexico"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "fm",
+    "country": {
+      "en": "Micronesia",
+      "fr": "Micronésie"
+    },
+    "capital": {
+      "en": "Palikir",
+      "fr": "Palikir"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "md",
+    "country": {
+      "en": "Moldova",
+      "fr": "Moldavie"
+    },
+    "capital": {
+      "en": "Chișinău",
+      "fr": "Chișinău"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mc",
+    "country": {
+      "en": "Monaco",
+      "fr": "Monaco"
+    },
+    "capital": {
+      "en": "Monaco",
+      "fr": "Monaco"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mn",
+    "country": {
+      "en": "Mongolia",
+      "fr": "Mongolie"
+    },
+    "capital": {
+      "en": "Ulaanbaatar",
+      "fr": "Ulaanbaatar"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "me",
+    "country": {
+      "en": "Montenegro",
+      "fr": "Monténégro"
+    },
+    "capital": {
+      "en": "Podgorica",
+      "fr": "Podgorica"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ma",
+    "country": {
+      "en": "Morocco",
+      "fr": "Maroc"
+    },
+    "capital": {
+      "en": "Rabat",
+      "fr": "Rabat"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mz",
+    "country": {
+      "en": "Mozambique",
+      "fr": "Mozambique"
+    },
+    "capital": {
+      "en": "Maputo",
+      "fr": "Maputo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "mm",
+    "country": {
+      "en": "Myanmar",
+      "fr": "Myanmar (Birmanie)"
+    },
+    "capital": {
+      "en": "Naypyidaw",
+      "fr": "Naypyidaw"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "na",
+    "country": {
+      "en": "Namibia",
+      "fr": "Namibie"
+    },
+    "capital": {
+      "en": "Windhoek",
+      "fr": "Windhoek"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "nr",
+    "country": {
+      "en": "Nauru",
+      "fr": "Nauru"
+    },
+    "capital": {
+      "en": "No official capital (government offices in Yaren)",
+      "fr": "Pas de capitale officielle (bureaux du gouvernement à Yaren)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "np",
+    "country": {
+      "en": "Nepal",
+      "fr": "Népal"
+    },
+    "capital": {
+      "en": "Kathmandu",
+      "fr": "Katmandou"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "nl",
+    "country": {
+      "en": "Netherlands",
+      "fr": "Pays-Bas"
+    },
+    "capital": {
+      "en": "Amsterdam (official), The Hague (seat of government)",
+      "fr": "Amsterdam (officielle), La Haye (siège du gouvernement)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "nz",
+    "country": {
+      "en": "New Zealand",
+      "fr": "Nouvelle-Zélande"
+    },
+    "capital": {
+      "en": "Wellington",
+      "fr": "Wellington"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ni",
+    "country": {
+      "en": "Nicaragua",
+      "fr": "Nicaragua"
+    },
+    "capital": {
+      "en": "Managua",
+      "fr": "Managua"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ne",
+    "country": {
+      "en": "Niger",
+      "fr": "Niger"
+    },
+    "capital": {
+      "en": "Niamey",
+      "fr": "Niamey"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ng",
+    "country": {
+      "en": "Nigeria",
+      "fr": "Nigeria"
+    },
+    "capital": {
+      "en": "Abuja",
+      "fr": "Abuja"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kp",
+    "country": {
+      "en": "North Korea",
+      "fr": "Corée du Nord"
+    },
+    "capital": {
+      "en": "Pyongyang",
+      "fr": "Pyongyang"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "no",
+    "country": {
+      "en": "Norway",
+      "fr": "Norvège"
+    },
+    "capital": {
+      "en": "Oslo",
+      "fr": "Oslo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "om",
+    "country": {
+      "en": "Oman",
+      "fr": "Oman"
+    },
+    "capital": {
+      "en": "Muscat",
+      "fr": "Muscat"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pk",
+    "country": {
+      "en": "Pakistan",
+      "fr": "Pakistan"
+    },
+    "capital": {
+      "en": "Islamabad",
+      "fr": "Islamabad"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pw",
+    "country": {
+      "en": "Palau",
+      "fr": "Palau"
+    },
+    "capital": {
+      "en": "Ngerulmud",
+      "fr": "Ngerulmud"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ps",
+    "country": {
+      "en": "Palestine",
+      "fr": "Palestine"
+    },
+    "capital": {
+      "en": "Ramallah (administrative), East Jerusalem (claimed)",
+      "fr": "Ramallah (administrative), Jérusalem-Est (revendiquée)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pa",
+    "country": {
+      "en": "Panama",
+      "fr": "Panama"
+    },
+    "capital": {
+      "en": "Panama City",
+      "fr": "Panama City"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pg",
+    "country": {
+      "en": "Papua New Guinea",
+      "fr": "Papouasie-Nouvelle-Guinée"
+    },
+    "capital": {
+      "en": "Port Moresby",
+      "fr": "Port Moresby"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "py",
+    "country": {
+      "en": "Paraguay",
+      "fr": "Paraguay"
+    },
+    "capital": {
+      "en": "Asunción",
+      "fr": "Asunción"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pe",
+    "country": {
+      "en": "Peru",
+      "fr": "Pérou"
+    },
+    "capital": {
+      "en": "Lima",
+      "fr": "Lima"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ph",
+    "country": {
+      "en": "Philippines",
+      "fr": "Philippines"
+    },
+    "capital": {
+      "en": "Manila",
+      "fr": "Manille"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pl",
+    "country": {
+      "en": "Poland",
+      "fr": "Pologne"
+    },
+    "capital": {
+      "en": "Warsaw",
+      "fr": "Varsovie"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "pt",
+    "country": {
+      "en": "Portugal",
+      "fr": "Portugal"
+    },
+    "capital": {
+      "en": "Lisbon",
+      "fr": "Lisbonne"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "qa",
+    "country": {
+      "en": "Qatar",
+      "fr": "Qatar"
+    },
+    "capital": {
+      "en": "Doha",
+      "fr": "Doha"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ro",
+    "country": {
+      "en": "Romania",
+      "fr": "Roumanie"
+    },
+    "capital": {
+      "en": "Bucharest",
+      "fr": "Bucarest"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ru",
+    "country": {
+      "en": "Russia",
+      "fr": "Russie"
+    },
+    "capital": {
+      "en": "Moscow",
+      "fr": "Moscou"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "rw",
+    "country": {
+      "en": "Rwanda",
+      "fr": "Rwanda"
+    },
+    "capital": {
+      "en": "Kigali",
+      "fr": "Kigali"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kn",
+    "country": {
+      "en": "Saint Kitts and Nevis",
+      "fr": "Saint-Kitts-et-Nevis"
+    },
+    "capital": {
+      "en": "Basseterre",
+      "fr": "Basseterre"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lc",
+    "country": {
+      "en": "Saint Lucia",
+      "fr": "Sainte-Lucie"
+    },
+    "capital": {
+      "en": "Castries",
+      "fr": "Castries"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "vc",
+    "country": {
+      "en": "Saint Vincent and the Grenadines",
+      "fr": "Saint-Vincent-et-les-Grenadines"
+    },
+    "capital": {
+      "en": "Kingstown",
+      "fr": "Kingstown"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ws",
+    "country": {
+      "en": "Samoa",
+      "fr": "Samoa"
+    },
+    "capital": {
+      "en": "Apia",
+      "fr": "Apia"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sm",
+    "country": {
+      "en": "San Marino",
+      "fr": "Saint-Marin"
+    },
+    "capital": {
+      "en": "San Marino",
+      "fr": "San Marino"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "st",
+    "country": {
+      "en": "São Tomé and Príncipe",
+      "fr": "São Tomé et Príncipe"
+    },
+    "capital": {
+      "en": "São Tomé",
+      "fr": "São Tomé"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sa",
+    "country": {
+      "en": "Saudi Arabia",
+      "fr": "Arabie Saoudite"
+    },
+    "capital": {
+      "en": "Riyadh",
+      "fr": "Riyadh"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sn",
+    "country": {
+      "en": "Senegal",
+      "fr": "Sénégal"
+    },
+    "capital": {
+      "en": "Dakar",
+      "fr": "Dakar"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "rs",
+    "country": {
+      "en": "Serbia",
+      "fr": "Serbie"
+    },
+    "capital": {
+      "en": "Belgrade",
+      "fr": "Belgrade"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sc",
+    "country": {
+      "en": "Seychelles",
+      "fr": "Seychelles"
+    },
+    "capital": {
+      "en": "Victoria",
+      "fr": "Victoria"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sl",
+    "country": {
+      "en": "Sierra Leone",
+      "fr": "Sierra Leone"
+    },
+    "capital": {
+      "en": "Freetown",
+      "fr": "Freetown"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sg",
+    "country": {
+      "en": "Singapore",
+      "fr": "Singapour"
+    },
+    "capital": {
+      "en": "Singapore",
+      "fr": "Singapour"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sk",
+    "country": {
+      "en": "Slovakia",
+      "fr": "Slovaquie"
+    },
+    "capital": {
+      "en": "Bratislava",
+      "fr": "Bratislava"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "si",
+    "country": {
+      "en": "Slovenia",
+      "fr": "Slovénie"
+    },
+    "capital": {
+      "en": "Ljubljana",
+      "fr": "Ljubljana"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "hk",
+    "country": {
+      "en": "Hong Kong",
+      "fr": "Hong Kong"
+    },
+    "capital": {
+      "en": "Hong Kong",
+      "fr": "Hong Kong"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null 
+  },
+  {
+    "code": "sb",
+    "country": {
+      "en": "Solomon Islands",
+      "fr": "Îles Salomon"
+    },
+    "capital": {
+      "en": "Honiara",
+      "fr": "Honiara"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "so",
+    "country": {
+      "en": "Somalia",
+      "fr": "Somalie"
+    },
+    "capital": {
+      "en": "Mogadishu",
+      "fr": "Mogadiscio"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "za",
+    "country": {
+      "en": "South Africa",
+      "fr": "Afrique du Sud"
+    },
+    "capital": {
+      "en": "Pretoria (administrative), Bloemfontein (judicial), Cape Town (legislative)",
+      "fr": "Pretoria (administratif), Bloemfontein (judiciaire), Le Cap (législatif)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "kr",
+    "country": {
+      "en": "South Korea",
+      "fr": "Corée du Sud"
+    },
+    "capital": {
+      "en": "Seoul",
+      "fr": "Séoul"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ss",
+    "country": {
+      "en": "South Sudan",
+      "fr": "Soudan du Sud"
+    },
+    "capital": {
+      "en": "Juba",
+      "fr": "Juba"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "es",
+    "country": {
+      "en": "Spain",
+      "fr": "Espagne"
+    },
+    "capital": {
+      "en": "Madrid",
+      "fr": "Madrid"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "lk",
+    "country": {
+      "en": "Sri Lanka",
+      "fr": "Sri Lanka"
+    },
+    "capital": {
+      "en": "Sri Jayawardenepura Kotte (official), Colombo (commercial)",
+      "fr": "Sri Jayawardenepura Kotte (officielle), Colombo (commerciale)"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sd",
+    "country": {
+      "en": "Sudan",
+      "fr": "Soudan"
+    },
+    "capital": {
+      "en": "Khartoum",
+      "fr": "Khartoum"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sr",
+    "country": {
+      "en": "Suriname",
+      "fr": "Suriname"
+    },
+    "capital": {
+      "en": "Paramaribo",
+      "fr": "Paramaribo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "se",
+    "country": {
+      "en": "Sweden",
+      "fr": "Suède"
+    },
+    "capital": {
+      "en": "Stockholm",
+      "fr": "Stockholm"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ch",
+    "country": {
+      "en": "Switzerland",
+      "fr": "Suisse"
+    },
+    "capital": {
+      "en": "Bern",
+      "fr": "Berne"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "sy",
+    "country": {
+      "en": "Syria",
+      "fr": "Syrie"
+    },
+    "capital": {
+      "en": "Damascus",
+      "fr": "Damas"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tw",
+    "country": {
+      "en": "Taiwan",
+      "fr": "Taïwan"
+    },
+    "capital": {
+      "en": "Taipei",
+      "fr": "Taipei"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tj",
+    "country": {
+      "en": "Tajikistan",
+      "fr": "Tadjikistan"
+    },
+    "capital": {
+      "en": "Dushanbe",
+      "fr": "Douchanbé"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tz",
+    "country": {
+      "en": "Tanzania",
+      "fr": "Tanzanie"
+    },
+    "capital": {
+      "en": "Dodoma",
+      "fr": "Dodoma"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "th",
+    "country": {
+      "en": "Thailand",
+      "fr": "Thaïlande"
+    },
+    "capital": {
+      "en": "Bangkok",
+      "fr": "Bangkok"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tl",
+    "country": {
+      "en": "Timor-Leste",
+      "fr": "Timor-Leste"
+    },
+    "capital": {
+      "en": "Dili",
+      "fr": "Dili"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tg",
+    "country": {
+      "en": "Togo",
+      "fr": "Togo"
+    },
+    "capital": {
+      "en": "Lomé",
+      "fr": "Lomé"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tk",
+    "country": {
+      "en": "Tokelau",
+      "fr": "Tokelau"
+    },
+    "capital": {
+      "en": "Fakaofo",
+      "fr": "Fakaofo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "to",
+    "country": {
+      "en": "Tonga",
+      "fr": "Tonga"
+    },
+    "capital": {
+      "en": "Nukuʻalofa",
+      "fr": "Nukuʻalofa"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tt",
+    "country": {
+      "en": "Trinidad and Tobago",
+      "fr": "Trinité-et-Tobago"
+    },
+    "capital": {
+      "en": "Port of Spain",
+      "fr": "Port of Spain"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tn",
+    "country": {
+      "en": "Tunisia",
+      "fr": "Tunisie"
+    },
+    "capital": {
+      "en": "Tunis",
+      "fr": "Tunis"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tr",
+    "country": {
+      "en": "Turkey",
+      "fr": "Turquie"
+    },
+    "capital": {
+      "en": "Ankara",
+      "fr": "Ankara"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tm",
+    "country": {
+      "en": "Turkmenistan",
+      "fr": "Turkménistan"
+    },
+    "capital": {
+      "en": "Ashgabat",
+      "fr": "Achgabat"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "tv",
+    "country": {
+      "en": "Tuvalu",
+      "fr": "Tuvalu"
+    },
+    "capital": {
+      "en": "Funafuti",
+      "fr": "Funafuti"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ug",
+    "country": {
+      "en": "Uganda",
+      "fr": "Ouganda"
+    },
+    "capital": {
+      "en": "Kampala",
+      "fr": "Kampala"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ua",
+    "country": {
+      "en": "Ukraine",
+      "fr": "Ukraine"
+    },
+    "capital": {
+      "en": "Kyiv",
+      "fr": "Kiev"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "gb",
+    "country": {
+      "en": "United Kingdom",
+      "fr": "Royaume-Uni"
+    },
+    "capital": {
+      "en": "London",
+      "fr": "Londres"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "us",
+    "country": {
+      "en": "United States",
+      "fr": "États-Unis"
+    },
+    "capital": {
+      "en": "Washington, D.C.",
+      "fr": "Washington, D.C."
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "uy",
+    "country": {
+      "en": "Uruguay",
+      "fr": "Uruguay"
+    },
+    "capital": {
+      "en": "Montevideo",
+      "fr": "Montevideo"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "uz",
+    "country": {
+      "en": "Uzbekistan",
+      "fr": "Ouzbékistan"
+    },
+    "capital": {
+      "en": "Tashkent",
+      "fr": "Tachkent"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "vu",
+    "country": {
+      "en": "Vanuatu",
+      "fr": "Vanuatu"
+    },
+    "capital": {
+      "en": "Port Vila",
+      "fr": "Port-Vila"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "va",
+    "country": {
+      "en": "Vatican City (Holy See)",
+      "fr": "Cité du Vatican"
+    },
+    "capital": {
+      "en": "Vatican City",
+      "fr": "Cité du Vatican"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ve",
+    "country": {
+      "en": "Venezuela",
+      "fr": "Venezuela"
+    },
+    "capital": {
+      "en": "Caracas",
+      "fr": "Caracas"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "vn",
+    "country": {
+      "en": "Vietnam",
+      "fr": "Viêt Nam"
+    },
+    "capital": {
+      "en": "Hanoi",
+      "fr": "Hanoï"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "ye",
+    "country": {
+      "en": "Yemen",
+      "fr": "Yémen"
+    },
+    "capital": {
+      "en": "Sana'a",
+      "fr": "Sanaa"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "zm",
+    "country": {
+      "en": "Zambia",
+      "fr": "Zambie"
+    },
+    "capital": {
+      "en": "Lusaka",
+      "fr": "Lusaka"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  },
+  {
+    "code": "zw",
+    "country": {
+      "en": "Zimbabwe",
+      "fr": "Zimbabwe"
+    },
+    "capital": {
+      "en": "Harare",
+      "fr": "Harare"
+    },
+    "map_coordinates": [null, null],
+    "immatriculate_plate": null
+  }
+]
