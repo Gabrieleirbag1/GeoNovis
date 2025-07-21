@@ -25,4 +25,16 @@ export class Menu implements OnInit {
     console.log('Menu Config:', this.menuConfig);
   }
 
+  handleNextMenu(start: boolean | null, submenu: boolean | null, route: string): void {
+    if (submenu) {
+      console.log('Submenu not implemented yet');
+      return;
+    }
+    if (start) {
+      console.log('Starting new game or action'); // Placeholder for start action
+      return;
+    }
+    window.location.href = `/${route}`;
+  }
+
 }

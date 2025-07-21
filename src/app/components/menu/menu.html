@@ -1,7 +1,10 @@
 <section class="main-menu">
-    <div class="menu">
-        <div class="menu-item" *ngFor="let menuContent of menuConfig?.content">
-            {{menuContent.name[language]}} 
-        </div>
+  <div class="menu">
+    <div
+      class="menu-item"
+      *ngFor="let menuContent of menuConfig?.content"
+      (click)="handleNextMenu(menuContent.start, menuContent.submenu, menuContent.linkto)">
+      {{ menuContent.name[language] }}
     </div>
+  </div>
 </section>
