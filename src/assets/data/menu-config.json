@@ -18,10 +18,19 @@
         },
         {
           "name": {
-            "en": "Continent",
-            "fr": "Continent"
+            "en": "Continents",
+            "fr": "Continents"
           },
-          "linkto": "gamemode"
+          "linkto": "gamemode",
+          "submenu": true
+        },
+        {
+          "name": {
+            "en": "Major Regions",
+            "fr": "Grandes Régions"
+          },
+          "linkto": "gamemode",
+          "submenu": true
         },
         {
           "name": {
@@ -51,6 +60,13 @@
         },
         {
           "name": {
+            "en": "Map",
+            "fr": "Carte"
+          },
+          "start": true
+        },
+        {
+          "name": {
             "en": "Capitals",
             "fr": "Capitales"
           },
@@ -62,6 +78,13 @@
             "fr": "Drapeaux"
           },
           "linkto": "gamemode/flags"
+        },
+        {
+          "name": {
+            "en": "Immatriculation Plates",
+            "fr": "Plaques d'immatriculation"
+          },
+          "start": true
         },
         {
           "name": {
