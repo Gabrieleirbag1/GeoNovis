@@ -1,2 +1,6 @@
-<app-menu></app-menu>
-<p>dczsdcv</p>
+@if (isGame) {
+<app-menu></app-menu>}
+@else {
+<div class="game-container"> 
+    <button (click)="createGame()">Start Game</button>
+</div>}
