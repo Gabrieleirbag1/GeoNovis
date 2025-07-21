@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import menuConfigData from '../../../assets/menu-configs/menu-config.json';
 
 @Component({
   selector: 'app-menu',
@@ -9,13 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Menu implements OnInit {
   currentRoute: string;
+  menuConfig: any;
 
   constructor() {
-    this.currentRoute = window.location.pathname.split('/').slice(-1)[0];
+    this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
   }
 
   ngOnInit() {
-    console.log(this.currentRoute);
+    this.menuConfig = menuConfigData.menus[this.currentRoute as keyof typeof menuConfigData.menus];
+    console.log('Menu Config:', this.menuConfig);
   }
 
 }

@@ -1,6 +1,6 @@
 {
-  "menus": [
-    {
+  "menus": {
+    "region": {
       "id": "region",
       "type": "menu_1",
       "name": {
@@ -32,7 +32,7 @@
         }
       ]
     },
-    {
+    "gamemode": {
       "id": "gamemode",
       "type": "menu_2",
       "name": {
@@ -71,7 +71,7 @@
         }
       ]
     },
-    {
+    "capitals": {
       "id": "capitals",
       "type": "menu_3",
       "name": {
@@ -109,7 +109,7 @@
         }
       ]
     },
-    {
+    "flags": {
       "id": "flags",
       "type": "menu_3",
       "name": {
@@ -140,5 +140,5 @@
         }
       ]
     }
-  ]
+  }
 }
