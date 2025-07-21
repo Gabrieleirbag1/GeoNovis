@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import menuConfigData from '../../../assets/menu-configs/menu-config.json';
-
+import menuConfigData from '../../../assets/data/menu-configs/menu-config.json';
 @Component({
   selector: 'app-menu',
   imports: [CommonModule],
