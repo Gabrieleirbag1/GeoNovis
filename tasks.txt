@@ -1,4 +1,4 @@
-- save un item session de la region et du gamemode
-- save ensuite les rules dans la session avec stringify
+- SAVE LES GAME-CODES DANS LA SESSION POUR SAVOIR QUELLE COUNTRIES 
+- SELECTIONER UN PAYS AU HASARD AVEC SA CAPITALE
 
 UTILISER UN SERVICE
