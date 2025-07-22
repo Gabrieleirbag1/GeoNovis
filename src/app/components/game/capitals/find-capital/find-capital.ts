@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import worldInfos from '../../../../../assets/data/world-infos.json';
 import { FindCapitalService } from '../../../../services/find-capital.service';
 import { Countries } from '../../../../types/countries.type';
 import { CommonModule } from '@angular/common';
@@ -16,6 +15,7 @@ export class FindCapital implements OnInit{
 
   ngOnInit(): void {
     console.log('FindCapital Component Initialized');
-    this.countries = this.findCapitalService.selectCountries(worldInfos, 6);    
+    this.findCapitalService.main(6);
+    this.countries = this.findCapitalService.getCountries();
   }
 }

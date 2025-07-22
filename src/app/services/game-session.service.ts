@@ -14,6 +14,6 @@ export class GameSessionService {
   }
 
   setGameState(): void {
-    this.setSessionItem('gameSession', JSON.stringify(gameCodes));
+    this.setSessionItem('gameState', JSON.stringify(gameCodes));
   }
 }
