@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import menuConfigData from '../../../assets/data/menu-config.json';
+import { GameSessionService } from '../../services/game-session.service';
 @Component({
   selector: 'app-menu',
   imports: [CommonModule],
@@ -12,7 +13,7 @@ export class Menu implements OnInit {
   menuConfig: any;
   language: string = 'fr'; // default
 
-  constructor() {
+  constructor(private gameSessionService: GameSessionService) {
     this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
   }
 
@@ -24,15 +25,16 @@ export class Menu implements OnInit {
     console.log('Menu Config:', this.menuConfig);
   }
 
-  handleNextMenu(start: boolean | null, submenu: boolean | null, route: string): void {
+  handleNextMenu(menuType: string, id: string, start: boolean | null, submenu: boolean | null, route: string): void {
     if (submenu) {
       console.log('Submenu not implemented yet');
       return;
     }
     if (start) {
       console.log('Starting new game or action'); // Placeholder for start action
-      return;
+      route = "rules";
     }
+    this.gameSessionService.setSessionItem(menuType, id);
     window.location.href = `/${route}`;
   }
 

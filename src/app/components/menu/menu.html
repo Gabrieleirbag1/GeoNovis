@@ -8,7 +8,7 @@
     <div
       class="menu-item"
       *ngFor="let menuContent of menuConfig?.content"
-      (click)="handleNextMenu(menuContent.start, menuContent.submenu, menuContent.linkto)">
+      (click)="handleNextMenu(menuConfig.type, menuContent.id, menuContent.start, menuContent.submenu, menuContent.linkto)">
       {{ menuContent.name[language] }}
     </div>
   </div>
