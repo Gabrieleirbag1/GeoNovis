@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import gameCodes from '../../assets/data/game-codes.json';
+import worldInfos from '../../assets/data/world-infos.json';
+import { Countries } from '../types/countries.type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SelectorService {
   private gameCodes: any;
+  language: 'en' | 'fr' = 'fr';
 
   constructor() {
     this.gameCodes = gameCodes;
@@ -37,5 +40,21 @@ export class SelectorService {
       }
     }
     return codes;
+  }
+
+  convertCodesToCountries(turnCodes: string[]): Countries[] {
+    let countries: Countries[] = [];
+    turnCodes.forEach((code) => {
+      const countryInfo = worldInfos.find((info) => info.flag === code);
+      if (countryInfo) {
+        countries.push({
+          code: code,
+          name: countryInfo.country[this.language],
+          capital: countryInfo.capital[this.language][0],
+          continent: countryInfo.continent[this.language],
+        });
+      }
+    });
+    return countries;
   }
 }

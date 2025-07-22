@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Countries } from '../types/countries.type';
 import { SelectorService } from './selector.service';
-import worldInfos from '../../assets/data/world-infos.json';
 
 @Injectable({
   providedIn: 'root',
@@ -40,22 +39,9 @@ export class FindCapitalService {
     if (!this.isGameStateSession(turnCodes)) {
       turnCodes = this.selectCountries(iterations);
     }
-    this.convertCodesToCountries(turnCodes);
+    this.countries = this.selectorService.convertCodesToCountries(turnCodes);
     console.log('Countries after conversion:', this.countries);
   }
 
-  convertCodesToCountries(turnCodes: string[]): void {
-    this.countries = [];
-    turnCodes.forEach((code) => {
-      const countryInfo = worldInfos.find((info) => info.flag === code);
-      if (countryInfo) {
-        this.countries.push({
-          code: code,
-          name: countryInfo.country[this.language],
-          capital: countryInfo.capital[this.language][0],
-          continent: countryInfo.continent[this.language],
-        });
-      }
-    });
-  }
+
 }
