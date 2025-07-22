@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import worldInfos from '../../assets/data/world-infos.json';
 
 @Injectable({
   providedIn: 'root'
@@ -10,5 +11,9 @@ export class GameSessionService {
 
     deleteSessionItem(key: string): void {
         sessionStorage.removeItem(key);
+    }
+
+    setGameSession(): void {
+        // this.setSessionItem('worldInfos', JSON.stringify(worldInfos));
     }
 }

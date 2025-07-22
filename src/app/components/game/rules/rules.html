@@ -1,17 +1,20 @@
 <div>
     <div class="timelimit-section">
-        <select class="timelimit" [(ngModel)]="gameRules.timeLimit.default">
-        <option value={{gameRules.timeLimit.default}} *ngFor="let time of gameRules.timeLimit.values" [value]="time">
+        <select id="timelimit" class="timelimit" [(ngModel)]="gameInfos.timeLimit.default">
+        <option value={{gameInfos.timeLimit.default}} *ngFor="let time of gameInfos.timeLimit.values" [value]="time">
             <span>{{ time }}</span>
             <span *ngIf="typeof time === 'number'">s</span>
         </option>
         </select>
     </div>
     <div class="rounds-section">
-        <select class="rounds" [(ngModel)]="gameRules.rounds.default">
-        <option value={{gameRules.rounds.default}} *ngFor="let round of gameRules.rounds.values" [value]="round">
+        <select id="rounds" class="rounds" [(ngModel)]="gameInfos.rounds.default">
+        <option value={{gameInfos.rounds.default}} *ngFor="let round of gameInfos.rounds.values" [value]="round">
             <span>{{ round }}</span>
         </option>
         </select>
+    </div>
+    <div class="start-game">
+        <button (click)="startGame()">Start Game</button>
     </div>
 </div>
