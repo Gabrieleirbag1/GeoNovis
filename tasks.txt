@@ -1,0 +1,4 @@
+- save un item session de la region et du gamemode
+- save ensuite les rules dans la session avec stringify
+
+UTILISER UN SERVICE

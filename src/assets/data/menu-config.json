@@ -10,6 +10,7 @@
       },
       "content": [
         {
+          "id": "world",
           "name": {
             "en": "World",
             "fr": "Monde"
@@ -17,6 +18,7 @@
           "linkto": "gamemode"
         },
         {
+          "id": "continents",
           "name": {
             "en": "Continents",
             "fr": "Continents"
@@ -25,6 +27,7 @@
           "submenu": true
         },
         {
+          "id": "majorRegions",
           "name": {
             "en": "Major Regions",
             "fr": "Grandes Régions"
@@ -33,6 +36,7 @@
           "submenu": true
         },
         {
+          "id": "custom",
           "name": {
             "en": "Custom",
             "fr": "Personnalisé"
@@ -52,6 +56,7 @@
       },
       "content": [
         {
+          "id": "geonovis",
           "name": {
             "en": "GeoNovis",
             "fr": "GeoNovis"
@@ -59,6 +64,7 @@
           "start": true
         },
         {
+          "id": "map",
           "name": {
             "en": "Map",
             "fr": "Carte"
@@ -66,6 +72,7 @@
           "start": true
         },
         {
+          "id": "capitals",
           "name": {
             "en": "Capitals",
             "fr": "Capitales"
@@ -73,6 +80,7 @@
           "linkto": "gamemode/capitals"
         },
         {
+          "id": "flags",
           "name": {
             "en": "Flags",
             "fr": "Drapeaux"
@@ -80,6 +88,7 @@
           "linkto": "gamemode/flags"
         },
         {
+          "id": "licensePlates",
           "name": {
             "en": "Immatriculation Plates",
             "fr": "Plaques d'immatriculation"
@@ -87,6 +96,7 @@
           "start": true
         },
         {
+          "id": "custom",
           "name": {
             "en": "Custom",
             "fr": "Personnalisé"
@@ -106,6 +116,7 @@
       },
       "content": [
         {
+          "id": "findCapital",
           "name": {
             "en": "Find the Capital",
             "fr": "Trouver la capitale"
@@ -113,6 +124,7 @@
           "start": true
         },
         {
+          "id": "writeCapital",
           "name": {
             "en": "Write the Capital",
             "fr": "Écrire la capitale"
@@ -120,6 +132,7 @@
           "start": true
         },
         {
+          "id": "findCountryByCapital",
           "name": {
             "en": "Find the Country",
             "fr": "Trouver le pays"
@@ -127,6 +140,7 @@
           "start": true
         },
         {
+          "id": "findOrWriteByCapital",
           "name": {
             "en": "Find the Capital or write it",
             "fr": "Trouver la capitale ou l'écrire"
@@ -145,6 +159,7 @@
       },
       "content": [
         {
+          "id": "findFlag",
           "name": {
             "en": "Find the Flag",
             "fr": "Trouver le drapeau"
@@ -152,6 +167,7 @@
           "start": true
         },
         {
+          "id": "writeFlag",
           "name": {
             "en": "Find the Country",
             "fr": "Trouver le pays"
@@ -159,6 +175,7 @@
           "start": true
         },
         {
+          "id": "findOrWriteByFlag",
           "name": {
             "en": "Find the Flag or write it",
             "fr": "Trouver le drapeau ou l'écrire"
