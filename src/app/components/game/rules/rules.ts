@@ -3,6 +3,8 @@ import gameInfos from '../../../../assets/data/game-infos.json';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { GameSessionService } from '../../../services/game-session.service';
+import { routes } from '../../../app.routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rules',
@@ -14,7 +16,7 @@ export class Rules {
   gameInfos: any = gameInfos;
   rules: any = {};
 
-  constructor(private gameSessionService: GameSessionService) {}
+  constructor(private gameSessionService: GameSessionService, private routes: Router) {}
 
   protected startGame(): void {
     this.setRules();
@@ -34,5 +36,7 @@ export class Rules {
   private setGameSession(): void {
     this.gameSessionService.setSessionItem('gameStarted', 'true');
     this.gameSessionService.setSessionItem('gameRules', JSON.stringify(this.rules));
+    this.gameSessionService.setGameState();
+    this.routes.navigate(['/game']);
   }
 }

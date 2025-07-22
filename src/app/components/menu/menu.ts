@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import menuConfigData from '../../../assets/data/menu-config.json';
 import { GameSessionService } from '../../services/game-session.service';
+import { routes } from '../../app.routes';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu',
   imports: [CommonModule],
@@ -13,7 +15,7 @@ export class Menu implements OnInit {
   menuConfig: any;
   language: string = 'fr'; // default
 
-  constructor(private gameSessionService: GameSessionService) {
+  constructor(private gameSessionService: GameSessionService, private routes: Router) {
     this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
   }
 
@@ -35,12 +37,12 @@ export class Menu implements OnInit {
       route = "rules";
     }
     this.gameSessionService.setSessionItem(menuType, id);
-    window.location.href = `/${route}`;
+    this.routes.navigate([`/${route}`]);
   }
 
   handleBackMenu(): void {
     const previousRoute = this.menuConfig.referrer || 'region';
-    window.location.href = previousRoute;
+    this.routes.navigate([`/${previousRoute}`]);
   }
 
 }

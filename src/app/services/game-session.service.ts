@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import worldInfos from '../../assets/data/world-infos.json';
+import gameCodes from '../../assets/data/game-codes.json';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameSessionService {
-    setSessionItem(key: string, value: string): void {
-        sessionStorage.setItem(key, value);
-    }
+  setSessionItem(key: string, value: string): void {
+    sessionStorage.setItem(key, value);
+  }
 
-    deleteSessionItem(key: string): void {
-        sessionStorage.removeItem(key);
-    }
+  deleteSessionItem(key: string): void {
+    sessionStorage.removeItem(key);
+  }
 
-    setGameSession(): void {
-        // this.setSessionItem('worldInfos', JSON.stringify(worldInfos));
-    }
+  setGameState(): void {
+    this.setSessionItem('gameSession', JSON.stringify(gameCodes));
+  }
 }
