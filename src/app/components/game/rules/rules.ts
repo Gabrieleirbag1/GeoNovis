@@ -12,25 +12,27 @@ import { GameSessionService } from '../../../services/game-session.service';
 })
 export class Rules {
   gameInfos: any = gameInfos;
+  rules: any = {};
 
-  constructor(private gameSessionService: GameSessionService) {
+  constructor(private gameSessionService: GameSessionService) {}
+
+  protected startGame(): void {
+    this.setRules();
+    this.setGameSession();
   }
 
-  startGame(): void {
-    this.writeRules();
-    this.gameSessionService.setGameSession();
-    console.log('Game started with rules:', this.gameInfos);
-  }
-
-  writeRules(): void {
+  private setRules(): void {
     const timelimitElement: HTMLInputElement = document.getElementById('timelimit') as HTMLInputElement;
     const roundsElement: HTMLInputElement = document.getElementById('rounds') as HTMLInputElement;
 
-    const rules = {
+    this.rules = {
       time: timelimitElement.value,
       rounds: roundsElement.value
     };
+  }
 
-    console.log('Game rules written:', rules);
+  private setGameSession(): void {
+    this.gameSessionService.setSessionItem('gameStarted', 'true');
+    this.gameSessionService.setSessionItem('gameRules', JSON.stringify(this.rules));
   }
 }
