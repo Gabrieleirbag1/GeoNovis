@@ -23,7 +23,7 @@ export class SelectorService {
 
   getRandomNotFoundCodes(iterations: number): string[] {
     const codes: string[] = [];
-    for (let i = 0; i < iterations; i++) {
+    while (codes.length < iterations) {
       const code = this.getRandomNotFoundCode();
       if (!codes.includes(code)) {
         codes.push(code);
