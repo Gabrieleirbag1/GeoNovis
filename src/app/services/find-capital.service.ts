@@ -40,6 +40,7 @@ export class FindCapitalService {
       turnCodes = this.selectCountries(iterations);
     }
     this.countries = this.selectorService.convertCodesToCountries(turnCodes);
+    this.selectorService.updateGameTurnStates(turnCodes);
     console.log('Countries after conversion:', this.countries);
   }
 

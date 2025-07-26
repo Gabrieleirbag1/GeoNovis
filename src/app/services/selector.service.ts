@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import gameCodes from '../../assets/data/game-codes.json';
 import worldInfos from '../../assets/data/world-infos.json';
 import { Countries } from '../types/countries.type';
+import { GameSessionService } from './game-session.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,14 +11,15 @@ export class SelectorService {
   private gameCodes: any;
   language: 'en' | 'fr' = 'fr';
 
-  constructor() {
+  constructor(private gameSessionService: GameSessionService) {
     this.gameCodes = gameCodes;
   }
 
   getRandomNotFoundCode(): string {
     const codes = Object.keys(this.gameCodes);
     const randomIndex = Math.floor(Math.random() * codes.length);
-    if (!this.gameCodes[codes[randomIndex]].found) return this.gameCodes[codes[randomIndex]].code;
+    if (!this.gameCodes[codes[randomIndex]].found)
+      return this.gameCodes[codes[randomIndex]].code;
     return this.getRandomNotFoundCode();
   }
 
@@ -34,11 +36,11 @@ export class SelectorService {
 
   getTurnCodes(): any[] {
     const codes: any[] = [];
-    for (let i = 0; i < gameCodes.length; i++) {
-      if (gameCodes[i].turn === true) {
-        codes.push(gameCodes[i].code);
+    Object.keys(this.gameCodes).forEach((key) => {
+      if (this.gameCodes[key].turn) {
+        codes.push(this.gameCodes[key].code);
       }
-    }
+    });
     return codes;
   }
 
@@ -56,5 +58,15 @@ export class SelectorService {
       }
     });
     return countries;
+  }
+
+  updateGameTurnStates(codes: string[]): void {
+    const gameState = JSON.parse(sessionStorage.getItem('gameState') || '{}');
+    codes.forEach((code) => {
+      if (gameState[code]) {
+        gameState[code].turn = true;
+      }
+    });
+    this.gameSessionService.setSessionItem('gameState', JSON.stringify(gameState));
   }
 }
