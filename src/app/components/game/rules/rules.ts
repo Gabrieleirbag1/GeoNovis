@@ -3,7 +3,6 @@ import gameInfos from '../../../../assets/data/game-infos.json';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { GameSessionService } from '../../../services/game-session.service';
-import { routes } from '../../../app.routes';
 import { Router } from '@angular/router';
 
 @Component({
