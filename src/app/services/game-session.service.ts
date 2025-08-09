@@ -5,6 +5,10 @@ import gameCodes from '../../assets/data/game-codes.json';
   providedIn: 'root',
 })
 export class GameSessionService {
+  getSessionItem(key: string): string | null {
+    return sessionStorage.getItem(key);
+  }
+
   setSessionItem(key: string, value: string): void {
     sessionStorage.setItem(key, value);
   }

@@ -16,10 +16,11 @@ export class SelectorService {
   }
 
   getRandomNotFoundCode(): string {
-    const codes = Object.keys(this.gameCodes);
+    const gameState = this.getGameState();
+    const codes = Object.keys(gameState);
     const randomIndex = Math.floor(Math.random() * codes.length);
-    if (!this.gameCodes[codes[randomIndex]].found)
-      return this.gameCodes[codes[randomIndex]].code;
+    if (!gameState[codes[randomIndex]].found)
+      return gameState[codes[randomIndex]].code;
     return this.getRandomNotFoundCode();
   }
 
@@ -35,12 +36,13 @@ export class SelectorService {
   }
 
   getTurnCodes(): any[] {
+    const gameState = this.getGameState();
     const codes: any[] = [];
-    Object.keys(this.gameCodes).forEach((key) => {
-      if (this.gameCodes[key].turn) {
-        codes.push(this.gameCodes[key].code);
+    for (const code in gameState) {
+      if (gameState[code].turn) {
+        codes.push(gameState[code].code);
       }
-    });
+    }
     return codes;
   }
 
@@ -61,12 +63,16 @@ export class SelectorService {
   }
 
   updateGameTurnStates(codes: string[]): void {
-    const gameState = JSON.parse(sessionStorage.getItem('gameState') || '{}');
+    const gameState = this.getGameState();
     codes.forEach((code) => {
       if (gameState[code]) {
         gameState[code].turn = true;
       }
     });
     this.gameSessionService.setSessionItem('gameState', JSON.stringify(gameState));
+  }
+
+  getGameState(): any {
+    return JSON.parse(this.gameSessionService.getSessionItem('gameState') || '{}');
   }
 }
