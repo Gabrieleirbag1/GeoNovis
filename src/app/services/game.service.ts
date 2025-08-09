@@ -8,6 +8,33 @@ import { GameSessionService } from './game-session.service';
 export class GameService {
   constructor(private gameSessionService: GameSessionService) {}
 
+  getTurnCodes(): CountryCode[] {
+    const gameState = this.gameSessionService.getGameState();
+    const codes: CountryCode[] = [];
+    for (const code in gameState) {
+      if (gameState[code].turn) {
+        codes.push(gameState[code].code);
+      }
+    }
+    return codes;
+  }
+
+  updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
+    const gameState = this.gameSessionService.getGameState();
+
+    codes.forEach((code) => {
+      if (gameState[code]) {
+        gameState[code].turn = true;
+      }
+    });
+
+    if (gameState[selectedCode]) {
+      gameState[selectedCode].selected = true;
+    }
+
+    this.gameSessionService.setSessionItem('gameState', JSON.stringify(gameState));
+  }
+
   public checkPlayerAnswer(selectedCountryCode: CountryCode, correctCountryCode: CountryCode): boolean {
     return selectedCountryCode === correctCountryCode;
   }

@@ -32,17 +32,6 @@ export class SelectorService {
     return codes;
   }
 
-  getTurnCodes(): CountryCode[] {
-    const gameState = this.gameSessionService.getGameState();
-    const codes: CountryCode[] = [];
-    for (const code in gameState) {
-      if (gameState[code].turn) {
-        codes.push(gameState[code].code);
-      }
-    }
-    return codes;
-  }
-
   getSelectedCountry(codes: CountryCode[]): CountryCode {
     this.assignSelectedCountry(codes);
     console.log('Selected country:', this.selectedCountry);
@@ -69,22 +58,6 @@ export class SelectorService {
       console.log('Selected country set:', selectedCode);
       this.selectedCountry = gameState[selectedCode].code;
     }
-  }
-
-  updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
-    const gameState = this.gameSessionService.getGameState();
-
-    codes.forEach((code) => {
-      if (gameState[code]) {
-        gameState[code].turn = true;
-      }
-    });
-
-    if (gameState[selectedCode]) {
-      gameState[selectedCode].selected = true;
-    }
-
-    this.gameSessionService.setSessionItem('gameState', JSON.stringify(gameState));
   }
 
 }

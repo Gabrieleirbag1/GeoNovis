@@ -3,6 +3,7 @@ import { Countries } from '../types/countries.type';
 import { SelectorService } from './selector.service';
 import { CountryCode } from '../types/code.type';
 import { ConvertService } from './convert.service';
+import { GameService } from './game.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class FindCapitalService {
   countries: Countries[] = [];
   selectedCountryCode: CountryCode = '';
 
-  constructor(public selectorService: SelectorService, public convertService: ConvertService) {}
+  constructor(private selectorService: SelectorService, private convertService: ConvertService, private gameService: GameService) {}
 
   private isGameStateSession(turnCodes: CountryCode[]): boolean {
     if (turnCodes.length === 0) {
@@ -38,7 +39,7 @@ export class FindCapitalService {
   }
 
   initializeGame(iterations: number): void {
-    let turnCodes: CountryCode[] = this.selectorService.getTurnCodes();
+    let turnCodes: CountryCode[] = this.gameService.getTurnCodes();
     if (!this.isGameStateSession(turnCodes)) {
       turnCodes = this.selectCountries(iterations);
     }
@@ -46,7 +47,7 @@ export class FindCapitalService {
 
     this.countries = this.convertService.convertCodesToCountries(turnCodes); // Convert codes to countries
 
-    this.selectorService.updateGameState(turnCodes, this.selectedCountryCode); // Update game state with selected countries in session
+    this.gameService.updateGameState(turnCodes, this.selectedCountryCode); // Update game state with selected countries in session
 
     console.log('Countries after conversion:', this.countries);
   }
