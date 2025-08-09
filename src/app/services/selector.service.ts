@@ -13,7 +13,7 @@ export class SelectorService {
   }
 
   getRandomNotFoundCode(): CountryCode {
-    const gameState = this.getGameState();
+    const gameState = this.gameSessionService.getGameState();
     const codes = Object.keys(gameState);
     const randomIndex = Math.floor(Math.random() * codes.length);
     if (!gameState[codes[randomIndex]].found)
@@ -33,7 +33,7 @@ export class SelectorService {
   }
 
   getTurnCodes(): CountryCode[] {
-    const gameState = this.getGameState();
+    const gameState = this.gameSessionService.getGameState();
     const codes: CountryCode[] = [];
     for (const code in gameState) {
       if (gameState[code].turn) {
@@ -50,9 +50,9 @@ export class SelectorService {
   }
 
   private assignSelectedCountry(codes: CountryCode[]): void {
-    for (const code in this.getGameState()) {
-      if (this.getGameState()[code].selected) {
-        this.selectedCountry = this.getGameState()[code].code;
+    for (const code in this.gameSessionService.getGameState()) {
+      if (this.gameSessionService.getGameState()[code].selected) {
+        this.selectedCountry = this.gameSessionService.getGameState()[code].code;
         return; // Exit after finding the first selected country
       }
     }
@@ -62,7 +62,7 @@ export class SelectorService {
   private setRandomSelectedCountry(codes: CountryCode[]): void {
     const randomIndex = Math.floor(Math.random() * codes.length);
     const selectedCode = codes[randomIndex];
-    const gameState = this.getGameState();
+    const gameState = this.gameSessionService.getGameState();
     if (gameState[selectedCode]) {
       gameState[selectedCode].selected = true;
       console.log('Selected country set:', gameState[selectedCode]);
@@ -72,7 +72,7 @@ export class SelectorService {
   }
 
   updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
-    const gameState = this.getGameState();
+    const gameState = this.gameSessionService.getGameState();
 
     codes.forEach((code) => {
       if (gameState[code]) {
@@ -87,7 +87,4 @@ export class SelectorService {
     this.gameSessionService.setSessionItem('gameState', JSON.stringify(gameState));
   }
 
-  getGameState(): any {
-    return JSON.parse(this.gameSessionService.getSessionItem('gameState') || '{}');
-  }
 }

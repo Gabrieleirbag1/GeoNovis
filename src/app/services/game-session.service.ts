@@ -21,4 +21,8 @@ export class GameSessionService {
     this.setSessionItem('gameState', JSON.stringify(gameCodes));
   }
 
+  getGameState(): any {
+    return JSON.parse(this.getSessionItem('gameState') || '{}');
+  }
+
 }
