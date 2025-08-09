@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import worldInfos from '../../assets/data/world-infos.json';
-import { Countries } from '../types/countries.type';
 import { GameSessionService } from './game-session.service';
 import { CountryCode } from '../types/code.type';
 
@@ -73,25 +71,9 @@ export class SelectorService {
     }
   }
 
-  convertCodesToCountries(turnCodes: CountryCode[]): Countries[] {
-    let countries: Countries[] = [];
-    turnCodes.forEach((code) => {
-      const countryInfo = worldInfos.find((info) => info.flag === code);
-      if (countryInfo) {
-        countries.push({
-          code: code,
-          name: countryInfo.country[this.language],
-          capital: countryInfo.capital[this.language][0],
-          continent: countryInfo.continent[this.language],
-        });
-      }
-    });
-    return countries;
-  }
-
   updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
     const gameState = this.getGameState();
-    
+
     codes.forEach((code) => {
       if (gameState[code]) {
         gameState[code].turn = true;

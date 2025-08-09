@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Countries } from '../types/countries.type';
 import { SelectorService } from './selector.service';
 import { CountryCode } from '../types/code.type';
+import { ConvertService } from './convert.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class FindCapitalService {
   countries: Countries[] = [];
   selectedCountryCode: CountryCode = '';
 
-  constructor(public selectorService: SelectorService) {}
+  constructor(public selectorService: SelectorService, public convertService: ConvertService) {}
 
   isGameStateSession(turnCodes: CountryCode[]): boolean {
     if (turnCodes.length === 0) {
@@ -44,7 +45,7 @@ export class FindCapitalService {
     }
     this.selectedCountryCode = this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
 
-    this.countries = this.selectorService.convertCodesToCountries(turnCodes); // Convert codes to countries
+    this.countries = this.convertService.convertCodesToCountries(turnCodes); // Convert codes to countries
 
     this.selectorService.updateGameState(turnCodes, this.selectedCountryCode); // Update game state with selected countries in session
 

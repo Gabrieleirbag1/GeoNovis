@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FindCapital implements OnInit{
   countries: Countries[] = []; // Change to array
+  selectedCountry: string = '';
   constructor(private findCapitalService: FindCapitalService) {}
 
   ngOnInit(): void {
