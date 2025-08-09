@@ -14,7 +14,9 @@ import { GameService } from '../../../../services/game.service';
 export class FindCapital implements OnInit{
   countries: Countries[] = [];
   selectedCountry: string = '';
-  constructor(private findCapitalService: FindCapitalService, private convertService: ConvertService, private gameService: GameService) {}
+  endTurn: boolean = false;
+  isCorrect: boolean = false;
+  constructor(private findCapitalService: FindCapitalService, private convertService: ConvertService, protected gameService: GameService) {}
 
   ngOnInit(): void {
     console.log('FindCapital Component Initialized');
@@ -24,7 +26,8 @@ export class FindCapital implements OnInit{
   }
 
   checkAnswer(country: any): void {
-    const isCorrect = this.gameService.checkPlayerAnswer(country.code, this.findCapitalService.selectedCountryCode);
-    console.log('Is answer correct?', isCorrect);
+    this.isCorrect = this.gameService.checkPlayerAnswer(country.code, this.findCapitalService.selectedCountryCode);
+    console.log('Is answer correct?', this.isCorrect);
+    this.endTurn = true;
   }
 }

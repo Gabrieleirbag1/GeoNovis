@@ -50,7 +50,6 @@ export class GameService {
   }
 
   public checkPlayerAnswer(selectedCountryCode: CountryCode, correctCountryCode: CountryCode): boolean {
-    this.nextTurn();
     return selectedCountryCode === correctCountryCode;
   }
 }

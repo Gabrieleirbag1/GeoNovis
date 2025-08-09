@@ -6,4 +6,14 @@
   <div class="capitals" *ngIf="countries.length > 0">
     <button *ngFor="let country of countries" (click)="checkAnswer(country)">{{ country.capital }}</button>
   </div>
+
+  <div class="turn-result" *ngIf="endTurn">
+    @if (isCorrect) {
+      <p class="correct">Correct!</p>
+    }  @else {
+      <p class="incorrect">Incorrect</p>
+    }
+    <button (click)="gameService.nextTurn()">Next</button>
+  </div>
+  
 </section>
