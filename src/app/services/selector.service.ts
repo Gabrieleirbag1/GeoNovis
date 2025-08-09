@@ -49,7 +49,7 @@ export class SelectorService {
     return this.selectedCountry
   }
 
-  assignSelectedCountry(codes: CountryCode[]): void {
+  private assignSelectedCountry(codes: CountryCode[]): void {
     for (const code in this.getGameState()) {
       if (this.getGameState()[code].selected) {
         this.selectedCountry = this.getGameState()[code].code;
@@ -59,7 +59,7 @@ export class SelectorService {
     this.setRandomSelectedCountry(codes);
   }
 
-  setRandomSelectedCountry(codes: CountryCode[]): void {
+  private setRandomSelectedCountry(codes: CountryCode[]): void {
     const randomIndex = Math.floor(Math.random() * codes.length);
     const selectedCode = codes[randomIndex];
     const gameState = this.getGameState();

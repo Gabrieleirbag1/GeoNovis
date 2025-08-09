@@ -14,7 +14,7 @@ export class FindCapitalService {
 
   constructor(public selectorService: SelectorService, public convertService: ConvertService) {}
 
-  isGameStateSession(turnCodes: CountryCode[]): boolean {
+  private isGameStateSession(turnCodes: CountryCode[]): boolean {
     if (turnCodes.length === 0) {
       return false;
     } else {
@@ -22,7 +22,7 @@ export class FindCapitalService {
     }
   }
 
-  selectCountries(iterations: number): CountryCode[] {
+  private selectCountries(iterations: number): CountryCode[] {
     const codesToFind: CountryCode[] =
       this.selectorService.getRandomNotFoundCodes(iterations);
     console.log('Codes to find:', codesToFind);
@@ -41,7 +41,6 @@ export class FindCapitalService {
     let turnCodes: CountryCode[] = this.selectorService.getTurnCodes();
     if (!this.isGameStateSession(turnCodes)) {
       turnCodes = this.selectCountries(iterations);
-      this.selectorService.setRandomSelectedCountry(turnCodes);
     }
     this.selectedCountryCode = this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
 
