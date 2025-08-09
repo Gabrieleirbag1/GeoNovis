@@ -9,7 +9,7 @@ import { CountryCode } from '../types/code.type';
 export class FindCapitalService {
   language: 'en' | 'fr' = 'fr'; // default language
   countries: Countries[] = [];
-  selectedCountry: CountryCode = '';
+  selectedCountryCode: CountryCode = '';
 
   constructor(public selectorService: SelectorService) {}
 
@@ -42,11 +42,11 @@ export class FindCapitalService {
       turnCodes = this.selectCountries(iterations);
       this.selectorService.setRandomSelectedCountry(turnCodes);
     }
-    this.selectedCountry = this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
+    this.selectedCountryCode = this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
 
     this.countries = this.selectorService.convertCodesToCountries(turnCodes); // Convert codes to countries
 
-    this.selectorService.updateGameTurnStates(turnCodes); // Update game state with selected countries in session
+    this.selectorService.updateGameState(turnCodes, this.selectedCountryCode); // Update game state with selected countries in session
 
     console.log('Countries after conversion:', this.countries);
   }

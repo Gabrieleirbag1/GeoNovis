@@ -47,6 +47,7 @@ export class SelectorService {
 
   getSelectedCountry(codes: CountryCode[]): CountryCode {
     this.assignSelectedCountry(codes);
+    console.log('Selected country:', this.selectedCountry);
     return this.selectedCountry
   }
 
@@ -54,6 +55,7 @@ export class SelectorService {
     for (const code in this.getGameState()) {
       if (this.getGameState()[code].selected) {
         this.selectedCountry = this.getGameState()[code].code;
+        return; // Exit after finding the first selected country
       }
     }
     this.setRandomSelectedCountry(codes);
@@ -65,6 +67,8 @@ export class SelectorService {
     const gameState = this.getGameState();
     if (gameState[selectedCode]) {
       gameState[selectedCode].selected = true;
+      console.log('Selected country set:', gameState[selectedCode]);
+      console.log('Selected country set:', selectedCode);
       this.selectedCountry = gameState[selectedCode].code;
     }
   }
@@ -85,13 +89,19 @@ export class SelectorService {
     return countries;
   }
 
-  updateGameTurnStates(codes: CountryCode[]): void {
+  updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
     const gameState = this.getGameState();
+    
     codes.forEach((code) => {
       if (gameState[code]) {
         gameState[code].turn = true;
       }
     });
+
+    if (gameState[selectedCode]) {
+      gameState[selectedCode].selected = true;
+    }
+
     this.gameSessionService.setSessionItem('gameState', JSON.stringify(gameState));
   }
 
