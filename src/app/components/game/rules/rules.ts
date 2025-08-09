@@ -25,10 +25,16 @@ export class Rules {
   private setRules(): void {
     const timelimitElement: HTMLInputElement = document.getElementById('timelimit') as HTMLInputElement;
     const roundsElement: HTMLInputElement = document.getElementById('rounds') as HTMLInputElement;
+    const region = this.gameSessionService.getSessionItem('menu_1');
+    const gamemode = this.gameSessionService.getSessionItem('menu_2');
+    const subgamemode = this.gameSessionService.getSessionItem('menu_3');
 
     this.rules = {
       time: timelimitElement.value,
-      rounds: roundsElement.value
+      rounds: roundsElement.value,
+      region: region,
+      gamemode: gamemode,
+      subgamemode: subgamemode
     };
   }
 
