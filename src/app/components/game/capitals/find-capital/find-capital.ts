@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FindCapitalService } from '../../../../services/find-capital.service';
+import { GameService } from '../../../../services/game.service';
 import { Countries } from '../../../../types/countries.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
-import { GameService } from '../../../../services/game.service';
+import { GameStateService } from '../../../../services/game-state.service';
 
 @Component({
   selector: 'app-find-capital',
@@ -16,17 +16,17 @@ export class FindCapital implements OnInit{
   selectedCountry: string = '';
   endTurn: boolean = false;
   isCorrect: boolean = false;
-  constructor(private findCapitalService: FindCapitalService, private convertService: ConvertService, protected gameService: GameService) {}
+  constructor(private gameService: GameService, private convertService: ConvertService, protected gameStateService: GameStateService) {}
 
   ngOnInit(): void {
     console.log('FindCapital Component Initialized');
-    this.findCapitalService.initializeGame(6);
-    this.countries = this.findCapitalService.getCountries();
-    this.selectedCountry = this.convertService.convertCodeToCountry(this.findCapitalService.selectedCountryCode).country[this.convertService.language];
+    this.gameService.initializeGame(6);
+    this.countries = this.gameService.getCountries();
+    this.selectedCountry = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode).country[this.convertService.language];
   }
 
   checkAnswer(country: any): void {
-    this.isCorrect = this.gameService.checkPlayerAnswer(country.code, this.findCapitalService.selectedCountryCode);
+    this.isCorrect = this.gameStateService.checkPlayerAnswer(country.code, this.gameService.selectedCountryCode);
     console.log('Is answer correct?', this.isCorrect);
     this.endTurn = true;
   }
