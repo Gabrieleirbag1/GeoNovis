@@ -37,7 +37,7 @@ export class FindCapitalService {
     this.countries = countries;
   }
 
-  main(iterations: number): void {
+  initializeGame(iterations: number): void {
     let turnCodes: CountryCode[] = this.selectorService.getTurnCodes();
     if (!this.isGameStateSession(turnCodes)) {
       turnCodes = this.selectCountries(iterations);

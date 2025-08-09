@@ -17,7 +17,7 @@ export class FindCapital implements OnInit{
 
   ngOnInit(): void {
     console.log('FindCapital Component Initialized');
-    this.findCapitalService.main(6);
+    this.findCapitalService.initializeGame(6);
     this.countries = this.findCapitalService.getCountries();
     this.selectedCountry = this.convertService.convertCodeToCountry(this.findCapitalService.selectedCountryCode).country[this.convertService.language];
   }
