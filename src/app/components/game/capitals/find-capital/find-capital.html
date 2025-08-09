@@ -1,6 +1,7 @@
 <section>
   <div class="country-name">
     <!-- <p>{{ countries.slice(-1)[0].name }}</p> -->
+     {{ selectedCountry }}
   </div>
   <div class="capitals" *ngIf="countries.length > 0">
     <button *ngFor="let country of countries">{{ country.capital }}</button>

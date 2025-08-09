@@ -26,7 +26,7 @@ export class ConvertService {
     return countries;
   }
 
-  convertCodeToCountry(code: CountryCode) {
+  convertCodeToCountry(code: CountryCode): any {
     const countryInfo = worldInfos.find((info) => info.flag === code);
     return countryInfo;
   }
