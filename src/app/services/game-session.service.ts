@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import gameCodes from '../../assets/data/game-codes.json';
+import { CountryCode } from '../types/code.type';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,14 @@ export class GameSessionService {
 
   getGameState(): any {
     return JSON.parse(this.getSessionItem('gameState') || '{}');
+  }
+
+  isGameStateSession(turnCodes: CountryCode[]): boolean {
+    if (turnCodes.length === 0) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

@@ -1,55 +1,53 @@
 import { Injectable } from '@angular/core';
+import { Countries } from '../types/countries.type';
+import { SelectorService } from './selector.service';
 import { CountryCode } from '../types/code.type';
+import { ConvertService } from './convert.service';
+import { GameStateService } from './game-state.service';
 import { GameSessionService } from './game-session.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameService {
-  constructor(private gameSessionService: GameSessionService) {}
+  language: 'en' | 'fr' = 'fr'; // default language
+  countries: Countries[] = [];
+  selectedCountryCode: CountryCode = '';
 
-  getTurnCodes(): CountryCode[] {
-    const gameState = this.gameSessionService.getGameState();
-    const codes: CountryCode[] = [];
-    for (const code in gameState) {
-      if (gameState[code].turn) {
-        codes.push(gameState[code].code);
-      }
-    }
-    return codes;
+  constructor(
+    private selectorService: SelectorService,
+    private convertService: ConvertService,
+    private gameStateService: GameStateService,
+    private gameSessionService: GameSessionService
+  ) {}
+
+  private selectCountries(iterations: number): CountryCode[] {
+    const codesToFind: CountryCode[] =
+      this.selectorService.getRandomNotFoundCodes(iterations);
+    console.log('Codes to find:', codesToFind);
+    return codesToFind;
   }
 
-  updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
-    const gameState = this.gameSessionService.getGameState();
-
-    codes.forEach((code) => {
-      if (gameState[code]) {
-        gameState[code].turn = true;
-      }
-    });
-
-    if (gameState[selectedCode]) {
-      gameState[selectedCode].selected = true;
-    }
-
-    this.gameSessionService.setGameState(gameState);
+  getCountries(): Countries[] {
+    return this.countries;
   }
 
-  nextTurn(): void {
-    const gameState = this.gameSessionService.getGameState();
-    for (const code in gameState) {
-      if (gameState[code].turn) {
-        gameState[code].turn = false;
-      }
-      if (gameState[code].selected) {
-        gameState[code].selected = false;
-        gameState[code].found = true; // Mark as found
-      }
-    }
-    this.gameSessionService.setGameState(gameState);
+  setCountries(countries: Countries[]): void {
+    this.countries = countries;
   }
 
-  public checkPlayerAnswer(selectedCountryCode: CountryCode, correctCountryCode: CountryCode): boolean {
-    return selectedCountryCode === correctCountryCode;
+  initializeGame(iterations: number): void {
+    let turnCodes: CountryCode[] = this.gameStateService.getTurnCodes();
+    if (!this.gameSessionService.isGameStateSession(turnCodes)) {
+      turnCodes = this.selectCountries(iterations);
+    }
+    this.selectedCountryCode =
+      this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
+
+    this.countries = this.convertService.convertCodesToCountries(turnCodes); // Convert codes to countries
+
+    this.gameStateService.updateGameState(turnCodes, this.selectedCountryCode); // Update game state with selected countries in session
+
+    console.log('Countries after conversion:', this.countries);
   }
 }
