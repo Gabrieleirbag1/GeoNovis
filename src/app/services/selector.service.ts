@@ -29,7 +29,7 @@ export class SelectorService {
         codes.push(code);
       }
     }
-    return codes;
+    return codes.sort((a, b) => a.localeCompare(b));
   }
 
   getSelectedCountry(codes: CountryCode[]): CountryCode {
