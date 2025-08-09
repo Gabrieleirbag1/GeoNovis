@@ -17,8 +17,12 @@ export class GameSessionService {
     sessionStorage.removeItem(key);
   }
 
-  setGameState(): void {
-    this.setSessionItem('gameState', JSON.stringify(gameCodes));
+  initGameState(): void {
+    this.setGameState(gameCodes);
+  }
+
+  setGameState(gameState: any): void {
+    this.setSessionItem('gameState', JSON.stringify(gameState));
   }
 
   getGameState(): any {

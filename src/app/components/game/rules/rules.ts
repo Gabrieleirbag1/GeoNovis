@@ -35,7 +35,7 @@ export class Rules {
   private setGameSession(): void {
     this.gameSessionService.setSessionItem('gameStarted', 'true');
     this.gameSessionService.setSessionItem('gameRules', JSON.stringify(this.rules));
-    this.gameSessionService.setGameState();
+    this.gameSessionService.initGameState();
     this.routes.navigate(['/game']);
   }
 }
