@@ -4,6 +4,6 @@
      {{ selectedCountry }}
   </div>
   <div class="capitals" *ngIf="countries.length > 0">
-    <button *ngFor="let country of countries">{{ country.capital }}</button>
+    <button *ngFor="let country of countries" (click)="checkAnswer(country)">{{ country.capital }}</button>
   </div>
 </section>

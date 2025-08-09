@@ -22,4 +22,9 @@ export class FindCapital implements OnInit{
     this.countries = this.findCapitalService.getCountries();
     this.selectedCountry = this.convertService.convertCodeToCountry(this.findCapitalService.selectedCountryCode).country[this.convertService.language];
   }
+
+  checkAnswer(country: any): void {
+    const isCorrect = this.gameService.checkPlayerAnswer(country.code, this.findCapitalService.selectedCountryCode);
+    console.log('Is answer correct?', isCorrect);
+  }
 }
