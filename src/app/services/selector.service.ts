@@ -46,7 +46,31 @@ export class SelectorService {
     return codes;
   }
 
-  convertCodesToCountries(turnCodes: string[]): Countries[] {
+  getSelectedCountry(codes: CountryCode[]): CountryCode {
+    this.assignSelectedCountry(codes);
+    return this.selectedCountry
+  }
+
+  assignSelectedCountry(codes: CountryCode[]): void {
+    for (const code in this.getGameState()) {
+      if (this.getGameState()[code].selected) {
+        this.selectedCountry = this.getGameState()[code].code;
+      }
+    }
+    this.setRandomSelectedCountry(codes);
+  }
+
+  setRandomSelectedCountry(codes: CountryCode[]): void {
+    const randomIndex = Math.floor(Math.random() * codes.length);
+    const selectedCode = codes[randomIndex];
+    const gameState = this.getGameState();
+    if (gameState[selectedCode]) {
+      gameState[selectedCode].selected = true;
+      this.selectedCountry = gameState[selectedCode].code;
+    }
+  }
+
+  convertCodesToCountries(turnCodes: CountryCode[]): Countries[] {
     let countries: Countries[] = [];
     turnCodes.forEach((code) => {
       const countryInfo = worldInfos.find((info) => info.flag === code);
