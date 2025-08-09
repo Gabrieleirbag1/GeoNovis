@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
-import gameCodes from '../../assets/data/game-codes.json';
 import worldInfos from '../../assets/data/world-infos.json';
 import { Countries } from '../types/countries.type';
 import { GameSessionService } from './game-session.service';
+import { CountryCode } from '../types/code.type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SelectorService {
-  private gameCodes: any;
   language: 'en' | 'fr' = 'fr';
+  selectedCountry: CountryCode = '';
 
   constructor(private gameSessionService: GameSessionService) {
-    this.gameCodes = gameCodes;
   }
 
-  getRandomNotFoundCode(): string {
+  getRandomNotFoundCode(): CountryCode {
     const gameState = this.getGameState();
     const codes = Object.keys(gameState);
     const randomIndex = Math.floor(Math.random() * codes.length);
     if (!gameState[codes[randomIndex]].found)
-      return gameState[codes[randomIndex]].code;
+      return gameState[codes[randomIndex]].code as CountryCode;
     return this.getRandomNotFoundCode();
   }
 
-  getRandomNotFoundCodes(iterations: number): string[] {
-    const codes: string[] = [];
+  getRandomNotFoundCodes(iterations: number): CountryCode[] {
+    const codes: CountryCode[] = [];
     while (codes.length < iterations) {
-      const code = this.getRandomNotFoundCode();
+      const code: CountryCode = this.getRandomNotFoundCode();
       if (!codes.includes(code)) {
         codes.push(code);
       }
@@ -35,9 +34,9 @@ export class SelectorService {
     return codes;
   }
 
-  getTurnCodes(): any[] {
+  getTurnCodes(): CountryCode[] {
     const gameState = this.getGameState();
-    const codes: any[] = [];
+    const codes: CountryCode[] = [];
     for (const code in gameState) {
       if (gameState[code].turn) {
         codes.push(gameState[code].code);
@@ -86,7 +85,7 @@ export class SelectorService {
     return countries;
   }
 
-  updateGameTurnStates(codes: string[]): void {
+  updateGameTurnStates(codes: CountryCode[]): void {
     const gameState = this.getGameState();
     codes.forEach((code) => {
       if (gameState[code]) {

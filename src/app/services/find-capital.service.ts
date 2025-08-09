@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Countries } from '../types/countries.type';
 import { SelectorService } from './selector.service';
+import { CountryCode } from '../types/code.type';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +9,11 @@ import { SelectorService } from './selector.service';
 export class FindCapitalService {
   language: 'en' | 'fr' = 'fr'; // default language
   countries: Countries[] = [];
+  selectedCountry: CountryCode = '';
 
   constructor(public selectorService: SelectorService) {}
 
-  isGameStateSession(turnCodes: string[]): boolean {
+  isGameStateSession(turnCodes: CountryCode[]): boolean {
     if (turnCodes.length === 0) {
       return false;
     } else {
@@ -19,8 +21,8 @@ export class FindCapitalService {
     }
   }
 
-  selectCountries(iterations: number): string[] {
-    const codesToFind: string[] =
+  selectCountries(iterations: number): CountryCode[] {
+    const codesToFind: CountryCode[] =
       this.selectorService.getRandomNotFoundCodes(iterations);
     console.log('Codes to find:', codesToFind);
     return codesToFind;
@@ -35,12 +37,17 @@ export class FindCapitalService {
   }
 
   main(iterations: number): void {
-    let turnCodes = this.selectorService.getTurnCodes();
+    let turnCodes: CountryCode[] = this.selectorService.getTurnCodes();
     if (!this.isGameStateSession(turnCodes)) {
       turnCodes = this.selectCountries(iterations);
+      this.selectorService.setRandomSelectedCountry(turnCodes);
     }
-    this.countries = this.selectorService.convertCodesToCountries(turnCodes);
-    this.selectorService.updateGameTurnStates(turnCodes);
+    this.selectedCountry = this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
+
+    this.countries = this.selectorService.convertCodesToCountries(turnCodes); // Convert codes to countries
+
+    this.selectorService.updateGameTurnStates(turnCodes); // Update game state with selected countries in session
+
     console.log('Countries after conversion:', this.countries);
   }
 
