@@ -26,7 +26,7 @@ export class FindFlag {
   }
 
   getFlagImage(countryCode: string): string {
-    return '/assets/flags/' + countryCode.toLowerCase() + '.png';
+    return '/images/flags/' + countryCode.toLowerCase() + '.svg';
   }
 
   checkAnswer(country: any): void {
