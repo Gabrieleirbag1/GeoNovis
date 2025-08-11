@@ -4,7 +4,9 @@
      {{ selectedCountry }} FLAG
   </div>
   <div class="capitals" *ngIf="countries.length > 0">
-    <button *ngFor="let country of countries" (click)="checkAnswer(country)">{{ country.capital }}</button>
+    <button *ngFor="let country of countries" (click)="checkAnswer(country)">
+      <img [src]="getFlagImage(country.code)" alt="{{ country.name }} flag" class="flag-image">
+    </button>
   </div>
 
   <div class="turn-result" *ngIf="endTurn">

@@ -25,6 +25,10 @@ export class FindFlag {
     this.selectedCountry = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode).country[this.convertService.language];
   }
 
+  getFlagImage(countryCode: string): string {
+    return '/assets/flags/' + countryCode.toLowerCase() + '.png';
+  }
+
   checkAnswer(country: any): void {
     this.isCorrect = this.gameStateService.checkPlayerAnswer(country.code, this.gameService.selectedCountryCode);
     console.log('Is answer correct?', this.isCorrect);

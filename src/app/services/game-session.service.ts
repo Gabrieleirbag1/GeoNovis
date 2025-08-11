@@ -22,8 +22,17 @@ export class GameSessionService {
     this.setGameState(gameCodes);
   }
 
+  setStringifiedItem(key: string, value: any): void {
+    this.setSessionItem(key, JSON.stringify(value));
+  }
+
+  getParsedItem(key: string): any {
+    const item = this.getSessionItem(key);
+    return item ? JSON.parse(item) : null;
+  }
+
   setGameState(gameState: any): void {
-    this.setSessionItem('gameState', JSON.stringify(gameState));
+    this.setStringifiedItem('gameState', gameState);
   }
 
   getGameState(): any {
