@@ -23,6 +23,10 @@ export class FindCapital implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init(): void {
     console.log('FindCapital Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
