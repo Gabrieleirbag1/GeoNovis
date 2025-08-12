@@ -3,6 +3,7 @@
     "current": 1,
     "total": 50,
     "endRound": false,
+    "endGame": false,
     "countryCode": null,
     "correctCountryCode": null
   },
@@ -19,5 +20,4 @@
     "available": []
   },
   "region": []
-
 }

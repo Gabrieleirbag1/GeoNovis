@@ -17,6 +17,7 @@ export class Game implements OnInit {
   currentRound: number = 0;
   totalRounds: number | null = null;
   endTurn: boolean = false;
+  endGame: boolean = false;
   isCorrect: boolean = false;
   selectedCountryCode: CountryCode = "";
 
@@ -33,10 +34,13 @@ export class Game implements OnInit {
 
   private handleEndTurn(): void {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    this.endTurn = gameSave.roundState.endRound;
-    if (this.endTurn) {
-      const { countryCode, correctCountryCode } = this.getCountryCodes();
-      this.checkAnswer(countryCode, correctCountryCode);
+    this.endGame = gameSave.roundState.endGame;
+    if (!this.endGame) {
+      this.endTurn = gameSave.roundState.endRound;
+      if (this.endTurn) {
+        const { countryCode, correctCountryCode } = this.getCountryCodes();
+        this.checkAnswer(countryCode, correctCountryCode);
+      }
     }
   }
 
@@ -44,6 +48,15 @@ export class Game implements OnInit {
     this.endTurn = endTurn;
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     gameSave.roundState.endRound = endTurn;
+    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+  }
+
+  private setEndGame(endGame: boolean): void {
+    console.log("end", endGame);
+    this.endGame = endGame;
+    const gameSave = this.gameSessionService.getParsedItem("gameSave");
+    gameSave.roundState.endGame = endGame;
+    console.log(gameSave);
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
   }
 
@@ -64,9 +77,13 @@ export class Game implements OnInit {
 
   private changeRound(): void {
     const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
-    gameSave.roundState.current += 1;
-    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
-    this.currentRound = gameSave.roundState.current;
+    if (gameSave.roundState.current < gameSave.roundState.total) {
+      gameSave.roundState.current += 1;
+      this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+      this.currentRound = gameSave.roundState.current;
+    } else {
+      this.setEndGame(true);
+    }
   }
 
   handleAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {

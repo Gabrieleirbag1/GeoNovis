@@ -1,19 +1,26 @@
-<div><p>Round {{ currentRound }} of {{ totalRounds }}</p></div>
+@if (!endGame) {
+  <div><p>Round {{ currentRound }} of {{ totalRounds }}</p></div>
 
-<app-find-capital 
-  *ngIf="subgamemode === 'findCapital'" 
-  (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
-  [turn]="currentRound">
-</app-find-capital>
+  <app-find-capital 
+    *ngIf="subgamemode === 'findCapital'" 
+    (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+    [turn]="currentRound">
+  </app-find-capital>
 
-<app-find-flag 
-  *ngIf="subgamemode === 'findFlag'" 
-  (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
-  [turn]="currentRound">
-</app-find-flag>
+  <app-find-flag 
+    *ngIf="subgamemode === 'findFlag'" 
+    (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+    [turn]="currentRound">
+  </app-find-flag>
 
-<div class="turn-result" *ngIf="endTurn">
-  <p *ngIf="isCorrect" class="correct">Correct!</p>
-  <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
-  <button (click)="nextTurn()">Next</button>
-</div>
+  <div class="turn-result" *ngIf="endTurn">
+    <p *ngIf="isCorrect" class="correct">Correct!</p>
+    <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
+    <button (click)="nextTurn()">Next</button>
+  </div>
+} @else {
+  <div class="end-game">
+    <p>Game Over! You completed {{ currentRound }} rounds.</p>
+    <!-- <button (click)="gameStateService.resetGame()">Play Again</button> -->
+  </div> 
+}
