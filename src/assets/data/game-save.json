@@ -1,16 +1,22 @@
 {
-    "roundState": {
-        "current": 0,
-        "total": 50,
-        "endRound": false,
-        "countryFound": null
-    },
-    "timeLimit": {
-        "value": 20,
-        "datetime": null
-    },
-    "gamemode": {
-        "current": null,
-        "available": []
-    }
+  "roundState": {
+    "current": 0,
+    "total": 50,
+    "endRound": false,
+    "countryFound": null
+  },
+  "timeLimit": {
+    "value": 20,
+    "datetime": null
+  },
+  "gamemode": {
+    "current": null,
+    "available": []
+  },
+  "subgamemode": {
+    "current": null,
+    "available": []
+  },
+  "region": []
+
 }

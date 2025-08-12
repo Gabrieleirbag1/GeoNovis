@@ -11,13 +11,13 @@ import { GameSessionService } from '../../../services/game-session.service';
   styleUrl: './game.css'
 })
 export class Game implements OnInit{
-  gamerules: any;
+  gameSave: any;
   subgamemode: string = 'findCapital'; // Example value, can be set dynamically based on game state
   constructor(private gameSessionService: GameSessionService) {}
 
   ngOnInit(): void {
     console.log('Game Component Initialized');
-    this.gamerules = this.gameSessionService.getParsedItem('gameRules') || {};
-    this.subgamemode = this.gamerules.subgamemode || 'findCapital'; // Default to 'findFlag' if not set
+    this.gameSave = this.gameSessionService.getParsedItem('gameSave') || {};
+    this.subgamemode = this.gameSave.subgamemode.available[0] || 'findCapital'; // Default to 'findFlag' if not set
   }
 }

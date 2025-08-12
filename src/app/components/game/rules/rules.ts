@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import gameInfos from '../../../../assets/data/game-infos.json';
+import gameSave from '../../../../assets/data/game-save.json';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { GameSessionService } from '../../../services/game-session.service';
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class Rules {
   gameInfos: any = gameInfos;
-  rules: any = {};
+  gameSave: any = gameSave;
 
   constructor(private gameSessionService: GameSessionService, private routes: Router) {}
 
@@ -29,18 +30,16 @@ export class Rules {
     const gamemode = this.gameSessionService.getSessionItem('menu_2');
     const subgamemode = this.gameSessionService.getSessionItem('menu_3');
 
-    this.rules = {
-      time: timelimitElement.value,
-      rounds: roundsElement.value,
-      region: region,
-      gamemode: gamemode,
-      subgamemode: subgamemode
-    };
+    this.gameSave.roundState.total = roundsElement.value;
+    this.gameSave.timeLimit.value = timelimitElement.value,
+    this.gameSave.region = [region];
+    this.gameSave.gamemode.available = [gamemode];
+    this.gameSave.subgamemode.available = [subgamemode];
   }
 
   private setGameSession(): void {
     this.gameSessionService.setSessionItem('gameStarted', 'true');
-    this.gameSessionService.setSessionItem('gameRules', JSON.stringify(this.rules));
+    this.gameSessionService.setSessionItem('gameSave', JSON.stringify(this.gameSave));
     this.gameSessionService.initGameState();
     this.routes.navigate(['/game']);
   }
