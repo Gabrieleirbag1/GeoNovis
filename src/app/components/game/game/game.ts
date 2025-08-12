@@ -25,14 +25,14 @@ export class Game implements OnInit {
 
   ngOnInit(): void {
     console.log("Game Component Initialized");
-    this.handleEndTurn();
+    this.handleEnd();
     const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
     this.subgamemode = gameSave.subgamemode.available[0] || "findCapital";
     this.currentRound = gameSave.roundState.current;
     this.totalRounds = gameSave.roundState.total;
   }
 
-  private handleEndTurn(): void {
+  private handleEnd(): void {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     this.endGame = gameSave.roundState.endGame;
     if (!this.endGame) {
