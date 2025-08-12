@@ -13,7 +13,7 @@
     [turn]="currentRound">
   </app-find-flag>
 
-  <div class="turn-result" *ngIf="endTurn">
+  <div class="turn-result" *ngIf="endRound">
     <p *ngIf="isCorrect" class="correct">Correct!</p>
     <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
     <button (click)="nextTurn()">Next</button>

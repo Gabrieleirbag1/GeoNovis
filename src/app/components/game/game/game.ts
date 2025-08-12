@@ -16,7 +16,7 @@ export class Game implements OnInit {
   subgamemode: string = "findCapital";
   currentRound: number = 0;
   totalRounds: number | null = null;
-  endTurn: boolean = false;
+  endRound: boolean = false;
   endGame: boolean = false;
   isCorrect: boolean = false;
   selectedCountryCode: CountryCode = "";
@@ -36,33 +36,25 @@ export class Game implements OnInit {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     this.endGame = gameSave.roundState.endGame;
     if (!this.endGame) {
-      this.endTurn = gameSave.roundState.endRound;
-      if (this.endTurn) {
+      this.endRound = gameSave.roundState.endRound;
+      if (this.endRound) {
         const { countryCode, correctCountryCode } = this.getCountryCodes();
         this.checkAnswer(countryCode, correctCountryCode);
       }
     }
   }
 
-  private setEndTurn(endTurn: boolean): void {
-    this.endTurn = endTurn;
+  private setRoundStateValue(key: "endGame" | "endRound", value: boolean): void{
+    const obj = this;
+    obj[key] = value;
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    gameSave.roundState.endRound = endTurn;
-    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
-  }
-
-  private setEndGame(endGame: boolean): void {
-    console.log("end", endGame);
-    this.endGame = endGame;
-    const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    gameSave.roundState.endGame = endGame;
-    console.log(gameSave);
+    gameSave.roundState[key] = value;
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
   }
 
   private getCountryCodes(): { countryCode: CountryCode; correctCountryCode: CountryCode } {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    return {
+    return {  
       countryCode: gameSave.roundState.countryCode,
       correctCountryCode: gameSave.roundState.correctCountryCode,
     };
@@ -82,17 +74,17 @@ export class Game implements OnInit {
       this.gameSessionService.setStringifiedItem("gameSave", gameSave);
       this.currentRound = gameSave.roundState.current;
     } else {
-      this.setEndGame(true);
+      this.setRoundStateValue("endGame", true);
     }
   }
 
   handleAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
-    if (this.endTurn) {
+    if (this.endRound) {
       return;
     }
     this.checkAnswer(countryCode, correctCountryCode);
     this.setCountryCodes(countryCode, correctCountryCode);
-    this.setEndTurn(true);
+    this.setRoundStateValue("endRound", true);
   }
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
@@ -103,7 +95,7 @@ export class Game implements OnInit {
 
   nextTurn(): void {
     this.gameStateService.nextTurn();
-    this.setEndTurn(false);
+    this.setRoundStateValue("endRound", false);
     this.changeRound();
   }
 }
