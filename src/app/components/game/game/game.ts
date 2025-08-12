@@ -28,21 +28,34 @@ export class Game implements OnInit {
 
   ngOnInit(): void {
     console.log('Game Component Initialized');
+    this.handleEndTurn()
     this.gameSave = this.gameSessionService.getParsedItem('gameSave') || {};
     this.subgamemode = this.gameSave.subgamemode.available[0] || 'findCapital';
     this.currentRound = this.gameSave.roundState.current;
     this.totalRounds = this.gameSave.roundState.total;
   }
 
+  private handleEndTurn(): void {
+    const gameSave = this.gameSessionService.getParsedItem('gameSave');
+    this.endTurn = gameSave.roundState.endRound;
+  }
+
+  private setEndTurn(endTurn: boolean): void {
+    this.endTurn = endTurn;
+    const gameSave = this.gameSessionService.getParsedItem('gameSave');
+    gameSave.roundState.endRound = endTurn;
+    this.gameSessionService.setStringifiedItem('gameSave', gameSave);
+  }
+
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     this.selectedCountryCode = correctCountryCode;
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
     console.log('Is answer correct?', this.isCorrect);
-    this.endTurn = true;
+    this.setEndTurn(true);
   }
 
   nextTurn(): void {
     this.gameStateService.nextTurn();
-    this.endTurn = false;
+    this.setEndTurn(false);
   }
 }
