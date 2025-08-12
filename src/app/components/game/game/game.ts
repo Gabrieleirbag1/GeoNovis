@@ -67,6 +67,7 @@ export class Game implements OnInit {
   }
 
   handleAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
+    if (this.endTurn) { return; }
     this.checkAnswer(countryCode, correctCountryCode);
     this.setCountryCodes(countryCode, correctCountryCode);
     this.setEndTurn(true);
