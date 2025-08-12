@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
 import { Countries } from '../../../../types/countries.type';
 import { CommonModule } from '@angular/common';
@@ -11,10 +11,12 @@ import { CountryCode } from '../../../../types/code.type';
   templateUrl: './find-flag.html',
   styleUrl: './find-flag.css'
 })
-export class FindFlag implements OnInit {
+export class FindFlag implements OnInit, OnChanges {
   countries: Countries[] = [];
   selectedCountry: string = '';
-  
+
+  @Input() turn!: number; // new input to track round changes
+
   @Output() answerSelected = new EventEmitter<{selectedCode: CountryCode, correctCode: CountryCode}>();
 
   constructor(
@@ -24,6 +26,12 @@ export class FindFlag implements OnInit {
 
   ngOnInit(): void {
     this.init();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['turn'] && !changes['turn'].isFirstChange()) {
+      this.init();
+    }
   }
 
   init(): void {

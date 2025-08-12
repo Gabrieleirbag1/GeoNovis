@@ -13,10 +13,6 @@ import { CountryCode } from "../../../types/code.type";
   styleUrl: "./game.css",
 })
 export class Game implements OnInit {
-  @ViewChild(FindCapital) findCapitalComponent!: FindCapital;
-  @ViewChild(FindFlag) findFlagComponent!: FindFlag;
-
-  gameSave: any;
   subgamemode: string = "findCapital";
   currentRound: number = 0;
   totalRounds: number | null = null;
@@ -29,10 +25,10 @@ export class Game implements OnInit {
   ngOnInit(): void {
     console.log("Game Component Initialized");
     this.handleEndTurn();
-    this.gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
-    this.subgamemode = this.gameSave.subgamemode.available[0] || "findCapital";
-    this.currentRound = this.gameSave.roundState.current;
-    this.totalRounds = this.gameSave.roundState.total;
+    const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
+    this.subgamemode = gameSave.subgamemode.available[0] || "findCapital";
+    this.currentRound = gameSave.roundState.current;
+    this.totalRounds = gameSave.roundState.total;
   }
 
   private handleEndTurn(): void {
@@ -66,6 +62,13 @@ export class Game implements OnInit {
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
   }
 
+  private changeRound(): void {
+    const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
+    gameSave.roundState.current += 1;
+    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+    this.currentRound = gameSave.roundState.current;
+  }
+
   handleAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     if (this.endTurn) {
       return;
@@ -84,18 +87,6 @@ export class Game implements OnInit {
   nextTurn(): void {
     this.gameStateService.nextTurn();
     this.setEndTurn(false);
-
-    this.gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
-    this.currentRound = this.gameSave.roundState.current;
-
-    const initMethods: { [key: string]: () => void } = {
-      findCapital: () => this.findCapitalComponent.init(),
-      findFlag: () => this.findFlagComponent.init(),
-    };
-
-    const initFn = initMethods[this.subgamemode];
-    if (initFn) {
-      initFn();
-    }
+    this.changeRound();
   }
 }

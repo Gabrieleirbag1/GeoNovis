@@ -1,14 +1,19 @@
 <div><p>Round {{ currentRound }} of {{ totalRounds }}</p></div>
 
-<app-find-capital *ngIf="subgamemode === 'findCapital'" (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"></app-find-capital>
+<app-find-capital 
+  *ngIf="subgamemode === 'findCapital'" 
+  (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+  [turn]="currentRound">
+</app-find-capital>
 
-<app-find-flag *ngIf="subgamemode === 'findFlag'" (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"></app-find-flag>
+<app-find-flag 
+  *ngIf="subgamemode === 'findFlag'" 
+  (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+  [turn]="currentRound">
+</app-find-flag>
 
 <div class="turn-result" *ngIf="endTurn">
-  @if (isCorrect) {
-  <p class="correct">Correct!</p>
-  } @else {
-  <p class="incorrect">Incorrect</p>
-  }
+  <p *ngIf="isCorrect" class="correct">Correct!</p>
+  <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
   <button (click)="nextTurn()">Next</button>
 </div>
