@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
 import { Countries } from '../../../../types/countries.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
-import { GameStateService } from '../../../../services/game-state.service';
+import { CountryCode } from '../../../../types/code.type';
 
 @Component({
   selector: 'app-find-flag',
@@ -11,27 +11,34 @@ import { GameStateService } from '../../../../services/game-state.service';
   templateUrl: './find-flag.html',
   styleUrl: './find-flag.css'
 })
-export class FindFlag {
+export class FindFlag implements OnInit {
   countries: Countries[] = [];
   selectedCountry: string = '';
-  endTurn: boolean = false;
-  isCorrect: boolean = false;
-  constructor(private gameService: GameService, private convertService: ConvertService, protected gameStateService: GameStateService) {}
+  
+  @Output() answerSelected = new EventEmitter<{selectedCode: CountryCode, correctCode: CountryCode}>();
+
+  constructor(
+    private gameService: GameService, 
+    private convertService: ConvertService
+  ) {}
 
   ngOnInit(): void {
-    console.log('FindCapital Component Initialized');
+    console.log('FindFlag Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
-    this.selectedCountry = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode).country[this.convertService.language];
+    this.selectedCountry = this.convertService.convertCodeToCountry(
+      this.gameService.selectedCountryCode
+    ).country[this.convertService.language];
   }
 
   getFlagImage(countryCode: string): string {
     return '/images/flags/' + countryCode.toLowerCase() + '.svg';
   }
 
-  checkAnswer(country: any): void {
-    this.isCorrect = this.gameStateService.checkPlayerAnswer(country.code, this.gameService.selectedCountryCode);
-    console.log('Is answer correct?', this.isCorrect);
-    this.endTurn = true;
+  onAnswerSelect(country: any): void {
+    this.answerSelected.emit({
+      selectedCode: country.code,
+      correctCode: this.gameService.selectedCountryCode
+    });
   }
 }

@@ -3,6 +3,8 @@ import { FindCapital } from "../capitals/find-capital/find-capital";
 import { FindFlag } from "../flags/find-flag/find-flag";
 import { CommonModule } from '@angular/common';
 import { GameSessionService } from '../../../services/game-session.service';
+import { GameStateService } from '../../../services/game-state.service';
+import { CountryCode } from '../../../types/code.type';
 
 @Component({
   selector: 'app-game',
@@ -10,18 +12,37 @@ import { GameSessionService } from '../../../services/game-session.service';
   templateUrl: './game.html',
   styleUrl: './game.css'
 })
-export class Game implements OnInit{
+export class Game implements OnInit {
   gameSave: any;
-  subgamemode: string = 'findCapital'; // Example value, can be set dynamically based on game state
+  subgamemode: string = 'findCapital';
   currentRound: number = 0;
-  totalRounds: number | null = null; // Example value, can be set dynamically based on
-  constructor(private gameSessionService: GameSessionService) {}
+  totalRounds: number | null = null;
+  endTurn: boolean = false;
+  isCorrect: boolean = false;
+  selectedCountryCode: CountryCode = '';
+
+  constructor(
+    private gameSessionService: GameSessionService, 
+    protected gameStateService: GameStateService
+  ) {}
 
   ngOnInit(): void {
     console.log('Game Component Initialized');
     this.gameSave = this.gameSessionService.getParsedItem('gameSave') || {};
-    this.subgamemode = this.gameSave.subgamemode.available[0] || 'findCapital'; // Default to 'findFlag' if not set
-    this.currentRound = this.gameSave.roundState.current || 1; // Default to 1 if not set
-    this.totalRounds = this.gameSave.roundState.total || 50; // Default to 50 if not set
+    this.subgamemode = this.gameSave.subgamemode.available[0] || 'findCapital';
+    this.currentRound = this.gameSave.roundState.current;
+    this.totalRounds = this.gameSave.roundState.total;
+  }
+
+  checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
+    this.selectedCountryCode = correctCountryCode;
+    this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
+    console.log('Is answer correct?', this.isCorrect);
+    this.endTurn = true;
+  }
+
+  nextTurn(): void {
+    this.gameStateService.nextTurn();
+    this.endTurn = false;
   }
 }

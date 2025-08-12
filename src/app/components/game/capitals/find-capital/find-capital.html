@@ -1,19 +1,10 @@
 <section>
   <div class="country-name">
-    <!-- <p>{{ countries.slice(-1)[0].name }}</p> -->
-     {{ selectedCountry }}
+    {{ selectedCountry }}
   </div>
   <div class="capitals" *ngIf="countries.length > 0">
-    <button *ngFor="let country of countries" (click)="checkAnswer(country)">{{ country.capital }}</button>
+    <button *ngFor="let country of countries" (click)="onAnswerSelect(country)">
+      {{ country.capital }}
+    </button>
   </div>
-
-  <div class="turn-result" *ngIf="endTurn">
-    @if (isCorrect) {
-      <p class="correct">Correct!</p>
-    }  @else {
-      <p class="incorrect">Incorrect</p>
-    }
-    <button (click)="gameStateService.nextTurn()">Next</button>
-  </div>
-  
 </section>
