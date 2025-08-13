@@ -62,6 +62,7 @@ export class Rules {
 
     this.gameSave.roundState.total = roundsElement.value;
     this.gameSave.timeLimit.value = timelimitElement.value,
+    this.gameSave.timeLimit.datetime = new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString();
     this.gameSave.region = [region];
     this.gameSave.gamemode.available = [gamemode];
     this.gameSave.subgamemode.available = [subgamemode];

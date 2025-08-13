@@ -1,29 +1,31 @@
-@if (!endGame) {
-  <div class="game-header">
-    <p>Round {{ currentRound }} of {{ totalRounds }}</p>
-    <p class="countdown">Time remaining: {{ remainingTime }}</p>
-  </div>
+<section class="game-section">
+  @if (!endGame) {
+    <div class="game-header">
+      <p>Round {{ currentRound }} of {{ totalRounds }}</p>
+      <p class="countdown">Time remaining: {{ remainingTime }}</p>
+    </div>
 
-  <app-find-capital 
-    *ngIf="subgamemode === 'findCapital'" 
-    (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
-    [turn]="currentRound">
-  </app-find-capital>
+    <app-find-capital 
+      *ngIf="subgamemode === 'findCapital'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound">
+    </app-find-capital>
 
-  <app-find-flag 
-    *ngIf="subgamemode === 'findFlag'" 
-    (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
-    [turn]="currentRound">
-  </app-find-flag>
+    <app-find-flag 
+      *ngIf="subgamemode === 'findFlag'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound">
+    </app-find-flag>
 
-  <div class="turn-result" *ngIf="endRound">
-    <p *ngIf="isCorrect" class="correct">Correct!</p>
-    <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
-    <button (click)="nextTurn()">Next</button>
-  </div>
-} @else {
-  <div class="end-game">
-    <p>Game Over! You completed {{ currentRound }} rounds.</p>
-    <!-- <button (click)="gameStateService.resetGame()">Play Again</button> -->
-  </div> 
-}
+    <div class="turn-result" *ngIf="endRound">
+      <p *ngIf="isCorrect" class="correct">Correct!</p>
+      <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
+      <button (click)="nextTurn()">Next</button>
+    </div>
+  } @else {
+    <div class="end-game">
+      <p>Game Over! You completed {{ currentRound }} rounds.</p>
+      <!-- <button (click)="gameStateService.resetGame()">Play Again</button> -->
+    </div> 
+  }
+</section>
