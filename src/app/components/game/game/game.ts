@@ -98,11 +98,11 @@ export class Game implements OnInit {
         const buttonNameAttribute = buttons[i].getAttribute("name");
         if (buttonNameAttribute == correctCountryCode) {
           buttons[i].classList.add("correct-answer");
+          if (isCorrect) {
+            break;
+          }
         } else if (buttonNameAttribute == countryCode && countryCode !== correctCountryCode) {
           buttons[i].classList.add("wrong-answer");
-        }
-        if (isCorrect) {
-          break;
         }
       }
     }, 0);
