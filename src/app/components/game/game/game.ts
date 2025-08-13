@@ -69,26 +69,32 @@ export class Game implements OnInit, OnDestroy {
       clearInterval(this.timerInterval);
     }
 
-    this.timerInterval = setInterval(() => {
-      if (this.endTime) {
-        this.remainingTime = this.calculateRemainingTime(this.endTime);
-      }
+    // Store last update time to ensure smooth countdown
+    let lastUpdateTime = Date.now();
 
+    this.timerInterval = setInterval(() => {
+      if (!this.endTime) return;
+
+      const now = Date.now();
+      // Calculate how many seconds actually passed since last update
+      const deltaTime = now - lastUpdateTime;
+      lastUpdateTime = now;
+
+      // Update the display
+      this.remainingTime = this.calculateRemainingTime(this.endTime);
+
+      // If time has reached zero, handle it
       if (this.remainingTime === "00:00") {
         this.stopCountdown();
         const correctCountryCode = this.gameSessionService.getParsedItem("gameSave").roundState.correctCountryCode;
-        this.handleAnswer('', correctCountryCode);
+        this.handleAnswer("", correctCountryCode);
       }
-    }, 1000);
-  }
-
-  private stopCountdown(): void {
-    clearInterval(this.timerInterval);
+    }, 500); // Update twice per second for smoother display
   }
 
   private calculateRemainingTime(datetimeLimit: Date): string {
     const now = new Date();
-    const diff = datetimeLimit.getTime() - now.getTime();
+    const diff = Math.max(0, datetimeLimit.getTime() - now.getTime());
 
     if (diff <= 0) {
       return "00:00";
@@ -98,6 +104,10 @@ export class Game implements OnInit, OnDestroy {
     const seconds = Math.floor((diff % 60000) / 1000);
 
     return `${this.padZero(minutes)}:${this.padZero(seconds)}`;
+  }
+
+  private stopCountdown(): void {
+    clearInterval(this.timerInterval);
   }
 
   private padZero(num: number): string {
@@ -155,9 +165,9 @@ export class Game implements OnInit, OnDestroy {
     if (this.endRound) {
       return;
     }
-    
+
     this.stopCountdown();
-    
+
     this.checkAnswer(countryCode, correctCountryCode);
     this.setCountryCodes(countryCode, correctCountryCode);
     this.setRoundStateValue("endRound", true);
