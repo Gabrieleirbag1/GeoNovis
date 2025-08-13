@@ -17,4 +17,16 @@
     <div class="start-game">
         <button (click)="startGame()">Start Game</button>
     </div>
+    
+    <!-- Warning Modal -->
+    <div class="modal-overlay" *ngIf="showWarningModal">
+        <div class="modal-content">
+            <h3>Warning!</h3>
+            <p>{{ warningMessage }}</p>
+            <div class="modal-buttons">
+                <button (click)="confirmStartNewGame()">Continue</button>
+                <button (click)="cancelStartNewGame()">Cancel</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -78,6 +78,7 @@ export class Game implements OnInit {
       this.currentRound = gameSave.roundState.current;
     } else {
       this.setRoundStateValue("endGame", true);
+      this.gameSessionService.setSessionItem("gameStarted", "false");
     }
   }
 

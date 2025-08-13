@@ -15,10 +15,40 @@ import { Router } from '@angular/router';
 export class Rules {
   gameInfos: any = gameInfos;
   gameSave: any = gameSave;
+  showWarningModal: boolean = false;
+  warningMessage: string = '';
 
   constructor(private gameSessionService: GameSessionService, private routes: Router) {}
 
   protected startGame(): void {
+    const gameStartedState = this.gameSessionService.getSessionItem('gameStarted');
+    if (gameStartedState === 'true') {
+      this.warningModal('You already have a game in progress. Starting a new game will delete your current progress.');
+      return;
+    }
+    
+    this.initializeNewGame();
+  }
+
+  private warningModal(message: string): void {
+    this.warningMessage = message;
+    this.showWarningModal = true;
+  }
+
+  confirmStartNewGame(): void {
+    this.setShowWarningModal(false);
+    this.initializeNewGame();
+  }
+
+  cancelStartNewGame(): void {
+    this.setShowWarningModal(false);
+  }
+
+  private setShowWarningModal(value: boolean): void {
+    this.showWarningModal = value;
+  }
+
+  private initializeNewGame(): void {
     this.setRules();
     this.setGameSession();
   }
