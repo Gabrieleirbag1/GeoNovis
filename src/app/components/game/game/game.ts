@@ -76,14 +76,14 @@ export class Game implements OnInit, OnDestroy {
 
       if (this.remainingTime === "00:00") {
         this.stopCountdown();
+        const correctCountryCode = this.gameSessionService.getParsedItem("gameSave").roundState.correctCountryCode;
+        this.handleAnswer('', correctCountryCode);
       }
     }, 1000);
   }
 
   private stopCountdown(): void {
-    const correctCountryCode = this.gameSessionService.getParsedItem("gameSave").roundState.correctCountryCode;
     clearInterval(this.timerInterval);
-    this.handleAnswer('', correctCountryCode);
   }
 
   private calculateRemainingTime(datetimeLimit: Date): string {
@@ -155,13 +155,15 @@ export class Game implements OnInit, OnDestroy {
     if (this.endRound) {
       return;
     }
+    
+    this.stopCountdown();
+    
     this.checkAnswer(countryCode, correctCountryCode);
     this.setCountryCodes(countryCode, correctCountryCode);
     this.setRoundStateValue("endRound", true);
   }
 
   private handleAnswerButtonColorChange(isCorrect: boolean, countryCode: CountryCode, correctCountryCode: CountryCode): void {
-    console.log("Handling answer button color change:", correctCountryCode);
     setTimeout(() => {
       const buttons = document.getElementsByClassName("answer-btn") as HTMLCollectionOf<HTMLButtonElement>;
 
