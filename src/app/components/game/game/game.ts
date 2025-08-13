@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FindCapital } from "../capitals/find-capital/find-capital";
 import { FindFlag } from "../flags/find-flag/find-flag";
 import { CommonModule } from "@angular/common";
 import { GameSessionService } from "../../../services/game-session.service";
 import { GameStateService } from "../../../services/game-state.service";
 import { CountryCode } from "../../../types/code.type";
+import { ConvertService } from "../../../services/convert.service";
 
 @Component({
   selector: "app-game",
@@ -20,6 +21,7 @@ export class Game implements OnInit {
   endGame: boolean = false;
   isCorrect: boolean = false;
   selectedCountryCode: CountryCode = "";
+  language: string = "fr";
 
   constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService) {}
 
@@ -44,7 +46,7 @@ export class Game implements OnInit {
     }
   }
 
-  private setRoundStateValue(key: "endGame" | "endRound", value: boolean): void{
+  private setRoundStateValue(key: "endGame" | "endRound", value: boolean): void {
     const obj = this;
     obj[key] = value;
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
@@ -54,7 +56,7 @@ export class Game implements OnInit {
 
   private getCountryCodes(): { countryCode: CountryCode; correctCountryCode: CountryCode } {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    return {  
+    return {
       countryCode: gameSave.roundState.countryCode,
       correctCountryCode: gameSave.roundState.correctCountryCode,
     };
@@ -87,9 +89,28 @@ export class Game implements OnInit {
     this.setRoundStateValue("endRound", true);
   }
 
+  private handleAnswerButtonColorChange(isCorrect: boolean, countryCode: CountryCode, correctCountryCode: CountryCode): void {
+    const buttons = document.getElementsByClassName("answer-btn") as HTMLCollectionOf<HTMLButtonElement>;
+    for (let i = 0; i < buttons.length; i++) {
+      const buttonNameAttribute = buttons[i].getAttribute("name");
+      if (buttonNameAttribute == correctCountryCode) {
+        buttons[i].style.backgroundColor = "green";
+      } else if (buttonNameAttribute == countryCode) {
+        buttons[i].style.backgroundColor = "red";
+      } else {
+        continue;
+      }
+      buttons[i].style.color = "white";
+      if (isCorrect) {
+        break;
+      }
+    }
+  }
+
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     this.selectedCountryCode = correctCountryCode;
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
+    this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
     console.log("Is answer correct?", this.isCorrect);
   }
 

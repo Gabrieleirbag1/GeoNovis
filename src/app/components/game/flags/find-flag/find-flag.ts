@@ -34,8 +34,15 @@ export class FindFlag implements OnInit, OnChanges {
     }
   }
 
+  onAnswerSelect(country: any): void {
+    this.answerSelected.emit({
+      selectedCode: country.code,
+      correctCode: this.gameService.selectedCountryCode
+    });
+  }
+
   init(): void {
-    console.log('FindFlag Component Initialized');
+    // console.log('FindFlag Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
     this.selectedCountry = this.convertService.convertCodeToCountry(
@@ -47,10 +54,4 @@ export class FindFlag implements OnInit, OnChanges {
     return '/images/flags/' + countryCode.toLowerCase() + '.svg';
   }
 
-  onAnswerSelect(country: any): void {
-    this.answerSelected.emit({
-      selectedCode: country.code,
-      correctCode: this.gameService.selectedCountryCode
-    });
-  }
 }

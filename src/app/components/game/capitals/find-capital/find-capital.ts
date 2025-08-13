@@ -34,8 +34,15 @@ export class FindCapital implements OnInit, OnChanges {
     }
   }
 
+  onAnswerSelect(country: any): void {
+    this.answerSelected.emit({
+      selectedCode: country.code,
+      correctCode: this.gameService.selectedCountryCode
+    });
+  }
+
   init(): void {
-    console.log('FindCapital Component Initialized');
+    // console.log('FindCapital Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
     this.selectedCountry = this.convertService.convertCodeToCountry(
@@ -43,10 +50,4 @@ export class FindCapital implements OnInit, OnChanges {
     ).country[this.convertService.language];
   }
 
-  onAnswerSelect(country: any): void {
-    this.answerSelected.emit({
-      selectedCode: country.code,
-      correctCode: this.gameService.selectedCountryCode
-    });
-  }
 }
