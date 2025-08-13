@@ -9,7 +9,7 @@ import { CountryCode } from '../../../../types/code.type';
   selector: 'app-find-capital',
   imports: [CommonModule],
   templateUrl: './find-capital.html',
-  styleUrl: './find-capital.css'
+  styleUrls: ['./find-capital.css', '../../game/game.css'],
 })
 export class FindCapital implements OnInit, OnChanges {
   countries: Countries[] = [];

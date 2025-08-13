@@ -1,0 +1,11 @@
+.wrong-answer {
+  color: white;
+  font-weight: bold;
+  background-color: red;
+}
+
+.correct-answer {
+  color: white;
+  font-weight: bold;
+  background-color: green;
+}

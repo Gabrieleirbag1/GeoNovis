@@ -42,6 +42,7 @@ export class Game implements OnInit {
       if (this.endRound) {
         const { countryCode, correctCountryCode } = this.getCountryCodes();
         this.checkAnswer(countryCode, correctCountryCode);
+        this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
       }
     }
   }
@@ -90,21 +91,21 @@ export class Game implements OnInit {
   }
 
   private handleAnswerButtonColorChange(isCorrect: boolean, countryCode: CountryCode, correctCountryCode: CountryCode): void {
-    const buttons = document.getElementsByClassName("answer-btn") as HTMLCollectionOf<HTMLButtonElement>;
-    for (let i = 0; i < buttons.length; i++) {
-      const buttonNameAttribute = buttons[i].getAttribute("name");
-      if (buttonNameAttribute == correctCountryCode) {
-        buttons[i].style.backgroundColor = "green";
-      } else if (buttonNameAttribute == countryCode) {
-        buttons[i].style.backgroundColor = "red";
-      } else {
-        continue;
+    setTimeout(() => {
+      const buttons = document.getElementsByClassName("answer-btn") as HTMLCollectionOf<HTMLButtonElement>;
+
+      for (let i = 0; i < buttons.length; i++) {
+        const buttonNameAttribute = buttons[i].getAttribute("name");
+        if (buttonNameAttribute == correctCountryCode) {
+          buttons[i].classList.add("correct-answer");
+        } else if (buttonNameAttribute == countryCode && countryCode !== correctCountryCode) {
+          buttons[i].classList.add("wrong-answer");
+        }
+        if (isCorrect) {
+          break;
+        }
       }
-      buttons[i].style.color = "white";
-      if (isCorrect) {
-        break;
-      }
-    }
+    }, 0);
   }
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {

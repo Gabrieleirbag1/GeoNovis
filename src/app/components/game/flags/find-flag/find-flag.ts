@@ -9,7 +9,7 @@ import { CountryCode } from '../../../../types/code.type';
   selector: 'app-find-flag',
   imports: [CommonModule],
   templateUrl: './find-flag.html',
-  styleUrl: './find-flag.css'
+  styleUrls: ['./find-flag.css', '../../game/game.css'],
 })
 export class FindFlag implements OnInit, OnChanges {
   countries: Countries[] = [];
