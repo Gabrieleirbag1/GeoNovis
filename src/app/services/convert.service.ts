@@ -30,4 +30,9 @@ export class ConvertService {
     const countryInfo = worldInfos.find((info) => info.flag === code);
     return countryInfo;
   }
+
+  getCountryName(code: CountryCode): string {
+    const countryInfo = this.convertCodeToCountry(code);
+    return countryInfo ? countryInfo.country[this.language] : '';
+  }
 }
