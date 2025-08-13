@@ -1,11 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FindCapital } from "../capitals/find-capital/find-capital";
 import { FindFlag } from "../flags/find-flag/find-flag";
 import { CommonModule } from "@angular/common";
 import { GameSessionService } from "../../../services/game-session.service";
 import { GameStateService } from "../../../services/game-state.service";
 import { CountryCode } from "../../../types/code.type";
-import { ConvertService } from "../../../services/convert.service";
 
 @Component({
   selector: "app-game",
@@ -13,25 +12,96 @@ import { ConvertService } from "../../../services/convert.service";
   templateUrl: "./game.html",
   styleUrl: "./game.css",
 })
-export class Game implements OnInit {
+export class Game implements OnInit, OnDestroy {
   subgamemode: string = "findCapital";
   currentRound: number = 0;
   totalRounds: number | null = null;
   endRound: boolean = false;
   endGame: boolean = false;
   isCorrect: boolean = false;
-  selectedCountryCode: CountryCode = "";
   language: string = "fr";
+
+  remainingTime: string = "";
+  private timerInterval: any;
+  private endTime: Date | null = null;
 
   constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService) {}
 
   ngOnInit(): void {
-    console.log("Game Component Initialized");
     this.handleEnd();
     const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
     this.subgamemode = gameSave.subgamemode.available[0] || "findCapital";
     this.currentRound = gameSave.roundState.current;
     this.totalRounds = gameSave.roundState.total;
+    this.initializeCountdown();
+  }
+
+  ngOnDestroy(): void {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+    }
+  }
+
+  private initializeCountdown(): void {
+    const gameSave = this.gameSessionService.getParsedItem("gameSave");
+
+    this.endTime = new Date(gameSave.timeLimit.datetime);
+    this.startCountdownTimer();
+  }
+
+  private setNewCountdown(): void {
+    this.setCountDown();
+    this.startCountdownTimer();
+  }
+
+  private setCountDown(): void {
+    const gameSave = this.gameSessionService.getParsedItem("gameSave");
+    const timeLimit: number = gameSave.timeLimit.value;
+    const datetime: Date = new Date();
+    this.endTime = new Date(datetime.getTime() + timeLimit * 1000);
+    gameSave.timeLimit.datetime = this.endTime.toISOString();
+    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+    this.remainingTime = this.calculateRemainingTime(this.endTime);
+  }
+
+  private startCountdownTimer(): void {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+    }
+
+    this.timerInterval = setInterval(() => {
+      if (this.endTime) {
+        this.remainingTime = this.calculateRemainingTime(this.endTime);
+      }
+
+      if (this.remainingTime === "00:00") {
+        this.stopCountdown();
+      }
+    }, 1000);
+  }
+
+  private stopCountdown(): void {
+    const correctCountryCode = this.gameSessionService.getParsedItem("gameSave").roundState.correctCountryCode;
+    clearInterval(this.timerInterval);
+    this.handleAnswer('', correctCountryCode);
+  }
+
+  private calculateRemainingTime(datetimeLimit: Date): string {
+    const now = new Date();
+    const diff = datetimeLimit.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      return "00:00";
+    }
+
+    const minutes = Math.floor(diff / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    return `${this.padZero(minutes)}:${this.padZero(seconds)}`;
+  }
+
+  private padZero(num: number): string {
+    return num < 10 ? `0${num}` : `${num}`;
   }
 
   private handleEnd(): void {
@@ -42,7 +112,6 @@ export class Game implements OnInit {
       if (this.endRound) {
         const { countryCode, correctCountryCode } = this.getCountryCodes();
         this.checkAnswer(countryCode, correctCountryCode);
-        this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
       }
     }
   }
@@ -92,6 +161,7 @@ export class Game implements OnInit {
   }
 
   private handleAnswerButtonColorChange(isCorrect: boolean, countryCode: CountryCode, correctCountryCode: CountryCode): void {
+    console.log("Handling answer button color change:", correctCountryCode);
     setTimeout(() => {
       const buttons = document.getElementsByClassName("answer-btn") as HTMLCollectionOf<HTMLButtonElement>;
 
@@ -110,15 +180,14 @@ export class Game implements OnInit {
   }
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
-    this.selectedCountryCode = correctCountryCode;
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
-    console.log("Is answer correct?", this.isCorrect);
   }
 
   nextTurn(): void {
     this.gameStateService.nextTurn();
     this.setRoundStateValue("endRound", false);
     this.changeRound();
+    this.setNewCountdown();
   }
 }

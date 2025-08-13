@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CountryCode } from '../types/code.type';
 import { GameSessionService } from './game-session.service';
+import { GameSaveService } from './game-save.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameStateService {
-  constructor(private gameSessionService: GameSessionService) {}
+  selectedCountryCode: CountryCode = '';
+  constructor(private gameSessionService: GameSessionService, private gameSaveService: GameSaveService) {}
 
   getTurnCodes(): CountryCode[] {
     const gameState = this.gameSessionService.getGameState();
@@ -44,6 +46,7 @@ export class GameStateService {
       if (gameState[code].selected) {
         gameState[code].selected = false;
         gameState[code].found = true; // Mark as found
+        this.selectedCountryCode = gameState[code].code; // Store the selected code
       }
     }
     this.gameSessionService.setGameState(gameState);
