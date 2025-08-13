@@ -89,7 +89,7 @@ export class Game implements OnInit, OnDestroy {
         const correctCountryCode = this.gameSessionService.getParsedItem("gameSave").roundState.correctCountryCode;
         this.handleAnswer("", correctCountryCode);
       }
-    }, 500); // Update twice per second for smoother display
+    }, 300); // Update 3 times per second for smoother display
   }
 
   private calculateRemainingTime(datetimeLimit: Date): string {
