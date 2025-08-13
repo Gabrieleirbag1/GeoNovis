@@ -14,12 +14,17 @@ export class Menu implements OnInit {
   currentRoute: string;
   menuConfig: any;
   language: string = 'fr'; // default
+  gameStarted: boolean = false;
 
   constructor(private gameSessionService: GameSessionService, private routes: Router) {
     this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
   }
 
   ngOnInit() {
+    if (this.gameSessionService.getSessionItem('gameStarted') === 'true') {
+      this.gameStarted = true;
+    }
+
     this.menuConfig = menuConfigData.menus[this.currentRoute as keyof typeof menuConfigData.menus];
     if (!this.menuConfig) {
       this.menuConfig = menuConfigData.menus["region" as keyof typeof menuConfigData.menus];
@@ -43,6 +48,10 @@ export class Menu implements OnInit {
   handleBackMenu(): void {
     const previousRoute = this.menuConfig.referrer || 'region';
     this.routes.navigate([`/${previousRoute}`]);
+  }
+
+  redirectGame(): void {
+    this.routes.navigate(['/game']);
   }
 
 }
