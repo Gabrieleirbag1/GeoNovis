@@ -16,6 +16,11 @@
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
       [turn]="currentRound">
     </app-write-capital>
+    <app-find-country-by-capital 
+      *ngIf="subgamemode === 'findCountryByCapital'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound">
+    </app-find-country-by-capital>
 
     <app-find-flag 
       *ngIf="subgamemode === 'findFlag'" 
@@ -26,9 +31,10 @@
 
     <div class="turn-result" *ngIf="endRound">
       <p *ngIf="isCorrect" class="correct">Correct!</p>
-      <p *ngIf="!isCorrect" class="incorrect">Incorrect, the response was {{ correctCountryCode }}</p>
+      <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
       <button (click)="nextTurn()">Next</button>
     </div>
+    
   } @else {
     <div class="end-game">
       <p>Game Over! You completed {{ currentRound }} rounds.</p>
