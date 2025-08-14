@@ -2,7 +2,7 @@
   <div class="country-name">
     {{ selectedCapital }}
   </div>
-  <div class="capitals" *ngIf="countries.length > 0">
+  <div class="qcm" *ngIf="countries.length > 0">
     <button class="answer-btn" *ngFor="let country of countries" (click)="onAnswerSelect(country)" name="{{ country.code }}">
       {{ country.name}}
     </button>
