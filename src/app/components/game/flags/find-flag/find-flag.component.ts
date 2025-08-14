@@ -8,8 +8,8 @@ import { CountryCode } from '../../../../types/code.type';
 @Component({
   selector: 'app-find-flag',
   imports: [CommonModule],
-  templateUrl: './find-flag.html',
-  styleUrls: ['./find-flag.css', '../../game/game.css'],
+  templateUrl: './find-flag.component.html',
+  styleUrls: ['./find-flag.component.css', '../../game/game.css'],
 })
 export class FindFlag implements OnInit, OnChanges {
   countries: Countries[] = [];

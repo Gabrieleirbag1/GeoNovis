@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { FindCapital } from "../capitals/find-capital/find-capital";
-import { FindFlag } from "../flags/find-flag/find-flag";
+import { FindCapital } from "../capitals/find-capital/find-capital.component";
+import { FindFlag } from "../flags/find-flag/find-flag.component";
 import { CommonModule } from "@angular/common";
 import { GameSessionService } from "../../../services/game-session.service";
 import { GameStateService } from "../../../services/game-state.service";

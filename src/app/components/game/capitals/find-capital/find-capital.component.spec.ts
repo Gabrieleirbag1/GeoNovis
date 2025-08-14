@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindCapital } from './find-capital';
+import { FindCapital } from './find-capital.component';
 
 describe('FindCapital', () => {
   let component: FindCapital;

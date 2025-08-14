@@ -8,8 +8,8 @@ import { CountryCode } from '../../../../types/code.type';
 @Component({
   selector: 'app-find-capital',
   imports: [CommonModule],
-  templateUrl: './find-capital.html',
-  styleUrls: ['./find-capital.css', '../../game/game.css'],
+  templateUrl: './find-capital.component.html',
+  styleUrls: ['./find-capital.component.css', '../../game/game.css'],
 })
 export class FindCapital implements OnInit, OnChanges {
   countries: Countries[] = [];

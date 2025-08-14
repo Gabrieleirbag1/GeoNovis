@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindFlag } from './find-flag';
+import { FindFlag } from './find-flag.component';
 
 describe('FindFlag', () => {
   let component: FindFlag;
