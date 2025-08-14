@@ -167,18 +167,10 @@
           "start": true
         },
         {
-          "id": "writeFlag",
+          "id": "findCountryByFlag",
           "name": {
             "en": "Find the Country",
             "fr": "Trouver le pays"
-          },
-          "start": true
-        },
-        {
-          "id": "findOrWriteByFlag",
-          "name": {
-            "en": "Find the Flag or write it",
-            "fr": "Trouver le drapeau ou l'écrire"
           },
           "start": true
         }

@@ -58,9 +58,7 @@
     {
       "flags": [
         "findFlag",
-        "writeFlag",
-        "findCountryByFlag",
-        "findOrWriteByFlag"
+        "findCountryByFlag"
       ]
     },
     { "licensePlates": null },
