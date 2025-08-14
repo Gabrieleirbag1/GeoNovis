@@ -2,7 +2,7 @@
   @if (!endGame) {
     <div class="game-header">
       <p>Round {{ currentRound }} of {{ totalRounds }}</p>
-      <p class="countdown">Time remaining: {{ remainingTime }}</p>
+      <p class="countdown" *ngIf="!this.endRound">Time remaining: {{ remainingTime }}</p>
     </div>
 
     <!-- GAME INJECTION SECTION -->
@@ -26,7 +26,7 @@
 
     <div class="turn-result" *ngIf="endRound">
       <p *ngIf="isCorrect" class="correct">Correct!</p>
-      <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
+      <p *ngIf="!isCorrect" class="incorrect">Incorrect, the response was {{ correctCountryCode }}</p>
       <button (click)="nextTurn()">Next</button>
     </div>
   } @else {

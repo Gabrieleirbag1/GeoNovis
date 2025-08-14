@@ -20,6 +20,7 @@ export class Game implements OnInit, OnDestroy {
   endRound: boolean = false;
   endGame: boolean = false;
   isCorrect: boolean = false;
+  correctCountryCode: CountryCode = "";
   language: string = "fr";
 
   remainingTime: string = "";
@@ -34,7 +35,9 @@ export class Game implements OnInit, OnDestroy {
     this.subgamemode = gameSave.subgamemode.available[0] || "findCapital";
     this.currentRound = gameSave.roundState.current;
     this.totalRounds = gameSave.roundState.total;
-    this.initializeCountdown();
+    if (!this.endRound) {
+      this.initializeCountdown();
+    }
   }
 
   ngOnDestroy(): void {
@@ -88,6 +91,7 @@ export class Game implements OnInit, OnDestroy {
       if (this.remainingTime === "00:00") {
         this.stopCountdown();
         const correctCountryCode = this.gameSessionService.getParsedItem("gameSave").roundState.correctCountryCode;
+        // this.correctCountryCode = correctCountryCode;
         this.handleAnswer("", correctCountryCode);
       }
     }, 300); // Update 3 times per second for smoother display
@@ -163,11 +167,11 @@ export class Game implements OnInit, OnDestroy {
   }
 
   handleAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
+    this.stopCountdown();
+
     if (this.endRound) {
       return;
     }
-
-    this.stopCountdown();
 
     this.checkAnswer(countryCode, correctCountryCode);
     this.setCountryCodes(countryCode, correctCountryCode);
