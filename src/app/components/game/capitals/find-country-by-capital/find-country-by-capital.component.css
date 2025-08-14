@@ -1,0 +1,19 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.country-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.capitals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}

@@ -13,7 +13,7 @@ import { CountryCode } from '../../../../types/code.type';
 })
 export class FindCountryByCapitalComponent implements OnInit, OnChanges {
   countries: Countries[] = [];
-  selectedCountry: string = '';
+  selectedCapital: string = '';
 
   @Input() turn!: number; // new input to track round changes
 
@@ -45,9 +45,9 @@ export class FindCountryByCapitalComponent implements OnInit, OnChanges {
     // console.log('FindCapital Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
-    this.selectedCountry = this.convertService.convertCodeToCountry(
+    this.selectedCapital = this.convertService.convertCodeToCountry(
       this.gameService.selectedCountryCode
-    ).country[this.convertService.language];
+    ).capital[this.convertService.language];
   }
 
 }
