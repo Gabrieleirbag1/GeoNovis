@@ -8,10 +8,11 @@ import { GameStateService } from "../../../services/game-state.service";
 import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
+import { MapComponent } from "../map/map/component";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent],
   templateUrl: "./game.html",
   styleUrl: "./game.css",
 })

@@ -6,6 +6,7 @@
     </div>
 
     <!-- GAME INJECTION SECTION -->
+     <app-map *ngIf="subgamemode === 'map'" ></app-map>
     <app-find-capital 
       *ngIf="subgamemode === 'findCapital'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
