@@ -1,8 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
-// Import the GeoJSON type from Leaflet
-import { GeoJSON, GeoJSONOptions } from 'leaflet';
-// Import your data with proper typing
 import geoJsonData from '../../../../../assets/geo/countries.geo.json';
 
 @Component({
@@ -70,6 +67,7 @@ export class MapComponent implements AfterViewInit {
 
   private zoomToFeature(e: any) {
     this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
+    console.log('Zoomed to feature:', e.target.feature);
   }
 
   private onEachFeature = (feature: GeoJSON.Feature, layer: L.Layer): void => {
