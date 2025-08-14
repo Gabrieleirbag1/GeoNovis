@@ -55,8 +55,6 @@ export class SelectorService {
     if (gameState[selectedCode]) {
       gameState[selectedCode].selected = true;
       this.gameSaveService.setCorrectCountryCode(selectedCode);
-      console.log('Selected country set:', gameState[selectedCode]);
-      console.log('Selected country set:', selectedCode);
       this.selectedCountry = gameState[selectedCode].code;
     }
   }
