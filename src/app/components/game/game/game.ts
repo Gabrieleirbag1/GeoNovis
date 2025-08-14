@@ -50,8 +50,11 @@ export class Game implements OnInit, OnDestroy {
   private initializeCountdown(): void {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
 
-    this.endTime = new Date(gameSave.timeLimit.datetime);
-    this.startCountdownTimer();
+    const datetime: string | null = gameSave.timeLimit.datetime;
+    if (datetime) {
+      this.endTime = new Date(datetime);
+      this.startCountdownTimer();
+    }
   }
 
   private setNewCountdown(): void {
