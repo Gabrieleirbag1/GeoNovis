@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FindCapital } from "../capitals/find-capital/find-capital.component";
 import { FindFlag } from "../flags/find-flag/find-flag.component";
+import { FindCountryByFlagComponent } from "../flags/find-country-by-flag/find-country-by-flag.component";
 import { CommonModule } from "@angular/common";
 import { GameSessionService } from "../../../services/game-session.service";
 import { GameStateService } from "../../../services/game-state.service";
@@ -10,7 +11,7 @@ import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capit
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent],
   templateUrl: "./game.html",
   styleUrl: "./game.css",
 })

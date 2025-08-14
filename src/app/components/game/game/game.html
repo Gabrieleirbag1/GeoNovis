@@ -27,6 +27,11 @@
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
       [turn]="currentRound">
     </app-find-flag>
+    <app-find-country-by-flag
+      *ngIf="subgamemode === 'findCountryByFlag'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound">
+    </app-find-country-by-flag>
     <!-- END GAME INJECTION SECTION -->
 
     <div class="turn-result" *ngIf="endRound">
