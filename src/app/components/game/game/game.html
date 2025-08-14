@@ -5,17 +5,24 @@
       <p class="countdown">Time remaining: {{ remainingTime }}</p>
     </div>
 
+    <!-- GAME INJECTION SECTION -->
     <app-find-capital 
       *ngIf="subgamemode === 'findCapital'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
       [turn]="currentRound">
     </app-find-capital>
+    <app-write-capital 
+      *ngIf="subgamemode === 'writeCapital'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound">
+    </app-write-capital>
 
     <app-find-flag 
       *ngIf="subgamemode === 'findFlag'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
       [turn]="currentRound">
     </app-find-flag>
+    <!-- END GAME INJECTION SECTION -->
 
     <div class="turn-result" *ngIf="endRound">
       <p *ngIf="isCorrect" class="correct">Correct!</p>

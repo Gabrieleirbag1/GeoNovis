@@ -1,0 +1,9 @@
+<section>
+  <div class="country-name">
+    {{ selectedCountry }}
+  </div>
+  <div class="capitals" *ngIf="countries.length > 0">
+    <input type="text" class="answer-input" [(ngModel)]="userAnswer" 
+    placeholder="Type your answer here" (keyup.enter)="onAnswerSelect({ userAnswer })">
+  </div>
+</section>

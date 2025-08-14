@@ -5,10 +5,11 @@ import { CommonModule } from "@angular/common";
 import { GameSessionService } from "../../../services/game-session.service";
 import { GameStateService } from "../../../services/game-state.service";
 import { CountryCode } from "../../../types/code.type";
+import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent],
   templateUrl: "./game.html",
   styleUrl: "./game.css",
 })
