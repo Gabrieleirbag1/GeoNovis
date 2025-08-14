@@ -34,13 +34,18 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['turn'] && !changes['turn'].isFirstChange()) {
       this.init();
+      this.clearInput();
     }
   }
 
+  private clearInput(): void {
+    this.userAnswer = '';
+  }
+
   onAnswerSelect(country: any): void {
-    console.log('User answer:', country.userAnswer);
+    const countryInfo: any | null = this.convertService.convertCapitalToCountry(country.userAnswer);
     this.answerSelected.emit({
-      selectedCode: country.code,
+      selectedCode: countryInfo ? countryInfo.flag : '',
       correctCode: this.gameService.selectedCountryCode
     });
   }

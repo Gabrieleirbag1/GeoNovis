@@ -31,6 +31,12 @@ export class ConvertService {
     return countryInfo;
   }
 
+  convertCapitalToCountry(capital: string): any {
+    const countryInfo = worldInfos.find((info) => info.capital[this.language].includes(capital));
+    console.log('Converted capital to country:', countryInfo);
+    return countryInfo ? countryInfo : null;
+  }
+  
   getCountryName(code: CountryCode): string {
     const countryInfo = this.convertCodeToCountry(code);
     return countryInfo ? countryInfo.country[this.language] : '';
