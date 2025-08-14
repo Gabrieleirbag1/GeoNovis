@@ -32,7 +32,16 @@ export class ConvertService {
   }
 
   convertCapitalToCountry(capital: string): any {
-    const countryInfo = worldInfos.find((info) => info.capital[this.language].includes(capital));
+    if (!capital) return null;
+    
+    const lowercaseCapital = capital.toLowerCase().trim();
+    
+    const countryInfo = worldInfos.find((info) => {
+      return info.capital[this.language].some(
+        (capitalName: string) => capitalName.toLowerCase().trim() === lowercaseCapital
+      );
+    });
+    
     console.log('Converted capital to country:', countryInfo);
     return countryInfo ? countryInfo : null;
   }
