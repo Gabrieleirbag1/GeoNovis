@@ -8,7 +8,7 @@ import { GameStateService } from "../../../services/game-state.service";
 import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
-import { MapComponent } from "../map/map/component";
+import { MapComponent } from "../map/map/map.component";
 
 @Component({
   selector: "app-game",
