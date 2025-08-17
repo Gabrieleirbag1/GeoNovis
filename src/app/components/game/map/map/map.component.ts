@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
-import geoJsonData from '../../../../../assets/geo/countries.geo.json';
+import geoJsonData from '../../../../../assets/geo/198-countries.geo.json';
 
 @Component({
   selector: 'app-map',
