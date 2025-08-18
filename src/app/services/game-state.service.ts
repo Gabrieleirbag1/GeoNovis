@@ -21,6 +21,17 @@ export class GameStateService {
     return codes;
   }
 
+  getFoundCountries(): CountryCode[] {
+    const gameState = this.gameSessionService.getGameState();
+    const foundCountries: CountryCode[] = [];
+    for (const code in gameState) {
+      if (gameState[code].found) {
+        foundCountries.push(gameState[code].code);
+      }
+    }
+    return foundCountries;
+  }
+
   updateGameState(codes: CountryCode[], selectedCode: CountryCode): void {
     const gameState = this.gameSessionService.getGameState();
 
