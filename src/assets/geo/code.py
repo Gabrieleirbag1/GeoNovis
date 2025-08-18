@@ -22,11 +22,15 @@ def process_geojson(input_file, output_file):
     for feature in data['features']:
         if 'properties' in feature and 'iso_a2_eh' in feature['properties']:
             country_name = feature['properties'].get('name')
-            
+            feature['properties']['code'] = feature['properties']['iso_a2_eh']
+            if feature['properties']['iso_a2_eh'] == "CD":
+                print("congo")
+                print(feature['properties']['code'])
+
             # Check if the country is in our exceptions list
             if country_name in exceptions:
                 feature['properties']['code'] = exceptions[country_name]
-                print(f"Adding exception code: {exceptions[country_name]} for {country_name}")
+                # print(f"Adding exception code: {exceptions[country_name]} for {country_name}")
                 continue
                 
             # Add the code property based on iso_a2_eh
@@ -35,9 +39,11 @@ def process_geojson(input_file, output_file):
                 if country['properties']["name"] == sovereignt:
                     if country['properties']['iso_a2_eh'] == "-99" or country['properties']['iso_a2_eh'] == -99:
                         break
-                    print(f"Adding code: {country['properties']['iso_a2_eh']} for {feature['properties']['name']}")
+                    # print(f"Adding code: {country['properties']['iso_a2_eh']} for {feature['properties']['name']}")
                     feature['properties']['code'] = country['properties']['iso_a2_eh']
                     break
+
+    print(data["features"][126]["properties"]["code"])
     # Write the updated GeoJSON to the output file
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False)
