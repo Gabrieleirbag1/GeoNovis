@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import geoJsonData from '../../../../../assets/geo/countries_with_codes.geo.json';
+import { CountryCode } from '../../../../types/code.type';
+import { GameStateService } from '../../../../services/game-state.service';
 
 @Component({
   selector: 'app-map',
@@ -11,10 +13,14 @@ export class MapComponent implements AfterViewInit {
   private map!: L.Map;
   private geojson!: L.GeoJSON;
   geoJsonData = geoJsonData as GeoJSON.FeatureCollection;
+  foundCountries: CountryCode[] = [];
 
-  constructor() { }
+  constructor(private gameStateService: GameStateService) { }
 
   ngAfterViewInit(): void {
+    this.foundCountries = this.gameStateService.getFoundCountries();
+    console.log('Found countries:', this.foundCountries);
+    this.highlightCountry(this.gameStateService.selectedCountryCode);
     this.initMap();
     this.addGeoJsonLayer();
   }
@@ -48,6 +54,7 @@ export class MapComponent implements AfterViewInit {
 
   private highlightFeature(e: L.LeafletEvent): void {
     const layer = e.target as L.Path;
+    console.log('Highlighting feature:', layer);
     layer.setStyle({
       weight: 5,
       color: 'red',
@@ -61,13 +68,23 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
+  public highlightCountry(code: string): boolean {
+    let found = false;
+    
+    
+    return found;
+  }
+
   private resetHighlight(e: L.LeafletEvent): void {
-    this.geojson.resetStyle(e.target);
+    if (!this.foundCountries.includes(e.target.feature.properties.code)) {
+      this.geojson.resetStyle(e.target);
+    }
   }
 
   private zoomToFeature(e: any) {
     // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
     console.log('Zoomed to feature:', e.target.feature.properties.code);
+    this.highlightFeature(e);
   }
 
   private onEachFeature = (feature: GeoJSON.Feature, layer: L.Layer): void => {
