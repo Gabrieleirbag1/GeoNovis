@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
-import geoJsonData from '../../../../../assets/geo/198-countries.geo.json';
+import geoJsonData from '../../../../../assets/geo/countries_with_codes.geo.json';
 
 @Component({
   selector: 'app-map',
@@ -66,8 +66,8 @@ export class MapComponent implements AfterViewInit {
   }
 
   private zoomToFeature(e: any) {
-    this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
-    console.log('Zoomed to feature:', e.target.feature);
+    // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
+    console.log('Zoomed to feature:', e.target.feature.properties.code);
   }
 
   private onEachFeature = (feature: GeoJSON.Feature, layer: L.Layer): void => {
