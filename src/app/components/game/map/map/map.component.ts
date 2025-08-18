@@ -8,6 +8,7 @@ import { Countries } from '../../../../types/countries.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
+import { GameSessionService } from '../../../../services/game-session.service';
 
 @Component({
   selector: 'app-map',
@@ -20,7 +21,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private map!: L.Map;
   private geojson!: L.GeoJSON;
   geoJsonData = geoJsonData as GeoJSON.FeatureCollection;
-  foundCountries: CountryCode[] = [];
+  foundCountries: CountryCode[] = ["fr"];
   countries: Countries[] = [];
   selectedCountry: string = '';
 
@@ -31,11 +32,12 @@ export class MapComponent implements AfterViewInit, OnChanges {
   constructor(
     private gameService: GameService, 
     private convertService: ConvertService,
-    private gameStateService: GameStateService) { }
+    private gameStateService: GameStateService,
+    private gameSessionService: GameSessionService) { }
 
   ngAfterViewInit(): void {
     this.init();
-    this.foundCountries = this.gameStateService.getFoundCountries();
+    // this.foundCountries = this.gameStateService.getFoundCountries();
     console.log('Found countries:', this.foundCountries);
     this.initMap();
     this.addGeoJsonLayer();
@@ -48,7 +50,6 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   onAnswerSelect(countryCode: CountryCode): void {
-    countryCode = countryCode.toLowerCase() as CountryCode;
     this.answerSelected.emit({
       selectedCode: countryCode,
       correctCode: this.gameService.selectedCountryCode
@@ -102,29 +103,39 @@ export class MapComponent implements AfterViewInit, OnChanges {
       fillOpacity: 0.5
     });
 
+    console.log(e.target.feature.properties.code)
+
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
       layer.bringToFront();
     }
   }
 
   private resetHighlight(e: L.LeafletEvent): void {
-    if (!this.foundCountries.includes(e.target.feature.properties.code)) {
-      this.geojson.resetStyle(e.target);
+    if (this.foundCountries.includes(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
+      console.log('Country already found:', e.target.feature.properties.code);
+      return;
     }
+    this.geojson.resetStyle(e.target);
   }
 
-  private zoomToFeature(e: any) {
+  private focusOnFeature(e: any) {
     // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
-    console.log('Zoomed to feature:', e.target.feature.properties.code);
-    // this.highlightFeature(e);
-    this.onAnswerSelect(e.target.feature.properties.code);
+    const countryCode = e.target.feature.properties.code.toLowerCase() as CountryCode;
+    this.onAnswerSelect(countryCode);
+    const gameState = this.gameSessionService.getGameState();
+    // find the country by key which is the country code
+    if (gameState[countryCode]) {
+      gameState[countryCode].mapEvent = JSON.stringify(e.target.feature);
+      console.log('Game state updated for country:', countryCode, gameState[countryCode]);
+    }
+    this.gameSessionService.setGameState(gameState);
   }
 
   private onEachFeature = (feature: GeoJSON.Feature, layer: L.Layer): void => {
     layer.on({
       mouseover: this.highlightFeature.bind(this),
       mouseout: this.resetHighlight.bind(this),
-      click: this.zoomToFeature.bind(this)
+      click: this.focusOnFeature.bind(this)
     });
   }
 
