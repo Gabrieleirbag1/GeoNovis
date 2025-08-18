@@ -32,7 +32,6 @@ export class GameSessionService {
   }
 
   setGameState(gameState: any): void {
-    console.log('Setting game state:', gameState);
     this.setStringifiedItem('gameState', gameState);
   }
 

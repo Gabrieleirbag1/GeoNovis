@@ -21,7 +21,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private map!: L.Map;
   private geojson!: L.GeoJSON;
   geoJsonData = geoJsonData as GeoJSON.FeatureCollection;
-  foundCountries: CountryCode[] = ["fr"];
+  foundCountries: CountryCode[] = [];
   countries: Countries[] = [];
   selectedCountry: string = '';
 
@@ -37,7 +37,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.init();
-    // this.foundCountries = this.gameStateService.getFoundCountries();
+    this.foundCountries = this.gameStateService.getFoundCountries();
     console.log('Found countries:', this.foundCountries);
     this.initMap();
     this.addGeoJsonLayer();
@@ -103,7 +103,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       fillOpacity: 0.5
     });
 
-    console.log(e.target.feature.properties.code)
+    // console.log(e.target.feature.properties.code)
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
       layer.bringToFront();
