@@ -6,7 +6,10 @@
     </div>
 
     <!-- GAME INJECTION SECTION -->
-     <app-map *ngIf="subgamemode === 'map'" ></app-map>
+    <app-map *ngIf="subgamemode === 'map'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound"
+    ></app-map>
     <app-find-capital 
       *ngIf="subgamemode === 'findCapital'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
