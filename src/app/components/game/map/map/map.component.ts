@@ -56,29 +56,37 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes["turn"] && !changes["turn"].isFirstChange()) {
-      this.init();
-      console.log("Round changed, reinitializing map and highlighting countries");
-      this.initHighlightCountries();
+    if (changes["turn"]) {
+      this.handleTurnChange(changes);
     }
     if (changes["endRound"]) {
-      if (changes["endRound"].currentValue === true) {
-        if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== "") {
-          this.foundCountries.push(this.gameService.selectedCountryCode);
-        }
-        console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
-        this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
-        this.highlightCountryByCode(this.countryCode, "purple");
-        
-      } else if (changes["endRound"].currentValue === false) {
-        this.geojson.eachLayer((layer: any) => {
-          if (layer.feature && layer.feature.properties 
-            && layer.feature.properties["code"] 
-            && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
-            this.resetStyle(layer);
-          }
-        });
+      this.handleEndRoundChange(changes);
+    }
+  }
+
+  private handleTurnChange(changes: SimpleChanges): void {
+    if (!changes["turn"].isFirstChange()) {
+      this.init();
+      this.initHighlightCountries();
+    }
+  }
+
+  private handleEndRoundChange(changes: SimpleChanges): void {
+    if (changes["endRound"].currentValue === true) {
+      if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== "") {
+        this.foundCountries.push(this.gameService.selectedCountryCode);
       }
+      console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
+      this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+      this.highlightCountryByCode(this.countryCode, "purple");
+    } else if (changes["endRound"].currentValue === false) {
+      this.geojson.eachLayer((layer: any) => {
+        if (layer.feature && layer.feature.properties 
+          && layer.feature.properties["code"] 
+          && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
+          this.resetStyle(layer);
+        }
+      });
     }
   }
 
@@ -155,8 +163,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   private canHandleCountryHighlight(countryCode: CountryCode): boolean {
-    console.log("Checking if can handle country highlight for code:", countryCode);
-      if (this.foundCountries.includes(countryCode.toLowerCase() as CountryCode)) {
+    if (this.foundCountries.includes(countryCode.toLowerCase() as CountryCode)) {
       return false;
     } else if (countryCode.toLowerCase() === this.countryCode.toLowerCase()) {
       return false;
