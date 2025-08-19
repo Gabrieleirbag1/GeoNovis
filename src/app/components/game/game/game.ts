@@ -25,6 +25,7 @@ export class Game implements OnInit, OnDestroy {
   endGame: boolean = false;
   isCorrect: boolean = false;
   language: string = "fr";
+  countryCode: CountryCode = "";
 
   remainingTime: string = "";
   private timerInterval: any;
@@ -207,6 +208,7 @@ export class Game implements OnInit, OnDestroy {
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
+    this.countryCode = countryCode;
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 

@@ -9,6 +9,7 @@
     <app-map *ngIf="subgamemode === 'map'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
       [turn]="currentRound"
+      [countryCode]="countryCode"
       [endRound]="endRound">
     </app-map>
     <app-find-capital 

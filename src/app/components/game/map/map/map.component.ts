@@ -39,8 +39,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     console.log("Found countries:", this.foundCountries);
     this.initMap();
     this.addGeoJsonLayer();
-    this.initHighlightCountries()
-
+    this.initHighlightCountries();
   }
 
   private initHighlightCountries(): void {
@@ -51,6 +50,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
       this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+      this.highlightCountryByCode(this.countryCode, "purple");
     }
   }
 
@@ -58,14 +58,26 @@ export class MapComponent implements AfterViewInit, OnChanges {
     if (changes["turn"] && !changes["turn"].isFirstChange()) {
       this.init();
       console.log("Round changed, reinitializing map and highlighting countries");
-      this.initHighlightCountries()
+      this.initHighlightCountries();
     }
-    if (changes["endRound"] && changes["endRound"].currentValue === true) {
-      if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== '') {
-        this.foundCountries.push(this.gameService.selectedCountryCode);
+    if (changes["endRound"]) {
+      if (changes["endRound"].currentValue === true) {
+        if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== "") {
+          this.foundCountries.push(this.gameService.selectedCountryCode);
+        }
+        console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
+        this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+        this.highlightCountryByCode(this.countryCode, "purple");
+        
+      } else if (changes["endRound"].currentValue === false) {
+        this.geojson.eachLayer((layer: any) => {
+          if (layer.feature && layer.feature.properties 
+            && layer.feature.properties["code"] 
+            && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
+            this.resetStyle(layer);
+          }
+        });
       }
-      console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
-      this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
     }
   }
 
@@ -81,8 +93,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
     // console.log('FindCapital Component Initialized');
     this.gameService.initializeGame(1);
     this.countries = this.gameService.getCountries();
-    const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
-    this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
+    const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode);
+    this.selectedCountry = countryInfo?.country[this.convertService.language] || "";
   }
 
   private initMap(): void {
@@ -123,9 +135,9 @@ export class MapComponent implements AfterViewInit, OnChanges {
   public highlightCountryByCode(countryCode: CountryCode, color: string = "red"): void {
     this.geojson.eachLayer((layer: any) => {
       // Check if this layer's feature matches our country code
-      if (layer.feature && layer.feature.properties && 
-        layer.feature.properties["code"] && 
-        layer.feature.properties["code"].toLowerCase() === countryCode.toLowerCase()) {
+      if (layer.feature && layer.feature.properties 
+        && layer.feature.properties["code"] 
+        && layer.feature.properties["code"].toLowerCase() === countryCode.toLowerCase()) {
         this.highlightFeature(layer, color);
       }
     });
