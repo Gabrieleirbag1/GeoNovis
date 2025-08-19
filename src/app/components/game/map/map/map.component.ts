@@ -39,9 +39,17 @@ export class MapComponent implements AfterViewInit, OnChanges {
     console.log("Found countries:", this.foundCountries);
     this.initMap();
     this.addGeoJsonLayer();
+    this.initHighlightCountries()
+
+  }
+
+  private initHighlightCountries(): void {
     this.highlightCountriesByCode();
     if (this.endRound) {
-      this.foundCountries.push(this.gameService.selectedCountryCode);
+      console.log("End of round, highlighting selected country:", this.gameService.selectedCountryCode);
+      if (!this.foundCountries.includes(this.gameService.selectedCountryCode)) {
+        this.foundCountries.push(this.gameService.selectedCountryCode);
+      }
       this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
     }
   }
@@ -49,9 +57,14 @@ export class MapComponent implements AfterViewInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["turn"] && !changes["turn"].isFirstChange()) {
       this.init();
-      this.highlightCountryByCode(this.gameService.selectedCountryCode, "darkgray");
+      console.log("Round changed, reinitializing map and highlighting countries");
+      this.initHighlightCountries()
     }
     if (changes["endRound"] && changes["endRound"].currentValue === true) {
+      if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== '') {
+        this.foundCountries.push(this.gameService.selectedCountryCode);
+      }
+      console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
       this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
     }
   }
