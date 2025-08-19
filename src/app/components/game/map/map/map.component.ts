@@ -26,6 +26,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   selectedCountry: string = "";
 
   @Input() turn!: number; // new input to track round changes
+  @Input() correctCountryInfo!: CountryInfo; // new input to track correct country code
 
   @Output() answerSelected = new EventEmitter<{ selectedCode: CountryCode; correctCode: CountryCode }>();
 
@@ -101,7 +102,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       if (layer.feature && layer.feature.properties && 
         layer.feature.properties["code"] && 
         layer.feature.properties["code"].toLowerCase() === countryCode.toLowerCase()) {
-        this.highlightFeature(layer);
+        this.highlightFeature(layer, "red");
       }
     });
   }
@@ -123,11 +124,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.highlightFeature(layer);
   }
 
-  private highlightFeature(layer: L.Path): void {
+  private highlightFeature(layer: L.Path, color: string = "red"): void {
     layer.setStyle({
       weight: 5,
-      color: "red",
-      fillColor: "red",
+      color: color,
+      fillColor: color,
       dashArray: "",
       fillOpacity: 0.5,
     });

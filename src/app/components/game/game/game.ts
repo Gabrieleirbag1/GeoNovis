@@ -9,6 +9,7 @@ import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
 import { MapComponent } from "../map/map/map.component";
+import { ConvertService } from "../../../services/convert.service";
 
 @Component({
   selector: "app-game",
@@ -23,13 +24,14 @@ export class Game implements OnInit, OnDestroy {
   endRound: boolean = false;
   endGame: boolean = false;
   isCorrect: boolean = false;
+  correctCountryInfo: any = "";
   language: string = "fr";
 
   remainingTime: string = "";
   private timerInterval: any;
   private endTime: Date | null = null;
 
-  constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService) {}
+  constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService, private convertService: ConvertService) {}
 
   ngOnInit(): void {
     this.handleEnd();
@@ -203,6 +205,7 @@ export class Game implements OnInit, OnDestroy {
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
+    this.correctCountryInfo = this.convertService.convertCodeToCountry(correctCountryCode);
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 
