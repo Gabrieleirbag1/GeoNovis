@@ -1,5 +1,7 @@
+import { CountryCode } from "./code.type";
+
 export interface CountryInfo {
-  flag: string;
+  flag: CountryCode;
   country: {
     en: string;
     fr: string;

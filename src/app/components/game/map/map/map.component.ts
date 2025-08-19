@@ -27,7 +27,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   selectedCountry: string = "";
 
   @Input() turn!: number; // new input to track round changes
-  @Input() correctCountryInfo!: CountryInfo; // new input to track correct country code
+  @Input() endRound!: boolean; // new input to track correct country code
 
   @Output() answerSelected = new EventEmitter<{ selectedCode: CountryCode; correctCode: CountryCode }>();
 
@@ -39,14 +39,21 @@ export class MapComponent implements AfterViewInit, OnChanges {
     console.log("Found countries:", this.foundCountries);
     this.initMap();
     this.addGeoJsonLayer();
-    this.findLayerByCode();
+    this.highlightCountriesByCode();
+    if (this.endRound) {
+      this.foundCountries.push(this.gameService.selectedCountryCode);
+      this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["turn"] && !changes["turn"].isFirstChange()) {
       this.init();
+      this.highlightCountryByCode(this.gameService.selectedCountryCode, "darkgray");
     }
-    console.log(changes["correctCountryInfo"], 'correctCountryInfo changed');
+    if (changes["endRound"] && changes["endRound"].currentValue === true) {
+      this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+    }
   }
 
   onAnswerSelect(countryCode: CountryCode): void {
@@ -54,6 +61,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       selectedCode: countryCode,
       correctCode: this.gameService.selectedCountryCode,
     });
+    this.foundCountries.push(this.gameService.selectedCountryCode);
   }
 
   init(): void {
@@ -86,7 +94,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     );
   }
 
-  public findLayerByCode(): void {
+  public highlightCountriesByCode(): void {
     // Make sure geojson is initialized
     if (!this.geojson) {
       console.warn("GeoJSON layer not initialized yet");
@@ -95,17 +103,17 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
     // Process found countries
     this.foundCountries.forEach((countryCode) => {
-      this.highlightCountryByCode(countryCode);
+      this.highlightCountryByCode(countryCode, "darkgray");
     });
   }
 
-  public highlightCountryByCode(countryCode: CountryCode): void {
+  public highlightCountryByCode(countryCode: CountryCode, color: string = "red"): void {
     this.geojson.eachLayer((layer: any) => {
       // Check if this layer's feature matches our country code
       if (layer.feature && layer.feature.properties && 
         layer.feature.properties["code"] && 
         layer.feature.properties["code"].toLowerCase() === countryCode.toLowerCase()) {
-        this.highlightFeature(layer, "red");
+        this.highlightFeature(layer, color);
       }
     });
   }
@@ -123,8 +131,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private onHover(e: L.LeafletEvent): void {
     const layer = e.target as L.Path;
     // console.log(e.target.feature.properties.code, 'hovered');
-    console.log("layer", layer);
-    this.highlightFeature(layer);
+    // console.log("layer", layer);
+    if (this.foundCountries.includes(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
+      return;
+    }
+    this.highlightFeature(layer, "blue");
   }
 
   private highlightFeature(layer: L.Path, color: string = "red"): void {
@@ -145,7 +156,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   private resetHighlight(e: L.LeafletEvent): void {
     if (this.foundCountries.includes(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
-      console.log("Country already found:", e.target.feature.properties.code);
+      // console.log("Country already found:", e.target.feature.properties.code);
       return;
     }
     this.geojson.resetStyle(e.target);
@@ -155,13 +166,6 @@ export class MapComponent implements AfterViewInit, OnChanges {
     // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
     const countryCode = e.target.feature.properties.code.toLowerCase() as CountryCode;
     this.onAnswerSelect(countryCode);
-    const gameState = this.gameSessionService.getGameState();
-    // find the country by key which is the country code
-    if (gameState[countryCode]) {
-      gameState[countryCode].mapEvent = JSON.stringify(e.target.feature);
-      console.log("Game state updated for country:", countryCode, gameState[countryCode]);
-    }
-    this.gameSessionService.setGameState(gameState);
   }
 
   private onEachFeature = (feature: GeoJSON.Feature, layer: L.Layer): void => {
