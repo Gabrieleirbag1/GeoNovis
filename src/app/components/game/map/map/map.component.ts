@@ -50,8 +50,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
       if (!this.foundCountries.includes(this.gameService.selectedCountryCode)) {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
+      this.highlightCountryByCode(this.countryCode, "red");
       this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
-      this.highlightCountryByCode(this.countryCode, "purple");
     }
   }
 
@@ -77,8 +77,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
       console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
+      this.highlightCountryByCode(this.countryCode, "red");
       this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
-      this.highlightCountryByCode(this.countryCode, "purple");
     } else if (changes["endRound"].currentValue === false) {
       this.geojson.eachLayer((layer: any) => {
         if (layer.feature && layer.feature.properties 
