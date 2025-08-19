@@ -4,6 +4,7 @@ import { Countries } from '../../../../types/countries.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
+import { CountryInfo } from '../../../../types/country-info.type';
 
 @Component({
   selector: 'app-find-country-by-flag',
@@ -46,9 +47,8 @@ export class FindCountryByFlagComponent implements OnInit, OnChanges {
     // console.log('FindFlag Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
-    this.selectedFlag = this.convertService.convertCodeToCountry(
-      this.gameService.selectedCountryCode
-    ).flag;
+    const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
+    this.selectedFlag = countryInfo?.flag || '';
   }
 
   getFlagImage(countryCode: string): string {

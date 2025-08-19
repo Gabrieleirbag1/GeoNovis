@@ -9,6 +9,7 @@ import { CommonModule } from "@angular/common";
 import { ConvertService } from "../../../../services/convert.service";
 import { CountryCode } from "../../../../types/code.type";
 import { GameSessionService } from "../../../../services/game-session.service";
+import { CountryInfo } from "../../../../types/country-info.type";
 
 @Component({
   selector: "app-map",
@@ -45,6 +46,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     if (changes["turn"] && !changes["turn"].isFirstChange()) {
       this.init();
     }
+    console.log(changes["correctCountryInfo"], 'correctCountryInfo changed');
   }
 
   onAnswerSelect(countryCode: CountryCode): void {
@@ -58,7 +60,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
     // console.log('FindCapital Component Initialized');
     this.gameService.initializeGame(1);
     this.countries = this.gameService.getCountries();
-    this.selectedCountry = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode).country[this.convertService.language];
+    const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
+    this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
   }
 
   private initMap(): void {
