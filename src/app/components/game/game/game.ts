@@ -24,7 +24,6 @@ export class Game implements OnInit, OnDestroy {
   endRound: boolean = false;
   endGame: boolean = false;
   isCorrect: boolean = false;
-  correctCountryInfo: any = "";
   language: string = "fr";
 
   remainingTime: string = "";
@@ -51,12 +50,15 @@ export class Game implements OnInit, OnDestroy {
   }
 
   private initializeCountdown(): void {
+    console.log("Initializing countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
 
     const datetime: string | null = gameSave.timeLimit.datetime;
     if (datetime) {
       this.endTime = new Date(datetime);
       this.startCountdownTimer();
+    } else {
+      this.setNewCountdown();
     }
   }
 
@@ -205,7 +207,6 @@ export class Game implements OnInit, OnDestroy {
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
-    this.correctCountryInfo = this.convertService.convertCodeToCountry(correctCountryCode);
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 
