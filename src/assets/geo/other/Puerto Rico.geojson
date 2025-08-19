@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "puerto-rico",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "puerto-rico" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [[ -67.43408, 18.81272 ], [ -65.28077, 18.73991 ], [ -65.09262, 17.94085 ], [ -65.33295, 17.51573 ], [ -68.31024, 17.70421 ], [ -68.17566, 18.3441 ], [ -67.43408, 18.81272 ]] ] ] } }
+]
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter, AfterViewInit } from "@angular/core";
 
 import * as L from "leaflet";
-import geoJsonData from "../../../../../assets/geo/countries_with_codes.geo.json";
+import geoJsonData from "../../../../../assets/geo/custom_countries_with_codes.geo.json";
 import { GameStateService } from "../../../../services/game-state.service";
 import { GameService } from "../../../../services/game.service";
 import { Country } from "../../../../types/countrie.type";
@@ -178,6 +178,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private focusOnFeature(e: any) {
     // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
     const countryCode = e.target.feature.properties.code.toLowerCase() as CountryCode;
+    console.log("Country code clicked:", e.target.feature.properties.name);
     this.onAnswerSelect(countryCode);
   }
 
