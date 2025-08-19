@@ -154,14 +154,33 @@ export class MapComponent implements AfterViewInit, OnChanges {
     };
   }
 
+  private canHandleCountryHighlight(countryCode: CountryCode): boolean {
+    console.log("Checking if can handle country highlight for code:", countryCode);
+      if (this.foundCountries.includes(countryCode.toLowerCase() as CountryCode)) {
+      return false;
+    } else if (countryCode.toLowerCase() === this.countryCode.toLowerCase()) {
+      return false;
+    }
+    return true;
+  }
+
   private onHover(e: L.LeafletEvent): void {
-    const layer = e.target as L.Path;
-    // console.log(e.target.feature.properties.code, 'hovered');
-    // console.log("layer", layer);
-    if (this.foundCountries.includes(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
+    if (!this.canHandleCountryHighlight(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
       return;
     }
+    const layer = e.target as L.Path;
     this.highlightFeature(layer, "blue");
+  }
+
+  private onMouseOut(e: L.LeafletEvent): void {
+    if (!this.canHandleCountryHighlight(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
+      return;
+    }
+    this.resetStyle(e.target as L.Path);
+  }
+
+  private resetStyle(layer: L.Path): void {
+    this.geojson.resetStyle(layer);
   }
 
   private highlightFeature(layer: L.Path, color: string = "red"): void {
@@ -173,19 +192,9 @@ export class MapComponent implements AfterViewInit, OnChanges {
       fillOpacity: 0.5,
     });
 
-    // console.log(this.geoJsonData, 'highlighted');
-
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
       layer.bringToFront();
     }
-  }
-
-  private resetHighlight(e: L.LeafletEvent): void {
-    if (this.foundCountries.includes(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
-      // console.log("Country already found:", e.target.feature.properties.code);
-      return;
-    }
-    this.geojson.resetStyle(e.target);
   }
 
   private focusOnFeature(e: any) {
@@ -198,7 +207,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private onEachFeature = (feature: GeoJSON.Feature, layer: L.Layer): void => {
     layer.on({
       mouseover: this.onHover.bind(this),
-      mouseout: this.resetHighlight.bind(this),
+      mouseout: this.onMouseOut.bind(this),
       click: this.focusOnFeature.bind(this),
     });
   };
