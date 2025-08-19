@@ -46,7 +46,6 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private initHighlightCountries(): void {
     this.highlightCountriesByCode();
     if (this.endRound) {
-      console.log("End of round, highlighting selected country:", this.gameService.selectedCountryCode);
       if (!this.foundCountries.includes(this.gameService.selectedCountryCode)) {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
@@ -84,7 +83,9 @@ export class MapComponent implements AfterViewInit, OnChanges {
         if (layer.feature && layer.feature.properties 
           && layer.feature.properties["code"] 
           && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
-          this.resetStyle(layer);
+            if (!this.foundCountries.includes(this.countryCode)) {
+              this.resetHighlighted(layer);
+            }
         }
       });
     }
@@ -183,10 +184,10 @@ export class MapComponent implements AfterViewInit, OnChanges {
     if (!this.canHandleCountryHighlight(e.target.feature.properties.code.toLowerCase() as CountryCode)) {
       return;
     }
-    this.resetStyle(e.target as L.Path);
+    this.resetHighlighted(e.target as L.Path);
   }
 
-  private resetStyle(layer: L.Path): void {
+  private resetHighlighted(layer: L.Path): void {
     this.geojson.resetStyle(layer);
   }
 
