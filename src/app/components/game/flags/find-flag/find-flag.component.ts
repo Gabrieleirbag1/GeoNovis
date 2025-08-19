@@ -1,9 +1,10 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
-import { Countries } from '../../../../types/countries.type';
+import { Country } from '../../../../types/countrie.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
+import { CountryInfo } from '../../../../types/country-info.type';
 
 @Component({
   selector: 'app-find-flag',
@@ -12,7 +13,7 @@ import { CountryCode } from '../../../../types/code.type';
   styleUrls: ['./find-flag.component.css', '../../game/game.css'],
 })
 export class FindFlag implements OnInit, OnChanges {
-  countries: Countries[] = [];
+  countries: Country[] = [];
   selectedCountry: string = '';
 
   @Input() turn!: number; // new input to track round changes
@@ -45,9 +46,8 @@ export class FindFlag implements OnInit, OnChanges {
     // console.log('FindFlag Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
-    this.selectedCountry = this.convertService.convertCodeToCountry(
-      this.gameService.selectedCountryCode
-    ).country[this.convertService.language];
+    const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
+    this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
   }
 
   getFlagImage(countryCode: string): string {

@@ -1,9 +1,10 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
-import { Countries } from '../../../../types/countries.type';
+import { Country } from '../../../../types/countrie.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
+import { CountryInfo } from '../../../../types/country-info.type';
 
 @Component({
   selector: 'app-find-country-by-capital',
@@ -12,8 +13,8 @@ import { CountryCode } from '../../../../types/code.type';
   styleUrls: ['./find-country-by-capital.component.css', '../../game/game.css'],
 })
 export class FindCountryByCapitalComponent implements OnInit, OnChanges {
-  countries: Countries[] = [];
-  selectedCapital: string = '';
+  countries: Country[] = [];
+  selectedCapital: string[] = [];
 
   @Input() turn!: number; // new input to track round changes
 
@@ -45,9 +46,9 @@ export class FindCountryByCapitalComponent implements OnInit, OnChanges {
     // console.log('FindCapital Component Initialized');
     this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
-    this.selectedCapital = this.convertService.convertCodeToCountry(
-      this.gameService.selectedCountryCode
-    ).capital[this.convertService.language];
+    const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
+    this.selectedCapital = countryInfo?.capital[this.convertService.language] || [];
+
   }
 
 }

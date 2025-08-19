@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Countries } from '../types/countries.type';
+import { Country } from '../types/countrie.type';
 import { CountryCode } from '../types/code.type';
 import worldInfos from '../../assets/data/world-infos.json';
+import { CountryInfo } from '../types/country-info.type';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +11,10 @@ export class ConvertService {
   language: 'en' | 'fr' = 'fr'; // default language
   constructor() {}
 
-  convertCodesToCountries(turnCodes: CountryCode[]): Countries[] {
-    let countries: Countries[] = [];
+  convertCodesToCountries(turnCodes: CountryCode[]): Country[] {
+    let countries: Country[] = [];
     turnCodes.forEach((code) => {
-      const countryInfo = this.convertCodeToCountry(code);
+      const countryInfo = this.convertCodeToCountry(code) as CountryInfo;
       if (countryInfo) {
         countries.push({
           code: code,
@@ -26,12 +27,12 @@ export class ConvertService {
     return countries;
   }
 
-  convertCodeToCountry(code: CountryCode): any {
+  convertCodeToCountry(code: CountryCode): CountryInfo | null {
     const countryInfo = worldInfos.find((info) => info.flag === code);
-    return countryInfo;
+    return countryInfo as CountryInfo || null;
   }
 
-  convertCapitalToCountry(capital: string): any {
+  convertCapitalToCountry(capital: string): CountryInfo | null {
     if (!capital) return null;
     
     const lowercaseCapital = capital.toLowerCase().trim();
@@ -43,11 +44,11 @@ export class ConvertService {
     });
     
     console.log('Converted capital to country:', countryInfo);
-    return countryInfo ? countryInfo : null;
+    return countryInfo as CountryInfo || null;
   }
   
   getCountryName(code: CountryCode): string {
-    const countryInfo = this.convertCodeToCountry(code);
+    const countryInfo = this.convertCodeToCountry(code) as CountryInfo;
     return countryInfo ? countryInfo.country[this.language] : '';
   }
 }

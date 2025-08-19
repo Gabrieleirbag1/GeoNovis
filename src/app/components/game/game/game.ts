@@ -8,10 +8,12 @@ import { GameStateService } from "../../../services/game-state.service";
 import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
+import { MapComponent } from "../map/map/map.component";
+import { ConvertService } from "../../../services/convert.service";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent],
   templateUrl: "./game.html",
   styleUrl: "./game.css",
 })
@@ -23,12 +25,13 @@ export class Game implements OnInit, OnDestroy {
   endGame: boolean = false;
   isCorrect: boolean = false;
   language: string = "fr";
+  countryCode: CountryCode = "";
 
   remainingTime: string = "";
   private timerInterval: any;
   private endTime: Date | null = null;
 
-  constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService) {}
+  constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService, private convertService: ConvertService) {}
 
   ngOnInit(): void {
     this.handleEnd();
@@ -48,12 +51,15 @@ export class Game implements OnInit, OnDestroy {
   }
 
   private initializeCountdown(): void {
+    console.log("Initializing countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
 
     const datetime: string | null = gameSave.timeLimit.datetime;
     if (datetime) {
       this.endTime = new Date(datetime);
       this.startCountdownTimer();
+    } else {
+      this.setNewCountdown();
     }
   }
 
@@ -202,6 +208,7 @@ export class Game implements OnInit, OnDestroy {
 
   checkAnswer(countryCode: CountryCode, correctCountryCode: CountryCode): void {
     this.isCorrect = this.gameStateService.checkPlayerAnswer(countryCode, correctCountryCode);
+    this.countryCode = countryCode;
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 

@@ -714,6 +714,21 @@
     "immatriculate_plate": null
   },
   {
+    "flag": "ci",
+    "country": {
+      "en": "Côte d'Ivoire",
+      "fr": "Côte d'Ivoire"
+    },
+    "capital": {
+      "en": ["Yamoussoukro"],
+      "fr": ["Yamoussoukro"]
+    },
+    "continent": {
+      "en": "Africa",
+      "fr": "Afrique"
+    }
+  },
+  {
     "flag": "hr",
     "country": {
       "en": "Croatia",
@@ -2395,6 +2410,21 @@
     },
     "map_coordinates": [null, null],
     "immatriculate_plate": null
+  },
+  {
+    "flag": "pr",
+    "country": {
+      "en": "Puerto Rico",
+      "fr": "Porto Rico"
+    },
+    "capital": {
+      "en": ["San Juan"],
+      "fr": ["San Juan"]
+    },
+    "continent": {
+      "en": "North America",
+      "fr": "Amérique du Nord"
+    }
   },
   {
     "flag": "qa",

@@ -39,6 +39,7 @@ export class Menu implements OnInit {
     }
     if (start) {
       console.log('Starting new game or action'); // Placeholder for start action
+      this.gameSessionService.setSessionItem('menu_3', id);
       route = "rules";
     }
     this.gameSessionService.setSessionItem(menuType, id);
