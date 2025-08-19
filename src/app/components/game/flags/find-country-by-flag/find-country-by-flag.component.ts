@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
-import { Countries } from '../../../../types/countries.type';
+import { Country } from '../../../../types/countrie.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
@@ -14,7 +14,7 @@ import { CountryInfo } from '../../../../types/country-info.type';
   styleUrls: ['./find-country-by-flag.component.css', '../../game/game.css'],
 })
 export class FindCountryByFlagComponent implements OnInit, OnChanges {
-  countries: Countries[] = [];
+  countries: Country[] = [];
   selectedFlag: string = '';
 
   @Input() turn!: number; // new input to track round changes

@@ -4,7 +4,7 @@ import * as L from "leaflet";
 import geoJsonData from "../../../../../assets/geo/countries_with_codes.geo.json";
 import { GameStateService } from "../../../../services/game-state.service";
 import { GameService } from "../../../../services/game.service";
-import { Countries } from "../../../../types/countries.type";
+import { Country } from "../../../../types/countrie.type";
 import { CommonModule } from "@angular/common";
 import { ConvertService } from "../../../../services/convert.service";
 import { CountryCode } from "../../../../types/code.type";
@@ -23,7 +23,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private geojson!: L.GeoJSON;
   geoJsonData = geoJsonData as GeoJSON.FeatureCollection;
   foundCountries: CountryCode[] = [];
-  countries: Countries[] = [];
+  countries: Country[] = [];
   selectedCountry: string = "";
 
   @Input() turn!: number; // new input to track round changes

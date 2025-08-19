@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Countries } from '../types/countries.type';
+import { Country } from '../types/countrie.type';
 import { CountryCode } from '../types/code.type';
 import worldInfos from '../../assets/data/world-infos.json';
 import { CountryInfo } from '../types/country-info.type';
@@ -11,8 +11,8 @@ export class ConvertService {
   language: 'en' | 'fr' = 'fr'; // default language
   constructor() {}
 
-  convertCodesToCountries(turnCodes: CountryCode[]): Countries[] {
-    let countries: Countries[] = [];
+  convertCodesToCountries(turnCodes: CountryCode[]): Country[] {
+    let countries: Country[] = [];
     turnCodes.forEach((code) => {
       const countryInfo = this.convertCodeToCountry(code) as CountryInfo;
       if (countryInfo) {

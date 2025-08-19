@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Countries } from '../types/countries.type';
+import { Country } from '../types/countrie.type';
 import { SelectorService } from './selector.service';
 import { CountryCode } from '../types/code.type';
 import { ConvertService } from './convert.service';
@@ -11,7 +11,7 @@ import { GameSessionService } from './game-session.service';
 })
 export class GameService {
   language: 'en' | 'fr' = 'fr'; // default language
-  countries: Countries[] = [];
+  countries: Country[] = [];
   selectedCountryCode: CountryCode = '';
 
   constructor(
@@ -28,11 +28,11 @@ export class GameService {
     return codesToFind;
   }
 
-  getCountries(): Countries[] {
+  getCountries(): Country[] {
     return this.countries;
   }
 
-  setCountries(countries: Countries[]): void {
+  setCountries(countries: Country[]): void {
     this.countries = countries;
   }
 
@@ -48,6 +48,6 @@ export class GameService {
 
     this.gameStateService.updateGameState(turnCodes, this.selectedCountryCode); // Update game state with selected countries in session
 
-    console.log('Countries after conversion:', this.countries);
+    console.log('Country after conversion:', this.countries);
   }
 }
