@@ -665,8 +665,8 @@
   {
     "flag": "cg",
     "country": {
-      "en": "Congo (Brazzaville)",
-      "fr": "Congo (Brazzaville)"
+      "en": "Congo",
+      "fr": "Congo"
     },
     "capital": {
       "en": ["Brazzaville"],
@@ -682,8 +682,8 @@
   {
     "flag": "cd",
     "country": {
-      "en": "Congo (Kinshasa)",
-      "fr": "Congo (Kinshasa)"
+      "en": "Democratic Republic of the Congo",
+      "fr": "République démocratique du Congo"
     },
     "capital": {
       "en": ["Kinshasa"],
