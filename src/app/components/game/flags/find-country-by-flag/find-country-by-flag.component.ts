@@ -11,7 +11,7 @@ import { CountryInfo } from '../../../../types/country-info.type';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './find-country-by-flag.component.html',
-  styleUrls: ['./find-country-by-flag.component.css', '../../game/game.css'],
+  styleUrls: ['./find-country-by-flag.component.css', '../../game/game.component.css'],
 })
 export class FindCountryByFlagComponent implements OnInit, OnChanges {
   countries: Country[] = [];

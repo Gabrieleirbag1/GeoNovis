@@ -10,7 +10,7 @@ import { CountryInfo } from '../../../../types/country-info.type';
   selector: 'app-find-flag',
   imports: [CommonModule],
   templateUrl: './find-flag.component.html',
-  styleUrls: ['./find-flag.component.css', '../../game/game.css'],
+  styleUrls: ['./find-flag.component.css', '../../game/game.component.css'],
 })
 export class FindFlag implements OnInit, OnChanges {
   countries: Country[] = [];

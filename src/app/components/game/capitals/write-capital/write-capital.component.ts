@@ -12,7 +12,7 @@ import { CountryInfo } from '../../../../types/country-info.type';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: "./write-capital.component.html",
-  styleUrls: ["./write-capital.component.css", "../../game/game.css"],
+  styleUrls: ["./write-capital.component.css", "../../game/game.component.css"],
 })
 export class WriteCapitalComponent implements OnInit, OnChanges {
   countries: Country[] = [];

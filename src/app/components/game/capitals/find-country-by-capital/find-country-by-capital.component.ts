@@ -10,7 +10,7 @@ import { CountryInfo } from '../../../../types/country-info.type';
   selector: 'app-find-country-by-capital',
   imports: [CommonModule],
   templateUrl: './find-country-by-capital.component.html',
-  styleUrls: ['./find-country-by-capital.component.css', '../../game/game.css'],
+  styleUrls: ['./find-country-by-capital.component.css', '../../game/game.component.css'],
 })
 export class FindCountryByCapitalComponent implements OnInit, OnChanges {
   countries: Country[] = [];
