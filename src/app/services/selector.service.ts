@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core';
 import { GameSessionService } from './game-session.service';
 import { CountryCode } from '../types/code.type';
 import { GameSaveService } from './game-save.service';
+import { Language } from '../types/language.type';
+import { LanguageService } from './language.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SelectorService {
-  language: 'en' | 'fr' = 'fr';
+  language: Language = 'fr'; // Default language
   selectedCountry: CountryCode = '';
 
-  constructor(private gameSessionService: GameSessionService, private gameSaveService: GameSaveService) {}
+  constructor(private gameSessionService: GameSessionService, private gameSaveService: GameSaveService, private languageService: LanguageService) {
+    this.language = this.languageService.getLanguage();
+  }
 
   getRandomNotFoundCode(): CountryCode {
     const gameState = this.gameSessionService.getGameState();

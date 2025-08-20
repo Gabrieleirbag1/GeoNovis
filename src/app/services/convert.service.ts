@@ -3,13 +3,17 @@ import { Country } from '../types/countrie.type';
 import { CountryCode } from '../types/code.type';
 import worldInfos from '../../assets/data/world-infos.json';
 import { CountryInfo } from '../types/country-info.type';
+import { Language } from '../types/language.type';
+import { LanguageService } from './language.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConvertService {
-  language: 'en' | 'fr' = 'fr'; // default language
-  constructor() {}
+  language: Language = 'fr'; // Default language
+  constructor(private languageService: LanguageService) {
+    this.language = this.languageService.getLanguage();
+  }
 
   convertCodesToCountries(turnCodes: CountryCode[]): Country[] {
     let countries: Country[] = [];
