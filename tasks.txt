@@ -1,4 +1,3 @@
-- SAVE LES GAME-CODES DANS LA SESSION POUR SAVOIR QUELLE COUNTRIES 
-- SELECTIONER UN PAYS AU HASARD AVEC SA CAPITALE
-
-UTILISER UN SERVICE
+- créer le submenu
+- gérer differents mode de jeu (personnalisé)
+- info json et geo json par régions
