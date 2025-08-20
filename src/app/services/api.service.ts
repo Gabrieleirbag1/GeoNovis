@@ -1,15 +1,21 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ApiService {
   private apiUrl = environment.apiUrl;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  // Add other API methods as needed
+  getGeoJson(region: string): Observable<GeoJSON.FeatureCollection> {
+    console.log(`Fetching GeoJSON data for region: ${region}`);
+    return this.http.get<GeoJSON.FeatureCollection>(`${this.apiUrl}/api/geojson/${region}`);
+  }
+  
   getApiUrl(): string {
     return this.apiUrl;
   }
