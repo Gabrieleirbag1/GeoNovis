@@ -1,13 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import menuConfigData from '../../../assets/data/menu-config.json';
 import { GameSessionService } from '../../services/game-session.service';
 import { routes } from '../../app.routes';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
+
 @Component({
   selector: 'app-menu',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
@@ -16,6 +19,12 @@ export class Menu implements OnInit {
   menuConfig: any;
   language: string = 'fr'; // default
   gameStarted: boolean = false;
+  
+  // Modal properties
+  showSubmenuModal = false;
+  currentSubmenuTitle = '';
+  submenuOptions: any[] = [];
+  currentSubmenuData: any = null;
 
   constructor(private gameSessionService: GameSessionService, private routes: Router, private languageService: LanguageService) {
     this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
@@ -36,16 +45,69 @@ export class Menu implements OnInit {
 
   handleNextMenu(menuType: string, id: string, start: boolean | null, submenu: boolean | null, route: string): void {
     if (submenu) {
-      console.log('Submenu not implemented yet');
+      // Use the main menu options as submenu options
+      this.currentSubmenuTitle = this.menuConfig.content.find((item: any) => item.id === id)?.name[this.language] || 'Customize';
+      
+      // Get all other menu options that aren't the current one
+      this.submenuOptions = this.menuConfig.content
+        .filter((item: any) => item.id !== id)
+        .map((item: any) => ({
+          id: item.id,
+          name: item.name,
+          selected: false
+        }));
+      
+      this.currentSubmenuData = {
+        menuType,
+        id,
+        route
+      };
+      this.showSubmenuModal = true;
+      console.log('Submenu options:', this.submenuOptions);
       return;
     }
+
     if (start) {
-      console.log('Starting new game or action'); // Placeholder for start action
+      console.log('Starting new game or action');
       this.gameSessionService.setSessionItem('menu_3', id);
       route = "rules";
     }
     this.gameSessionService.setSessionItem(menuType, id);
     this.routes.navigate([`/${route}`]);
+  }
+
+  closeModal(event: MouseEvent): void {
+    // Only close if clicking the overlay or cancel button
+    if (
+      (event.target as HTMLElement).classList.contains('modal-overlay') ||
+      (event.target as HTMLElement).classList.contains('cancel-btn')
+    ) {
+      this.showSubmenuModal = false;
+    }
+  }
+
+  proceedWithSubmenu(): void {
+    // Get all selected options
+    const selectedOptions = this.submenuOptions
+      .filter(option => option.selected)
+      .map(option => option.id);
+    
+    console.log('Selected game modes:', selectedOptions);
+    
+    // Process the selections
+    if (this.currentSubmenuData) {
+      console.log("zdf", this.currentSubmenuData);
+      const { menuType, id, route } = this.currentSubmenuData;
+      
+      // Store the selected options in session
+      this.gameSessionService.setSessionItem(`custom_game_modes`, JSON.stringify(selectedOptions));
+      
+      // Continue with navigation
+      this.gameSessionService.setSessionItem(menuType, id);
+      this.routes.navigate([`/${route}`]);
+    }
+    
+    this.showSubmenuModal = false;
   }
 
   handleBackMenu(): void {
@@ -56,5 +118,4 @@ export class Menu implements OnInit {
   redirectGame(): void {
     this.routes.navigate(['/game']);
   }
-
 }

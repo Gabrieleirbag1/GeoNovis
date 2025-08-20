@@ -20,4 +20,26 @@
       {{ menuContent.name[language] }}
     </div>
   </div>
+  
+  <!-- Modal Window -->
+  <div class="modal-overlay" *ngIf="showSubmenuModal" (click)="closeModal($event)">
+    <div class="modal-content">
+      <h3>{{ currentSubmenuTitle }}</h3>
+      <p>Select game modes to include:</p>
+      
+      <div class="submenu-options">
+        <div class="option-item" *ngFor="let option of submenuOptions">
+          <label>
+            <input type="checkbox" [(ngModel)]="option.selected">
+            {{ option.name[language] }}
+          </label>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <button class="cancel-btn" (click)="closeModal($event)">Cancel</button>
+        <button class="go-btn" (click)="proceedWithSubmenu()">Go</button>
+      </div>
+    </div>
+  </div>
 </section>
