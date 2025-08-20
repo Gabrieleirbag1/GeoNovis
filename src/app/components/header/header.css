@@ -1,22 +1,59 @@
 header {
-  background-color: #282c34;
-  color: white;
-  padding: 20px;
-  height: 50px;
-  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #2c3e50;
+  color: white;
 }
 
 nav {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
-a {
+nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.2em;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #3498db;
+}
+
+.language-selector {
+  display: flex;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid #7f8c8d;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.language-button img {
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+}
+
+.language-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-button.active {
+  background-color: #3498db;
+  border-color: #3498db;
 }
