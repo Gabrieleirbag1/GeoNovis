@@ -1,15 +1,13 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter, AfterViewInit } from "@angular/core";
-
 import * as L from "leaflet";
-import geoJsonData from "../../../../../assets/geo/custom_countries_with_codes.geo.json";
+import { Component, OnChanges, Input, SimpleChanges, Output, EventEmitter, AfterViewInit } from "@angular/core";
 import { GameStateService } from "../../../../services/game-state.service";
 import { GameService } from "../../../../services/game.service";
 import { Country } from "../../../../types/countrie.type";
 import { CommonModule } from "@angular/common";
 import { ConvertService } from "../../../../services/convert.service";
 import { CountryCode } from "../../../../types/code.type";
-import { GameSessionService } from "../../../../services/game-session.service";
 import { CountryInfo } from "../../../../types/country-info.type";
+import { ApiService } from "../../../../services/api.service";
 
 @Component({
   selector: "app-map",
@@ -21,7 +19,7 @@ import { CountryInfo } from "../../../../types/country-info.type";
 export class MapComponent implements AfterViewInit, OnChanges {
   private map!: L.Map;
   private geojson!: L.GeoJSON;
-  geoJsonData = geoJsonData as GeoJSON.FeatureCollection;
+  geoJsonData: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
   foundCountries: CountryCode[] = [];
   countries: Country[] = [];
   selectedCountry: string = "";
@@ -32,15 +30,43 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   @Output() answerSelected = new EventEmitter<{ selectedCode: CountryCode; correctCode: CountryCode }>();
 
-  constructor(private gameService: GameService, private convertService: ConvertService, private gameStateService: GameStateService, private gameSessionService: GameSessionService) {}
+  constructor(private gameService: GameService, 
+    private convertService: ConvertService, 
+    private gameStateService: GameStateService, 
+    private apiService: ApiService) {
+    }
 
   ngAfterViewInit(): void {
     this.init();
     this.foundCountries = this.gameStateService.getFoundCountries();
     console.log("Found countries:", this.foundCountries);
-    this.initMap();
-    this.addGeoJsonLayer();
-    this.initHighlightCountries();
+    this.initializeMap();
+  }
+
+  private initializeMap(): void {
+    this.loadGeoJsonData().then(() => {
+      this.setupMap();
+      this.addGeoJsonLayer();
+      this.initHighlightCountries();
+    }).catch((error) => { 
+      console.error("Error loading GeoJSON data:", error);
+    });
+  }
+
+  private loadGeoJsonData(): Promise<void> {
+    console.log("Loading GeoJSON data...");
+    return new Promise<void>((resolve, reject) => {
+      this.apiService.getGeoJson("world").subscribe({
+        next: (data: GeoJSON.FeatureCollection) => {
+          this.geoJsonData = data;
+          resolve();
+        },
+        error: (error) => {
+          console.error("Error loading GeoJSON data:", error);
+          reject(error);
+        }
+      });
+    });
   }
 
   private initHighlightCountries(): void {
@@ -107,7 +133,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.selectedCountry = countryInfo?.country[this.convertService.language] || "";
   }
 
-  private initMap(): void {
+  private setupMap(): void {
     this.map = L.map("map", {
       center: [39.8282, -98.5795],
       zoom: 2,
