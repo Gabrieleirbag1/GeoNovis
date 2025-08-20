@@ -13,8 +13,8 @@ import { MapComponent } from "../map/map/map.component";
 @Component({
   selector: "app-game",
   imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent],
-  templateUrl: "./game.html",
-  styleUrl: "./game.css",
+  templateUrl: "./game.component.html",
+  styleUrl: "./game.component.css",
 })
 export class Game implements OnInit, OnDestroy {
   subgamemode: string = "findCapital";

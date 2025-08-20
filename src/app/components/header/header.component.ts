@@ -8,8 +8,8 @@ import { Language } from '../../types/language.type';
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './header.html',
-  styleUrl: './header.css'
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css'
 })
 export class Header {
   currentLanguage: Language;

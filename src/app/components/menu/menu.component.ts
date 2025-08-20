@@ -8,8 +8,8 @@ import { LanguageService } from '../../services/language.service';
 @Component({
   selector: 'app-menu',
   imports: [CommonModule],
-  templateUrl: './menu.html',
-  styleUrl: './menu.css'
+  templateUrl: './menu.component.html',
+  styleUrl: './menu.component.css'
 })
 export class Menu implements OnInit {
   currentRoute: string;

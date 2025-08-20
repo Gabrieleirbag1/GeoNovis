@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { Menu } from './components/menu/menu';
-import { Game } from './components/game/game/game';
-import { Home } from './components/home/home';
-import { Rules } from './components/game/rules/rules';
+import { Menu } from './components/menu/menu.component';
+import { Game } from './components/game/game/game.component';
+import { Home } from './components/home/home.component';
+import { Rules } from './components/game/rules/rules.component';
 
 export const routes: Routes = [
   { path: '', component: Home },
