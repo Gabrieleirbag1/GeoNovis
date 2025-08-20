@@ -9,13 +9,12 @@ import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
 import { MapComponent } from "../map/map/map.component";
-import { ConvertService } from "../../../services/convert.service";
 
 @Component({
   selector: "app-game",
   imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent],
-  templateUrl: "./game.html",
-  styleUrl: "./game.css",
+  templateUrl: "./game.component.html",
+  styleUrl: "./game.component.css",
 })
 export class Game implements OnInit, OnDestroy {
   subgamemode: string = "findCapital";
@@ -24,14 +23,14 @@ export class Game implements OnInit, OnDestroy {
   endRound: boolean = false;
   endGame: boolean = false;
   isCorrect: boolean = false;
-  language: string = "fr";
   countryCode: CountryCode = "";
 
   remainingTime: string = "";
   private timerInterval: any;
   private endTime: Date | null = null;
 
-  constructor(private gameSessionService: GameSessionService, protected gameStateService: GameStateService, private convertService: ConvertService) {}
+  constructor(private gameSessionService: GameSessionService, 
+    protected gameStateService: GameStateService) {}
 
   ngOnInit(): void {
     this.handleEnd();

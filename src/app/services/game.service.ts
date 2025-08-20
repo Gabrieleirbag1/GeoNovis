@@ -10,7 +10,6 @@ import { GameSessionService } from './game-session.service';
   providedIn: 'root',
 })
 export class GameService {
-  language: 'en' | 'fr' = 'fr'; // default language
   countries: Country[] = [];
   selectedCountryCode: CountryCode = '';
 

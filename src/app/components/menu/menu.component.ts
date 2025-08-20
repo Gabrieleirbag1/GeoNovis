@@ -4,11 +4,12 @@ import menuConfigData from '../../../assets/data/menu-config.json';
 import { GameSessionService } from '../../services/game-session.service';
 import { routes } from '../../app.routes';
 import { Router } from '@angular/router';
+import { LanguageService } from '../../services/language.service';
 @Component({
   selector: 'app-menu',
   imports: [CommonModule],
-  templateUrl: './menu.html',
-  styleUrl: './menu.css'
+  templateUrl: './menu.component.html',
+  styleUrl: './menu.component.css'
 })
 export class Menu implements OnInit {
   currentRoute: string;
@@ -16,11 +17,12 @@ export class Menu implements OnInit {
   language: string = 'fr'; // default
   gameStarted: boolean = false;
 
-  constructor(private gameSessionService: GameSessionService, private routes: Router) {
+  constructor(private gameSessionService: GameSessionService, private routes: Router, private languageService: LanguageService) {
     this.currentRoute = window.location.pathname.split('/').slice(-1)[0] || 'region';
   }
 
   ngOnInit() {
+    this.language = this.languageService.getLanguage();
     if (this.gameSessionService.getSessionItem('gameStarted') === 'true') {
       this.gameStarted = true;
     }

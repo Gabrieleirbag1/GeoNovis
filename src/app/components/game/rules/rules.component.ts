@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-rules',
   imports: [CommonModule, FormsModule],
-  templateUrl: './rules.html',
-  styleUrl: './rules.css'
+  templateUrl: './rules.component.html',
+  styleUrl: './rules.component.css'
 })
 export class Rules {
   gameInfos: any = gameInfos;
