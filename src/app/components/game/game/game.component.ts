@@ -17,7 +17,7 @@ import { MapComponent } from "../map/map/map.component";
   styleUrl: "./game.component.css",
 })
 export class Game implements OnInit, OnDestroy {
-  subgamemode: string = "findCapital";
+  subgamemode: string = "map";
   currentRound: number = 0;
   totalRounds: number | null = null;
   endRound: boolean = false;
@@ -35,7 +35,7 @@ export class Game implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.handleEnd();
     const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
-    this.subgamemode = gameSave.subgamemode.available[0] || "findCapital";
+    this.subgamemode = gameSave.subgamemode.current || "map";
     this.currentRound = gameSave.roundState.current;
     this.totalRounds = gameSave.roundState.total;
     if (!this.endRound) {

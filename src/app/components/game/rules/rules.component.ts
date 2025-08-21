@@ -69,6 +69,7 @@ export class Rules {
     this.gameSave.region = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
     this.gameSave.gamemode.available = [gamemode];
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
+    this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
   }
 
   private setGameSession(): void {
