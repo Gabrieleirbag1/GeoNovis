@@ -56,15 +56,16 @@ export class Rules {
   private setRules(): void {
     const timelimitElement: HTMLInputElement = document.getElementById('timelimit') as HTMLInputElement;
     const roundsElement: HTMLInputElement = document.getElementById('rounds') as HTMLInputElement;
-    const region = this.gameSessionService.getSessionItem('menu_1');
+    const currentMenuRegion = this.gameSessionService.getSessionItem('menu_1');
     const gamemode = this.gameSessionService.getSessionItem('menu_2');
     const subgamemode = this.gameSessionService.getSessionItem('menu_3');
+    const regions: string[] = this.gameSessionService.getParsedItem('regions') || [];
 
     this.gameSave.roundState.total = roundsElement.value;
     this.gameSave.timeLimit.value = timelimitElement.value;
     this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === 'string' 
     ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
-    this.gameSave.region = [region];
+    this.gameSave.region = currentMenuRegion === "world" ? [currentMenuRegion] : regions;
     this.gameSave.gamemode.available = [gamemode];
     this.gameSave.subgamemode.available = [subgamemode];
   }
