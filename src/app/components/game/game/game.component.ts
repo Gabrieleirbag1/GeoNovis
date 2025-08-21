@@ -53,6 +53,10 @@ export class Game implements OnInit, OnDestroy {
     console.log("Initializing countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
 
+    if (gameSave.timeLimit.value === "No limit") {
+      return;
+    }
+
     const datetime: string | null = gameSave.timeLimit.datetime;
     if (datetime) {
       this.endTime = new Date(datetime);
