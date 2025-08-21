@@ -37,20 +37,20 @@ export class MapComponent implements AfterViewInit, OnChanges {
     }
 
   ngAfterViewInit(): void {
-    this.init();
-    this.foundCountries = this.gameStateService.getFoundCountries();
-    console.log("Found countries:", this.foundCountries);
-    this.initializeMap();
-  }
-
-  private initializeMap(): void {
     this.loadGeoJsonData().then(() => {
-      this.setupMap();
-      this.addGeoJsonLayer();
-      this.initHighlightCountries();
+      this.init();
+      this.foundCountries = this.gameStateService.getFoundCountries();
+      console.log("Found countries:", this.foundCountries);
+      this.initializeMap();
     }).catch((error) => { 
       console.error("Error loading GeoJSON data:", error);
     });
+  }
+
+  private initializeMap(): void {
+    this.setupMap();
+    this.addGeoJsonLayer();
+    this.initHighlightCountries();
   }
 
   private loadGeoJsonData(): Promise<void> {
@@ -101,18 +101,19 @@ export class MapComponent implements AfterViewInit, OnChanges {
       if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== "") {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
-      console.log("Found countries after end round:", this.foundCountries, "country", this.gameService.selectedCountryCode);
-      this.highlightCountryByCode(this.countryCode, "red");
-      this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+      if (this.geoJsonData.features.length > 0) {
+        this.highlightCountryByCode(this.countryCode, "red");
+        this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+      }
     } else if (changes["endRound"].currentValue === false) {
-      this.geojson.eachLayer((layer: any) => {
-        if (layer.feature && layer.feature.properties 
+        this.geojson.eachLayer((layer: any) => {
+          if (layer.feature && layer.feature.properties 
           && layer.feature.properties["code"] 
           && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
             if (!this.foundCountries.includes(this.countryCode)) {
               this.resetHighlighted(layer);
             }
-        }
+          }
       });
     }
   }
