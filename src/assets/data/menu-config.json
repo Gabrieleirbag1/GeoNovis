@@ -24,7 +24,11 @@
             "fr": "Continents"
           },
           "linkto": "gamemode",
-          "submenu": true
+          "submenu": true,
+          "submenu_content": {
+            "fr": ["Europe", "Asie", "Afrique", "Amérique du Nord", "Amérique du Sud", "Océanie"],
+            "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"]
+          }
         },
         {
           "id": "majorRegions",
@@ -33,7 +37,11 @@
             "fr": "Grandes Régions"
           },
           "linkto": "gamemode",
-          "submenu": true
+          "submenu": true,
+          "submenu_content": {
+            "fr": ["Eurasie", "Moyen-Orient"],
+            "en": ["Eurasia", "Middle East"]
+          }
         },
         {
           "id": "custom",
@@ -42,7 +50,11 @@
             "fr": "Personnalisé"
           },
           "linkto": "gamemode",
-          "submenu": true
+          "submenu": true,
+          "submenu_content": {
+            "fr": ["Europe", "Asie", "Afrique", "Amérique du Nord", "Amérique du Sud", "Océanie", "Eurasie", "Moyen-Orient"],
+            "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania", "Eurasia", "Middle East"]
+          }
         }
       ]
     },
@@ -102,7 +114,11 @@
             "fr": "Personnalisé"
           },
           "start": true,
-          "submenu": true
+          "submenu": true,
+          "submenu_content": {
+            "fr": ["Carte", "Capitales", "Drapeaux", "Plaques d'immatriculation"],
+            "en": ["Map", "Capitals", "Flags", "License Plates"]
+          }
         }
       ]
     },
