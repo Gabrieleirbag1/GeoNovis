@@ -17,7 +17,7 @@ import { MapComponent } from "../map/map/map.component";
   styleUrl: "./game.component.css",
 })
 export class Game implements OnInit, OnDestroy {
-  subgamemode: string = "findCapital";
+  subgamemode: string = "map";
   currentRound: number = 0;
   totalRounds: number | null = null;
   endRound: boolean = false;
@@ -35,7 +35,7 @@ export class Game implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.handleEnd();
     const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
-    this.subgamemode = gameSave.subgamemode.available[0] || "findCapital";
+    this.subgamemode = gameSave.subgamemode.current || "map";
     this.currentRound = gameSave.roundState.current;
     this.totalRounds = gameSave.roundState.total;
     if (!this.endRound) {
@@ -52,6 +52,10 @@ export class Game implements OnInit, OnDestroy {
   private initializeCountdown(): void {
     console.log("Initializing countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
+
+    if (gameSave.timeLimit.value === "No limit") {
+      return;
+    }
 
     const datetime: string | null = gameSave.timeLimit.datetime;
     if (datetime) {
@@ -211,10 +215,38 @@ export class Game implements OnInit, OnDestroy {
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 
+  private isRoundEnded(): boolean {
+    const gameSave = this.gameSessionService.getParsedItem("gameSave");
+    const availableSubgamemodes = gameSave.subgamemode.available || ["map"];
+    const currentSubgamemode = gameSave.subgamemode.current || "map";
+    const availableSubgamemodesLength = availableSubgamemodes.length;
+
+    if (availableSubgamemodesLength - 1 == availableSubgamemodes.indexOf(currentSubgamemode)) {
+      this.setSubGamemode(gameSave, availableSubgamemodes[0]);
+      return true;
+    } else {
+      this.setSubGamemode(gameSave, availableSubgamemodes[availableSubgamemodes.indexOf(currentSubgamemode) + 1]);
+      return false;
+    }
+  }
+
+  private setSubGamemode(gameSave: any, subgamemode: string): void {
+    this.subgamemode = subgamemode;
+    gameSave.subgamemode.current = this.subgamemode;
+    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+  }
+
   nextTurn(): void {
-    this.gameStateService.nextTurn();
+    const isRoundEnded: boolean = this.isRoundEnded();
+
+    if (isRoundEnded) {
+      this.gameStateService.nextTurn();
+    }
     this.setRoundStateValue("endRound", false);
-    this.changeRound();
-    this.setNewCountdown();
+
+    if (isRoundEnded) {
+      this.changeRound();
+      this.setNewCountdown();
+    }
   }
 }

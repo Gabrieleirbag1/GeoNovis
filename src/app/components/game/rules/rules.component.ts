@@ -56,17 +56,20 @@ export class Rules {
   private setRules(): void {
     const timelimitElement: HTMLInputElement = document.getElementById('timelimit') as HTMLInputElement;
     const roundsElement: HTMLInputElement = document.getElementById('rounds') as HTMLInputElement;
-    const region = this.gameSessionService.getSessionItem('menu_1');
-    const gamemode = this.gameSessionService.getSessionItem('menu_2');
-    const subgamemode = this.gameSessionService.getSessionItem('menu_3');
+    const currentMenuRegion: string = this.gameSessionService.getSessionItem('menu_1') || 'world';
+    const gamemode: string = this.gameSessionService.getSessionItem('menu_2') || 'map';
+    const subgamemode: string = this.gameSessionService.getSessionItem('menu_3') || 'map';
+    const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem('custom_subgamemodes') || ['map'];
+    const custom_regions: string[] = this.gameSessionService.getParsedItem('custom_regions') || ['map'];
 
     this.gameSave.roundState.total = roundsElement.value;
     this.gameSave.timeLimit.value = timelimitElement.value;
     this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === 'string' 
     ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
-    this.gameSave.region = [region];
+    this.gameSave.region = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
     this.gameSave.gamemode.available = [gamemode];
-    this.gameSave.subgamemode.available = [subgamemode];
+    this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
+    this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
   }
 
   private setGameSession(): void {
