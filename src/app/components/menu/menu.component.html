@@ -38,7 +38,13 @@
       
       <div class="modal-actions">
         <button class="cancel-btn" (click)="closeModal($event)">Cancel</button>
-        <button class="go-btn" (click)="proceedWithSubmenu()">Go</button>
+        <button 
+          class="go-btn" 
+          [disabled]="!hasSelectedOptions()" 
+          [ngClass]="{'disabled-btn': !hasSelectedOptions()}"
+          (click)="proceedWithSubmenu()">
+          Go
+        </button>
       </div>
     </div>
   </div>

@@ -124,6 +124,10 @@ export class Menu implements OnInit {
     }
   }
 
+  hasSelectedOptions(): boolean {
+    return this.submenuOptions.some(option => option.selected);
+  }
+
   redirectGame(): void {
     this.routes.navigate(["/game"]);
   }

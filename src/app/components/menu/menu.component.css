@@ -90,3 +90,14 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+.go-btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.disabled-btn {
+  opacity: 0.6;
+  pointer-events: none;
+}
