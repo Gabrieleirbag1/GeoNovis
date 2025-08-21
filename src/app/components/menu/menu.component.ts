@@ -58,7 +58,7 @@ export class Menu implements OnInit {
         
         // Convert the string array to option objects
         this.submenuOptions = submenuContentList.map((optionName: string, index: number) => ({
-          id: optionName.toLowerCase().replace(/\s+/g, '_'),  // Create ID from name
+          id: menuContent.submenu_content.id[index],
           name: {
             [this.language]: optionName
           },
@@ -108,10 +108,12 @@ export class Menu implements OnInit {
     if (this.currentSubmenuData) {
       const { menuType, id, route } = this.currentSubmenuData;
       
-      // Store the selected options in session
-      this.gameSessionService.setSessionItem(`custom_game_modes_${id}`, JSON.stringify(selectedOptions));
-      
-      // Continue with navigation
+      if (menuType === 'menu_1') {
+        this.gameSessionService.setStringifiedItem('regions', selectedOptions);
+      } else if (menuType === 'menu_2') {
+        this.gameSessionService.setStringifiedItem('gamemodes', selectedOptions);
+      }     
+       // Continue with navigation
       this.gameSessionService.setSessionItem(menuType, id);
       this.routes.navigate([`/${route}`]);
     }

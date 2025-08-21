@@ -31,7 +31,8 @@
           },
           "submenu_content": {
             "fr": ["Europe", "Asie", "Afrique", "Amérique du Nord", "Amérique du Sud", "Océanie"],
-            "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"]
+            "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"],
+            "id": ["europe", "asia", "africa", "north_america", "south_america", "oceania"]
           }
         },
         {
@@ -48,7 +49,8 @@
           },
           "submenu_content": {
             "fr": ["Eurasie", "Moyen-Orient"],
-            "en": ["Eurasia", "Middle East"]
+            "en": ["Eurasia", "Middle East"],
+            "id": ["eurasia", "middle_east"]
           }
         },
         {
@@ -65,7 +67,8 @@
           },
           "submenu_content": {
             "fr": ["Europe", "Asie", "Afrique", "Amérique du Nord", "Amérique du Sud", "Océanie", "Eurasie", "Moyen-Orient"],
-            "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania", "Eurasia", "Middle East"]
+            "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania", "Eurasia", "Middle East"],
+            "id": ["europe", "asia", "africa", "north_america", "south_america", "oceania", "eurasia", "middle_east"]
           }
         }
       ]
@@ -133,7 +136,8 @@
           },
           "submenu_content": {
             "fr": ["Carte", "Capitales", "Drapeaux", "Plaques d'immatriculation"],
-            "en": ["Map", "Capitals", "Flags", "License Plates"]
+            "en": ["Map", "Capitals", "Flags", "License Plates"],
+            "id": ["map", "findCapital", "findFlag", "licensePlates"]
           }
         }
       ]
