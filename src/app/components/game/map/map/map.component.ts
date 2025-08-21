@@ -33,18 +33,19 @@ export class MapComponent implements AfterViewInit, OnChanges {
   constructor(private gameService: GameService, 
     private convertService: ConvertService, 
     private gameStateService: GameStateService, 
-    private apiService: ApiService) {
-    }
+    private apiService: ApiService) {}
 
   ngAfterViewInit(): void {
-    this.loadGeoJsonData().then(() => {
-      this.init();
-      this.foundCountries = this.gameStateService.getFoundCountries();
-      console.log("Found countries:", this.foundCountries);
-      this.initializeMap();
-    }).catch((error) => { 
-      console.error("Error loading GeoJSON data:", error);
-    });
+    this.loadGeoJsonData()
+      .then(() => {
+        this.init();
+        this.foundCountries = this.gameStateService.getFoundCountries();
+        console.log("Found countries:", this.foundCountries);
+        this.initializeMap();
+      })
+      .catch((error) => {
+        console.error("Error loading GeoJSON data:", error);
+      });
   }
 
   private initializeMap(): void {
@@ -64,7 +65,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
         error: (error) => {
           console.error("Error loading GeoJSON data:", error);
           reject(error);
-        }
+        },
       });
     });
   }
@@ -98,7 +99,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   private handleEndRoundChange(changes: SimpleChanges): void {
     if (changes["endRound"].currentValue === true) {
-      if (!this.foundCountries.includes(this.gameService.selectedCountryCode) && this.gameService.selectedCountryCode !== "") {
+      if (!this.foundCountries.includes(this.gameService.selectedCountryCode) 
+        && this.gameService.selectedCountryCode !== "") {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
       if (this.geoJsonData.features.length > 0) {
@@ -106,15 +108,16 @@ export class MapComponent implements AfterViewInit, OnChanges {
         this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
       }
     } else if (changes["endRound"].currentValue === false) {
+      if (this.geoJsonData.features.length > 0) {
         this.geojson.eachLayer((layer: any) => {
-          if (layer.feature && layer.feature.properties 
-          && layer.feature.properties["code"] 
-          && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
+          if (layer.feature && layer.feature.properties && layer.feature.properties["code"] 
+            && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
             if (!this.foundCountries.includes(this.countryCode)) {
               this.resetHighlighted(layer);
             }
           }
-      });
+        });
+      }
     }
   }
 
