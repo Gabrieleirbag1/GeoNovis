@@ -218,16 +218,18 @@ export class Game implements OnInit, OnDestroy {
     const availableSubgamemodesLength = availableSubgamemodes.length;
 
     if (availableSubgamemodesLength - 1 == availableSubgamemodes.indexOf(currentSubgamemode)) {
-      this.subgamemode = availableSubgamemodes[0];
-      gameSave.subgamemode.current = this.subgamemode;
-      this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+      this.setSubGamemode(gameSave, availableSubgamemodes[0]);
       return true;
     } else {
-      this.subgamemode = availableSubgamemodes[availableSubgamemodes.indexOf(currentSubgamemode) + 1];
-      gameSave.subgamemode.current = this.subgamemode;
-      this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+      this.setSubGamemode(gameSave, availableSubgamemodes[availableSubgamemodes.indexOf(currentSubgamemode) + 1]);
       return false;
     }
+  }
+
+  private setSubGamemode(gameSave: any, subgamemode: string): void {
+    this.subgamemode = subgamemode;
+    gameSave.subgamemode.current = this.subgamemode;
+    this.gameSessionService.setStringifiedItem("gameSave", gameSave);
   }
 
   nextTurn(): void {
