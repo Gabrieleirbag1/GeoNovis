@@ -25,6 +25,10 @@
           },
           "linkto": "gamemode",
           "submenu": true,
+          "subMenuText": {
+            "fr": "Sélectionnez les continents à inclure",
+            "en": "Select continents to include"
+          },
           "submenu_content": {
             "fr": ["Europe", "Asie", "Afrique", "Amérique du Nord", "Amérique du Sud", "Océanie"],
             "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"]
@@ -38,6 +42,10 @@
           },
           "linkto": "gamemode",
           "submenu": true,
+          "subMenuText": {
+            "fr": "Sélectionnez les grandes régions à inclure",
+            "en": "Select major regions to include"
+          },
           "submenu_content": {
             "fr": ["Eurasie", "Moyen-Orient"],
             "en": ["Eurasia", "Middle East"]
@@ -51,6 +59,10 @@
           },
           "linkto": "gamemode",
           "submenu": true,
+          "subMenuText": {
+            "fr": "Sélectionnez les régions à inclure",
+            "en": "Select regions to include"
+          },
           "submenu_content": {
             "fr": ["Europe", "Asie", "Afrique", "Amérique du Nord", "Amérique du Sud", "Océanie", "Eurasie", "Moyen-Orient"],
             "en": ["Europe", "Asia", "Africa", "North America", "South America", "Oceania", "Eurasia", "Middle East"]
@@ -115,6 +127,10 @@
           },
           "start": true,
           "submenu": true,
+          "subMenuText": {
+            "fr": "Sélectionnez les modes de jeu à inclure",
+            "en": "Select game modes to include"
+          },
           "submenu_content": {
             "fr": ["Carte", "Capitales", "Drapeaux", "Plaques d'immatriculation"],
             "en": ["Map", "Capitals", "Flags", "License Plates"]

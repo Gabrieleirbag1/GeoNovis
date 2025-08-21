@@ -25,7 +25,7 @@
   <div class="modal-overlay" *ngIf="showSubmenuModal" (click)="closeModal($event)">
     <div class="modal-content">
       <h3>{{ currentSubmenuTitle }}</h3>
-      <p>Select game modes to include:</p>
+      <p>{{ currentSubmenuText }}</p>
       
       <div class="submenu-options">
         <div class="option-item" *ngFor="let option of submenuOptions">

@@ -23,6 +23,7 @@ export class Menu implements OnInit {
   // Modal properties
   showSubmenuModal = false;
   currentSubmenuTitle = '';
+  currentSubmenuText = '';
   submenuOptions: any[] = [];
   currentSubmenuData: any = null;
 
@@ -45,26 +46,35 @@ export class Menu implements OnInit {
 
   handleNextMenu(menuType: string, id: string, start: boolean | null, submenu: boolean | null, route: string): void {
     if (submenu) {
-      // Use the main menu options as submenu options
-      this.currentSubmenuTitle = this.menuConfig.content.find((item: any) => item.id === id)?.name[this.language] || 'Customize';
+      // Find the menu content with this ID
+      const menuContent = this.menuConfig.content.find((item: any) => item.id === id);
       
-      // Get all other menu options that aren't the current one
-      this.submenuOptions = this.menuConfig.content
-        .filter((item: any) => item.id !== id)
-        .map((item: any) => ({
-          id: item.id,
-          name: item.name,
+      if (menuContent && menuContent.submenu_content) {
+        this.currentSubmenuTitle = menuContent.name[this.language];
+        this.currentSubmenuText = menuContent.subMenuText[this.language];
+        
+        // Use the predefined submenu_content from the config
+        const submenuContentList = menuContent.submenu_content[this.language];
+        
+        // Convert the string array to option objects
+        this.submenuOptions = submenuContentList.map((optionName: string, index: number) => ({
+          id: optionName.toLowerCase().replace(/\s+/g, '_'),  // Create ID from name
+          name: {
+            [this.language]: optionName
+          },
           selected: false
         }));
-      
-      this.currentSubmenuData = {
-        menuType,
-        id,
-        route
-      };
-      this.showSubmenuModal = true;
-      console.log('Submenu options:', this.submenuOptions);
-      return;
+        
+        this.currentSubmenuData = {
+          menuType,
+          id,
+          route
+        };
+        
+        this.showSubmenuModal = true;
+        console.log('Submenu options:', this.submenuOptions);
+        return;
+      }
     }
 
     if (start) {
@@ -92,15 +102,14 @@ export class Menu implements OnInit {
       .filter(option => option.selected)
       .map(option => option.id);
     
-    console.log('Selected game modes:', selectedOptions);
+    console.log('Selected options:', selectedOptions);
     
     // Process the selections
     if (this.currentSubmenuData) {
-      console.log("zdf", this.currentSubmenuData);
       const { menuType, id, route } = this.currentSubmenuData;
       
       // Store the selected options in session
-      this.gameSessionService.setSessionItem(`custom_game_modes`, JSON.stringify(selectedOptions));
+      this.gameSessionService.setSessionItem(`custom_game_modes_${id}`, JSON.stringify(selectedOptions));
       
       // Continue with navigation
       this.gameSessionService.setSessionItem(menuType, id);
