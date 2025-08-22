@@ -9,7 +9,7 @@ def main():
     # Define paths relative to the script location
     world_infos_path = os.path.join(script_dir, "..", "data", "world-infos.json")
     major_regions_path = os.path.join(script_dir, "..", "data", "majorRegions.json")
-    output_dir = os.path.join(script_dir, "..", "data", "regions")
+    output_dir = os.path.join(script_dir, "..", "data", "regions", "majorRegions")
     
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
