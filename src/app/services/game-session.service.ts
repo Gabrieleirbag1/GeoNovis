@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import gameCodes from '../../assets/data/game-codes.json';
+import worldCodes from '../../assets/data/world-codes.json';
 import { CountryCode } from '../types/code.type';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class GameSessionService {
   }
 
   initGameState(): void {
-    this.setGameState(gameCodes);
+    this.setGameState(worldCodes);
   }
 
   setStringifiedItem(key: string, value: any): void {

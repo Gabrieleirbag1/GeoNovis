@@ -1,3 +1,3 @@
-import gamecodes from '../../assets/data/game-codes.json';
+import worldCodes from '../../assets/data/world-codes.json';
 
-export type CountryCode = keyof typeof gamecodes | '';
+export type CountryCode = keyof typeof worldCodes | '';
