@@ -68,7 +68,7 @@ export class Rules {
     this.gameSave.timeLimit.value = timelimitElement.value;
     this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === 'string' 
     ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
-    this.gameSave.region = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
+    this.gameSave.regions = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
     this.gameSave.gamemode.available = [gamemode];
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
     this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
@@ -76,7 +76,7 @@ export class Rules {
 
 
   private async getGeoCodes(): Promise<string[]> {
-    const regions: string[] = this.gameSave.region;
+    const regions: string[] = this.gameSave.regions;
     return firstValueFrom(this.apiService.getGeoCodes(regions))
       .then((codes: string[]) => {
         return codes;
