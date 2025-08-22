@@ -75,10 +75,10 @@ export class Rules {
   }
 
 
-  private getGeoCodes(): Promise<any> {
+  private getGeoCodes(): Promise<string[]> {
     const regions: string[] = this.gameSave.region;
     return firstValueFrom(this.apiService.getGeoCodes(regions))
-      .then((codes: any) => {
+      .then((codes: string[]) => {
         return codes;
       });
   }
@@ -86,7 +86,7 @@ export class Rules {
   private setGameSession(): void {
     this.gameSessionService.setSessionItem('gameStarted', 'true');
     this.gameSessionService.setSessionItem('gameSave', JSON.stringify(this.gameSave));
-    this.getGeoCodes().then((codes: any) => {
+    this.getGeoCodes().then((codes: string[]) => {
       this.gameSessionService.initGameState(codes);
       this.routes.navigate(['/game']);
     });
