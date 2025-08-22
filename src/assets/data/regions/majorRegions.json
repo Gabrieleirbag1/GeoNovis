@@ -24,6 +24,15 @@
         "code": ["SN", "ML", "BF", "CI", "GN", "GH", "TG", "BJ", "NG", "NE", "SL", "LR", "GM"]
       }
     },
+    "central_southern_africa": {
+      "name": { "fr": "Afrique centrale et australe", "en": "Central and Southern Africa" },
+      "countries": {
+        "fr": ["République démocratique du Congo", "République du Congo", "Gabon", "Cameroun", "Centrafrique", "Tchad", "Angola", "Zambie", "Namibie", "Botswana", "Zimbabwe", "Mozambique", "Afrique du Sud", "Lesotho", "Eswatini", "Malawi"],
+        "en": ["Democratic Republic of the Congo", "Republic of the Congo", "Gabon", "Cameroon", "Central African Republic", "Chad", "Angola", "Zambia", "Namibia", "Botswana", "Zimbabwe", "Mozambique", "South Africa", "Lesotho", "Eswatini", "Malawi"],
+        "code": ["CD", "CG", "GA", "CM", "CF", "TD", "AO", "ZM", "NA", "BW", "ZW", "MZ", "ZA", "LS", "SZ", "MW"]
+      }
+    },
+
     "southeast_asia": {
       "name": { "fr": "Asie du Sud-Est", "en": "Southeast Asia" },
       "countries": {

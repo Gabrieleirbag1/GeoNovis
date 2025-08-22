@@ -7,8 +7,8 @@ def main():
     script_dir = Path(__file__).parent.absolute()
     
     # Define paths relative to the script location
-    world_infos_path = os.path.join(script_dir, "..", "data", "world-infos.json")
-    output_dir = os.path.join(script_dir, "..", "data", "regions", "continents")
+    world_infos_path = os.path.join(script_dir, "..", "data", "regions", "world-infos.json")
+    output_dir = os.path.join(script_dir, "..", "data", "regions", "regions", "continents")
     
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
