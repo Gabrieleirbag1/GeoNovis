@@ -131,7 +131,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   init(): void {
     // console.log('FindCapital Component Initialized');
-    this.gameService.initializeGame(1);
+    this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
     const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode);
     this.selectedCountry = countryInfo?.country[this.convertService.language] || "";
