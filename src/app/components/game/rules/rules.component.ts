@@ -75,7 +75,7 @@ export class Rules {
   }
 
 
-  private getGeoCodes(): Promise<string[]> {
+  private async getGeoCodes(): Promise<string[]> {
     const regions: string[] = this.gameSave.region;
     return firstValueFrom(this.apiService.getGeoCodes(regions))
       .then((codes: string[]) => {
