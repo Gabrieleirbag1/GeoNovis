@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Country } from '../types/countrie.type';
 import { CountryCode } from '../types/code.type';
-import worldInfos from '../../assets/data/world-infos.json';
+import worldInfos from '../../assets/data/regions/world-infos.json';
 import { CountryInfo } from '../types/country-info.type';
 import { Language } from '../types/language.type';
 import { LanguageService } from './language.service';
