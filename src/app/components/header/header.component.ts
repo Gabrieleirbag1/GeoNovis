@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
 import { Language } from '../../types/language.type';
+import { QRCodeComponent } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, QRCodeComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
