@@ -18,8 +18,8 @@ export class GameSessionService {
     sessionStorage.removeItem(key);
   }
 
-  initGameState(): void {
-    this.setGameState(worldCodes);
+  initGameState(geoCodes: any): void {
+    this.setGameState(geoCodes);
   }
 
   setStringifiedItem(key: string, value: any): void {

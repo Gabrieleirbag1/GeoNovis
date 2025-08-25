@@ -15,6 +15,10 @@ export class ApiService {
     console.log(`Fetching GeoJSON data for region: ${region}`);
     return this.http.get<GeoJSON.FeatureCollection>(`${this.apiUrl}/api/geojson/${region}`);
   }
+
+  getGeoCodes(regions: string[]): Observable<string[]> {
+    return this.http.get<string[]>(`${this.apiUrl}/api/geocodes/?regions=${regions.join(",")}`);
+  }
   
   getApiUrl(): string {
     return this.apiUrl;
