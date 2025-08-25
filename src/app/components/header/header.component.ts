@@ -17,6 +17,7 @@ export class Header {
 
   constructor(private languageService: LanguageService) {
     this.currentLanguage = this.languageService.getLanguage();
+    this.getAllSessionStorage();
   }
 
   selectLanguage(language: Language): void {
@@ -25,4 +26,10 @@ export class Header {
     // Reload the page to reflect language changes
     window.location.reload();
   }
+
+  getAllSessionStorage(): string {
+    const sessionData: string = "rien"; 
+    return sessionData;
+  }
+
 }
