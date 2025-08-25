@@ -14,10 +14,10 @@ import { QRCodeComponent } from 'angularx-qrcode';
 })
 export class Header {
   currentLanguage: Language;
+  showQrModal = false;
 
   constructor(private languageService: LanguageService) {
     this.currentLanguage = this.languageService.getLanguage();
-    this.getAllSessionStorage();
   }
 
   selectLanguage(language: Language): void {
@@ -28,8 +28,14 @@ export class Header {
   }
 
   getAllSessionStorage(): string {
-    const sessionData: string = "rien"; 
-    return sessionData;
+    return "test";
   }
 
+  openQrModal(): void {
+    this.showQrModal = true;
+  }
+
+  closeQrModal(): void {
+    this.showQrModal = false;
+  }
 }
