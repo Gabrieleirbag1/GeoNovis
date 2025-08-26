@@ -27,10 +27,13 @@
         </div>
         <div class="qr-modal-content">
             <qrcode 
-                [qrdata]="getAllSessionStorage()" 
+                [qrdata]="strSessionData"
                 [width]="256" 
                 [errorCorrectionLevel]="'M'">
             </qrcode>
+        </div>
+        <div class="qr-modal-footer">
+            <button class="share-btn" (click)="shareSessionLink()">Share</button>
         </div>
     </div>
 </div>
