@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   postSession(sessionData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/session/conversion`, sessionData);
+    return this.http.post(`${this.apiUrl}/api/session/encode`, sessionData);
   }
 
   getApiUrl(): string {
