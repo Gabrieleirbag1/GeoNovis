@@ -20,8 +20,12 @@ export class ApiService {
     return this.http.get<string[]>(`${this.apiUrl}/api/geocodes?regions=${regions.join(",")}`);
   }
 
-  postSession(sessionData: any): Observable<any> {
+  postSessionDataToEncode(sessionData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/api/session/encode`, sessionData);
+  }
+
+  postSessionDataToDecode(sessionData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/session/decode`, sessionData);
   }
 
   getApiUrl(): string {

@@ -43,7 +43,7 @@ export class Header {
       }
     }
     
-    this.apiService.postSession(sessionData).subscribe({
+    this.apiService.postSessionDataToEncode(sessionData).subscribe({
       next: (response) => {
         console.log('Session data posted successfully:', response);
         this.strSessionData = response.content || 'No content returned';
