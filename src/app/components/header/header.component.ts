@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { LanguageService } from '../../services/language.service';
-import { Language } from '../../types/language.type';
-import { QRCodeComponent } from 'angularx-qrcode';
-import { ApiService } from '../../services/api.service';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { LanguageService } from "../../services/language.service";
+import { Language } from "../../types/language.type";
+import { QRCodeComponent } from "angularx-qrcode";
+import { ApiService } from "../../services/api.service";
 
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [CommonModule, RouterModule, QRCodeComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: "./header.component.html",
+  styleUrl: "./header.component.css",
 })
 export class Header {
   currentLanguage: Language;
   showQrModal = false;
-  strSessionData: string = '';
+  strSessionData: string = "";
 
   constructor(private languageService: LanguageService, private apiService: ApiService) {
     this.currentLanguage = this.languageService.getLanguage();
@@ -29,9 +29,9 @@ export class Header {
     window.location.reload();
   }
 
-  getAllSessionStorage(): void {
+  getAllSessionStorage(): Promise<void> {
     const sessionData: Record<string, string> = {};
-    
+
     // Collect all session storage items into an object
     for (let i = 0; i < sessionStorage.length; i++) {
       const key = sessionStorage.key(i);
@@ -42,22 +42,29 @@ export class Header {
         }
       }
     }
-    
-    this.apiService.postSessionDataToEncode(sessionData).subscribe({
-      next: (response) => {
-        console.log('Session data posted successfully:', response);
-        this.strSessionData = response.content || 'No content returned';
-      },
-      error: (error) => {
-        console.error('Error posting session data:', error);
-        this.strSessionData = 'Error generating QR code data';
-      }
+
+    return new Promise<void>((resolve, reject) => {
+      this.apiService.postSessionDataToEncode(sessionData).subscribe({
+        next: (response) => {
+          console.log("Session data posted successfully:", response);
+          const rootUrl = window.location.origin;
+          console.log("Root URL:", rootUrl);
+          this.strSessionData = `${rootUrl}/decode?sessionData=${response.content}`;
+          resolve();
+        },
+        error: (error) => {
+          console.error("Error posting session data:", error);
+          this.strSessionData = "Error generating QR code data";
+          reject(error);
+        },
+      });
     });
   }
 
   openQrModal(): void {
-    this.getAllSessionStorage();
-    this.showQrModal = true;
+    this.getAllSessionStorage().then(() => {
+      this.showQrModal = true;
+    });
   }
 
   closeQrModal(): void {
