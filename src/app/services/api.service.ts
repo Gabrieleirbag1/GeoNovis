@@ -17,9 +17,13 @@ export class ApiService {
   }
 
   getGeoCodes(regions: string[]): Observable<string[]> {
-    return this.http.get<string[]>(`${this.apiUrl}/api/geocodes/?regions=${regions.join(",")}`);
+    return this.http.get<string[]>(`${this.apiUrl}/api/geocodes?regions=${regions.join(",")}`);
   }
-  
+
+  postSession(sessionData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/session/conversion`, sessionData);
+  }
+
   getApiUrl(): string {
     return this.apiUrl;
   }
