@@ -61,6 +61,11 @@ export class Header {
     });
   }
 
+  shareSessionLink(): void {
+    const shareableLink = this.strSessionData;
+    navigator.clipboard.writeText(shareableLink)
+  }
+
   openQrModal(): void {
     this.getAllSessionStorage().then(() => {
       this.showQrModal = true;
