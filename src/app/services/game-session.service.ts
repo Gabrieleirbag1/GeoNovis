@@ -47,4 +47,12 @@ export class GameSessionService {
     }
   }
 
+  setGameSessionData(decodedSessionData: Record<string, string>): Promise<void> {
+    console.log(decodedSessionData);
+    for (const [key, value] of Object.entries(decodedSessionData)) {
+      this.setSessionItem(key, value);
+    }
+    return Promise.resolve();
+  }
+
 }
