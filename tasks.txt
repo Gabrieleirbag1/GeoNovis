@@ -1,3 +1,4 @@
-- créer le submenu
-- gérer differents mode de jeu (personnalisé)
-- info json et geo json par régions
+- styles
+- nombre de rounds flexible
+- score -> compter ? noter par pays
+- 
