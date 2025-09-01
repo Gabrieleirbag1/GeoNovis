@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import gameInfos from '../../../../assets/data/game-infos.json';
 import gameSave from '../../../../assets/data/game-save.json';
 import { CommonModule } from '@angular/common';
@@ -14,13 +14,29 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './rules.component.html',
   styleUrl: './rules.component.css'
 })
-export class Rules {
+export class Rules implements OnInit {
   gameInfos: any = gameInfos;
   gameSave: any = gameSave;
   showWarningModal: boolean = false;
   warningMessage: string = '';
+  count: number = 0;
+  private regions: string[] = [];
+
+  ngOnInit(): void {
+    this.setRegions();
+    this.getGeoCodesCount().then((count: number) => {
+      this.count = count;
+    });
+  }
 
   constructor(private gameSessionService: GameSessionService, private apiService: ApiService,private routes: Router) {}
+
+  private setRegions() {
+    const currentMenuRegion: string = this.gameSessionService.getSessionItem('menu_1') || 'world';
+    const custom_regions: string[] = this.gameSessionService.getParsedItem('custom_regions') || ['map'];
+    this.regions = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
+    console.log("Selected regions:", this.regions);
+  }
 
   protected startGame(): void {
     const gameStartedState = this.gameSessionService.getSessionItem('gameStarted');
@@ -58,26 +74,29 @@ export class Rules {
   private setRules(): void {
     const timelimitElement: HTMLInputElement = document.getElementById('timelimit') as HTMLInputElement;
     const roundsElement: HTMLInputElement = document.getElementById('rounds') as HTMLInputElement;
-    const currentMenuRegion: string = this.gameSessionService.getSessionItem('menu_1') || 'world';
     const gamemode: string = this.gameSessionService.getSessionItem('menu_2') || 'map';
     const subgamemode: string = this.gameSessionService.getSessionItem('menu_3') || 'map';
     const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem('custom_subgamemodes') || ['map'];
-    const custom_regions: string[] = this.gameSessionService.getParsedItem('custom_regions') || ['map'];
 
     this.gameSave.roundState.total = roundsElement.value;
     this.gameSave.timeLimit.value = timelimitElement.value;
     this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === 'string' 
     ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
-    this.gameSave.regions = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
+    this.gameSave.regions = this.regions
     this.gameSave.gamemode.available = [gamemode];
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
     this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
   }
 
+  private async getGeoCodesCount(): Promise<number> {
+    return firstValueFrom(this.apiService.getGeoCodesCount(this.regions))
+      .then((count: number) => {
+        return count;
+      });
+  }
 
   private async getGeoCodes(): Promise<string[]> {
-    const regions: string[] = this.gameSave.regions;
-    return firstValueFrom(this.apiService.getGeoCodes(regions))
+    return firstValueFrom(this.apiService.getGeoCodes(this.regions))
       .then((codes: string[]) => {
         return codes;
       });

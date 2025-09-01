@@ -20,6 +20,10 @@ export class ApiService {
     return this.http.get<string[]>(`${this.apiUrl}/api/geocodes?regions=${regions.join(",")}`);
   }
 
+  getGeoCodesCount(regions: string[]): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/api/geocodes/count?regions=${regions.join(",")}`);
+  }
+
   postSessionDataToEncode(sessionData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/api/session/encode`, sessionData);
   }
