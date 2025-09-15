@@ -121,7 +121,7 @@ export class Rules implements OnInit {
   }
 
   private async getGeoCodesCount(): Promise<number> {
-    return firstValueFrom(this.apiService.getGeoCodesCount(this.regions)).then((response: any) => {
+    return firstValueFrom(this.apiService.getGeoCodesCount(this.regions)).then((response: { count: number }) => {
       return response.count;
     });
   }
