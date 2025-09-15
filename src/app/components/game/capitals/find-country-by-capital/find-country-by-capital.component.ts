@@ -35,7 +35,7 @@ export class FindCountryByCapitalComponent implements OnInit, OnChanges {
     }
   }
 
-  onAnswerSelect(country: any): void {
+  onAnswerSelect(country: Country): void {
     this.answerSelected.emit({
       selectedCode: country.code,
       correctCode: this.gameService.selectedCountryCode

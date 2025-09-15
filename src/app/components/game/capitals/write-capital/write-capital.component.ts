@@ -43,8 +43,9 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
     this.userAnswer = '';
   }
 
-  onAnswerSelect(country: any): void {
-    const countryInfo: CountryInfo | null = this.convertService.convertCapitalToCountry(country.userAnswer);
+  onAnswerSelect(answer: {userAnswer: string }): void {
+    console.log('User answer:', answer.userAnswer);
+    const countryInfo: CountryInfo | null = this.convertService.convertCapitalToCountry(answer.userAnswer);
     this.answerSelected.emit({
       selectedCode: countryInfo ? countryInfo.flag : '',
       correctCode: this.gameService.selectedCountryCode
