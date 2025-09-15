@@ -109,11 +109,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
       }
     } else if (changes["endRound"].currentValue === false) {
       if (this.geoJsonData.features.length > 0) {
-        this.geojson.eachLayer((layer: any) => {
+        this.geojson.eachLayer((layer: GeoJSONLayer) => {
           if (layer.feature && layer.feature.properties && layer.feature.properties["code"] 
             && layer.feature.properties["code"].toLowerCase() === this.countryCode.toLowerCase()) {
             if (!this.foundCountries.includes(this.countryCode)) {
-              this.resetHighlighted(layer);
+              this.resetHighlighted(layer as L.Path);
             }
           }
         });
@@ -173,12 +173,12 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   public highlightCountryByCode(countryCode: CountryCode, color: string = "red"): void {
-    this.geojson.eachLayer((layer: any) => {
+    this.geojson.eachLayer((layer: GeoJSONLayer) => {
       // Check if this layer's feature matches our country code
       if (layer.feature && layer.feature.properties 
         && layer.feature.properties["code"] 
         && layer.feature.properties["code"].toLowerCase() === countryCode.toLowerCase()) {
-        this.highlightFeature(layer, color);
+        this.highlightFeature(layer as L.Path, color);
       }
     });
   }
