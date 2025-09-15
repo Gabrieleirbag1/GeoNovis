@@ -216,7 +216,7 @@ export class Game implements OnInit, OnDestroy {
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 
-  private isRoundEnded(): boolean {
+  private isMultiRoundEnded(): boolean {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     const availableSubgamemodes = gameSave.subgamemode.available || ["map"];
     const currentSubgamemode = gameSave.subgamemode.current || "map";
@@ -238,16 +238,16 @@ export class Game implements OnInit, OnDestroy {
   }
 
   nextTurn(): void {
-    const isRoundEnded: boolean = this.isRoundEnded();
+    const isMultiRoundEnded: boolean = this.isMultiRoundEnded();
 
-    if (isRoundEnded) {
+    if (isMultiRoundEnded) {
       this.gameStateService.nextTurn();
     }
 
     this.setRoundStateValue("endRound", false);
 
     this.setNewCountdown();
-    if (isRoundEnded) {
+    if (isMultiRoundEnded) {
       this.changeRound();
     }
   }
