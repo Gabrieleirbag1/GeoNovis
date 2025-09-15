@@ -235,7 +235,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  private focusOnFeature(e: any) {
+  private focusOnFeature(e: L.LeafletEvent): void {
     // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
     const countryCode = e.target.feature.properties.code.toLowerCase() as CountryCode;
     console.log("Country code clicked:", e.target.feature.properties.name);
