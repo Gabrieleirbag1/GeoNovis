@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
-import { Country } from '../../../../types/countrie.type';
+import { Country } from '../../../../types/country.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';

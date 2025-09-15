@@ -1,5 +1,7 @@
+import { CountryCode } from "./code.type";
+
 export interface Country {
-    code: string;
+    code: CountryCode;
     name: string;
     capital: string;
     continent: string;

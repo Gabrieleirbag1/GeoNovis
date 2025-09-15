@@ -2,7 +2,7 @@ import * as L from "leaflet";
 import { Component, OnChanges, Input, SimpleChanges, Output, EventEmitter, AfterViewInit } from "@angular/core";
 import { GameStateService } from "../../../../services/game-state.service";
 import { GameService } from "../../../../services/game.service";
-import { Country } from "../../../../types/countrie.type";
+import { Country } from "../../../../types/country.type";
 import { CommonModule } from "@angular/common";
 import { ConvertService } from "../../../../services/convert.service";
 import { CountryCode } from "../../../../types/code.type";
