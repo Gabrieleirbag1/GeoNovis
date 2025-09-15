@@ -30,25 +30,27 @@ export class Rules implements OnInit {
 
   ngOnInit(): void {
     this.setRegions();
+    this.setRounds();
+  }
+
+  private setRounds(): void {
     this.getGeoCodesCount().then((count: number) => {
       this.count = count;
       this.gameInfos.rounds.values = this.setMaxRounds();
+      this.gameInfos.rounds.default = this.count;
     });
   }
 
-  private setMaxRounds(): Array<number | string> {
-    let roundsValues: Array<number | string> = [];
+  private setMaxRounds(): Array<number> {
+    let roundsValues: Array<number> = [];
     const gameInfosRound = gameInfos.rounds.values;
     for (let roundValue of gameInfosRound) {
-      console.log("Checking round option:", roundValue, typeof roundValue);
-      if (typeof roundValue === "number" && roundValue <= this.count) {
-        console.log("Adding round option:", roundValue);
+      if (roundValue <= this.count) {
         console.log(this.count);
         roundsValues.push(roundValue);
       }
     }
-    roundsValues.push("All");
-    console.log("Max rounds options after filtering:", roundsValues);
+    roundsValues.push(this.count);
     return roundsValues;
   }
 
