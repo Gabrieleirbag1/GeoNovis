@@ -1,34 +1,73 @@
-import { Component } from '@angular/core';
-import gameInfos from '../../../../assets/data/game-infos.json';
-import gameSave from '../../../../assets/data/game-save.json';
-import { CommonModule } from '@angular/common';
-import { FormsModule} from '@angular/forms';
-import { GameSessionService } from '../../../services/game-session.service';
-import { Router } from '@angular/router';
-import { ApiService } from '../../../services/api.service';
-import { firstValueFrom } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import gameInfos from "../../../../assets/data/game-infos.json";
+import gameSave from "../../../../assets/data/game-save.json";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { GameSessionService } from "../../../services/game-session.service";
+import { Router } from "@angular/router";
+import { ApiService } from "../../../services/api.service";
+import { firstValueFrom } from "rxjs";
 
 @Component({
-  selector: 'app-rules',
+  selector: "app-rules",
   imports: [CommonModule, FormsModule],
-  templateUrl: './rules.component.html',
-  styleUrl: './rules.component.css'
+  templateUrl: "./rules.component.html",
+  styleUrl: "./rules.component.css",
 })
-export class Rules {
+export class Rules implements OnInit {
   gameInfos: any = gameInfos;
   gameSave: any = gameSave;
   showWarningModal: boolean = false;
-  warningMessage: string = '';
+  warningMessage: string = "";
+  count: number = 0;
+  private regions: string[] = [];
 
-  constructor(private gameSessionService: GameSessionService, private apiService: ApiService,private routes: Router) {}
+  constructor(
+    private gameSessionService: GameSessionService, 
+    private apiService: ApiService,
+    private routes: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.setRegions();
+    this.setRounds();
+  }
+
+  private setRounds(): void {
+    this.getGeoCodesCount().then((count: number) => {
+      this.count = count;
+      this.gameInfos.rounds.values = this.setMaxRounds();
+      this.gameInfos.rounds.default = this.count;
+    });
+  }
+
+  private setMaxRounds(): Array<number> {
+    let roundsValues: Array<number> = [];
+    const gameInfosRound = gameInfos.rounds.values;
+    for (let roundValue of gameInfosRound) {
+      if (roundValue <= this.count) {
+        console.log(this.count);
+        roundsValues.push(roundValue);
+      }
+    }
+    roundsValues.push(this.count);
+    return roundsValues;
+  }
+
+  private setRegions() {
+    const currentMenuRegion: string = this.gameSessionService.getSessionItem("menu_1") || "world";
+    const custom_regions: string[] = this.gameSessionService.getParsedItem("custom_regions") || ["map"];
+    this.regions = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
+    console.log("Selected regions:", this.regions);
+  }
 
   protected startGame(): void {
-    const gameStartedState = this.gameSessionService.getSessionItem('gameStarted');
-    if (gameStartedState === 'true') {
-      this.warningModal('You already have a game in progress. Starting a new game will delete your current progress.');
+    const gameStartedState = this.gameSessionService.getSessionItem("gameStarted");
+    if (gameStartedState === "true") {
+      this.warningModal("You already have a game in progress. Starting a new game will delete your current progress.");
       return;
     }
-    
+
     this.initializeNewGame();
   }
 
@@ -56,39 +95,39 @@ export class Rules {
   }
 
   private setRules(): void {
-    const timelimitElement: HTMLInputElement = document.getElementById('timelimit') as HTMLInputElement;
-    const roundsElement: HTMLInputElement = document.getElementById('rounds') as HTMLInputElement;
-    const currentMenuRegion: string = this.gameSessionService.getSessionItem('menu_1') || 'world';
-    const gamemode: string = this.gameSessionService.getSessionItem('menu_2') || 'map';
-    const subgamemode: string = this.gameSessionService.getSessionItem('menu_3') || 'map';
-    const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem('custom_subgamemodes') || ['map'];
-    const custom_regions: string[] = this.gameSessionService.getParsedItem('custom_regions') || ['map'];
+    const timelimitElement: HTMLInputElement = document.getElementById("timelimit") as HTMLInputElement;
+    const roundsElement: HTMLInputElement = document.getElementById("rounds") as HTMLInputElement;
+    const gamemode: string = this.gameSessionService.getSessionItem("menu_2") || "map";
+    const subgamemode: string = this.gameSessionService.getSessionItem("menu_3") || "map";
+    const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem("custom_subgamemodes") || ["map"];
 
     this.gameSave.roundState.total = roundsElement.value;
     this.gameSave.timeLimit.value = timelimitElement.value;
-    this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === 'string' 
-    ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
-    this.gameSave.regions = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
+    this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === "string" ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
+    this.gameSave.regions = this.regions;
     this.gameSave.gamemode.available = [gamemode];
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
     this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
   }
 
+  private async getGeoCodesCount(): Promise<number> {
+    return firstValueFrom(this.apiService.getGeoCodesCount(this.regions)).then((response: any) => {
+      return response.count;
+    });
+  }
 
   private async getGeoCodes(): Promise<string[]> {
-    const regions: string[] = this.gameSave.regions;
-    return firstValueFrom(this.apiService.getGeoCodes(regions))
-      .then((codes: string[]) => {
-        return codes;
-      });
+    return firstValueFrom(this.apiService.getGeoCodes(this.regions)).then((codes: string[]) => {
+      return codes;
+    });
   }
 
   private setGameSession(): void {
-    this.gameSessionService.setSessionItem('gameStarted', 'true');
-    this.gameSessionService.setSessionItem('gameSave', JSON.stringify(this.gameSave));
+    this.gameSessionService.setSessionItem("gameStarted", "true");
+    this.gameSessionService.setSessionItem("gameSave", JSON.stringify(this.gameSave));
     this.getGeoCodes().then((codes: string[]) => {
       this.gameSessionService.initGameState(codes);
-      this.routes.navigate(['/game']);
+      this.routes.navigate(["/game"]);
     });
   }
 }
