@@ -7,6 +7,7 @@ import { GameSessionService } from "../../../services/game-session.service";
 import { Router } from "@angular/router";
 import { ApiService } from "../../../services/api.service";
 import { firstValueFrom } from "rxjs";
+import { GameInfos } from "../../../types/game-infos.type";
 
 @Component({
   selector: "app-rules",
@@ -15,7 +16,7 @@ import { firstValueFrom } from "rxjs";
   styleUrl: "./rules.component.css",
 })
 export class Rules implements OnInit {
-  gameInfos: any = gameInfos;
+  gameInfos: GameInfos = gameInfos;
   gameSave: any = gameSave;
   showWarningModal: boolean = false;
   warningMessage: string = "";
