@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../../services/game.service';
-import { Country } from '../../../../types/countrie.type';
+import { Country } from '../../../../types/country.type';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
@@ -43,8 +43,9 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
     this.userAnswer = '';
   }
 
-  onAnswerSelect(country: any): void {
-    const countryInfo: any | null = this.convertService.convertCapitalToCountry(country.userAnswer);
+  onAnswerSelect(answer: {userAnswer: string }): void {
+    console.log('User answer:', answer.userAnswer);
+    const countryInfo: CountryInfo | null = this.convertService.convertCapitalToCountry(answer.userAnswer);
     this.answerSelected.emit({
       selectedCode: countryInfo ? countryInfo.flag : '',
       correctCode: this.gameService.selectedCountryCode

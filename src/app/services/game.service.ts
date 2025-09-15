@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Country } from '../types/countrie.type';
+import { Country } from '../types/country.type';
 import { SelectorService } from './selector.service';
 import { CountryCode } from '../types/code.type';
 import { ConvertService } from './convert.service';

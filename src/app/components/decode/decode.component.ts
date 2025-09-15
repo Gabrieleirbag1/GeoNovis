@@ -42,7 +42,7 @@ export class DecodeComponent implements OnInit {
     this.apiService.postSessionDataToDecode(jsonSessionData).subscribe({
       next: (response) => {
         console.log('Session data posted successfully:', response);
-        this.decodedSessionData = response.content || 'No content returned';
+        this.decodedSessionData = response.content;
         resolve();
       },
       error: (error) => {

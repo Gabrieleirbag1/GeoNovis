@@ -9,6 +9,7 @@ import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
 import { MapComponent } from "../map/map/map.component";
+import { GameSave } from "../../../types/game-save.type";
 
 @Component({
   selector: "app-game",
@@ -26,7 +27,7 @@ export class Game implements OnInit, OnDestroy {
   countryCode: CountryCode = "";
 
   remainingTime: string = "";
-  private timerInterval: any;
+  private timerInterval?: number;
   private endTime: Date | null = null;
 
   constructor(private gameSessionService: GameSessionService, 
@@ -72,6 +73,7 @@ export class Game implements OnInit, OnDestroy {
   }
 
   private setCountDown(): void {
+    console.log("Setting new countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     const timeLimit: number = gameSave.timeLimit.value;
     const datetime: Date = new Date();
@@ -215,7 +217,7 @@ export class Game implements OnInit, OnDestroy {
     this.handleAnswerButtonColorChange(this.isCorrect, countryCode, correctCountryCode);
   }
 
-  private isRoundEnded(): boolean {
+  private isMultiRoundEnded(): boolean {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     const availableSubgamemodes = gameSave.subgamemode.available || ["map"];
     const currentSubgamemode = gameSave.subgamemode.current || "map";
@@ -230,23 +232,24 @@ export class Game implements OnInit, OnDestroy {
     }
   }
 
-  private setSubGamemode(gameSave: any, subgamemode: string): void {
+  private setSubGamemode(gameSave: GameSave, subgamemode: string): void {
     this.subgamemode = subgamemode;
     gameSave.subgamemode.current = this.subgamemode;
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
   }
 
   nextTurn(): void {
-    const isRoundEnded: boolean = this.isRoundEnded();
+    const isMultiRoundEnded: boolean = this.isMultiRoundEnded();
 
-    if (isRoundEnded) {
+    if (isMultiRoundEnded) {
       this.gameStateService.nextTurn();
     }
+
     this.setRoundStateValue("endRound", false);
 
-    if (isRoundEnded) {
+    this.setNewCountdown();
+    if (isMultiRoundEnded) {
       this.changeRound();
-      this.setNewCountdown();
     }
   }
 }

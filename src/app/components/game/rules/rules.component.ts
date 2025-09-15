@@ -7,6 +7,8 @@ import { GameSessionService } from "../../../services/game-session.service";
 import { Router } from "@angular/router";
 import { ApiService } from "../../../services/api.service";
 import { firstValueFrom } from "rxjs";
+import { GameInfos } from "../../../types/game-infos.type";
+import { GameSave } from "../../../types/game-save.type";
 
 @Component({
   selector: "app-rules",
@@ -15,8 +17,8 @@ import { firstValueFrom } from "rxjs";
   styleUrl: "./rules.component.css",
 })
 export class Rules implements OnInit {
-  gameInfos: any = gameInfos;
-  gameSave: any = gameSave;
+  gameInfos: GameInfos = gameInfos;
+  gameSave: GameSave = gameSave;
   showWarningModal: boolean = false;
   warningMessage: string = "";
   count: number = 0;
@@ -101,8 +103,8 @@ export class Rules implements OnInit {
     const subgamemode: string = this.gameSessionService.getSessionItem("menu_3") || "map";
     const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem("custom_subgamemodes") || ["map"];
 
-    this.gameSave.roundState.total = roundsElement.value;
-    this.gameSave.timeLimit.value = timelimitElement.value;
+    this.gameSave.roundState.total = roundsElement.value as unknown as number;
+    this.gameSave.timeLimit.value = timelimitElement.value as unknown as number;
     this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === "string" 
       ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null; 
       // check if value is not "No limit" string before converting to datetime
@@ -119,7 +121,7 @@ export class Rules implements OnInit {
   }
 
   private async getGeoCodesCount(): Promise<number> {
-    return firstValueFrom(this.apiService.getGeoCodesCount(this.regions)).then((response: any) => {
+    return firstValueFrom(this.apiService.getGeoCodesCount(this.regions)).then((response: { count: number }) => {
       return response.count;
     });
   }
