@@ -8,8 +8,9 @@
         </select>
     </div>
     <div class="rounds-section">
-        <select id="rounds" class="rounds" [(ngModel)]="gameInfos.rounds.default">
-        <option value={{gameInfos.rounds.default}} *ngFor="let round of gameInfos.rounds.values" [value]="round">
+        <select id="rounds" class="rounds">
+        <option *ngFor="let round of gameInfos.rounds.values" [value]="round"
+               [selected]="round === gameInfos.rounds.default">
             <span>{{ round }}</span>
         </option>
         </select>
