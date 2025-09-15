@@ -19,5 +19,5 @@ export interface GameSave {
         current: string | null;
         available: string[];
     };
-    regions: any[];
+    regions: string[];
 }
