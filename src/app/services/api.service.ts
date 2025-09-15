@@ -3,6 +3,11 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
 
+interface sessionDataResponse {
+  success: boolean;
+  content: Record<string, string>;
+  error?: string;
+}
 @Injectable({
   providedIn: "root",
 })
@@ -24,12 +29,12 @@ export class ApiService {
     return this.http.get<{ count: number }>(`${this.apiUrl}/api/geocodes/count?regions=${regions.join(",")}`);
   }
 
-  postSessionDataToEncode(sessionData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/session/encode`, sessionData);
+  postSessionDataToEncode(sessionData: Record<string, string>): Observable<sessionDataResponse> {
+    return this.http.post<sessionDataResponse>(`${this.apiUrl}/api/session/encode`, sessionData);
   }
 
-  postSessionDataToDecode(sessionData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/session/decode`, sessionData);
+  postSessionDataToDecode(sessionData: Record<string, string>): Observable<sessionDataResponse> {
+    return this.http.post<sessionDataResponse>(`${this.apiUrl}/api/session/decode`, sessionData);
   }
 
   getApiUrl(): string {
