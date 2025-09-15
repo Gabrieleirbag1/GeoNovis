@@ -26,7 +26,7 @@ export class Game implements OnInit, OnDestroy {
   countryCode: CountryCode = "";
 
   remainingTime: string = "";
-  private timerInterval: any;
+  private timerInterval?: number;
   private endTime: Date | null = null;
 
   constructor(private gameSessionService: GameSessionService, 
@@ -72,6 +72,7 @@ export class Game implements OnInit, OnDestroy {
   }
 
   private setCountDown(): void {
+    console.log("Setting new countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     const timeLimit: number = gameSave.timeLimit.value;
     const datetime: Date = new Date();
@@ -242,11 +243,12 @@ export class Game implements OnInit, OnDestroy {
     if (isRoundEnded) {
       this.gameStateService.nextTurn();
     }
+
     this.setRoundStateValue("endRound", false);
 
+    this.setNewCountdown();
     if (isRoundEnded) {
       this.changeRound();
-      this.setNewCountdown();
     }
   }
 }
