@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { ApiService } from "../../../services/api.service";
 import { firstValueFrom } from "rxjs";
 import { GameInfos } from "../../../types/game-infos.type";
+import { GameSave } from "../../../types/game-save.type";
 
 @Component({
   selector: "app-rules",
@@ -17,7 +18,7 @@ import { GameInfos } from "../../../types/game-infos.type";
 })
 export class Rules implements OnInit {
   gameInfos: GameInfos = gameInfos;
-  gameSave: any = gameSave;
+  gameSave: GameSave = gameSave;
   showWarningModal: boolean = false;
   warningMessage: string = "";
   count: number = 0;
@@ -102,8 +103,8 @@ export class Rules implements OnInit {
     const subgamemode: string = this.gameSessionService.getSessionItem("menu_3") || "map";
     const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem("custom_subgamemodes") || ["map"];
 
-    this.gameSave.roundState.total = roundsElement.value;
-    this.gameSave.timeLimit.value = timelimitElement.value;
+    this.gameSave.roundState.total = roundsElement.value as unknown as number;
+    this.gameSave.timeLimit.value = timelimitElement.value as unknown as number;
     this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === "string" 
       ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null; 
       // check if value is not "No limit" string before converting to datetime
