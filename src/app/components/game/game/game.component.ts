@@ -9,6 +9,7 @@ import { CountryCode } from "../../../types/code.type";
 import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.component";
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
 import { MapComponent } from "../map/map/map.component";
+import { GameSave } from "../../../types/game-save.type";
 
 @Component({
   selector: "app-game",
@@ -231,7 +232,7 @@ export class Game implements OnInit, OnDestroy {
     }
   }
 
-  private setSubGamemode(gameSave: any, subgamemode: string): void {
+  private setSubGamemode(gameSave: GameSave, subgamemode: string): void {
     this.subgamemode = subgamemode;
     gameSave.subgamemode.current = this.subgamemode;
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
