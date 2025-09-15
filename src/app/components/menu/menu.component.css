@@ -1,6 +1,7 @@
 .space-background {
-    background-color: black;
-    display: max-content;
+    background-image: url('/images/backgrounds/space-stars-bw.jpg');
+    /* background-color: #040615; */
+    background-size: cover;
     height: 100vh;
     left: 0;
     position: fixed;
@@ -132,7 +133,7 @@
 
 .night {
     animation: rotate-night 80s linear infinite;
-    background-image: url(https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg);
+    background-image: url('/images/backgrounds/2k_earth_nightmap.jpg');
     background-size: 200%;
     height: 1000px;
     position: absolute;
@@ -141,7 +142,7 @@
 }
 .day {
     animation: rotate-day 80s linear infinite;
-    background-image: url(https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg);
+    background-image: url('/images/backgrounds/2k_earth_daymap.jpg');
     background-size: 200%;
     border-left: solid 1px black;
     border-radius: 50%;
@@ -154,7 +155,7 @@
 }
 .clouds {
     animation: rotate-day 50s linear infinite, spin-clouds 100s ease infinite;
-    background-image: url(https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg);
+    background-image: url('/images/backgrounds/2k_earth_clouds.jpg');
     background-size: 200%;
     border-radius: 50%;    
     box-shadow: 5px 0 20px 10px #040615 inset, -9px 0px 20px 10px #5e90f1 inset;
