@@ -131,4 +131,11 @@ export class Menu implements OnInit {
   redirectGame(): void {
     this.routes.navigate(["/game"]);
   }
+
+  isMenuRoot(): boolean {
+    if (window.location.pathname.split("/").slice(-1)[0] === "" || window.location.pathname.split("/").slice(-1)[0] === "region") {
+      return true;
+    }
+    return false;
+  }
 }
