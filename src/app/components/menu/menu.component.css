@@ -58,7 +58,6 @@
     font-size: 24px;
     color: white;
     margin-bottom: 20px;
-    text-align: center;
     max-width: 600px;
     z-index: 10;
 }
@@ -83,35 +82,6 @@
 
 .join-game-btn {
     color: #28a745;
-}
-
-.hover-underline-animation {
-  display: inline-block;
-  position: relative;
-}
-
-.hover-underline-animation::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #0087ca;
-  transition: transform 0.25s ease-out;
-}
-
-.hover-underline-animation:hover::after {
-  transform: scaleX(1);
-}
-
-.hover-underline-animation.left::after {
-  transform-origin: bottom right;
-}
-
-.hover-underline-animation.left:hover::after {
-  transform-origin: bottom left;
 }
 
 /* Modal styles */
