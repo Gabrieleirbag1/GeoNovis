@@ -17,6 +17,7 @@ export class Header {
   currentLanguage: Language;
   showQrModal = false;
   strSessionData: string = "";
+  isSidebarOpen = false;
 
   constructor(private languageService: LanguageService, private apiService: ApiService) {
     this.currentLanguage = this.languageService.getLanguage();
@@ -74,5 +75,9 @@ export class Header {
 
   closeQrModal(): void {
     this.showQrModal = false;
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }

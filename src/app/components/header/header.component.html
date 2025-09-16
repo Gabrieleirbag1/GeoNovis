@@ -1,6 +1,16 @@
-<header>
-    <h1>GeoNovis</h1>
-    <nav>
+<!-- Toggle Button in top-right -->
+<button class="sidebar-toggle" (click)="toggleSidebar()">
+    <span>☰</span>
+</button>
+
+<!-- Sliding Sidebar -->
+<div class="sidebar" [class.open]="isSidebarOpen">
+    <div class="sidebar-header">
+        <h2>GeoNovis</h2>
+        <button class="close-sidebar" (click)="toggleSidebar()">×</button>
+    </div>
+    
+    <nav class="sidebar-nav">
         <a routerLink="/">Home</a>
         <a routerLink="/about">About</a>
         <a href="javascript:void(0);" (click)="openQrModal()">QR Code</a>
@@ -16,7 +26,10 @@
             </button>
         </div>
     </nav>
-</header>
+</div>
+
+<!-- Overlay that appears when sidebar is open -->
+<div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
 
 <!-- QR Code Modal -->
 <div *ngIf="showQrModal" class="qr-modal-overlay">
