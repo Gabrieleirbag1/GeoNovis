@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'RadioSpace';
+    src: url('/fonts/radio_space/radiospace.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .space-background {
     background-image: url('/images/backgrounds/space-stars-bw.jpg');
     /* background-color: #040615; */
@@ -13,28 +21,60 @@
 .main-menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 90vh;
     position: relative;
+    overflow: hidden;
 }
 
 .menu {
+    font-family: 'RadioSpace', sans-serif;
+    font-size: 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
+    margin: 5vh 0 0 5vw;
 }
 
 .menu-item {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: transparent;
     color: white;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
     text-align: center;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+}
+
+.hover-underline-animation.left::after {
+  transform-origin: bottom right;
+}
+
+.hover-underline-animation.left:hover::after {
+  transform-origin: bottom left;
 }
 
 .menu-header {
