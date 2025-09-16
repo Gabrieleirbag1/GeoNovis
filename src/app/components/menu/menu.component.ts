@@ -3,7 +3,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import menuConfigData from "../../../assets/data/menu-config.json";
 import { GameSessionService } from "../../services/game-session.service";
-import { routes } from "../../app.routes";
 import { Router } from "@angular/router";
 import { LanguageService } from "../../services/language.service";
 

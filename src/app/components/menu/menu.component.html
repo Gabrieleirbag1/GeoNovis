@@ -26,7 +26,7 @@
       {{ menuContent.name[language] }}
     </div>
     <div class="menu-item join-game-btn" (click)="redirectGame()" *ngIf="gameStarted">
-      Join Game
+      {{ language === 'fr' ? 'PARTIE EN COURS' : 'GAME IN PROGRESS' }}
     </div>
   </div>
   

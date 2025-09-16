@@ -78,10 +78,109 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid transparent;
+}
+
+/* Animated starfield layer */
+.menu-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(1px 1px at 10% 20%, #ffffffaa, transparent 40%),
+        radial-gradient(1.5px 1.5px at 70% 60%, #7dd3ffcc, transparent 45%),
+        radial-gradient(2px 2px at 40% 80%, #ffffff99, transparent 50%),
+        radial-gradient(1px 1px at 85% 30%, #ffffffaa, transparent 40%),
+        radial-gradient(1.5px 1.5px at 25% 55%, #9ad8ffbb, transparent 45%);
+    opacity: 0;
+    transform: scale(1.3);
+    transition: opacity 0.5s ease, transform 6s linear;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: menuStarDrift 18s linear infinite;
+    z-index: -1;
+}
+
+/* Shooting star accent */
+.menu-item::after {
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: -30%;
+    width: 160%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(120,200,255,0.9), transparent);
+    opacity: 0;
+    transform: rotate(12deg) translateX(-30%);
+    filter: blur(1px);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Hover / focus interactive styling */
+.menu-item:hover,
+.menu-item:focus {
+    background:
+        linear-gradient(#0e1d3d,#0e1d3d) padding-box,
+        linear-gradient(135deg, #00629b 0%, #0098ff 35%, #53c8ff 70%, #0d1b2e 100%) border-box;
+    border-color: rgba(0,152,255,0.6);
+    box-shadow:
+        0 0 6px 1px #0098ff55,
+        0 0 18px 4px #0098ff33,
+        inset 0 0 10px 2px #004c7d;
+    color: #e9f6ff;
+    text-shadow:
+        0 0 4px #53c8ff,
+        0 0 10px #0098ff,
+        0 0 22px #53c8ff;
+    transform: translateY(-2px);
+    transition: transform 0.25s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.menu-item:hover::before,
+.menu-item:focus::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-item:hover::after,
+.menu-item:focus::after {
+    opacity: 1;
+    animation: shootingStar 1.8s ease-out forwards;
+}
+
+.menu-item:active {
+    transform: translateY(0);
+    box-shadow:
+        0 0 4px 1px #0098ff55,
+        inset 0 0 14px 4px #003b63;
 }
 
 .join-game-btn {
-    color: #28a745;
+    margin-top: 30px;
+    border-color: rgba(40,167,69,0.7);
+    box-shadow:
+        0 0 6px 1px #28a745aa,
+        0 0 18px 4px #28a74555,
+        inset 0 0 10px 2px #1b6f32;
+    text-shadow:
+        0 0 4px #7aff9d,
+        0 0 14px #28a745;
+}
+
+.join-game-btn:hover,
+.join-game-btn:focus {
+    border-color: rgba(40,167,69,0.7);
+    box-shadow:
+        0 0 6px 1px #28a745aa,
+        0 0 18px 4px #28a74555,
+        inset 0 0 10px 2px #1b6f32;
+    text-shadow:
+        0 0 4px #7aff9d,
+        0 0 14px #28a745;
 }
 
 /* Modal styles */
@@ -232,4 +331,17 @@
     0% { transform: rotate(0deg); }
     50% { transform: rotate(20deg); }
     100% { transform: rotate(0deg); }
+}
+/* Keyframes */
+@keyframes menuStarDrift {
+    0% { transform: scale(1.3) translateY(0); }
+    50% { transform: scale(1.28) translateY(-4%); }
+    100% { transform: scale(1.3) translateY(0); }
+}
+
+@keyframes shootingStar {
+    0% { transform: rotate(12deg) translateX(-40%) translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    60% { opacity: 0.9; }
+    100% { transform: rotate(12deg) translateX(25%) translateY(-280%); opacity: 0; }
 }

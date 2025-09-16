@@ -117,8 +117,8 @@
         {
           "id": "licensePlates",
           "name": {
-            "en": "Immatriculation Plates",
-            "fr": "Plaques d'immatriculation"
+            "en": "Identification",
+            "fr": "Immatriculation"
           },
           "start": true
         },
@@ -135,8 +135,8 @@
             "en": "Select game modes to include"
           },
           "submenu_content": {
-            "fr": ["Carte", "Capitales", "Drapeaux", "Plaques d'immatriculation"],
-            "en": ["Map", "Capitals", "Flags", "License Plates"],
+            "fr": ["Carte", "Capitales", "Drapeaux", "Immatriculation"],
+            "en": ["Map", "Capitals", "Flags", "Identification"],
             "id": ["map", "findCapital", "findFlag", "licensePlates"]
           }
         }
