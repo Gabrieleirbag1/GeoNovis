@@ -80,4 +80,15 @@ export class Header {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+
+  public redirect(route: string): void {
+    this.toggleSidebar();
+    setTimeout(() => {
+      this.navigateToRoute(route);
+    }, 300); // Match the duration of the sidebar transition
+  }
+
+  private navigateToRoute(route: string): void {
+    window.location.href = route;
+  }
 }
