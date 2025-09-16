@@ -16,19 +16,20 @@
     </button>
   </div>
 
-  <div>
-    <button class="join-game-btn" (click)="redirectGame()" *ngIf="gameStarted">
-      Join Game
-    </button>
-    <br>
-  </div>
-
   <div class="menu">
+    <div>
+      <h1 class="menu-title">GEONOVIS</h1>
+    </div>
     <div
       class="menu-item hover-underline-animation left"
       *ngFor="let menuContent of menuConfig?.content"
       (click)="handleNextMenu(menuConfig.type, menuContent.id, menuContent.start, menuContent.submenu, menuContent.linkto || (menuContent.start ? 'rules' : 'rules'))">
       {{ menuContent.name[language] }}
+    </div>
+    <div>
+      <button class="join-game-btn" (click)="redirectGame()" *ngIf="gameStarted">
+        Join Game
+      </button>
     </div>
   </div>
   

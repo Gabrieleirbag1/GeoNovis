@@ -35,7 +35,19 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin: 5vh 0 0 5vw;
+    margin: 5vh 0 0 10vw;
+}
+
+.menu-title {
+    font-family: 'RadioSpace', sans-serif;
+    font-size: 100px;
+    font-style: italic;
+    color: #0087ca;
+    text-shadow: 0 0 5px #0087ca, 0 0 20px #0087ca, 0 0 30px #0087ca, 0 0 40px #0087ca;
+    margin-bottom: 40px;
+    font-stretch: expanded;          /* CSS standard property */
+    letter-spacing: 2px;             /* Increases space between letters */
+    transform: scaleX(1.2);          /* Stretches the text horizontally by 20% */
 }
 
 .menu-item {
@@ -75,10 +87,6 @@
 
 .hover-underline-animation.left:hover::after {
   transform-origin: bottom left;
-}
-
-.menu-header {
-    height: 100px;
 }
 
 /* Modal styles */
