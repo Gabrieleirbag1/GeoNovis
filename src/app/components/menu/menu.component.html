@@ -1,23 +1,32 @@
-<section class="main-menu">
-  <div class="menu-header">
-    <button class="back-button" *ngIf="menuConfig.referrer" (click)="handleBackMenu()">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
-    </button>
+<div class="menu-header">
+  <div class="back-button" *ngIf="menuConfig.referrer" (click)="handleBackMenu()">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
   </div>
+</div>
+  
+<section class="main-menu">
 
-  <div>
-    <button class="join-game-btn" (click)="redirectGame()" *ngIf="gameStarted">
-      Join Game
-    </button>
-    <br>
+  <div class='space-background'></div>
+
+  <div class='planet-container'>
+    <div class='night'></div>
+    <div class='day'></div>
+    <div class='clouds'></div>
+    <div class='inner-shadow'></div>
   </div>
 
   <div class="menu">
+    <div *ngIf="isMenuRoot()">
+      <h1 class="menu-title">GEONOVIS</h1>
+    </div>
     <div
       class="menu-item"
       *ngFor="let menuContent of menuConfig?.content"
       (click)="handleNextMenu(menuConfig.type, menuContent.id, menuContent.start, menuContent.submenu, menuContent.linkto || (menuContent.start ? 'rules' : 'rules'))">
       {{ menuContent.name[language] }}
+    </div>
+    <div class="menu-item join-game-btn" (click)="redirectGame()" *ngIf="gameStarted">
+      {{ language === 'fr' ? 'PARTIE EN COURS' : 'GAME IN PROGRESS' }}
     </div>
   </div>
   

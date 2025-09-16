@@ -17,6 +17,7 @@ export class Header {
   currentLanguage: Language;
   showQrModal = false;
   strSessionData: string = "";
+  isSidebarOpen = false;
 
   constructor(private languageService: LanguageService, private apiService: ApiService) {
     this.currentLanguage = this.languageService.getLanguage();
@@ -74,5 +75,24 @@ export class Header {
 
   closeQrModal(): void {
     this.showQrModal = false;
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  public redirect(route: string, newTab: boolean = false): void {
+    this.toggleSidebar();
+    setTimeout(() => {
+      this.navigateToRoute(route, newTab);
+    }, 300); // Match the duration of the sidebar transition
+  }
+
+  private navigateToRoute(route: string, newTab: boolean): void {
+    if (newTab) {
+      window.open(route, '_blank');
+    } else {
+      window.location.href = route;
+    }
   }
 }
