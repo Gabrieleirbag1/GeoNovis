@@ -81,14 +81,18 @@ export class Header {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  public redirect(route: string): void {
+  public redirect(route: string, newTab: boolean = false): void {
     this.toggleSidebar();
     setTimeout(() => {
-      this.navigateToRoute(route);
+      this.navigateToRoute(route, newTab);
     }, 300); // Match the duration of the sidebar transition
   }
 
-  private navigateToRoute(route: string): void {
-    window.location.href = route;
+  private navigateToRoute(route: string, newTab: boolean): void {
+    if (newTab) {
+      window.open(route, '_blank');
+    } else {
+      window.location.href = route;
+    }
   }
 }

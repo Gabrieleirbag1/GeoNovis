@@ -66,6 +66,28 @@ nav a {
   color: white;
 }
 
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  height: 85vh;
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 30px;
+  border-top: 1px solid #34495e;
+}
+
+.sidebar-footer div {
+  display: flex;
+  justify-content: center;
+  /* border-top: 1px solid #34495e; */
+}
+
 .close-sidebar {
   background: none;
   border: none;
@@ -209,4 +231,27 @@ nav a {
 .qr-modal-content {
   display: flex;
   justify-content: center;
+}
+
+.invisible-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-btn svg {
+  height: 30px;
+  width: 30px;
+  fill: white;
+}
+
+.copyright p {
+  color: white;
 }
