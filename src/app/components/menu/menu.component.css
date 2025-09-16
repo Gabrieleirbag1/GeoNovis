@@ -42,13 +42,25 @@
     font-family: 'RadioSpace', sans-serif;
     font-size: 100px;
     font-style: italic;
-    color: #0087ca;
+    color: linear-gradient(90deg, #0087ca, #00c6ff);
     text-shadow: 0 0 5px #0087ca, 0 0 20px #0087ca, 0 0 30px #0087ca, 0 0 40px #0087ca;
     margin-top: 0;
     margin-bottom: 40px;
     font-stretch: expanded;          /* CSS standard property */
     letter-spacing: 2px;             /* Increases space between letters */
     transform: scaleX(1.2);          /* Stretches the text horizontally by 20% */
+    animation: animateTitle 6s ease-in-out infinite;
+}
+
+@keyframes animateTitle {
+    0%, 100% {
+        color: linear-gradient(90deg, #0087ca, #00c6ff);
+        text-shadow: 0 0 5px #0087ca, 0 0 20px #0087ca, 0 0 30px #0087ca, 0 0 40px #0087ca;
+    }
+    50% {
+        color: linear-gradient(90deg, #00c6ff, #0087ca);
+        text-shadow: 0 0 8px #00c6ff, 0 0 22px #00c6ff, 0 0 32px #00c6ff, 0 0 42px #00c6ff;
+    }
 }
 
 .menu-header {
