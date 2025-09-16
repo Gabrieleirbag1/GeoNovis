@@ -11,10 +11,10 @@
     </div>
     
     <nav class="sidebar-nav">
-        <a (click)="redirect('/')">Home</a>
-        <a (click)="redirect('/about')">About</a>
-        <a href="javascript:void(0);" (click)="openQrModal()">QR Code</a>
-        
+        <a class="hover-underline-animation left" (click)="redirect('/')">Home</a>
+        <a class="hover-underline-animation left" (click)="redirect('/about')">About</a>
+        <a class="hover-underline-animation left" href="javascript:void(0);" (click)="openQrModal()">QR Code</a>
+
         <div class="language-selector">
             <button class="language-button" [class.active]="currentLanguage === 'fr'" (click)="selectLanguage('fr')">
                 <img src="images/flags/fr.svg" alt="French" />
