@@ -4,19 +4,19 @@
   </div>
 </div>
 
-<canvas id="canvas" *ngIf="isTransitioning"></canvas>
+<!-- NEW: pre and post overlays -->
+<div class="transition-overlay pre" *ngIf="transitionPhase === 'pre'"></div>
+<canvas id="canvas" *ngIf="transitionPhase === 'travel'"></canvas>
+<div class="transition-overlay post" *ngIf="transitionPhase === 'post'"></div>
 
 <section class="main-menu">
-
   <div class='space-background'></div>
-
   <div class='planet-container'>
     <div class='night'></div>
     <div class='day'></div>
     <div class='clouds'></div>
     <div class='inner-shadow'></div>
   </div>
-
   <div class="menu">
     <div *ngIf="isMenuRoot()">
       <h1 class="menu-title">GEONOVIS</h1>
@@ -31,13 +31,13 @@
       {{ language === 'fr' ? 'PARTIE EN COURS' : 'GAME IN PROGRESS' }}
     </div>
   </div>
-  
+
   <!-- Modal Window -->
   <div class="modal-overlay" *ngIf="showSubmenuModal" (click)="closeModal($event)">
     <div class="modal-content">
       <h3>{{ currentSubmenuTitle }}</h3>
       <p>{{ currentSubmenuText }}</p>
-      
+
       <div class="submenu-options">
         <div class="option-item" *ngFor="let option of submenuOptions">
           <label>
@@ -46,7 +46,7 @@
           </label>
         </div>
       </div>
-      
+
       <div class="modal-actions">
         <button class="cancel-btn" (click)="closeModal($event)">Cancel</button>
         <button 

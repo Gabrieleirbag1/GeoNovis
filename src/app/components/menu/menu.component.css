@@ -2,6 +2,45 @@ canvas {
     position: absolute;
     width: 100%;
     height: 100%;
+    /* ensure on top of content but below transition overlay */
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* NEW: transition overlays */
+.transition-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1001;
+    /* bright radial flash with screen blend to feel "brillant" */
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.15) 75%, rgba(255,255,255,0) 100%);
+    mix-blend-mode: screen;
+    opacity: 0;
+}
+
+.transition-overlay.pre {
+    animation: preFlash 350ms ease-out forwards;
+}
+
+.transition-overlay.post {
+    /* start slightly bright and fade away */
+    opacity: 0.35;
+    animation: postFade 350ms ease-in forwards;
+}
+
+@keyframes preFlash {
+    0%   { opacity: 0;   filter: blur(0px); }
+    30%  { opacity: 1;   filter: blur(1px); }
+    100% { opacity: 0.35; filter: blur(0.5px); }
+}
+
+@keyframes postFade {
+    0%   { opacity: 0.35; filter: blur(0.5px); }
+    100% { opacity: 0;     filter: blur(0px); }
 }
 
 .space-background {

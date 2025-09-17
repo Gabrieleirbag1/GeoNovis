@@ -9,6 +9,8 @@ import { RedirectTransitionService } from "../../services/redirect-transition.se
 
 declare function main(): void; // Declare the main function from space-travel.js
 
+type TransitionPhase = 'idle' | 'pre' | 'travel' | 'post';
+
 @Component({
   selector: "app-menu",
   standalone: true,
@@ -21,7 +23,10 @@ export class Menu implements OnInit, AfterViewChecked {
   menuConfig: any;
   language: string = "fr"; // default
   gameStarted: boolean = false;
-  isTransitioning: boolean = false; // Add this property
+
+  // Transition state
+  isTransitioning: boolean = false;
+  transitionPhase: TransitionPhase = 'idle';
 
   // Modal properties
   showSubmenuModal = false;
@@ -52,27 +57,29 @@ export class Menu implements OnInit, AfterViewChecked {
       this.menuConfig = menuConfigData.menus["region" as keyof typeof menuConfigData.menus];
     }
     
-    // Check transitioning state
+    // Backward-compatible boolean
     this.isTransitioning = this.redirectTransitionService.getTransitioning();
 
-    // Listen to transition state changes
-    this.redirectTransitionService.getTransitionState().subscribe(state => {
-      this.isTransitioning = state;
-      if (state) {
-        // When transition begins, we'll initialize the canvas in the next change detection cycle
+    // Subscribe to phase changes
+    this.redirectTransitionService.getPhaseState().subscribe(phase => {
+      this.transitionPhase = phase;
+      this.isTransitioning = phase !== 'idle';
+
+      // Re-init canvas each time we re-enter travel
+      if (phase === 'travel') {
         this.canvasInitialized = false;
       }
     });
   }
   
   ngAfterViewChecked() {
-    // Initialize canvas when it appears and hasn't been initialized yet
-    if (this.isTransitioning && !this.canvasInitialized) {
+    // Initialize canvas only during the 'travel' phase
+    if (this.transitionPhase === 'travel' && !this.canvasInitialized) {
       const canvas = document.getElementById('canvas');
       if (canvas) {
         setTimeout(() => {
           try {
-            main(); // Call the main function from space-travel.js
+            main();
             this.canvasInitialized = true;
           } catch (err) {
             console.error('Error initializing canvas:', err);
@@ -91,10 +98,8 @@ export class Menu implements OnInit, AfterViewChecked {
         this.currentSubmenuTitle = menuContent.name[this.language];
         this.currentSubmenuText = menuContent.subMenuText[this.language];
 
-        // Use the predefined submenu_content from the config
         const submenuContentList = menuContent.submenu_content[this.language];
 
-        // Convert the string array to option objects
         this.submenuOptions = submenuContentList.map((optionName: string, index: number) => ({
           id: menuContent.submenu_content.id[index],
           name: {
@@ -111,7 +116,6 @@ export class Menu implements OnInit, AfterViewChecked {
         };
 
         this.showSubmenuModal = true;
-        console.log("Submenu options:", this.submenuOptions);
         return;
       }
     } else {
@@ -120,12 +124,8 @@ export class Menu implements OnInit, AfterViewChecked {
   }
 
   proceedWithSubmenu(): void {
-    // Get all selected options
     const selectedOptions = this.submenuOptions.filter((option) => option.selected).map((option) => option.id);
 
-    console.log("Selected options:", selectedOptions);
-
-    // Process the selections
     if (this.currentSubmenuData) {
       const { menuType, id, route } = this.currentSubmenuData;
 
@@ -147,17 +147,20 @@ export class Menu implements OnInit, AfterViewChecked {
 
   private redirectMenu(menuType: string, id: string, start: boolean | null, route: string): void {
     if (start) {
-      console.log("Starting new game or action");
       this.gameSessionService.setSessionItem("menu_3", id);
       route = "rules";
     }
     this.gameSessionService.setSessionItem(menuType, id);
-    this.redirectTransitionService.redirectTo(route);
-    // Don't set isTransitioning here - let the service subscription handle it
+
+    // Use orchestrated transition (pre -> travel -> post)
+    this.redirectTransitionService.redirectWithPhases(route, {
+      preMs: 350,
+      travelMs: 900,
+      postMs: 350,
+    });
   }
 
   closeModal(event: MouseEvent): void {
-    // Only close if clicking the overlay or cancel button
     if ((event.target as HTMLElement).classList.contains("modal-overlay") || (event.target as HTMLElement).classList.contains("cancel-btn")) {
       this.showSubmenuModal = false;
     }
