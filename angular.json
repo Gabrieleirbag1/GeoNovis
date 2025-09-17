@@ -22,7 +22,8 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css", "node_modules/leaflet/dist/leaflet.css"]
+            "styles": ["src/styles.css", "node_modules/leaflet/dist/leaflet.css"],
+            "scripts": ["node_modules/gl-matrix/gl-matrix-min.js", "src/scripts/space-travel.js"]
           },
           "configurations": {
             "production": {
