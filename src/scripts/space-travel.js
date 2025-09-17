@@ -15,9 +15,9 @@ function main() {
 
     var halfw = canvas.width / 2,
         halfh = canvas.height / 2,
-        step = 2,
-        warpZ = 12,
-        speed = 0.075;
+        step = 4,  // Increased for denser rendering
+        warpZ = 20,  // Increased for deeper star field
+        speed = 0.5;  // Increased base speed for much faster movement
     var stampedDate = new Date();
 
     var ctx = canvas.getContext('2d');
@@ -81,7 +81,7 @@ function main() {
     }
 
     var starfield = function() {
-        var numOfStars = 250;
+        var numOfStars = 500;
         
         var stars = [];
         
@@ -114,7 +114,7 @@ function main() {
         
         var currentTime = new Date();
         
-        speed = 0.025;
+        // Removed hardcoded speed override; now uses the higher base speed
     
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.fillStyle = 'rgba(0,0,0,0.2)';
