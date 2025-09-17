@@ -1,3 +1,9 @@
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .space-background {
     background-image: url('/images/backgrounds/space-stars-bw.jpg');
     /* background-color: #040615; */
