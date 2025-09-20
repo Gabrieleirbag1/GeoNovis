@@ -15,9 +15,8 @@ canvas {
     height: 100vh;
     pointer-events: none;
     z-index: 1001;
-    /* bright radial flash with screen blend to feel "brillant" */
-    background:
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.15) 75%, rgba(255,255,255,0) 100%);
+    /* Updated: Elliptical radial gradient scaled to 200% to cover the full screen brightly */
+    background: radial-gradient(ellipse 200% 200% at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
     mix-blend-mode: screen;
     opacity: 0;
 }
@@ -34,12 +33,11 @@ canvas {
 
 @keyframes preFlash {
     0%   { opacity: 0;   filter: blur(0px); }
-    30%  { opacity: 1;   filter: blur(1px); }
-    100% { opacity: 0.35; filter: blur(0.5px); }
+    100%  { opacity: 1;   filter: blur(1px); }
 }
 
 @keyframes postFade {
-    0%   { opacity: 0.35; filter: blur(0.5px); }
+    0%   { opacity: 0.35; filter: blur(1px); }
     100% { opacity: 0;     filter: blur(0px); }
 }
 

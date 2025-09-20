@@ -152,7 +152,7 @@ export class Menu implements OnInit, AfterViewChecked {
 
     // Use orchestrated transition (pre -> travel -> post)
     this.redirectTransitionService.redirectWithPhases(route, {
-      preMs: 350,
+      preMs: 150,
       travelMs: 900,
       postMs: 350,
     });
