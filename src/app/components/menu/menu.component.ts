@@ -9,8 +9,6 @@ import { RedirectTransitionService } from "../../services/redirect-transition.se
 
 declare function main(): void; // Declare the main function from space-travel.js
 
-type TransitionPhase = 'idle' | 'pre' | 'travel' | 'post';
-
 @Component({
   selector: "app-menu",
   standalone: true,
