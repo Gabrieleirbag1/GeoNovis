@@ -22,7 +22,7 @@ canvas {
 }
 
 .transition-overlay.pre {
-    animation: preFlash 350ms ease-out forwards;
+    animation: preFlash 150ms ease-out forwards;
 }
 
 .transition-overlay.post {
