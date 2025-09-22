@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
 import { CountryInfo } from '../../../../types/country-info.type';
+import { ImageService } from '../../../../services/image.service';
 
 @Component({
   selector: 'app-find-flag',
@@ -22,7 +23,8 @@ export class FindFlag implements OnInit, OnChanges {
 
   constructor(
     private gameService: GameService, 
-    private convertService: ConvertService
+    private convertService: ConvertService,
+    public imageService: ImageService
   ) {}
 
   ngOnInit(): void {
@@ -48,10 +50,6 @@ export class FindFlag implements OnInit, OnChanges {
     this.countries = this.gameService.getCountries();
     const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
     this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
-  }
-
-  getFlagImage(countryCode: string): string {
-    return '/images/flags/' + countryCode.toLowerCase() + '.svg';
   }
 
 }
