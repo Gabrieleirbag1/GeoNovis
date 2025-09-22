@@ -25,8 +25,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
   selectedCountry: string = "";
 
   @Input() turn!: number; // new input to track round changes
-  @Input() endRound!: boolean; // new input to track correct country code
-  @Input() countryCode!: CountryCode; // new input to track selected country code
+  @Input() endRound!: boolean; // new input to track end of round
+  @Input() countryCode!: CountryCode; // new input to track country code the user has selected
 
   @Output() answerSelected = new EventEmitter<{ selectedCode: CountryCode; correctCode: CountryCode }>();
 
