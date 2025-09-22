@@ -20,6 +20,7 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
   userAnswer: string = '';
 
   @Input() turn!: number; // new input to track round changes
+  @Input() endRound!: boolean; // new input to track end of round
 
   @Output() answerSelected = new EventEmitter<{selectedCode: CountryCode, correctCode: CountryCode}>();
 
@@ -30,12 +31,20 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.init();
+    console.log(this.selectedCountry)
+    console.log(this.gameService.selectedCountryCode, "chef", this.userAnswer, "chef2", )
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['turn'] && !changes['turn'].isFirstChange()) {
       this.init();
       this.clearInput();
+    }
+    if (changes['endRound'] && !changes['endRound'].isFirstChange()) {
+      if (changes['endRound'].currentValue === true) {
+        this.clearInput();
+      }
     }
   }
 

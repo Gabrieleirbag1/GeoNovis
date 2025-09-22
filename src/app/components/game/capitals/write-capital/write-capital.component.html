@@ -6,4 +6,6 @@
     <input type="text" class="answer-input" [(ngModel)]="userAnswer" 
     placeholder="Type your answer here" (keyup.enter)="onAnswerSelect({ userAnswer })">
   </div>
+  <p *ngIf="endRound">Correct country: {{ selectedCountry }}</p>
+
 </section>

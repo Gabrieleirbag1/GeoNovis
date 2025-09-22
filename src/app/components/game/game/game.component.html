@@ -1,4 +1,4 @@
-<section class="game-section">
+<section class="-game-section">
   @if (!endGame) {
     <div class="game-header">
       <p>Round {{ currentRound }} of {{ totalRounds }}</p>
@@ -22,7 +22,8 @@
     <app-write-capital 
       *ngIf="subgamemode === 'writeCapital'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
-      [turn]="currentRound">
+      [turn]="currentRound"
+      [endRound]="endRound">
     </app-write-capital>
     <app-find-country-by-capital 
       *ngIf="subgamemode === 'findCountryByCapital'" 
