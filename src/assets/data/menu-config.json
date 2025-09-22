@@ -120,7 +120,7 @@
             "en": "Identification",
             "fr": "Immatriculation"
           },
-          "start": true
+          "linkto": "gamemode/licensePlates"
         },
         {
           "id": "custom",
@@ -204,6 +204,33 @@
         },
         {
           "id": "findCountryByFlag",
+          "name": {
+            "en": "Find the Country",
+            "fr": "Trouver le pays"
+          },
+          "start": true
+        }
+      ]
+    },
+    "licensePlates": {
+      "id": "licensePlates",
+      "type": "menu_3",
+      "referrer": "gamemode",
+      "name": {
+        "en": "Identification",
+        "fr": "Immatriculation"
+      },
+      "content": [
+        {
+          "id": "findLicensePlate",
+          "name": {
+            "en": "Find the License Plate",
+            "fr": "Trouver la plaque"
+          },
+          "start": true
+        },
+        {
+          "id": "findCountryByLicensePlate",
           "name": {
             "en": "Find the Country",
             "fr": "Trouver le pays"

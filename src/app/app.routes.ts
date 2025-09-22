@@ -11,6 +11,7 @@ export const routes: Routes = [
   { path: 'gamemode', component: Menu },
   { path: 'gamemode/capitals', component: Menu },
   { path: 'gamemode/flags', component: Menu },
+  { path: 'gamemode/licensePlates', component: Menu },
   { path: 'game', component: Game },
   { path: 'rules', component: Rules },
   { path: 'decode', component: DecodeComponent },
