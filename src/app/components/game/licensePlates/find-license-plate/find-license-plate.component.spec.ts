@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindLicensePlate } from './find-license-plate';
+import { FindLicensePlate } from './find-license-plate.component';
 
 describe('FindLicensePlate', () => {
   let component: FindLicensePlate;

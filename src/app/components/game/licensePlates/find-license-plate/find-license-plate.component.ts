@@ -11,8 +11,8 @@ import { CountryInfo } from '../../../../types/country-info.type';
   selector: 'app-find-license-plate',
   imports: [CommonModule],
   standalone: true,
-  templateUrl: './find-license-plate.html',
-  styleUrls: ['./find-license-plate.css', '../../game/game.component.css'],
+  templateUrl: './find-license-plate.component.html',
+  styleUrls: ['./find-license-plate.component.css', '../../game/game.component.css'],
 })
 export class FindLicensePlate implements OnInit, OnChanges {
   countries: Country[] = [];
@@ -53,7 +53,7 @@ export class FindLicensePlate implements OnInit, OnChanges {
   }
 
   getPlateImage(countryCode: string): string {
-    return '/images/plates/' + countryCode.toLowerCase() + '.svg';
+    return '/images/plates/' + countryCode.toLowerCase() + '.png';
   }
 
 }
