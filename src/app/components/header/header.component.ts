@@ -34,10 +34,10 @@ export class Header {
     const sessionData: Record<string, string> = {};
 
     // Collect all session storage items into an object
-    for (let i = 0; i < sessionStorage.length; i++) {
-      const key = sessionStorage.key(i);
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
       if (key) {
-        const value = sessionStorage.getItem(key);
+        const value = localStorage.getItem(key);
         if (value) {
           sessionData[key] = value;
         }
