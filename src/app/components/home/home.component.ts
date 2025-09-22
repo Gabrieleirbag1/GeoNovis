@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class Home implements OnInit {
-  isGame: boolean = sessionStorage.getItem('isGame') === 'true' ? true : false;
+  isGame: boolean = localStorage.getItem('isGame') === 'true' ? true : false;
 
   ngOnInit() {
 
@@ -17,6 +17,6 @@ export class Home implements OnInit {
 
   createGame() {
     this.isGame = true;
-    sessionStorage.setItem('isGame', 'true');
+    localStorage.setItem('isGame', 'true');
   }
 }
