@@ -12,6 +12,7 @@
       [countryCode]="countryCode"
       [endRound]="endRound">
     </app-map>
+
     <app-find-capital 
       *ngIf="subgamemode === 'findCapital'" 
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
@@ -38,6 +39,12 @@
       (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
       [turn]="currentRound">
     </app-find-country-by-flag>
+
+    <app-find-country-by-license-plate 
+      *ngIf="subgamemode === 'findCountryByLicensePlate'" 
+      (answerSelected)="handleAnswer($event.selectedCode, $event.correctCode)"
+      [turn]="currentRound">
+    </app-find-country-by-license-plate>
     <!-- END GAME INJECTION SECTION -->
 
     <div class="turn-result" *ngIf="endRound">

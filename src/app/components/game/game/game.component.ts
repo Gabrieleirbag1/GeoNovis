@@ -10,10 +10,11 @@ import { WriteCapitalComponent } from "../capitals/write-capital/write-capital.c
 import { FindCountryByCapitalComponent } from "../capitals/find-country-by-capital/find-country-by-capital.component";
 import { MapComponent } from "../map/map/map.component";
 import { GameSave } from "../../../types/game-save.type";
+import { FindCountryByLicensePlate } from "../licensePlates/find-country-by-license-plate/find-country-by-license-plate.component";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate],
   templateUrl: "./game.component.html",
   styleUrl: "./game.component.css",
 })
