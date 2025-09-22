@@ -5,7 +5,8 @@
     "endRound": false,
     "endGame": false,
     "countryCode": null,
-    "correctCountryCode": null
+    "correctCountryCode": null,
+    "userInput": null
   },
   "timeLimit": {
     "value": 20,
