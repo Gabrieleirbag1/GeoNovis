@@ -118,6 +118,7 @@ export class Rules implements OnInit {
     }
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
     this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
+    this.gameSessionService.setSessionItem("userAnswer", ""); // Clear previous user answer
   }
 
   private async getGeoCodesCount(): Promise<number> {
