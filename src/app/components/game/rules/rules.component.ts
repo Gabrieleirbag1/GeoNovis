@@ -24,11 +24,7 @@ export class Rules implements OnInit {
   count: number = 0;
   private regions: string[] = [];
 
-  constructor(
-    private gameSessionService: GameSessionService, 
-    private apiService: ApiService,
-    private routes: Router
-  ) {}
+  constructor(private gameSessionService: GameSessionService, private apiService: ApiService, private routes: Router) {}
 
   ngOnInit(): void {
     this.setRegions();
@@ -97,30 +93,52 @@ export class Rules implements OnInit {
   }
 
   private setRules(): void {
-    const timelimitElement: HTMLInputElement = document.getElementById("timelimit") as HTMLInputElement;
+    this.setRoundSettings();
+    this.setTimeSettings();
+    this.setRegionSettings();
+    this.setGameModeSettings();
+    this.setSubGameModeSettings();
+    this.clearPreviousGameState();
+  }
+
+  private setRoundSettings(): void {
     const roundsElement: HTMLInputElement = document.getElementById("rounds") as HTMLInputElement;
+    this.gameSave.roundState.total = roundsElement.value as unknown as number;
+  }
+
+  private setTimeSettings(): void {
+    const timelimitElement: HTMLInputElement = document.getElementById("timelimit") as HTMLInputElement;
+    this.gameSave.timeLimit.value = timelimitElement.value as unknown as number;
+    this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === "string" ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null;
+  }
+
+  private setRegionSettings(): void {
+    this.gameSave.regions = this.regions;
+  }
+
+  private setGameModeSettings(): void {
     const gamemode: string = this.gameSessionService.getSessionItem("menu_2") || "map";
+    this.gameSave.gamemode.available = [gamemode];
+  }
+
+  private setSubGameModeSettings(): void {
     const subgamemode: string = this.gameSessionService.getSessionItem("menu_3") || "map";
     const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem("custom_subgamemodes") || ["map"];
-
-    this.gameSave.roundState.total = roundsElement.value as unknown as number;
-    this.gameSave.timeLimit.value = timelimitElement.value as unknown as number;
-    this.gameSave.timeLimit.datetime = typeof !timelimitElement.value === "string" 
-      ? new Date(new Date().getTime() + parseInt(timelimitElement.value) * 1000).toISOString() : null; 
-      // check if value is not "No limit" string before converting to datetime
-    this.gameSave.regions = this.regions;
-    this.gameSave.gamemode.available = [gamemode];
 
     if (subgamemode === "geonovis") {
       this.gameSave.subgamemode.available = ["map", "findCapital", "findFlag"];
       this.gameSave.subgamemode.current = "map";
       return;
     }
+
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
     this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
-    this.gameSessionService.setSessionItem("userAnswer", ""); // Clear previous user answer
   }
 
+  private clearPreviousGameState(): void {
+    this.gameSessionService.setSessionItem("userAnswer", "");
+  }
+  
   private async getGeoCodesCount(): Promise<number> {
     return firstValueFrom(this.apiService.getGeoCodesCount(this.regions)).then((response: { count: number }) => {
       return response.count;
