@@ -55,4 +55,11 @@ export class ConvertService {
     const countryInfo = this.convertCodeToCountry(code) as CountryInfo;
     return countryInfo ? countryInfo.country[this.language] : '';
   }
+
+  normalizeText(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove accents/diacritics
+    .replace(/\s+/g, ''); // Remove all whitespace
+}
 }
