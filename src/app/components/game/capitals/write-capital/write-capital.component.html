@@ -10,6 +10,6 @@
     [disabled]="endRound"
     (keyup.enter)="onAnswerSelect({ userAnswer })">
   </div>
-  <p *ngIf="showCorrectAnswerFlag">You could say {{ selectedCapital.join(', ') }}</p>
+  <p *ngIf="showCorrectAnswerFlag">You could say {{ selectedCapitals.join(', ') }}</p>
 
 </section>
