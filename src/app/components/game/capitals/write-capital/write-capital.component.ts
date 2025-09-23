@@ -18,7 +18,7 @@ import { GameSessionService } from '../../../../services/game-session.service';
 export class WriteCapitalComponent implements OnInit, OnChanges {
   protected countries: Country[] = [];
   protected selectedCountry: string = '';
-  protected selectedCapital: string[] = [''];
+  protected selectedCapitals: string[] = [''];
   protected userAnswer: string = '';
   protected showCorrectAnswerFlag: boolean = false;
 
@@ -44,6 +44,7 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
       this.clearInput();
     }
     if (changes['endRound'] && !changes['endRound'].isFirstChange()) {
+      this.setCorrectAnswerFlag();
       if (changes['endRound'].currentValue === true) {
         this.clearInput();
       }
@@ -59,9 +60,14 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
   }
 
   public showCorrectAnswer(): boolean {
-    if (this.endRound && this.userAnswer.trim() !== this.selectedCountry.trim()) {
-      return true;
+    if (this.endRound) {
+      const normalizedUserAnswer = this.convertService.normalizeText(this.userAnswer);
+      const hasMatch = this.selectedCapitals.some(capital => 
+        this.convertService.normalizeText(capital) === normalizedUserAnswer
+      );
+      return !hasMatch;
     }
+    
     return false;
   }
 
@@ -83,6 +89,9 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
     this.countries = this.gameService.getCountries();
     const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
     this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
-    this.selectedCapital = countryInfo?.capital[this.convertService.language] || [''];
+    this.selectedCapitals = countryInfo?.capital[this.convertService.language] || [''];
+    
+    const sessionItem = this.gameSessionService.getSessionItem("userAnswer")
+    this.userAnswer = sessionItem ? sessionItem : '';
   }
 }
