@@ -54,6 +54,23 @@
           }
         },
         {
+          "id": "territories",
+          "name": {
+            "en": "Territories",
+            "fr": "Territoires"
+          },
+          "linkto": "gamemode",
+          "submenu": true,
+          "subMenuText": {
+            "fr": "Sélectionnez les territoires à inclure",
+            "en": "Select territories to include"
+          },
+          "submenu_content": {
+            "fr": ["France", "Allemagne", "États-Unis"],
+            "en": ["France", "Germany", "United States"]
+          }
+        },
+        {
           "id": "custom",
           "name": {
             "en": "Custom",
