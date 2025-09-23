@@ -45,9 +45,6 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
     }
     if (changes['endRound'] && !changes['endRound'].isFirstChange()) {
       this.setCorrectAnswerFlag();
-      if (changes['endRound'].currentValue === true) {
-        this.clearInput();
-      }
     }
   }
 
