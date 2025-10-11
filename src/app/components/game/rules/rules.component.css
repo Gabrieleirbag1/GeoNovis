@@ -1,15 +1,31 @@
-/* Base styles */
-div {
+.rules-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   color: #e9f6ff;
+  height: 100vh;
   font-family: 'RadioSpace', sans-serif;
+  background-image: url('/images/backgrounds/space-stars-bw.jpg');
+  background-size: cover;
 }
 
-/* Selection controls styling */
+.map-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.map-image-container img {
+  height: 20vh;
+  width: 25vh;
+  margin: 0 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 152, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .timelimit-section,
 .rounds-section {
   margin: 15px 0;
@@ -139,7 +155,6 @@ select.rounds:focus {
   transform: scale(1);
 }
 
-/* Shooting star accent */
 .start-game button::after {
   content: "";
   position: absolute;
@@ -160,7 +175,29 @@ select.rounds:focus {
   animation: shootingStar 1.8s ease-out forwards;
 }
 
-/* Modal styles */
+.section-title {
+  font-family: 'RadioSpace', sans-serif;
+  font-size: 24px;
+  margin-top: 20px;
+  color: #fff;
+  text-shadow: 0 0 8px #5e90f1;
+}
+
+select.timelimit option,
+select.rounds option {
+  background-color: #132b4e;
+  color: #e9f6ff;
+  padding: 10px;
+}
+
+select.timelimit option:hover,
+select.rounds option:hover,
+select.timelimit option:focus,
+select.rounds option:focus {
+  background-color: #1d3c69;
+  color: #ffffff;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;

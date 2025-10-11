@@ -9,6 +9,7 @@ import { ApiService } from "../../../services/api.service";
 import { firstValueFrom } from "rxjs";
 import { GameInfos } from "../../../types/game-infos.type";
 import { GameSave } from "../../../types/game-save.type";
+import { LanguageService } from "../../../services/language.service";
 
 @Component({
   selector: "app-rules",
@@ -17,16 +18,23 @@ import { GameSave } from "../../../types/game-save.type";
   styleUrl: "./rules.component.css",
 })
 export class Rules implements OnInit {
-  gameInfos: GameInfos = gameInfos;
-  gameSave: GameSave = gameSave;
-  showWarningModal: boolean = false;
-  warningMessage: string = "";
-  count: number = 0;
-  private regions: string[] = [];
+  protected gameInfos: GameInfos = gameInfos;
+  protected gameSave: GameSave = gameSave;
+  protected showWarningModal: boolean = false;
+  protected warningMessage: string = "";
+  protected count: number = 0;
+  protected regions: string[] = [];
+  protected language: string = "fr"; // default
 
-  constructor(private gameSessionService: GameSessionService, private apiService: ApiService, private routes: Router) {}
+  constructor(
+    private gameSessionService: GameSessionService,
+    private languageService: LanguageService,
+    private apiService: ApiService,
+    private routes: Router
+  ) {}
 
   ngOnInit(): void {
+    this.language = this.languageService.getLanguage();
     this.setRegions();
     this.setRounds();
   }
@@ -44,7 +52,6 @@ export class Rules implements OnInit {
     const gameInfosRound = gameInfos.rounds.values;
     for (let roundValue of gameInfosRound) {
       if (roundValue <= this.count) {
-        console.log(this.count);
         roundsValues.push(roundValue);
       }
     }
@@ -56,7 +63,6 @@ export class Rules implements OnInit {
     const currentMenuRegion: string = this.gameSessionService.getSessionItem("menu_1") || "world";
     const custom_regions: string[] = this.gameSessionService.getParsedItem("custom_regions") || ["map"];
     this.regions = currentMenuRegion === "world" ? [currentMenuRegion] : custom_regions;
-    console.log("Selected regions:", this.regions);
   }
 
   protected startGame(): void {
@@ -133,6 +139,7 @@ export class Rules implements OnInit {
 
     this.gameSave.subgamemode.available = subgamemode !== "custom" ? [subgamemode] : custom_subgamemodes;
     this.gameSave.subgamemode.current = this.gameSave.subgamemode.available[0];
+    console.log("Selected subgamemodes:", this.gameSave.subgamemode.available);
   }
 
   private clearPreviousGameState(): void {

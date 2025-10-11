@@ -1,4 +1,10 @@
-<div>
+<section class="rules-container">
+    {{this.gameSave.gamemode | json}}
+    <div class="section-title">{{ language === "fr" ? "Zones géographiques" : "Geographical Areas" }}</div>
+    <div class="map-image-container">
+        <img *ngFor="let region of regions" src="/images/maps/map-{{region}}.png">
+    </div>
+    <div class="section-title">{{ language === "fr" ? "Temps Limite" : "Time Limit" }}</div>
     <div class="timelimit-section">
         <select id="timelimit" class="timelimit" [(ngModel)]="gameInfos.timeLimit.default">
         <option value={{gameInfos.timeLimit.default}} *ngFor="let time of gameInfos.timeLimit.values" [value]="time">
@@ -7,6 +13,7 @@
         </option>
         </select>
     </div>
+    <div class="section-title">{{ language === "fr" ? "Nombre de Tours" : "Number of Rounds" }}</div>
     <div class="rounds-section">
         <select id="rounds" class="rounds">
         <option *ngFor="let round of gameInfos.rounds.values" [value]="round"
@@ -16,7 +23,7 @@
         </select>
     </div>
     <div class="start-game">
-        <button (click)="startGame()">Start Game</button>
+        <button (click)="startGame()">{{ language === "fr" ? "Lancer la partie" : "Start Game" }}</button>
     </div>
     
     <!-- Warning Modal -->
@@ -30,4 +37,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
