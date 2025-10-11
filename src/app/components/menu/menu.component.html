@@ -42,6 +42,7 @@
         <div class="option-item" *ngFor="let option of submenuOptions">
           <label>
             <input type="checkbox" [(ngModel)]="option.selected">
+            <img src="/images/maps/map-{{option.id}}.png" alt="{{ option.name[language] }}" class="option-icon">
             {{ option.name[language] }}
           </label>
         </div>

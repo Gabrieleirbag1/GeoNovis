@@ -257,6 +257,14 @@ canvas {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.modal-content img {
+    height: 30vh;
+    width: 30vh;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 4px;
+}
+
 .submenu-options {
     margin: 20px 0;
 }
