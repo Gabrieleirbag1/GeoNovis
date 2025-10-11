@@ -67,7 +67,8 @@
           },
           "submenu_content": {
             "fr": ["France", "Allemagne", "États-Unis"],
-            "en": ["France", "Germany", "United States"]
+            "en": ["France", "Germany", "United States"],
+            "id": ["france", "germany", "united_states"]
           }
         },
         {
