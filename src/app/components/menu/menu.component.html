@@ -54,13 +54,13 @@
       </div>
 
       <div class="modal-actions">
-        <button class="cancel-btn" (click)="closeModal($event)">Cancel</button>
+        <button class="cancel-btn" (click)="closeModal($event)">{{ language === 'fr' ? 'Annuler' : 'Cancel' }}</button>
         <button 
           class="go-btn" 
           [disabled]="!hasSelectedOptions()" 
           [ngClass]="{'disabled-btn': !hasSelectedOptions()}"
           (click)="proceedWithSubmenu()">
-          Go
+          {{ language === 'fr' ? 'Confirmer' : 'Confirm' }}
         </button>
       </div>
     </div>
