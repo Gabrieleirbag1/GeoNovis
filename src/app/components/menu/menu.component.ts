@@ -178,4 +178,8 @@ export class Menu implements OnInit, AfterViewChecked {
     }
     return false;
   }
+
+  toggleOption(option: any): void {
+    option.selected = !option.selected;
+  }
 }
