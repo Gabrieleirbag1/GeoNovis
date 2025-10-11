@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px;
+  margin: 20px;
 }
 
 .map-image-container img {
@@ -246,7 +246,7 @@ select.rounds option:focus {
 .modal-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .modal-buttons button {

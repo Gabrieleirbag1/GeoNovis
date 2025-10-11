@@ -1,5 +1,4 @@
 <section class="rules-container">
-    {{this.gameSave.gamemode | json}}
     <div class="section-title">{{ language === "fr" ? "Zones géographiques" : "Geographical Areas" }}</div>
     <div class="map-image-container">
         <img *ngFor="let region of regions" src="/images/maps/map-{{region}}.png">
