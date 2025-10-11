@@ -346,29 +346,6 @@ canvas {
   color: #ffffff;
 }
 
-.selection-indicator {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.option-card.selected .selection-indicator {
-  background: rgba(0, 152, 255, 0.8);
-}
-
-.selection-indicator input[type="checkbox"] {
-  margin: 0;
-  cursor: pointer;
-}
-
 /* Button styling */
 .modal-actions {
   display: flex;

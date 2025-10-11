@@ -49,9 +49,6 @@
               <img src="/images/maps/map-{{option.id}}.png" alt="{{ option.name[language] }}">
             </div>
             <div class="option-name">{{ option.name[language] }}</div>
-            <div class="selection-indicator">
-              <input type="checkbox" [(ngModel)]="option.selected" (click)="$event.stopPropagation()">
-            </div>
           </div>
         </div>
       </div>
