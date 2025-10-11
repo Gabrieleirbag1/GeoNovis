@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   color: #e9f6ff;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
   font-family: 'RadioSpace', sans-serif;
   background-image: url('/images/backgrounds/space-stars-bw.jpg');
   background-size: cover;
@@ -14,6 +15,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
   margin: 20px;
 }
 
