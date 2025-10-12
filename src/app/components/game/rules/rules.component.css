@@ -241,7 +241,6 @@ select.rounds option:focus {
   border-radius: 12px;
   padding: 30px;
   width: 90%;
-  height: 30vh;
   max-width: 30vw;
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.5),
