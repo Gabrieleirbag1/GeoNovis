@@ -1,4 +1,4 @@
-<section class="-game-section">
+<section class="game-section">
   @if (!endGame) {
     <div class="game-header">
       <p>Round {{ currentRound }} of {{ totalRounds }}</p>
@@ -59,7 +59,7 @@
       <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
       <button (click)="nextTurn()">Next</button>
     </div>
-    
+
   } @else {
     <div class="end-game">
       <p>Game Over! You completed {{ currentRound }} rounds.</p>
