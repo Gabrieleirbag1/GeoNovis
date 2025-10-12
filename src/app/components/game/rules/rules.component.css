@@ -6,8 +6,30 @@
   color: #e9f6ff;
   min-height: 100vh;
   font-family: 'RadioSpace', sans-serif;
-  background-image: url('/images/backgrounds/space-stars-bw.jpg');
+  position: relative;
+  overflow: hidden;
+}
+
+.rules-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/backgrounds/blur-world-map.png');
   background-size: cover;
+  z-index: -1;
+  animation: parallaxBackground 600s linear infinite;
+}
+
+@keyframes parallaxBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -20480px 0;
+  }
 }
 
 .map-image-container {
