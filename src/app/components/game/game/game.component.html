@@ -54,10 +54,12 @@
     </app-find-country-by-license-plate>
     <!-- END GAME INJECTION SECTION -->
 
-    <div class="turn-result" *ngIf="endRound">
-      <p *ngIf="isCorrect" class="correct">Correct!</p>
-      <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
-      <button (click)="nextTurn()">Next</button>
+    <div class="modal" *ngIf="endRound" (click)="preventModalClose($event)">
+      <div class="modal-content">
+        <p *ngIf="isCorrect" class="correct">Correct!</p>
+        <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
+        <button (click)="nextTurn()">Next</button>
+      </div>
     </div>
 
   } @else {

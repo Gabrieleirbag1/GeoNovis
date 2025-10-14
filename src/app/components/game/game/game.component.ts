@@ -254,4 +254,10 @@ export class Game implements OnInit, OnDestroy {
       this.changeRound();
     }
   }
+
+  // Add this method to prevent closing when clicking outside
+  preventModalClose(event: MouseEvent): void {
+    // Prevent event bubbling
+    event.stopPropagation();
+  }
 }
