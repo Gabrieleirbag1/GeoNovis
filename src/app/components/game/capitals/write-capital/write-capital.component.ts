@@ -7,6 +7,7 @@ import { CountryCode } from '../../../../types/code.type';
 import { FormsModule } from '@angular/forms';
 import { CountryInfo } from '../../../../types/country-info.type';
 import { GameSessionService } from '../../../../services/game-session.service';
+import { LanguageService } from '../../../../services/language.service';
 
 @Component({
   selector: "app-write-capital",
@@ -21,7 +22,8 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
   protected selectedCapitals: string[] = [''];
   protected userAnswer: string = '';
   protected showCorrectAnswerFlag: boolean = false;
-
+  protected language: string = 'fr'; // default
+  
   @Input() turn!: number; // new input to track round changes
   @Input() endRound!: boolean; // new input to track end of round
 
@@ -30,10 +32,12 @@ export class WriteCapitalComponent implements OnInit, OnChanges {
   constructor(
     private gameService: GameService, 
     private convertService: ConvertService,
-    private gameSessionService: GameSessionService
+    private gameSessionService: GameSessionService,
+    private languageService: LanguageService
   ) {}
 
   public ngOnInit(): void {
+    this.language = this.languageService.getLanguage();
     this.init();
     this.setCorrectAnswerFlag()
   }

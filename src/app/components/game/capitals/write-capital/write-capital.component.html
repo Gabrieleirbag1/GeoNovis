@@ -6,7 +6,7 @@
     <input type="text" class="answer-input" 
     [(ngModel)]="userAnswer" 
     (ngModelChange)="saveUserAnswerSession($event)"
-    placeholder="Type your answer here" 
+    placeholder="{{ language === 'fr' ? 'Écrivez la réponse' : 'Type the answer' }}"
     [disabled]="endRound"
     (keyup.enter)="onAnswerSelect({ userAnswer })">
   </div>
