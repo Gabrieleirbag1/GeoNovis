@@ -24,8 +24,10 @@ export class SelectorService {
     const availableCodes: CountryCode[] = Object.keys(gameState)
       .filter((key) => !gameState[key].found)
       .map((key) => gameState[key].code as CountryCode);
-
+    
+    // If not enough not-found codes, add random codes from the full list
     if (iterations > availableCodes.length) {
+      console.log('Not enough available codes, adding more...');
       // Filter otherCodes to exclude already found codes
       const otherCodes = Object.keys(worldCodes)
         .map((key) => (worldCodes as any)[key].code as CountryCode)
@@ -34,6 +36,7 @@ export class SelectorService {
       // Add random codes from filtered otherCodes
       while (availableCodes.length < iterations && otherCodes.length > 0) {
         const randomIndex = Math.floor(Math.random() * otherCodes.length);
+        console.log('Random index selected:', randomIndex);
         const randomCode = otherCodes[randomIndex];
 
         if (!availableCodes.includes(randomCode)) {
@@ -45,7 +48,13 @@ export class SelectorService {
         otherCodes.splice(randomIndex, 1);
       }
     }
-    return availableCodes.sort((a, b) => a.localeCompare(b)).slice(0, iterations);
+    // Shuffle array randomly using Fisher-Yates algorithm
+    for (let i = availableCodes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [availableCodes[i], availableCodes[j]] = [availableCodes[j], availableCodes[i]];
+    }
+    
+    return availableCodes.slice(0, iterations);
   }
 
   public getSelectedCountry(codes: CountryCode[]): CountryCode {
