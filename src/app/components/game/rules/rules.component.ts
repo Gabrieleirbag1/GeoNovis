@@ -52,7 +52,9 @@ export class Rules implements OnInit {
     const gameInfosRound = gameInfos.rounds.values;
     for (let roundValue of gameInfosRound) {
       if (roundValue <= this.count) {
-        roundsValues.push(roundValue);
+        if (!roundsValues.includes(roundValue)) {
+          roundsValues.push(roundValue);
+        }
       }
     }
     roundsValues.push(this.count);
