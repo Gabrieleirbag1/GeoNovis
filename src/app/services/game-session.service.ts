@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import worldCodes from '../../assets/data/world-codes.json';
 import { CountryCode } from '../types/code.type';
 
 @Injectable({
