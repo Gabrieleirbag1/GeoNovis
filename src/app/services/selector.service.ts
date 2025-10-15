@@ -77,18 +77,15 @@ export class SelectorService {
   }
 
   private selectNotFoundCode(codes: CountryCode[]): CountryCode | null {
-    while (true) {
-      const randomIndex = Math.floor(Math.random() * codes.length);
-      const selectedCode = codes[randomIndex];
       const gameState = this.gameSessionService.getGameState();
-      if (gameState[selectedCode] && !gameState[selectedCode].found) {
-        return selectedCode;
+      const availableCodes = codes.filter(code => gameState[code] && !gameState[code].found);
+
+      if (availableCodes.length === 0) {
+          throw new Error("All codes have been found. Cannot select a not-found code.");
       }
-      // If all codes are found, return null to avoid infinite loop
-      if (codes.every(code => gameState[code] && gameState[code].found)) {
-        throw new Error("All codes have been found. Cannot select a not-found code.");
-      }
-    }
+
+      const randomIndex = Math.floor(Math.random() * availableCodes.length);
+      return availableCodes[randomIndex];
   }
 
   private setRandomSelectedCountry(codes: CountryCode[]): void {
