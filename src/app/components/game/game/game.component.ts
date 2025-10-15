@@ -12,6 +12,7 @@ import { MapComponent } from "../map/map/map.component";
 import { GameSave } from "../../../types/game-save.type";
 import { FindCountryByLicensePlate } from "../licensePlates/find-country-by-license-plate/find-country-by-license-plate.component";
 import { FindLicensePlate } from "../licensePlates/find-license-plate/find-license-plate.component";
+import { LanguageService } from "../../../services/language.service";
 
 @Component({
   selector: "app-game",
@@ -32,8 +33,13 @@ export class Game implements OnInit, OnDestroy {
   private timerInterval?: number;
   private endTime: Date | null = null;
 
-  constructor(private gameSessionService: GameSessionService, 
-    protected gameStateService: GameStateService) {}
+  protected language: string = "fr"; // default
+
+  constructor(
+    private gameSessionService: GameSessionService,
+    protected gameStateService: GameStateService,
+    protected languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
     this.handleEnd();
@@ -77,8 +83,8 @@ export class Game implements OnInit, OnDestroy {
   private setCountDown(): void {
     console.log("Setting new countdown...");
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    const timeLimit: number = gameSave.timeLimit.value;
-    if (typeof timeLimit !== "number" || timeLimit <= 0) {
+    const timeLimit = gameSave.timeLimit.value;
+    if ((timeLimit as number | string) === "No limit") {
       return;
     }
     const datetime: Date = new Date();

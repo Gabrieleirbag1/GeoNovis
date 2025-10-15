@@ -1,8 +1,8 @@
 <section class="game-section">
   @if (!endGame) {
     <div class="game-header">
-      <p>Round {{ currentRound }} of {{ totalRounds }}</p>
-      <p class="countdown" *ngIf="!this.endRound && remainingTime">Time remaining: {{ remainingTime }}</p>
+      <p>{{ language === "fr" ? "Tour" : "Round" }} {{ currentRound }} {{ language === "fr" ? "sur" : "of" }} {{ totalRounds }}</p>
+      <p class="countdown" *ngIf="!this.endRound && remainingTime">{{ language === "fr" ? "Temps restant" : "Time remaining" }}: {{ remainingTime }}</p>
     </div>
 
     <!-- GAME INJECTION SECTION -->

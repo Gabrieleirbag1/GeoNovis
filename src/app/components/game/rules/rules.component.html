@@ -3,7 +3,7 @@
     <div class="map-image-container">
         <img *ngFor="let region of regions" src="/images/maps/map-{{region}}.png">
     </div>
-    <div class="section-title">{{ language === "fr" ? "Temps Limite" : "Time Limit" }}</div>
+    <div class="section-title">{{ language === "fr" ? "Limite de Temps" : "Time Limit" }}</div>
     <div class="timelimit-section">
         <select id="timelimit" class="timelimit" [(ngModel)]="gameInfos.timeLimit.default">
         <option value={{gameInfos.timeLimit.default}} *ngFor="let time of gameInfos.timeLimit.values" [value]="time">
