@@ -38,6 +38,7 @@ export class GameService {
   initializeGame(iterations: number): void {
     let turnCodes: CountryCode[] = this.gameStateService.getTurnCodes();
     if (!this.gameSessionService.isGameStateSession(turnCodes)) {
+      console.log('Selecting new turn codes...');
       turnCodes = this.selectCountries(iterations);
     }
     console.log('Turn codes selected:', turnCodes);

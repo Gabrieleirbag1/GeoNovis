@@ -82,6 +82,7 @@ export class GameStateService {
       }
     }
     this.gameSessionService.setGameState(gameState);
+    console.log('Game state after nextTurn:', this.gameSessionService.getGameState());
   }
 
   public checkPlayerAnswer(selectedCountryCode: CountryCode, correctCountryCode: CountryCode): boolean {
