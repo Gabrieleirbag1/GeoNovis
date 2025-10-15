@@ -40,6 +40,7 @@ export class GameService {
     if (!this.gameSessionService.isGameStateSession(turnCodes)) {
       turnCodes = this.selectCountries(iterations);
     }
+    console.log('Turn codes selected:', turnCodes);
     this.selectedCountryCode =
       this.selectorService.getSelectedCountry(turnCodes); // Get the selected country from the game state
 

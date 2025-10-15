@@ -5,6 +5,7 @@ import { GameSaveService } from "./game-save.service";
 import { Language } from "../types/language.type";
 import { LanguageService } from "./language.service";
 import worldCodes from "../../assets/data/world-codes.json";
+import { GameStateService } from "./game-state.service";
 
 @Injectable({
   providedIn: "root",
@@ -13,7 +14,7 @@ export class SelectorService {
   language: Language = "fr"; // Default language
   selectedCountry: CountryCode = "";
 
-  constructor(private gameSessionService: GameSessionService, private gameSaveService: GameSaveService, private languageService: LanguageService) {
+  constructor(private gameSessionService: GameSessionService, private gameSaveService: GameSaveService, private languageService: LanguageService, private gameStateService: GameStateService) {
     this.language = this.languageService.getLanguage();
   }
 
@@ -37,6 +38,7 @@ export class SelectorService {
 
         if (!availableCodes.includes(randomCode)) {
           availableCodes.push(randomCode);
+          this.gameStateService.addAditionnalCountry(randomCode);
         }
 
         // Remove this code from otherCodes to avoid infinite loop if running out of options

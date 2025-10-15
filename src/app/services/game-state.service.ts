@@ -48,6 +48,27 @@ export class GameStateService {
     this.gameSessionService.setGameState(gameState);
   }
 
+  public addAditionnalCountry(code: CountryCode): any {
+    const gameState = this.gameSessionService.getGameState();
+
+    if (!gameState[code]) {
+      gameState[code] = {
+        code: code,
+        found: true,
+        selected: false,
+        turn: true,
+      };
+    }
+
+    this.gameSessionService.setGameState(gameState);
+  }
+
+  public addAditionalCountries(codes: CountryCode[]): void {
+    codes.forEach((code) => {
+      this.addAditionnalCountry(code);
+    });
+  }
+
   nextTurn(): void {
     const gameState = this.gameSessionService.getGameState();
     for (const code in gameState) {
