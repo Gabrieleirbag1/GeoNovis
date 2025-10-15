@@ -46,18 +46,7 @@ export class SelectorService {
     return availableCodes.sort((a, b) => a.localeCompare(b)).slice(0, iterations);
   }
 
-  getAvailableCodes(): CountryCode[] {
-    const availableCodes: CountryCode[] = [];
-    const gameState = this.gameSessionService.getGameState();
-    for (const key in gameState) {
-      if (!gameState[key].found) {
-        availableCodes.push(gameState[key].code as CountryCode);
-      }
-    }
-    return availableCodes;
-  }
-
-  getSelectedCountry(codes: CountryCode[]): CountryCode {
+  public getSelectedCountry(codes: CountryCode[]): CountryCode {
     this.assignSelectedCountry(codes);
     console.log("Selected country:", this.selectedCountry);
     return this.selectedCountry;
