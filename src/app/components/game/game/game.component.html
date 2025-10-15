@@ -1,8 +1,8 @@
-<section class="-game-section">
+<section class="game-section">
   @if (!endGame) {
     <div class="game-header">
-      <p>Round {{ currentRound }} of {{ totalRounds }}</p>
-      <p class="countdown" *ngIf="!this.endRound && remainingTime">Time remaining: {{ remainingTime }}</p>
+      <p>{{ language === "fr" ? "Tour" : "Round" }} {{ currentRound }} {{ language === "fr" ? "sur" : "of" }} {{ totalRounds }}</p>
+      <p class="countdown" *ngIf="!this.endRound && remainingTime">{{ language === "fr" ? "Temps restant" : "Time remaining" }}: {{ remainingTime }}</p>
     </div>
 
     <!-- GAME INJECTION SECTION -->
@@ -54,12 +54,14 @@
     </app-find-country-by-license-plate>
     <!-- END GAME INJECTION SECTION -->
 
-    <div class="turn-result" *ngIf="endRound">
-      <p *ngIf="isCorrect" class="correct">Correct!</p>
-      <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
-      <button (click)="nextTurn()">Next</button>
+    <div class="modal" *ngIf="endRound" (click)="preventModalClose($event)">
+      <div class="modal-content">
+        <p *ngIf="isCorrect" class="correct">Correct!</p>
+        <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
+        <button (click)="nextTurn()">Next</button>
+      </div>
     </div>
-    
+
   } @else {
     <div class="end-game">
       <p>Game Over! You completed {{ currentRound }} rounds.</p>

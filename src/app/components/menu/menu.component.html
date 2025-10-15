@@ -35,26 +35,32 @@
   <!-- Modal Window -->
   <div class="modal-overlay" *ngIf="showSubmenuModal" (click)="closeModal($event)">
     <div class="modal-content">
-      <h3>{{ currentSubmenuTitle }}</h3>
-      <p>{{ currentSubmenuText }}</p>
+      <h3 class="modal-title">{{ currentSubmenuTitle }}</h3>
+      <p class="modal-description">{{ currentSubmenuText }}</p>
 
       <div class="submenu-options">
-        <div class="option-item" *ngFor="let option of submenuOptions">
-          <label>
-            <input type="checkbox" [(ngModel)]="option.selected">
-            {{ option.name[language] }}
-          </label>
+        <div 
+          class="option-card" 
+          *ngFor="let option of submenuOptions" 
+          [ngClass]="{'selected': option.selected}"
+          (click)="toggleOption(option)">
+          <div class="option-card-inner">
+            <div class="option-image-container">
+              <img src="/images/maps/map-{{option.id}}.png" alt="{{ option.name[language] }}">
+            </div>
+            <div class="option-name">{{ option.name[language] }}</div>
+          </div>
         </div>
       </div>
 
       <div class="modal-actions">
-        <button class="cancel-btn" (click)="closeModal($event)">Cancel</button>
+        <button class="cancel-btn" (click)="closeModal($event)">{{ language === 'fr' ? 'Annuler' : 'Cancel' }}</button>
         <button 
           class="go-btn" 
           [disabled]="!hasSelectedOptions()" 
           [ngClass]="{'disabled-btn': !hasSelectedOptions()}"
           (click)="proceedWithSubmenu()">
-          Go
+          {{ language === 'fr' ? 'Confirmer' : 'Confirm' }}
         </button>
       </div>
     </div>
