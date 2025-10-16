@@ -13,10 +13,11 @@ import { GameSave } from "../../../types/game-save.type";
 import { FindCountryByLicensePlate } from "../licensePlates/find-country-by-license-plate/find-country-by-license-plate.component";
 import { FindLicensePlate } from "../licensePlates/find-license-plate/find-license-plate.component";
 import { LanguageService } from "../../../services/language.service";
+import { Endgame } from "../../endgame/endgame";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate, Endgame],
   templateUrl: "./game.component.html",
   styleUrl: "./game.component.css",
 })
