@@ -53,10 +53,6 @@ export class Endgame {
     return this.score;
   }
 
-  protected restartGame(): void {
-    this.router.navigate(['/game']);
-  }
-
   protected goToHome(): void {
     this.router.navigate(['/home']);
   }

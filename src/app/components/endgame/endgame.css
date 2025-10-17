@@ -103,7 +103,7 @@
 
 .end-game-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 40px;
   width: 100%;
 }
