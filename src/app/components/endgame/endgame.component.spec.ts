@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Endgame } from './endgame.component';
+import { EndgameComponent } from './endgame.component';
 
-describe('Endgame', () => {
-  let component: Endgame;
-  let fixture: ComponentFixture<Endgame>;
+describe('EndgameComponent', () => {
+  let component: EndgameComponent;
+  let fixture: ComponentFixture<EndgameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Endgame]
+      imports: [EndgameComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Endgame);
+    fixture = TestBed.createComponent(EndgameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
