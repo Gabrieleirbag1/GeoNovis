@@ -17,14 +17,6 @@
   text-shadow: 0 0 8px rgba(83, 200, 255, 0.7);
 }
 
-.end-game button {
-  padding: 15px 45px;
-  font-size: 20px;
-  background: linear-gradient(135deg, #006ab8, #00a1ff);
-  /* Same button styling as turn-result button */
-}
-
-/* Results table styling */
 .results-container {
   width: 100%;
   overflow-x: auto;
@@ -108,7 +100,7 @@
   width: 100%;
 }
 
-.end-game-buttons button {
+.end-game-btn {
   background: linear-gradient(135deg, #006ab8, #00a1ff);
   color: white;
   box-shadow: 0 0 10px rgba(0, 152, 255, 0.5);
@@ -123,14 +115,23 @@
   letter-spacing: 1px;
 }
 
-.end-game-btn:hover:not(.disabled-btn) {
+.end-game-btn:hover {
   background: linear-gradient(135deg, #007ad3, #00b4ff);
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(0, 152, 255, 0.7);
+  box-shadow: 
+    0 0 15px rgba(0, 152, 255, 0.7),
+    0 0 30px rgba(0, 152, 255, 0.4);
+  text-shadow:
+    0 0 4px #53c8ff,
+    0 0 10px #0098ff,
+    0 0 22px #53c8ff;
 }
 
-.end-game-btn:active:not(.disabled-btn) {
+.end-game-btn:active {
   transform: translateY(0);
+  box-shadow: 
+    0 0 4px 1px #0098ff55,
+    inset 0 0 14px 4px #003b63;
 }
 
 .tooltip-container {

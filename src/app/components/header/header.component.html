@@ -70,21 +70,24 @@
 <div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
 
 <!-- QR Code Modal -->
-<div *ngIf="showQrModal" class="qr-modal-overlay">
-    <div class="qr-modal">
-        <div class="qr-modal-header">
-            <h3>Session QR Code</h3>
-            <button (click)="closeQrModal()">×</button>
-        </div>
-        <div class="qr-modal-content">
-            <qrcode 
-                [qrdata]="strSessionData"
-                [width]="256" 
-                [errorCorrectionLevel]="'M'">
-            </qrcode>
-        </div>
-        <div class="qr-modal-footer">
-            <button class="share-btn" (click)="shareSessionLink()">Share</button>
-        </div>
+<div *ngIf="showQrModal" class="qr-modal-overlay" (click)="$event.target === $event.currentTarget && closeQrModal()">
+  <div class="qr-modal">
+    <div class="qr-modal-header">
+      <h3>{{ currentLanguage === 'fr' ? 'Code QR de session' : 'Session QR Code' }}</h3>
+      <button (click)="closeQrModal()">×</button>
     </div>
+    <div class="qr-modal-content">
+      <qrcode 
+        [qrdata]="strSessionData"
+        [width]="256" 
+        [errorCorrectionLevel]="'M'">
+      </qrcode>
+    </div>
+    <div class="qr-modal-footer">
+      <button class="share-btn" (click)="shareSessionLink()">
+        <span *ngIf="!copied">{{ currentLanguage === 'fr' ? 'Copier le lien' : 'Copy Link' }}</span>
+        <span *ngIf="copied">{{ currentLanguage === 'fr' ? 'Copié !' : 'Copied!' }}</span>
+      </button>
+    </div>
+  </div>
 </div>
