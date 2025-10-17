@@ -9,17 +9,32 @@ import { CommonModule } from '@angular/common';
   styleUrl: './endgame.css'
 })
 export class Endgame {
-  countries: any[] = [];
+  results: any[] = [];
   roundsCompleted: number = 0;
+  score: number = 0;
   constructor(private gameSessionService: GameSessionService) {}
 
   ngOnInit(): void {
+    this.setResults();
+    this.setScore();
+  }
+
+  private setResults(): void {
     const gameState = this.gameSessionService.getGameState();
     for (const key in gameState) {
       if (gameState[key].hasOwnProperty('right')) {
-        this.countries.push(gameState[key]);
+        this.results.push(gameState[key]);
         this.roundsCompleted++;
       }
     }
+  }
+
+  private setScore(): number {
+    this.results.forEach(result => {
+      if (result.right) {
+        this.score += 1; // Example scoring logic
+      }
+    });
+    return this.score;
   }
 }
