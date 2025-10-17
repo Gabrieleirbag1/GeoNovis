@@ -35,7 +35,7 @@ export class Endgame {
   private setResults(): void {
     const gameState = this.gameSessionService.getGameState();
     for (const key in gameState) {
-      if (gameState[key].hasOwnProperty('right')) {
+      if (gameState[key].hasOwnProperty('right') && gameState[key].found !== null) {
         this.results.gameState.push(gameState[key]);
         this.results.countryInfo.push(this.convertService.convertCodeToCountry(gameState[key].code));
         this.roundsCompleted++;
