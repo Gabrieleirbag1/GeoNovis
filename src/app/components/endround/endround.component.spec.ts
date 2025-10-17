@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Endround } from './endround';
+import { EndroundComponent } from './endround.component';
 
-describe('Endround', () => {
-  let component: Endround;
-  let fixture: ComponentFixture<Endround>;
+describe('EndroundComponent', () => {
+  let component: EndroundComponent;
+  let fixture: ComponentFixture<EndroundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Endround]
+      imports: [EndroundComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Endround);
+    fixture = TestBed.createComponent(EndroundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
