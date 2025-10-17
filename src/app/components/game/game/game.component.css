@@ -70,6 +70,13 @@
   animation: glowPulse 3s infinite alternate;
 }
 
+.plate-image {
+  max-height: 150px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
 @keyframes glowPulse {
   0% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 152, 255, 0.3); }
   100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 152, 255, 0.5); }
