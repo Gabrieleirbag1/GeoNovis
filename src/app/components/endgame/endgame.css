@@ -132,3 +132,38 @@
 .end-game-btn:active:not(.disabled-btn) {
   transform: translateY(0);
 }
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-image {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(14, 28, 52, 0.95);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 152, 255, 0.4);
+  border: 1px solid rgba(94, 144, 241, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+.tooltip-image.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tooltip-image img {
+  max-width: 300px;
+  max-height: 200px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  object-fit: contain;
+}

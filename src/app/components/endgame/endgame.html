@@ -27,10 +27,24 @@
             </td>
             <td>{{ results['countryInfo'][$index].continent[language] }}</td>
             <td>
-              <img [src]="assetsService.getFlagImage(result.code)" [alt]="results.countryInfo[$index]?.name + ' flag'">
+              <div class="tooltip-container">
+                <img 
+                  [src]="assetsService.getFlagImage(result.code)" 
+                  [alt]="results.countryInfo[$index]?.name + ' flag'"
+                  (mouseenter)="showImageTooltip($event, assetsService.getFlagImage(result.code))"
+                  (mouseleave)="hideImageTooltip()"
+                  (mousemove)="$event.stopPropagation()">
+              </div>
             </td>
             <td>
-              <img [src]="assetsService.getPlateImage(result.code)" [alt]="results.countryInfo[$index]?.name + ' flag'">
+              <div class="tooltip-container">
+                <img 
+                  [src]="assetsService.getPlateImage(result.code)" 
+                  [alt]="results.countryInfo[$index]?.name + ' plate'"
+                  (mouseenter)="showImageTooltip($event, assetsService.getPlateImage(result.code))"
+                  (mouseleave)="hideImageTooltip()"
+                  (mousemove)="$event.stopPropagation()">
+              </div>
             </td>
             <td class="status-column" [ngClass]="result.right ? 'status-correct' : 'status-incorrect'">
               {{ result.right ? (language === 'fr' ? 'Correct' : 'Correct') : (language === 'fr' ? 'Incorrect' : 'Incorrect') }}
@@ -39,6 +53,11 @@
         }
       </tbody>
     </table>
+  </div>
+  
+  <!-- Tooltip container element -->
+  <div id="tooltipImage" class="tooltip-image">
+    <img src="" alt="Enlarged image">
   </div>
   
   <div class="end-game-buttons">

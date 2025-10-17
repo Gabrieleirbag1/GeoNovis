@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy } from '@angular/core';
 import { GameSessionService } from '../../services/game-session.service';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../services/convert.service';
@@ -12,24 +12,35 @@ import { Router } from '@angular/router';
   templateUrl: './endgame.html',
   styleUrl: './endgame.css'
 })
-export class Endgame {
+export class Endgame implements OnInit, OnDestroy {
   protected results: {"gameState": any[], "countryInfo": any[]} = {"gameState": [], "countryInfo": []};
   protected roundsCompleted: number = 0;
   protected score: number = 0;
   protected language: string = 'fr';
+  
+  @ViewChild('tooltipImage') tooltipImage!: ElementRef;
+  private tooltipTimeout: any;
 
   constructor(
     private gameSessionService: GameSessionService,
     private convertService: ConvertService,
     private languageService: LanguageService,
     protected assetsService: AssetsService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2
   ) {}
 
-  protected ngOnInit(): void {
+  ngOnInit(): void {
     this.language = this.languageService.getLanguage();
     this.setResults();
     this.setScore();
+  }
+  
+  ngOnDestroy(): void {
+    // Clear any active timeouts when component is destroyed
+    if (this.tooltipTimeout) {
+      clearTimeout(this.tooltipTimeout);
+    }
   }
 
   private setResults(): void {
@@ -44,10 +55,9 @@ export class Endgame {
   }
 
   private setScore(): number {
-    console.log(this.results)
     this.results.gameState.forEach(result => {
       if (result.right) {
-        this.score += 1; // Example scoring logic
+        this.score += 1;
       }
     });
     return this.score;
@@ -60,5 +70,64 @@ export class Endgame {
   protected showRules(): void {
     this.router.navigate(['/rules']);
   }
-
+  
+  // Image tooltip functionality
+  showImageTooltip(event: MouseEvent, imageSrc: string): void {
+    // Clear any existing timeout
+    if (this.tooltipTimeout) {
+      clearTimeout(this.tooltipTimeout);
+    }
+    
+    // Set timeout for 1.25 seconds
+    this.tooltipTimeout = setTimeout(() => {
+      const tooltipEl = document.getElementById('tooltipImage');
+      if (tooltipEl) {
+        const imgEl = tooltipEl.querySelector('img') as HTMLImageElement;
+        imgEl.src = imageSrc;
+        
+        // Position the tooltip
+        this.positionTooltip(event, tooltipEl);
+        
+        // Show the tooltip
+        this.renderer.addClass(tooltipEl, 'visible');
+      }
+    }, 1250); // 1.25 seconds
+  }
+  
+  hideImageTooltip(): void {
+    // Clear timeout
+    if (this.tooltipTimeout) {
+      clearTimeout(this.tooltipTimeout);
+      this.tooltipTimeout = null;
+    }
+    
+    // Hide the tooltip
+    const tooltipEl = document.getElementById('tooltipImage');
+    if (tooltipEl) {
+      this.renderer.removeClass(tooltipEl, 'visible');
+    }
+  }
+  
+  private positionTooltip(event: MouseEvent, tooltipEl: HTMLElement): void {
+    // Calculate position - try to center above the cursor
+    const tooltipWidth = tooltipEl.offsetWidth;
+    const tooltipHeight = tooltipEl.offsetHeight;
+    
+    let leftPos = event.clientX - (tooltipWidth / 2);
+    let topPos = event.clientY - tooltipHeight - 15;
+    
+    // Keep tooltip within viewport bounds
+    if (leftPos < 10) leftPos = 10;
+    if (leftPos + tooltipWidth > window.innerWidth - 10) {
+      leftPos = window.innerWidth - tooltipWidth - 10;
+    }
+    
+    // If tooltip would appear above viewport, place it below cursor instead
+    if (topPos < 10) {
+      topPos = event.clientY + 15;
+    }
+    
+    this.renderer.setStyle(tooltipEl, 'left', `${leftPos}px`);
+    this.renderer.setStyle(tooltipEl, 'top', `${topPos}px`);
+  }
 }
