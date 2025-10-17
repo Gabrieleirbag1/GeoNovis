@@ -14,6 +14,7 @@ import { FindCountryByLicensePlate } from "../licensePlates/find-country-by-lice
 import { FindLicensePlate } from "../licensePlates/find-license-plate/find-license-plate.component";
 import { LanguageService } from "../../../services/language.service";
 import { Endgame } from "../../endgame/endgame";
+import { GameSaveService } from "../../../services/game-save.service";
 
 @Component({
   selector: "app-game",
@@ -39,6 +40,7 @@ export class Game implements OnInit, OnDestroy {
   constructor(
     private gameSessionService: GameSessionService,
     protected gameStateService: GameStateService,
+    private gameSaveService: GameSaveService,
     protected languageService: LanguageService
   ) {}
 
@@ -152,7 +154,7 @@ export class Game implements OnInit, OnDestroy {
     if (!this.endGame) {
       this.endRound = gameSave.roundState.endRound;
       if (this.endRound) {
-        const { countryCode, correctCountryCode } = this.getCountryCodes();
+        const { countryCode, correctCountryCode } = this.gameSaveService.getCountryCodes();
         this.checkAnswer(countryCode, correctCountryCode);
       }
     }
@@ -164,14 +166,6 @@ export class Game implements OnInit, OnDestroy {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     gameSave.roundState[key] = value;
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
-  }
-
-  private getCountryCodes(): { countryCode: CountryCode; correctCountryCode: CountryCode } {
-    const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    return {
-      countryCode: gameSave.roundState.countryCode,
-      correctCountryCode: gameSave.roundState.correctCountryCode,
-    };
   }
 
   private setCountryCodes(countryCode: CountryCode, correctCountryCode: CountryCode): void {
