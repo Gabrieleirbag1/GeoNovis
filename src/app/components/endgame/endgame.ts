@@ -42,6 +42,7 @@ export class Endgame {
   }
 
   private setScore(): number {
+    console.log(this.results)
     this.results.gameState.forEach(result => {
       if (result.right) {
         this.score += 1; // Example scoring logic
