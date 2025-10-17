@@ -28,7 +28,7 @@ nav a {
   height: 40px;
   font-size: 24px;
   cursor: pointer;
-  z-index: 100;
+  z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@ nav a {
   height: 100%;
   background: linear-gradient(135deg, #0f1924, #1a2f3d);
   transition: right 0.3s ease;
-  z-index: 1000;
+  z-index: 2000;
   box-shadow: -2px 0 10px rgba(0,0,0,0.2);
   overflow-y: auto;
 }
@@ -185,7 +185,7 @@ nav a {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 1999;
 }
 
 /* Minimal styling for QR code modal */
@@ -199,7 +199,7 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1001; /* Higher than sidebar */
+  z-index: 2001; /* Higher than sidebar */
 }
 
 .qr-modal {
