@@ -6,15 +6,15 @@ import { Injectable } from "@angular/core";
 export class AssetsService {
     constructor() {}
 
-    private getImageAsset(imageName: string): string {
-      return '/images/' + imageName.toLowerCase() + '.svg';
+    private getImageAsset(imageName: string, extension: 'png' | 'svg'): string {
+      return '/images/' + imageName.toLowerCase() + '.' + extension;
     }
 
     public getFlagImage(countryCode: string): string {
-      return this.getImageAsset('flags/' + countryCode.toLowerCase());
+      return this.getImageAsset('flags/' + countryCode.toLowerCase(), 'svg');
     }
 
     public getPlateImage(countryCode: string): string {
-      return this.getImageAsset('plates/' + countryCode.toLowerCase());
+      return this.getImageAsset('plates/' + countryCode.toLowerCase(), 'png');
     }
 }
