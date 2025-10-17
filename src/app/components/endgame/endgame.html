@@ -1,1 +1,5 @@
-<p>endgame works!</p>
+<div class="end-game">
+    <p>Game Over! You completed {{ this.roundsCompleted }} rounds.</p>
+<!-- <button (click)="gameStateService.resetGame()">Play Again</button> -->
+</div> 
+     <p *ngFor="let country of countries">{{ country.code }}: {{ country.right ? 'Correct' : 'Incorrect' }}</p>
