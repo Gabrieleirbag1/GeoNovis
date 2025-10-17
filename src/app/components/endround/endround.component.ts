@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 
@@ -9,14 +9,21 @@ import { LanguageService } from '../../services/language.service';
   templateUrl: './endround.component.html',
   styleUrls: ['./endround.component.css']
 })
-export class EndRoundComponent {
+export class EndRoundComponent implements OnInit {
   @Input() isCorrect: boolean = false;
   @Output() nextClicked = new EventEmitter<void>();
   
   protected language: string = 'fr';
+  showModal: boolean = false;
   
   constructor(protected languageService: LanguageService) {
     this.language = this.languageService.getLanguage();
+  }
+  
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.showModal = true;
+    }, 500);
   }
   
   nextTurn(): void {
@@ -24,7 +31,6 @@ export class EndRoundComponent {
   }
   
   preventModalClose(event: MouseEvent): void {
-    // Prevent event bubbling
     event.stopPropagation();
   }
 }
