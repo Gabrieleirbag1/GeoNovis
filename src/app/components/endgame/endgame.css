@@ -6,9 +6,8 @@
   border-radius: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 152, 255, 0.3);
   border: 1px solid rgba(94, 144, 241, 0.3);
-  max-width: 600px;
-  width: 100%;
   animation: fadeIn 1s ease-out;
+  margin: 30px 0;
 }
 
 .end-game p {
@@ -25,17 +24,79 @@
   /* Same button styling as turn-result button */
 }
 
-.result {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
+/* Results table styling */
+.results-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.result img {
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 100%;
+  color: #fff;
+}
+
+.results-table th {
+  background-color: rgba(0, 70, 128, 0.7);
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(94, 144, 241, 0.5);
+}
+
+.results-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Colored rows based on correct/incorrect */
+.row-correct {
+  background-color: rgba(46, 125, 50, 0.5);
+}
+
+.row-correct:hover {
+  background-color: rgba(46, 125, 50, 0.7);
+}
+
+.row-incorrect {
+  background-color: rgba(183, 28, 28, 0.5);
+}
+
+.row-incorrect:hover {
+  background-color: rgba(183, 28, 28, 0.7);
+}
+
+/* Flag styling in table */
+.results-table img {
   width: 60px;
   height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+/* Round column styling */
+.results-table .round-column {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Status column styling */
+.status-column {
+  text-align: center;
+  font-weight: bold;
+}
+
+.status-correct {
+  color: #4caf50;
+}
+
+.status-incorrect {
+  color: #f44336;
 }
