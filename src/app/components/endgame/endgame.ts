@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../services/convert.service';
 import { LanguageService } from '../../services/language.service';
 import { AssetsService } from '../../services/assets.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-endgame',
@@ -21,7 +22,8 @@ export class Endgame {
     private gameSessionService: GameSessionService,
     private convertService: ConvertService,
     private languageService: LanguageService,
-    protected assetsService: AssetsService
+    protected assetsService: AssetsService,
+    private router: Router
   ) {}
 
   protected ngOnInit(): void {
@@ -50,4 +52,17 @@ export class Endgame {
     });
     return this.score;
   }
+
+  protected restartGame(): void {
+    this.router.navigate(['/game']);
+  }
+
+  protected goToHome(): void {
+    this.router.navigate(['/home']);
+  }
+
+  protected showRules(): void {
+    this.router.navigate(['/rules']);
+  }
+
 }

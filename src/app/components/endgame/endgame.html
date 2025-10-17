@@ -41,7 +41,15 @@
     </table>
   </div>
   
-  <!-- <button (click)="restartGame()">
-    {{ language === 'fr' ? 'Rejouer' : 'Play Again' }}
-  </button> -->
+  <div class="end-game-buttons">
+    <button (click)="restartGame()">
+      {{ language === 'fr' ? 'Rejouer' : 'Play Again' }}
+    </button>
+    <button (click)="showRules()">
+      {{ language === 'fr' ? 'Changer les Règles' : 'Change Rules' }}
+    </button>
+    <button (click)="goToHome()">
+      {{ language === 'fr' ? 'Accueil' : 'Home' }}
+    </button>
+  </div>
 </div>
