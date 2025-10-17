@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-endgame',
   imports: [CommonModule],
-  templateUrl: './endgame.html',
-  styleUrl: './endgame.css'
+  templateUrl: './endgame.component.html',
+  styleUrls: ['./endgame.component.css']
 })
-export class Endgame implements OnInit, OnDestroy {
+export class EndgameComponent implements OnInit, OnDestroy {
   protected results: {"gameState": any[], "countryInfo": any[]} = {"gameState": [], "countryInfo": []};
   protected roundsCompleted: number = 0;
   protected score: number = 0;

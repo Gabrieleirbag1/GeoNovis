@@ -13,15 +13,15 @@ import { GameSave } from "../../../types/game-save.type";
 import { FindCountryByLicensePlate } from "../licensePlates/find-country-by-license-plate/find-country-by-license-plate.component";
 import { FindLicensePlate } from "../licensePlates/find-license-plate/find-license-plate.component";
 import { LanguageService } from "../../../services/language.service";
-import { Endgame } from "../../endgame/endgame";
+import { EndgameComponent } from "../../endgame/endgame.component";
 import { GameSaveService } from "../../../services/game-save.service";
 import { EndRoundComponent } from "../../endround/endround.component";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate, Endgame, EndRoundComponent],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate, EndgameComponent, EndRoundComponent],
   templateUrl: "./game.component.html",
-  styleUrl: "./game.component.css",
+  styleUrls: ["./game.component.css"],
 })
 export class Game implements OnInit, OnDestroy {
   subgamemode: string = "map";
