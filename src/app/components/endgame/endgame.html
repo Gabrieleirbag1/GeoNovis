@@ -8,5 +8,7 @@
     <p>{{ results['countryInfo'][i].country[language] }}</p>
     <p>{{ results['countryInfo'][i].capital[language] }}</p>
     <p>{{ results['countryInfo'][i].continent[language] }}</p>
+    <img [src]="assetsService.getFlagImage(results['countryInfo'][i].code)" alt="{{ results['countryInfo'][i].country[language] }} flag" class="flag-image">
+    <img [src]="assetsService.getPlateImage(results['countryInfo'][i].code)" alt="{{ results['countryInfo'][i].country[language] }} plate" class="plate-image">
   </div>
 </div>

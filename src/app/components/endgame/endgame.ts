@@ -3,6 +3,7 @@ import { GameSessionService } from '../../services/game-session.service';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../services/convert.service';
 import { LanguageService } from '../../services/language.service';
+import { AssetsService } from '../../services/assets.service';
 
 @Component({
   selector: 'app-endgame',
@@ -19,7 +20,8 @@ export class Endgame {
   constructor(
     private gameSessionService: GameSessionService,
     private convertService: ConvertService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    protected assetsService: AssetsService
   ) {}
 
   protected ngOnInit(): void {
