@@ -15,10 +15,11 @@ import { FindLicensePlate } from "../licensePlates/find-license-plate/find-licen
 import { LanguageService } from "../../../services/language.service";
 import { Endgame } from "../../endgame/endgame";
 import { GameSaveService } from "../../../services/game-save.service";
+import { EndRoundComponent } from "../../endround/endround.component";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate, Endgame],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate, Endgame, EndRoundComponent],
   templateUrl: "./game.component.html",
   styleUrl: "./game.component.css",
 })
@@ -266,9 +267,4 @@ export class Game implements OnInit, OnDestroy {
     }
   }
 
-  // Add this method to prevent closing when clicking outside
-  preventModalClose(event: MouseEvent): void {
-    // Prevent event bubbling
-    event.stopPropagation();
-  }
 }

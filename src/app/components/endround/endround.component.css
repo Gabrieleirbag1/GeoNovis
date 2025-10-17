@@ -1,0 +1,91 @@
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(145deg, rgba(14, 28, 52, 0.95), rgba(19, 43, 78, 0.95));
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 152, 255, 0.4);
+  border: 1px solid rgba(94, 144, 241, 0.4);
+  max-width: 500px;
+  width: 90%;
+  animation: scaleIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modal-content p {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 8px rgba(83, 200, 255, 0.7);
+}
+
+.modal-content .correct {
+  color: #28a745;
+  text-shadow: 0 0 8px rgba(40, 167, 69, 0.6), 0 0 20px rgba(40, 167, 69, 0.4);
+}
+
+.modal-content .incorrect {
+  color: #dc3545;
+  text-shadow: 0 0 8px rgba(220, 53, 69, 0.6), 0 0 20px rgba(220, 53, 69, 0.4);
+}
+
+.modal-content button {
+  padding: 15px 50px;
+  font-size: 20px;
+  font-family: 'RadioSpace', sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #006ab8, #00a1ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 0 10px rgba(0, 152, 255, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #53c8ff;
+}
+
+.modal-content button:hover {
+  background: linear-gradient(135deg, #007ad3, #00b4ff);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(0, 152, 255, 0.7),
+    0 0 30px rgba(0, 152, 255, 0.4);
+  text-shadow:
+    0 0 4px #53c8ff,
+    0 0 10px #0098ff,
+    0 0 22px #53c8ff;
+}
+
+.modal-content button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 4px 1px #0098ff55,
+    inset 0 0 14px 4px #003b63;
+}
+
+/* Additional animations */
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

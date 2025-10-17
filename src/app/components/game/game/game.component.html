@@ -53,14 +53,12 @@
       [turn]="currentRound">
     </app-find-country-by-license-plate>
 
-    <!-- END ROUND INJECTION SECTION -->
-    <div class="modal" *ngIf="endRound" (click)="preventModalClose($event)">
-      <div class="modal-content">
-        <p *ngIf="isCorrect" class="correct">Correct!</p>
-        <p *ngIf="!isCorrect" class="incorrect">Incorrect</p>
-        <button (click)="nextTurn()" autofocus>Next</button>
-      </div>
-    </div>
+    <!-- END ROUND COMPONENT -->
+    <app-endround 
+      *ngIf="endRound" 
+      [isCorrect]="isCorrect" 
+      (nextClicked)="nextTurn()">
+    </app-endround>
 
   } @else {
     <app-endgame></app-endgame>
