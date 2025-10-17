@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
 import { FindCapital } from "../capitals/find-capital/find-capital.component";
 import { FindFlag } from "../flags/find-flag/find-flag.component";
 import { FindCountryByFlagComponent } from "../flags/find-country-by-flag/find-country-by-flag.component";
@@ -13,10 +13,12 @@ import { GameSave } from "../../../types/game-save.type";
 import { FindCountryByLicensePlate } from "../licensePlates/find-country-by-license-plate/find-country-by-license-plate.component";
 import { FindLicensePlate } from "../licensePlates/find-license-plate/find-license-plate.component";
 import { LanguageService } from "../../../services/language.service";
+import { Endgame } from "../../endgame/endgame";
+import { GameSaveService } from "../../../services/game-save.service";
 
 @Component({
   selector: "app-game",
-  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate],
+  imports: [FindCapital, FindFlag, CommonModule, WriteCapitalComponent, FindCountryByCapitalComponent, FindCountryByFlagComponent, MapComponent, MapComponent, FindCountryByLicensePlate, FindLicensePlate, Endgame],
   templateUrl: "./game.component.html",
   styleUrl: "./game.component.css",
 })
@@ -38,6 +40,7 @@ export class Game implements OnInit, OnDestroy {
   constructor(
     private gameSessionService: GameSessionService,
     protected gameStateService: GameStateService,
+    private gameSaveService: GameSaveService,
     protected languageService: LanguageService
   ) {}
 
@@ -151,7 +154,7 @@ export class Game implements OnInit, OnDestroy {
     if (!this.endGame) {
       this.endRound = gameSave.roundState.endRound;
       if (this.endRound) {
-        const { countryCode, correctCountryCode } = this.getCountryCodes();
+        const { countryCode, correctCountryCode } = this.gameSaveService.getCountryCodes();
         this.checkAnswer(countryCode, correctCountryCode);
       }
     }
@@ -163,14 +166,6 @@ export class Game implements OnInit, OnDestroy {
     const gameSave = this.gameSessionService.getParsedItem("gameSave");
     gameSave.roundState[key] = value;
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
-  }
-
-  private getCountryCodes(): { countryCode: CountryCode; correctCountryCode: CountryCode } {
-    const gameSave = this.gameSessionService.getParsedItem("gameSave");
-    return {
-      countryCode: gameSave.roundState.countryCode,
-      correctCountryCode: gameSave.roundState.correctCountryCode,
-    };
   }
 
   private setCountryCodes(countryCode: CountryCode, correctCountryCode: CountryCode): void {
@@ -247,6 +242,13 @@ export class Game implements OnInit, OnDestroy {
     this.subgamemode = subgamemode;
     gameSave.subgamemode.current = this.subgamemode;
     this.gameSessionService.setStringifiedItem("gameSave", gameSave);
+  }
+
+  @HostListener('document:keyup.enter')
+  handleEnterKey(): void {
+    if (this.endRound) {
+      this.nextTurn();
+    }
   }
 
   nextTurn(): void {

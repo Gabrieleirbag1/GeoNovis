@@ -14,4 +14,11 @@ export class GameSaveService {
     this.gameSessionService.setStringifiedItem('gameSave', gameSave);
   }
 
+  public getCountryCodes(): { countryCode: CountryCode; correctCountryCode: CountryCode } {
+    const gameSave = this.gameSessionService.getParsedItem("gameSave");
+    return {
+      countryCode: gameSave.roundState.countryCode,
+      correctCountryCode: gameSave.roundState.correctCountryCode,
+    };
+  }
 }

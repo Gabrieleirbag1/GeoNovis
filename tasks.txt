@@ -1,4 +1,4 @@
-- styles
-- nombre de rounds flexible
-- score -> compter ? noter par pays
-- 
+- visualiser images
+- recentrer map par zone
+- styles map, fond results
+- endround component

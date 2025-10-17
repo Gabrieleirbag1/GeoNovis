@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
 import { CountryInfo } from '../../../../types/country-info.type';
+import { AssetsService } from '../../../../services/assets.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class FindLicensePlate implements OnInit, OnChanges {
 
   constructor(
     private gameService: GameService, 
-    private convertService: ConvertService
+    private convertService: ConvertService,
+    protected assetsService: AssetsService
   ) {}
 
   ngOnInit(): void {
@@ -46,14 +48,10 @@ export class FindLicensePlate implements OnInit, OnChanges {
 
   init(): void {
     // console.log('FindPlate Component Initialized');
-    this.gameService.initializeGame(6);
+    this.gameService.initializeGame(4);
     this.countries = this.gameService.getCountries();
     const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
     this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
-  }
-
-  getPlateImage(countryCode: string): string {
-    return '/images/plates/' + countryCode.toLowerCase() + '.png';
   }
 
 }

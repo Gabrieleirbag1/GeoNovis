@@ -1,0 +1,52 @@
+<div class="end-game">
+  <h1>{{ language === 'fr' ? 'Partie terminée!' : 'Game over!' }}</h1>
+  <p>{{ language === 'fr' ? 'Score: ' : 'Score: ' }} {{ score }}/{{ roundsCompleted }}</p>
+  
+  <div class="results-container">
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>{{ language === 'fr' ? 'Tour' : 'Round' }}</th>
+          <th>{{ language === 'fr' ? 'Pays' : 'Country' }}</th>
+          <th>{{ language === 'fr' ? 'Capitale' : 'Capital' }}</th>
+          <th>{{ language === 'fr' ? 'Continent' : 'Continent' }}</th>
+          <th>{{ language === 'fr' ? 'Drapeau' : 'Flag' }}</th>
+          <th>{{ language === 'fr' ? 'Plaque' : 'Plate' }}</th>
+          <th>{{ language === 'fr' ? 'Résultat' : 'Result' }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (result of results.gameState; track $index) {
+          <tr [ngClass]="result.right ? 'row-correct' : 'row-incorrect'">
+            <td class="round-column">{{ $index + 1 }}</td>
+            <td>{{ results.countryInfo[$index].country[language] }}</td>
+            <td>
+              <ng-container *ngFor="let capital of results['countryInfo'][$index].capital[language]; let isLast = last">
+              {{ capital }}{{ !isLast ? ', ' : '' }}
+              </ng-container>
+            </td>
+            <td>{{ results['countryInfo'][$index].continent[language] }}</td>
+            <td>
+              <img [src]="assetsService.getFlagImage(result.code)" [alt]="results.countryInfo[$index]?.name + ' flag'">
+            </td>
+            <td>
+              <img [src]="assetsService.getPlateImage(result.code)" [alt]="results.countryInfo[$index]?.name + ' flag'">
+            </td>
+            <td class="status-column" [ngClass]="result.right ? 'status-correct' : 'status-incorrect'">
+              {{ result.right ? (language === 'fr' ? 'Correct' : 'Correct') : (language === 'fr' ? 'Incorrect' : 'Incorrect') }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="end-game-buttons">
+    <button (click)="showRules()">
+      {{ language === 'fr' ? 'Rejouer' : 'Play Again' }}
+    </button>
+    <button (click)="goToHome()">
+      {{ language === 'fr' ? 'Accueil' : 'Home' }}
+    </button>
+  </div>
+</div>
