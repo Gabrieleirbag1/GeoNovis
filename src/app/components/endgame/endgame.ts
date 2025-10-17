@@ -9,12 +9,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './endgame.css'
 })
 export class Endgame {
-  results: any[] = [];
-  roundsCompleted: number = 0;
-  score: number = 0;
+  protected results: any[] = [];
+  protected roundsCompleted: number = 0;
+  protected score: number = 0;
+  
   constructor(private gameSessionService: GameSessionService) {}
 
-  ngOnInit(): void {
+  protected ngOnInit(): void {
     this.setResults();
     this.setScore();
   }
