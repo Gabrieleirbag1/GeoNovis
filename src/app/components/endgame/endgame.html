@@ -1,6 +1,12 @@
 <div class="end-game">
-    <p>Game Over! You completed {{ this.roundsCompleted }} rounds.</p>
-    <p>Score: {{ this.score }}/{{ this.roundsCompleted }}</p>
-<!-- <button (click)="gameStateService.resetGame()">Play Again</button> -->
-</div> 
-     <p *ngFor="let result of results">{{ result.code }}: {{ result.right ? 'Correct' : 'Incorrect' }}</p>
+  <p>Game Over! You completed {{ this.roundsCompleted }} rounds.</p>
+  <p>Score: {{ this.score }}/{{ this.roundsCompleted }}</p>
+  <!-- <button (click)="gameStateService.resetGame()">Play Again</button> -->
+</div>
+<div class="results" *ngFor="let result of results.gameState; let i = index">
+  <div class="result">
+    <p>{{ results['countryInfo'][i].country[language] }}</p>
+    <p>{{ results['countryInfo'][i].capital[language] }}</p>
+    <p>{{ results['countryInfo'][i].continent[language] }}</p>
+  </div>
+</div>

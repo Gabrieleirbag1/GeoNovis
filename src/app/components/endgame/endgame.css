@@ -24,3 +24,10 @@
   background: linear-gradient(135deg, #006ab8, #00a1ff);
   /* Same button styling as turn-result button */
 }
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
