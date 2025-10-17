@@ -1,4 +1,3 @@
 - visualiser images
 - recentrer map par zone
-- styles map, fond results
-- endround component
+- styles map, fond results, qr code
