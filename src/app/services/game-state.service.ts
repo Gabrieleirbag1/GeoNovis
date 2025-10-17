@@ -8,7 +8,10 @@ import { GameSaveService } from './game-save.service';
 })
 export class GameStateService {
   selectedCountryCode: CountryCode = '';
-  constructor(private gameSessionService: GameSessionService, private gameSaveService: GameSaveService) {}
+  constructor(
+    private gameSessionService: GameSessionService, 
+    private gameSaveService: GameSaveService,
+  ) {}
 
   getTurnCodes(): CountryCode[] {
     const gameState = this.gameSessionService.getGameState();
@@ -71,7 +74,10 @@ export class GameStateService {
 
   nextTurn(): void {
     const gameState = this.gameSessionService.getGameState();
+    const { countryCode, correctCountryCode } = this.gameSaveService.getCountryCodes();
+    const isCorrect = this.checkPlayerAnswer(countryCode, correctCountryCode);
     for (const code in gameState) {
+      gameState[correctCountryCode].right = isCorrect;
       if (gameState[code].turn) {
         gameState[code].turn = false;
       }
