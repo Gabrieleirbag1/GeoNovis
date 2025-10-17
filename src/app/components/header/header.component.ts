@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { LanguageService } from "../../services/language.service";
@@ -75,6 +75,15 @@ export class Header {
 
   closeQrModal(): void {
     this.showQrModal = false;
+  }
+
+  @HostListener('keydown.escape')
+  onEscapeKey(): void {
+    if (this.showQrModal) {
+      this.closeQrModal();
+    } else if (this.isSidebarOpen) {
+      this.toggleSidebar();
+    }
   }
 
   toggleSidebar() {
