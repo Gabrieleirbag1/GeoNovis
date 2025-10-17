@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../../../services/convert.service';
 import { CountryCode } from '../../../../types/code.type';
 import { CountryInfo } from '../../../../types/country-info.type';
+import { AssetsService } from '../../../../services/assets.service';
 
 @Component({
   selector: 'app-find-country-by-flag',
@@ -23,7 +24,8 @@ export class FindCountryByFlagComponent implements OnInit, OnChanges {
 
   constructor(
     private gameService: GameService, 
-    private convertService: ConvertService
+    private convertService: ConvertService,
+    protected assetsService: AssetsService
   ) {}
 
   ngOnInit(): void {
@@ -49,10 +51,6 @@ export class FindCountryByFlagComponent implements OnInit, OnChanges {
     this.countries = this.gameService.getCountries();
     const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
     this.selectedFlag = countryInfo?.flag || '';
-  }
-
-  getFlagImage(countryCode: string): string {
-    return '/images/flags/' + countryCode.toLowerCase() + '.svg';
   }
 
 }
