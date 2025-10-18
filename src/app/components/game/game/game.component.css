@@ -92,6 +92,7 @@
 
 .qcm-plate {
   grid-template-columns: repeat(3, 1fr) !important;
+  max-width: 70vw;
 }
 
 .answer-btn {
