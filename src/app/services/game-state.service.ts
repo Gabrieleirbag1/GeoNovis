@@ -72,12 +72,23 @@ export class GameStateService {
     });
   }
 
-  nextTurn(): void {
+  public setScore(): void {
     const gameState = this.gameSessionService.getGameState();
     const { countryCode, correctCountryCode } = this.gameSaveService.getCountryCodes();
     const isCorrect = this.checkPlayerAnswer(countryCode, correctCountryCode);
+    const score = gameState[correctCountryCode].score;
+    if (!score || isNaN(score)) {
+      gameState[correctCountryCode].score = 0;
+    }
+    if (isCorrect) {
+      gameState[correctCountryCode].score += 1;
+    }
+    this.gameSessionService.setGameState(gameState);
+  }
+
+  nextTurn(): void {
+    const gameState = this.gameSessionService.getGameState();
     for (const code in gameState) {
-      gameState[correctCountryCode].right = isCorrect;
       if (gameState[code].turn) {
         gameState[code].turn = false;
       }
