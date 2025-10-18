@@ -45,7 +45,7 @@
               </div>
             </td>
             <td class="status-column" [ngClass]="getStatusClass(result.score)">
-              {{ result.score }} / 1
+              {{ result.score.toFixed(2) }} / 1
             </td>
           </tr>
         }

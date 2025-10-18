@@ -65,7 +65,7 @@ export class EndgameComponent implements OnInit, OnDestroy {
   private setScore(): number {
     this.results.gameState.forEach(result => {
       if (result.score) {
-        this.score += 1;
+        this.score += result.score;
       }
     });
     return this.score;
