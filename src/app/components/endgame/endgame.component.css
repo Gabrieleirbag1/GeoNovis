@@ -74,7 +74,7 @@
 }
 
 /* Round column styling */
-.results-table .round-column {
+.results-table {
   text-align: center;
   font-weight: bold;
 }
