@@ -46,7 +46,7 @@ export class EndgameComponent implements OnInit, OnDestroy {
   private setResults(): void {
     const gameState = this.gameSessionService.getGameState();
     for (const key in gameState) {
-      if (gameState[key].hasOwnProperty('right') && gameState[key].found !== null) {
+      if (gameState[key].hasOwnProperty('score') && gameState[key].found !== null) {
         this.results.gameState.push(gameState[key]);
         this.results.countryInfo.push(this.convertService.convertCodeToCountry(gameState[key].code));
         this.roundsCompleted++;
@@ -56,7 +56,7 @@ export class EndgameComponent implements OnInit, OnDestroy {
 
   private setScore(): number {
     this.results.gameState.forEach(result => {
-      if (result.right) {
+      if (result.score) {
         this.score += 1;
       }
     });
