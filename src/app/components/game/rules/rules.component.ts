@@ -134,7 +134,7 @@ export class Rules implements OnInit {
     const custom_subgamemodes: string[] = this.gameSessionService.getParsedItem("custom_subgamemodes") || ["map"];
 
     if (subgamemode === "geonovis") {
-      this.gameSave.subgamemode.available = ["map", "findCapital", "findFlag"];
+      this.gameSave.subgamemode.available = ["map", "findCapital", "findFlag", "findLicensePlate"];
       this.gameSave.subgamemode.current = "map";
       return;
     }

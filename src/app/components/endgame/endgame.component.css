@@ -47,6 +47,7 @@
 }
 
 /* Colored rows based on correct/incorrect */
+/* Colored rows based on correct/incorrect/partial */
 .row-correct {
   background-color: rgba(46, 125, 50, 0.5);
 }
@@ -55,12 +56,38 @@
   background-color: rgba(46, 125, 50, 0.7);
 }
 
+.row-partial {
+  background-color: rgba(255, 152, 0, 0.5); /* Orange/amber color */
+}
+
+.row-partial:hover {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+
 .row-incorrect {
   background-color: rgba(183, 28, 28, 0.5);
 }
 
 .row-incorrect:hover {
   background-color: rgba(183, 28, 28, 0.7);
+}
+
+/* Status column styling */
+.status-column {
+  text-align: center;
+  font-weight: bold;
+}
+
+.status-correct {
+  color: #4caf50;
+}
+
+.status-partial {
+  color: #ff9800; /* Orange/amber color */
+}
+
+.status-incorrect {
+  color: #f44336;
 }
 
 /* Flag styling in table */
@@ -74,23 +101,9 @@
 }
 
 /* Round column styling */
-.results-table .round-column {
+.results-table {
   text-align: center;
   font-weight: bold;
-}
-
-/* Status column styling */
-.status-column {
-  text-align: center;
-  font-weight: bold;
-}
-
-.status-correct {
-  color: #4caf50;
-}
-
-.status-incorrect {
-  color: #f44336;
 }
 
 .end-game-buttons {

@@ -2,8 +2,8 @@
   <div class="country-name">
     {{ selectedCountry }}
   </div>
-  <div class="qcm" *ngIf="countries.length > 0">
-    <button class="answer-btn" tabindex="-1"*ngFor="let country of countries" (click)="onAnswerSelect(country)" name="{{ country.code }}">
+  <div class="qcm qcm-plate" *ngIf="countries.length > 0">
+    <button class="answer-btn" tabindex="-1" *ngFor="let country of countries" (click)="onAnswerSelect(country)" name="{{ country.code }}">
       <img [src]="assetsService.getPlateImage(country.code)" alt="{{ country.name }} plate" class="plate-image">
     </button>
   </div>

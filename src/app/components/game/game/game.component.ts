@@ -258,6 +258,7 @@ export class Game implements OnInit, OnDestroy {
     if (isMultiRoundEnded) {
       this.gameStateService.nextTurn();
     }
+    this.gameStateService.setScore();
 
     this.setRoundStateValue("endRound", false);
 
