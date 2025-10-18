@@ -147,6 +147,7 @@
             "fr": "Personnalisé"
           },
           "start": true,
+          "subgamemode": true,
           "submenu": true,
           "subMenuText": {
             "fr": "Sélectionnez les modes de jeu à inclure",

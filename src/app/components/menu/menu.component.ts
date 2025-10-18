@@ -104,6 +104,7 @@ export class Menu implements OnInit, AfterViewChecked {
             [this.language]: optionName,
           },
           selected: false,
+          subgamemode: menuContent.subgamemode
         }));
 
         this.currentSubmenuData = {
