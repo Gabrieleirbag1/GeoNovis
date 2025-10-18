@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         @for (result of results.gameState; track $index) {
-          <tr [ngClass]="result.score ? 'row-correct' : 'row-incorrect'">
+          <tr [ngClass]="getRowClass(result.score)">
             <td>{{ results.countryInfo[$index].country[language] }}</td>
             <td>
               <ng-container *ngFor="let capital of results['countryInfo'][$index].capital[language]; let isLast = last">
@@ -44,8 +44,8 @@
                   (mousemove)="$event.stopPropagation()">
               </div>
             </td>
-            <td class="status-column" [ngClass]="result.score ? 'status-correct' : 'status-incorrect'">
-              {{ result.score ? (language === 'fr' ? 'Correct' : 'Correct') : (language === 'fr' ? 'Incorrect' : 'Incorrect') }}
+            <td class="status-column" [ngClass]="getStatusClass(result.score)">
+              {{ result.score }} / 1
             </td>
           </tr>
         }

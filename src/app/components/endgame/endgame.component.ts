@@ -138,4 +138,25 @@ export class EndgameComponent implements OnInit, OnDestroy {
     this.renderer.setStyle(tooltipEl, 'left', `${leftPos}px`);
     this.renderer.setStyle(tooltipEl, 'top', `${topPos}px`);
   }
+
+  protected getRowClass(score: number): string {
+    if (score >= 1) {
+      return 'row-correct';
+    } else if (score >= 0.5) {
+      return 'row-partial';
+    } else {
+      return 'row-incorrect';
+    }
+  }
+  
+  protected getStatusClass(score: number): string {
+    if (score >= 1) {
+      return 'status-correct';
+    } else if (score >= 0.5) {
+      return 'status-partial';
+    } else {
+      return 'status-incorrect';
+    }
+  }
+  
 }
