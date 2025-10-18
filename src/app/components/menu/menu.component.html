@@ -25,10 +25,10 @@
       class="menu-item"
       *ngFor="let menuContent of menuConfig?.content"
       (click)="handleNextMenu(menuConfig.type, menuContent.id, menuContent.start, menuContent.submenu, menuContent.linkto || (menuContent.start ? 'rules' : 'rules'))">
-      {{ menuContent.name[language] }}
+      <span>{{ menuContent.name[language] }}</span>
     </div>
     <div class="menu-item join-game-btn" (click)="redirectGame()" *ngIf="gameStarted">
-      {{ language === 'fr' ? 'PARTIE EN COURS' : 'GAME IN PROGRESS' }}
+      <span>{{ language === 'fr' ? 'PARTIE EN COURS' : 'GAME IN PROGRESS' }}</span>
     </div>
   </div>
 
