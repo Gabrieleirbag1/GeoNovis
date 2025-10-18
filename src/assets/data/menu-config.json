@@ -139,6 +139,24 @@
             "fr": "Immatriculation"
           },
           "linkto": "gamemode/licensePlates"
+        },
+        {
+          "id": "custom",
+          "name": {
+            "en": "Custom",
+            "fr": "Personnalisé"
+          },
+          "start": true,
+          "submenu": true,
+          "subMenuText": {
+            "fr": "Sélectionnez les modes de jeu à inclure",
+            "en": "Select game modes to include"
+          },
+          "submenu_content": {
+            "fr": ["Carte", "Capitales", "Drapeaux", "Immatriculation"],
+            "en": ["Map", "Capitals", "Flags", "Identification"],
+            "id": ["map", "findCapital", "findFlag", "findLicensePlate"]
+          }
         }
       ]
     },
