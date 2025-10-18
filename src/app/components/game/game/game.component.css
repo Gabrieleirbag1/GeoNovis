@@ -90,6 +90,10 @@
   margin: 0 auto;
 }
 
+.qcm-plate {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
 .answer-btn {
   padding: 20px;
   font-size: 18px;

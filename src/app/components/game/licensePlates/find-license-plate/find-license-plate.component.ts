@@ -48,7 +48,7 @@ export class FindLicensePlate implements OnInit, OnChanges {
 
   init(): void {
     // console.log('FindPlate Component Initialized');
-    this.gameService.initializeGame(4);
+    this.gameService.initializeGame(6);
     this.countries = this.gameService.getCountries();
     const countryInfo: CountryInfo | null = this.convertService.convertCodeToCountry(this.gameService.selectedCountryCode)
     this.selectedCountry = countryInfo?.country[this.convertService.language] || '';
