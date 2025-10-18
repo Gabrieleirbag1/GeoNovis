@@ -1,4 +1,2 @@
-- visualiser images
 - recentrer map par zone
-- styles map, fond results, qr code
 - resize telephone

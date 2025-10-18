@@ -188,51 +188,6 @@ nav a {
   z-index: 1999;
 }
 
-/* Minimal styling for QR code modal */
-.qr-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2001; /* Higher than sidebar */
-}
-
-.qr-modal {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  max-width: 90%;
-  width: 350px;
-}
-
-.qr-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.qr-modal-header h3 {
-  margin: 0;
-}
-
-.qr-modal-header button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.qr-modal-content {
-  display: flex;
-  justify-content: center;
-}
-
 .invisible-btn {
   background: transparent;
   border: none;
@@ -254,4 +209,131 @@ nav a {
 
 .copyright p {
   color: white;
+}
+
+/* QR Modal Styling */
+.qr-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.qr-modal {
+  background: linear-gradient(145deg, rgba(14, 28, 52, 0.95), rgba(19, 43, 78, 0.95));
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 152, 255, 0.4);
+  border: 1px solid rgba(94, 144, 241, 0.4);
+  padding: 25px;
+  max-width: 90%;
+  width: 20vw;
+  animation: scaleIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: white;
+}
+
+.qr-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(94, 144, 241, 0.3);
+  padding-bottom: 15px;
+}
+
+.qr-modal-header h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(83, 200, 255, 0.7);
+}
+
+.qr-modal-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-modal-header button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.qr-modal-content {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.qr-modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.share-btn {
+  padding: 12px 40px;
+  font-size: 16px;
+  font-family: 'RadioSpace', sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #006ab8, #00a1ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 0 10px rgba(0, 152, 255, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #53c8ff;
+}
+
+.share-btn:hover {
+  background: linear-gradient(135deg, #007ad3, #00b4ff);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(0, 152, 255, 0.7),
+    0 0 30px rgba(0, 152, 255, 0.4);
+  text-shadow:
+    0 0 4px #53c8ff,
+    0 0 10px #0098ff,
+    0 0 22px #53c8ff;
+}
+
+.share-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 4px 1px #0098ff55,
+    inset 0 0 14px 4px #003b63;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
 }

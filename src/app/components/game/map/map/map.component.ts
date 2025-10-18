@@ -76,8 +76,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
       if (!this.foundCountries.includes(this.gameService.selectedCountryCode)) {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
-      this.highlightCountryByCode(this.countryCode, "red");
-      this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+      this.highlightCountryByCode(this.countryCode, "#ff4d4d");
+      this.highlightCountryByCode(this.gameService.selectedCountryCode, "#4caf50");
     }
   }
 
@@ -104,8 +104,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
         this.foundCountries.push(this.gameService.selectedCountryCode);
       }
       if (this.geoJsonData.features.length > 0) {
-        this.highlightCountryByCode(this.countryCode, "red");
-        this.highlightCountryByCode(this.gameService.selectedCountryCode, "green");
+        this.highlightCountryByCode(this.countryCode, "#ff4d4d");
+        this.highlightCountryByCode(this.gameService.selectedCountryCode, "#4caf50");
       }
     } else if (changes["endRound"].currentValue === false) {
       if (this.geoJsonData.features.length > 0) {
@@ -144,7 +144,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     });
 
     // https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
-    const tiles = L.tileLayer("http://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png", {
+    const tiles = L.tileLayer("http://a.basemaps.cartocdn.com/_nolabels/{z}/{x}/{y}.png", {
       maxZoom: 18,
       minZoom: 2,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -168,11 +168,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
     // Process found countries
     this.foundCountries.forEach((countryCode) => {
-      this.highlightCountryByCode(countryCode, "darkgray");
+      this.highlightCountryByCode(countryCode, "#7a8899");
     });
   }
 
-  public highlightCountryByCode(countryCode: CountryCode, color: string = "red"): void {
+  public highlightCountryByCode(countryCode: CountryCode, color: string = "#ff4d4d"): void {
     this.geojson.eachLayer((layer: GeoJSONLayer) => {
       // Check if this layer's feature matches our country code
       if (layer.feature && layer.feature.properties 
@@ -207,7 +207,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       return;
     }
     const layer = e.target as L.Path;
-    this.highlightFeature(layer, "blue");
+    this.highlightFeature(layer, "#2196f3");
   }
 
   private onMouseOut(e: L.LeafletEvent): void {
@@ -221,7 +221,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.geojson.resetStyle(layer);
   }
 
-  private highlightFeature(layer: L.Path, color: string = "red"): void {
+  private highlightFeature(layer: L.Path, color: string = "#ff4d4d"): void {
     layer.setStyle({
       weight: 5,
       color: color,

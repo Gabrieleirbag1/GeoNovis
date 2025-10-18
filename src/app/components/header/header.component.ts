@@ -18,6 +18,8 @@ export class Header {
   showQrModal = false;
   strSessionData: string = "";
   isSidebarOpen = false;
+  copied = false;
+  private copyTimeout: any;
 
   constructor(private languageService: LanguageService, private apiService: ApiService) {
     this.currentLanguage = this.languageService.getLanguage();
@@ -64,7 +66,21 @@ export class Header {
 
   shareSessionLink(): void {
     const shareableLink = this.strSessionData;
-    navigator.clipboard.writeText(shareableLink)
+    navigator.clipboard.writeText(shareableLink).then(() => {
+      // Show "Copied!" feedback
+      this.copied = true;
+      
+      // Reset after 3 seconds
+      if (this.copyTimeout) {
+        clearTimeout(this.copyTimeout);
+      }
+      
+      this.copyTimeout = setTimeout(() => {
+        this.copied = false;
+      }, 3000);
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+    });
   }
 
   openQrModal(): void {
@@ -75,9 +91,13 @@ export class Header {
 
   closeQrModal(): void {
     this.showQrModal = false;
+    this.copied = false; // Reset copied state when closing
+    if (this.copyTimeout) {
+      clearTimeout(this.copyTimeout);
+    }
   }
 
-  @HostListener('keydown.escape')
+  @HostListener('document:keydown.escape')
   onEscapeKey(): void {
     if (this.showQrModal) {
       this.closeQrModal();

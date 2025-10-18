@@ -1,4 +1,4 @@
-<div class="modal" (click)="preventModalClose($event)">
+<div class="modal" *ngIf="showModal" (click)="preventModalClose($event)">
   <div class="modal-content">
     <p *ngIf="isCorrect" class="correct">
       {{ language === "fr" ? "Correct!" : "Correct!" }}
@@ -6,7 +6,7 @@
     <p *ngIf="!isCorrect" class="incorrect">
       {{ language === "fr" ? "Incorrect!" : "Incorrect!" }}
     </p>
-    <button (click)="nextTurn()" autofocus>
+    <button (click)="nextTurn()">
       {{ language === "fr" ? "Suivant" : "Next" }}
     </button>
   </div>
