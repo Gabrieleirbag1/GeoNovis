@@ -50,6 +50,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   private initializeMap(): void {
     this.setupMap();
+    this.setupMapEvents()
     this.addGeoJsonLayer();
     this.initHighlightCountries();
   }
@@ -157,6 +158,16 @@ export class MapComponent implements AfterViewInit, OnChanges {
         [90, 180],
       ])
     );
+  }
+
+  private setupMapEvents(): void {
+    this.map.on('dragstart', () => {
+      document.body.classList.add('dragging');
+    });
+  
+    this.map.on('dragend', () => {
+      document.body.classList.remove('dragging');
+    });
   }
 
   public highlightCountriesByCode(): void {

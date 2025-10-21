@@ -241,7 +241,6 @@ canvas {
   background: linear-gradient(145deg, #0d1d38, #142c52);
   border-radius: 12px;
   padding: 30px;
-  width: 90%;
   max-width: 50vw;
   max-height: 90vh;
   overflow-y: auto;
@@ -520,5 +519,113 @@ canvas {
   100% {
     transform: rotate(12deg) translateX(25%) translateY(-280%);
     opacity: 0;
+  }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  /* Menu title and structure */
+  .main-menu {
+    align-items: center;
+  }
+
+  .menu {
+    margin: 0;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+  }
+  
+  .menu-title {
+    font-size: 60px;
+    margin-bottom: 30px;
+    transform: scaleX(1.1);
+    letter-spacing: 1px;
+  }
+  
+  /* Menu items */
+  .menu-item {
+    width: 80%;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+  }
+  
+  /* Modal improvements */
+  .modal-content {
+    padding: 20px;
+    width: 80vw;
+    max-width: 80vw;
+    max-height: 80vh;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+  }
+  
+  .modal-description {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  /* Card grid layout - single column for mobile */
+  .submenu-options {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    margin: 15px 0;
+  }
+  
+  /* Card adjustments for better mobile UX */
+  .option-card {
+    max-width: 100%;
+  }
+  
+  .option-image-container {
+    height: 120px;
+  }
+  
+  .option-name {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  /* Button adjustments */
+  .modal-actions {
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .cancel-btn, .go-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 45%;
+  }
+  
+  /* Planet visibility and positioning */
+  .planet-container {
+    width: 100vh;
+    height: 100vh;
+    left: 100%;
+    top: 60%;
+    opacity: 0.6; /* Make it more subtle on mobile */
+  }
+  
+  .night, .day, .clouds, .inner-shadow {
+    width: 100vh;
+    height: 100vh;
+  }
+  
+  .day {
+    margin-left: 80px;
+  }
+  
+  .clouds {
+    margin-left: 70px;
+  }
+  
+  /* Header adjustments */
+  .menu-header {
+    top: 10px;
+    left: 10px;
   }
 }

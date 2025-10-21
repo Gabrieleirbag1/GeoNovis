@@ -98,14 +98,38 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .map-container {
-    height: 60vh;
-    width: 100%;
+  .country-name span {
+    font-size: 20px;
+    padding: 12px 20px;
+    min-width: auto;
+    max-width: 300px;
   }
   
-  .country-name {
-    font-size: 24px;
-    padding: 12px 25px;
+  .map-container {
+    padding: 20px 0;
+  }
+  
+  .map-frame {
+    border-radius: 10px;
+  }
+  
+  /* Improve map controls for touch */
+  :host ::ng-deep .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    font-size: 18px !important;
+  }
+  
+  :host ::ng-deep .leaflet-control-attribution {
+    white-space: normal;
+    padding: 2px 5px;
+    font-size: 9px;
+  }
+  
+  /* Make countries easier to tap */
+  :host ::ng-deep .leaflet-interactive {
+    stroke-width: 1.5;
   }
 }
 

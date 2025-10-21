@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { GameSessionService } from '../../services/game-session.service';
 import { CommonModule } from '@angular/common';
 import { ConvertService } from '../../services/convert.service';
@@ -19,7 +19,9 @@ export class EndgameComponent implements OnInit, OnDestroy {
   protected language: string = 'fr';
   
   @ViewChild('tooltipImage') tooltipImage!: ElementRef;
+  @ViewChild('endGameContainer') endGameContainer!: ElementRef;
   private tooltipTimeout: any;
+  private touchStartTarget: EventTarget | null = null;
 
   constructor(
     private gameSessionService: GameSessionService,
@@ -34,6 +36,10 @@ export class EndgameComponent implements OnInit, OnDestroy {
     this.language = this.languageService.getLanguage();
     this.setResults();
     this.setScore();
+    
+    // Add touch start listener to the endgame container
+    document.addEventListener('touchstart', this.handleTouchStart.bind(this));
+    document.addEventListener('touchend', this.handleTouchEnd.bind(this));
   }
   
   ngOnDestroy(): void {
@@ -41,6 +47,48 @@ export class EndgameComponent implements OnInit, OnDestroy {
     if (this.tooltipTimeout) {
       clearTimeout(this.tooltipTimeout);
     }
+    
+    // Remove touch listeners
+    document.removeEventListener('touchstart', this.handleTouchStart.bind(this));
+    document.removeEventListener('touchend', this.handleTouchEnd.bind(this));
+    
+    // Ensure dragging class is removed
+    document.body.classList.remove('dragging');
+  }
+
+  private handleTouchStart(event: TouchEvent): void {
+    // Store the target element for later comparison
+    this.touchStartTarget = event.target;
+    
+    // Check if the touch started in the end-game container or any of its children
+    if (this.isEndGameElement(event.target as Element)) {
+      document.body.classList.add('dragging');
+    }
+  }
+  
+  private handleTouchEnd(event: TouchEvent): void {
+    // Check if we're ending a touch that didn't start in end-game
+    if (!this.isEndGameElement(this.touchStartTarget as Element)) {
+      document.body.classList.remove('dragging');
+    }
+    
+    this.touchStartTarget = null;
+  }
+  
+  // Helper to check if an element is part of the end-game component
+  private isEndGameElement(element: Element | null): boolean {
+    if (!element) return false;
+    
+    let current: Element | null = element;
+    
+    while (current) {
+      if (current.classList && current.classList.contains('end-game')) {
+        return true;
+      }
+      current = current.parentElement;
+    }
+    
+    return false;
   }
 
   private setResults(): void {
@@ -101,6 +149,21 @@ export class EndgameComponent implements OnInit, OnDestroy {
       }
     }, 1250); // 1.25 seconds
   }
+
+  showImageOnClick(event: MouseEvent, imageSrc: string): void {
+    const tooltipEl = document.getElementById('tooltipImage');
+    if (tooltipEl) {
+      const imgEl = tooltipEl.querySelector('img') as HTMLImageElement;
+      imgEl.src = imageSrc;
+
+      // Position the tooltip
+      this.positionTooltip(event, tooltipEl);
+
+      // Show the tooltip
+      this.renderer.addClass(tooltipEl, 'visible');
+    }
+  }
+
   
   hideImageTooltip(): void {
     // Clear timeout
@@ -159,4 +222,11 @@ export class EndgameComponent implements OnInit, OnDestroy {
     }
   }
   
+  // Add a click handler to remove dragging class when clicking outside
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.isEndGameElement(event.target as Element)) {
+      document.body.classList.remove('dragging');
+    }
+  }
 }

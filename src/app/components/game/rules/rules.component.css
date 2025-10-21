@@ -240,7 +240,6 @@ select.rounds option:focus {
   background: linear-gradient(145deg, #0d1d38, #142c52);
   border-radius: 12px;
   padding: 30px;
-  width: 90%;
   max-width: 30vw;
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.5),
@@ -328,4 +327,13 @@ select.rounds option:focus {
   10% { opacity: 1; }
   60% { opacity: 0.9; }
   100% { transform: rotate(12deg) translateX(25%) translateY(-280%); opacity: 0; }
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    max-width: 80vw;
+    font-size: 16px;
+    padding: 20px;
+  }
+  
 }

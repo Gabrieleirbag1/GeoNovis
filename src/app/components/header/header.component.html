@@ -7,7 +7,7 @@
 <div class="sidebar" [class.open]="isSidebarOpen">
     <div class="sidebar-header">
         <h2>GeoNovis</h2>
-        <button class="close-sidebar" (click)="toggleSidebar()">×</button>
+        <button class="close-sidebar" (click)="closeSidebar()">×</button>
     </div>
 
     <div class="sidebar-content">
@@ -67,7 +67,7 @@
 </div>
 
 <!-- Overlay that appears when sidebar is open -->
-<div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
+<div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
 
 <!-- QR Code Modal -->
 <div *ngIf="showQrModal" class="qr-modal-overlay" (click)="$event.target === $event.currentTarget && closeQrModal()">

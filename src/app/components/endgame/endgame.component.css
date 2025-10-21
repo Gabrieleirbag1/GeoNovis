@@ -181,3 +181,102 @@
   border-radius: 4px;
   object-fit: contain;
 }
+
+/* Mobile styles for screens up to 768px */
+@media (max-width: 768px) {
+  /* End Game Container */
+  .end-game {
+    padding: 25px 15px;
+    margin: 20px 10px;
+    border-radius: 10px;
+    width: 80vw;
+  }
+
+  /* Typography */
+  .end-game h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .end-game p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Table layout */
+  .results-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+    margin: 15px 0;
+    border-radius: 6px;
+  }
+
+  /* Make table horizontally scrollable */
+  .results-table {
+    min-width: 650px;
+  }
+
+  .results-table th {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .results-table td {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* Flag/Plate styling */
+  .results-table img {
+    width: 50px;
+    height: 34px;
+  }
+
+  /* Button layout */
+  .end-game-buttons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+  .end-game-btn {
+    width: 80%;
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  /* Tooltip adjustments */
+  .tooltip-image.visible {
+    max-width: 95vw;
+  }
+
+  .tooltip-image img {
+    max-width: calc(100vw - 40px);
+    max-height: 180px;
+  }
+
+  /* Score legend if you added it */
+  .score-legend {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  /* Add scroll indicator to help users know table is scrollable */
+  .results-container::after {
+    content: '←  →';
+    display: block;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    font-size: 12px;
+    animation: pulseHint 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulseHint {
+    from { opacity: 0.4; }
+    to { opacity: 0.8; }
+  }
+}

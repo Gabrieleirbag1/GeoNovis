@@ -247,7 +247,8 @@ export class Game implements OnInit, OnDestroy {
 
   @HostListener('document:keyup.enter')
   handleEnterKey(): void {
-    if (this.endRound) {
+    const modal = document.getElementById("endround-modal");
+    if (this.endRound && modal) {
       this.nextTurn();
     }
   }

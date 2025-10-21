@@ -232,7 +232,6 @@ nav a {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 152, 255, 0.4);
   border: 1px solid rgba(94, 144, 241, 0.4);
   padding: 25px;
-  max-width: 90%;
   width: 20vw;
   animation: scaleIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   color: white;
@@ -336,4 +335,16 @@ nav a {
 @keyframes scaleIn {
   0% { opacity: 0; transform: scale(0.9); }
   100% { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+
+  .qr-modal {
+    width: 80vw;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+  
 }
