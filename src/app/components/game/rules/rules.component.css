@@ -240,7 +240,6 @@ select.rounds option:focus {
   background: linear-gradient(145deg, #0d1d38, #142c52);
   border-radius: 12px;
   padding: 30px;
-  width: 90%;
   max-width: 30vw;
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.5),
