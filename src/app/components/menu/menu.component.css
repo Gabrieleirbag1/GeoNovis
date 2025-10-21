@@ -630,29 +630,3 @@ canvas {
     left: 10px;
   }
 }
-
-/* High pixel density screens (for crisper text) */
-@media 
-(-webkit-min-device-pixel-ratio: 2), 
-(min-resolution: 192dpi) {
-  .menu-title {
-    text-shadow: 0 0 4px #0087ca, 0 0 16px #0087ca, 0 0 24px #0087ca;
-  }
-  
-  .menu-item:hover,
-  .menu-item:focus {
-    text-shadow: 0 0 3px #53c8ff, 0 0 8px #0098ff, 0 0 18px #53c8ff;
-  }
-}
-
-/* Safe area insets for notched phones */
-@supports (padding: max(0px)) {
-  .menu {
-    padding-left: max(20px, env(safe-area-inset-left));
-    padding-right: max(20px, env(safe-area-inset-right));
-  }
-  
-  .modal-content {
-    padding-bottom: max(20px, env(safe-area-inset-bottom));
-  }
-}

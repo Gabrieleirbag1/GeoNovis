@@ -348,16 +348,73 @@ p.hint-text {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .qcm {
-    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 90%;
+  }
+  
+  .qcm-plate {
+    max-width: 95vw;
   }
   
   .country-name {
-    font-size: 24px;
+    font-size: 22px;
     padding: 15px 20px;
+    margin-bottom: 50px;
+    min-width: auto;
+    width: 90%;
   }
   
   .game-header {
+    max-width: 50vw;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+    text-align: center;
+    padding: 12px 20px;
+  }
+  
+  .game-header p {
+    font-size: 16px;
+  }
+  
+  /* Make answer buttons more tap-friendly */
+  .answer-btn {
+    padding: 15px;
+    font-size: 16px;
+    min-height: 80px;
+  }
+  
+  /* Flag and plate images */
+  .flag-image, .plate-image {
+    max-height: 80px;
+  }
+  
+  /* Written answer input */
+  .answer-input {
+    width: 90%;
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+  
+  /* Turn result popup */
+  .turn-result {
+    max-width: 90%;
+    padding: 15px;
+    margin-top: 25px;
+  }
+  
+  .turn-result p {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .turn-result button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+  
+  /* Reduce parallax animation intensity for performance */
+  .game-section::before {
+    animation-duration: 1200s;
   }
 }
