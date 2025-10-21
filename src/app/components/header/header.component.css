@@ -337,3 +337,15 @@ nav a {
   0% { opacity: 0; transform: scale(0.9); }
   100% { opacity: 1; transform: scale(1); }
 }
+
+@media (max-width: 768px) {
+
+  .qr-modal {
+    width: 80vw;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+  
+}

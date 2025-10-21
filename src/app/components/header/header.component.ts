@@ -1,4 +1,4 @@
-import { Component, HostListener } from "@angular/core";
+import { Component, HostListener, ElementRef, ViewChild, Renderer2 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { LanguageService } from "../../services/language.service";
@@ -20,9 +20,83 @@ export class Header {
   isSidebarOpen = false;
   copied = false;
   private copyTimeout: any;
+  
+  // Touch handling variables
+  private touchStartX: number = 0;
+  private touchEndX: number = 0;
+  private touchStartY: number = 0;
+  private touchEndY: number = 0;
+  private minSwipeDistance: number = 80; // Minimum distance for a swipe
+  private maxVerticalOffset: number = 100; // Maximum vertical movement allowed for horizontal swipe
 
-  constructor(private languageService: LanguageService, private apiService: ApiService) {
+  @ViewChild('swipeArea') swipeArea!: ElementRef;
+  
+  constructor(
+    private languageService: LanguageService, 
+    private apiService: ApiService,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {
     this.currentLanguage = this.languageService.getLanguage();
+  }
+
+  ngAfterViewInit() {
+    // Add touch event listeners to the document body
+    this.setupTouchListeners();
+  }
+
+  ngOnDestroy() {
+    // Clean up by removing the event listeners if component is destroyed
+    document.body.removeEventListener('touchstart', this.handleTouchStart);
+    document.body.removeEventListener('touchend', this.handleTouchEnd);
+  }
+
+  private setupTouchListeners() {
+    // Using bind to maintain the correct 'this' context
+    this.handleTouchStart = this.handleTouchStart.bind(this);
+    this.handleTouchEnd = this.handleTouchEnd.bind(this);
+    
+    document.body.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+    document.body.addEventListener('touchend', this.handleTouchEnd, { passive: true });
+  }
+  
+  private handleTouchStart(event: TouchEvent) {
+    this.touchStartX = event.changedTouches[0].screenX;
+    this.touchStartY = event.changedTouches[0].screenY;
+  }
+  
+  private handleTouchEnd(event: TouchEvent) {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.touchEndY = event.changedTouches[0].screenY;
+    
+    // Calculate horizontal and vertical distances
+    const horizontalDistance = this.touchStartX - this.touchEndX;
+    const verticalDistance = Math.abs(this.touchStartY - this.touchEndY);
+    
+    // Check if the gesture was a horizontal swipe with minimal vertical movement
+    if (horizontalDistance > this.minSwipeDistance && verticalDistance < this.maxVerticalOffset) {
+      // Right to left swipe - open sidebar
+      if (!this.isSidebarOpen && this.touchStartX > window.innerWidth * 0.9) {
+        this.openSidebar();
+      }
+    } else if (horizontalDistance < -this.minSwipeDistance && verticalDistance < this.maxVerticalOffset) {
+      // Left to right swipe - close sidebar if it's open
+      if (this.isSidebarOpen) {
+        this.closeSidebar();
+      }
+    }
+  }
+
+  openSidebar(): void {
+    this.isSidebarOpen = true;
+  }
+
+  closeSidebar(): void {
+    this.isSidebarOpen = false;
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   selectLanguage(language: Language): void {
@@ -102,16 +176,12 @@ export class Header {
     if (this.showQrModal) {
       this.closeQrModal();
     } else if (this.isSidebarOpen) {
-      this.toggleSidebar();
+      this.closeSidebar();
     }
   }
 
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
-
   public redirect(route: string, newTab: boolean = false): void {
-    this.toggleSidebar();
+    this.closeSidebar();
     setTimeout(() => {
       this.navigateToRoute(route, newTab);
     }, 300); // Match the duration of the sidebar transition
