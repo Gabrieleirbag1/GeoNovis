@@ -397,7 +397,6 @@ p.hint-text {
   
   /* Turn result popup */
   .turn-result {
-    max-width: 90%;
     padding: 15px;
     margin-top: 25px;
   }

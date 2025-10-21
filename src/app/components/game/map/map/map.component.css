@@ -122,7 +122,6 @@
   }
   
   :host ::ng-deep .leaflet-control-attribution {
-    max-width: 90%;
     white-space: normal;
     padding: 2px 5px;
     font-size: 9px;
