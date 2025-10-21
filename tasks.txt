@@ -1,2 +1,4 @@
 - recentrer map par zone
-- resize telephone
+- chargement
+- endround window afficher les réponses
+- bouton supprimer localStorage data
