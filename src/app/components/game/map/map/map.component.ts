@@ -162,11 +162,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   private setupMapEvents(): void {
     this.map.on('dragstart', () => {
-      document.body.classList.add('leaflet-dragging');
+      document.body.classList.add('dragging');
     });
   
     this.map.on('dragend', () => {
-      document.body.classList.remove('leaflet-dragging');
+      document.body.classList.remove('dragging');
     });
   }
 
