@@ -149,6 +149,21 @@ export class EndgameComponent implements OnInit, OnDestroy {
       }
     }, 1250); // 1.25 seconds
   }
+
+  showImageOnClick(event: MouseEvent, imageSrc: string): void {
+    const tooltipEl = document.getElementById('tooltipImage');
+    if (tooltipEl) {
+      const imgEl = tooltipEl.querySelector('img') as HTMLImageElement;
+      imgEl.src = imageSrc;
+
+      // Position the tooltip
+      this.positionTooltip(event, tooltipEl);
+
+      // Show the tooltip
+      this.renderer.addClass(tooltipEl, 'visible');
+    }
+  }
+
   
   hideImageTooltip(): void {
     // Clear timeout

@@ -31,6 +31,7 @@
                   [alt]="results.countryInfo[$index]?.name + ' flag'"
                   (mouseenter)="showImageTooltip($event, assetsService.getFlagImage(result.code))"
                   (mouseleave)="hideImageTooltip()"
+                  (click)="showImageOnClick($event, assetsService.getFlagImage(result.code))"
                   (mousemove)="$event.stopPropagation()">
               </div>
             </td>
@@ -41,6 +42,7 @@
                   [alt]="results.countryInfo[$index]?.name + ' plate'"
                   (mouseenter)="showImageTooltip($event, assetsService.getPlateImage(result.code))"
                   (mouseleave)="hideImageTooltip()"
+                  (click)="showImageOnClick($event, assetsService.getPlateImage(result.code))"
                   (mousemove)="$event.stopPropagation()">
               </div>
             </td>
