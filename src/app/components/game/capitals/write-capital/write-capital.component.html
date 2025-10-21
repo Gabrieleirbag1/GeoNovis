@@ -2,13 +2,18 @@
   <div class="country-name">
     {{ selectedCountry }}
   </div>
-  <div class="" *ngIf="countries.length > 0">
+  <div class="input-container" *ngIf="countries.length > 0">
     <input type="text" class="answer-input" 
     [(ngModel)]="userAnswer" 
     (ngModelChange)="saveUserAnswerSession($event)"
     placeholder="{{ language === 'fr' ? 'Écrivez la réponse' : 'Type the answer' }}"
     [disabled]="endRound"
     (keyup.enter)="onAnswerSelect({ userAnswer })">
+      <button class="confirm-btn" 
+    (click)="onAnswerSelect({ userAnswer })"
+    [disabled]="endRound">
+    {{ language === 'fr' ? 'Confirmer' : 'Confirm' }}
+  </button>
   </div>
   <p *ngIf="showCorrectAnswerFlag">You could say {{ selectedCapitals.join(', ') }}</p>
 
