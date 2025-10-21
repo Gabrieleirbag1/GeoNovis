@@ -193,14 +193,6 @@
             "fr": "Trouver le pays"
           },
           "start": true
-        },
-        {
-          "id": "findOrWriteByCapital",
-          "name": {
-            "en": "Find the Capital or write it",
-            "fr": "Trouver la capitale ou l'écrire"
-          },
-          "start": true
         }
       ]
     },
