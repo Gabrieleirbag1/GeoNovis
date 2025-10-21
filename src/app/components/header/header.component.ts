@@ -66,6 +66,9 @@ export class Header {
   }
   
   private handleTouchEnd(event: TouchEvent) {
+    if (document.body.classList.contains('leaflet-dragging')) {
+      return;
+    }
     this.touchEndX = event.changedTouches[0].screenX;
     this.touchEndY = event.changedTouches[0].screenY;
     
