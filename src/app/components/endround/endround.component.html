@@ -1,4 +1,4 @@
-<div class="modal" *ngIf="showModal" (click)="preventModalClose($event)">
+<div class="modal" id="endround-modal" *ngIf="showModal" (click)="preventModalClose($event)">
   <div class="modal-content">
     <p *ngIf="isCorrect" class="correct">
       {{ language === "fr" ? "Correct!" : "Correct!" }}
