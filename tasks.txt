@@ -1,4 +1,3 @@
 - recentrer map par zone
-- chargement
 - endround window afficher les réponses
-- bouton supprimer localStorage data
+- logo
