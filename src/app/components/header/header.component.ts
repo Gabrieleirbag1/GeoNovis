@@ -197,4 +197,9 @@ export class Header {
       window.location.href = route;
     }
   }
+
+  protected deleteSessionData(): void {
+    localStorage.clear();
+    window.location.reload();
+  }
 }

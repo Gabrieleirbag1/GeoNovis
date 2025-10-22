@@ -285,7 +285,8 @@ nav a {
 
 .qr-modal-footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .share-btn {
@@ -324,6 +325,43 @@ nav a {
   box-shadow: 
     0 0 4px 1px #0098ff55,
     inset 0 0 14px 4px #003b63;
+}
+
+.delete-btn {
+  font-size: 14px;
+  font-family: 'RadioSpace', sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 0 10px rgba(255, 26, 26, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #ff6666;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #ff6666, #ff3333);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(255, 26, 26, 0.7),
+    0 0 30px rgba(255, 26, 26, 0.4);
+  text-shadow:
+    0 0 4px #ff6666,
+    0 0 10px #ff1a1a,
+    0 0 22px #ff6666;
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 4px 1px #ff1a1a55,
+    inset 0 0 14px 4px #630000;
 }
 
 /* Animations */
