@@ -1,4 +1,5 @@
 <app-header></app-header>
-<main>
+<app-loader *ngIf="loading$ | async"></app-loader>
+<main [style.display]="(loading$ | async) ? 'none' : 'block'">
   <router-outlet></router-outlet>
 </main>
