@@ -1,6 +1,6 @@
 import { Component, HostListener, ElementRef, ViewChild, Renderer2 } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { LanguageService } from "../../services/language.service";
 import { Language } from "../../types/language.type";
 import { QRCodeComponent } from "angularx-qrcode";
@@ -34,8 +34,6 @@ export class Header {
   constructor(
     private languageService: LanguageService, 
     private apiService: ApiService,
-    private renderer: Renderer2,
-    private el: ElementRef
   ) {
     this.currentLanguage = this.languageService.getLanguage();
   }
@@ -200,6 +198,6 @@ export class Header {
 
   protected deleteSessionData(): void {
     localStorage.clear();
-    window.location.reload();
+    window.location.href = "/"
   }
 }
