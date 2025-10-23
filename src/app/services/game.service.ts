@@ -27,7 +27,7 @@ export class GameService {
     return codesToFind;
   }
 
-  getCountries(): Country[] {
+  public getCountries(): Country[] {
     return this.countries;
   }
 
@@ -35,7 +35,18 @@ export class GameService {
     this.countries = countries;
   }
 
-  initializeGame(iterations: number): void {
+  public getRegions(): string[] {
+    const gameSave = this.gameSessionService.getParsedItem("gameSave") || {};
+    const regionsSet: Set<string> = new Set<string>();
+    if (gameSave && gameSave.regions) {
+      gameSave.regions.forEach((region: string) => {
+        regionsSet.add(region);
+      });
+    }
+    return Array.from(regionsSet);
+  }
+
+  public initializeGame(iterations: number): void {
     let turnCodes: CountryCode[] = this.gameStateService.getTurnCodes();
     if (!this.gameSessionService.isGameStateSession(turnCodes)) {
       console.log('Selecting new turn codes...');
