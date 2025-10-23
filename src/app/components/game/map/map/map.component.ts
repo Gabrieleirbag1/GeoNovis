@@ -8,6 +8,18 @@ import { ConvertService } from "../../../../services/convert.service";
 import { CountryCode } from "../../../../types/code.type";
 import { CountryInfo } from "../../../../types/country-info.type";
 import { ApiService } from "../../../../services/api.service";
+import regionsInfos from '../../../../../assets/data/regions/regions.json';
+
+interface Coordinates {
+  lat: number,
+  lng: number,
+  zoom: number
+}
+
+interface Regions {
+  region: string,
+  map_coordinates: Coordinates
+}
 
 @Component({
   selector: "app-map",
@@ -179,9 +191,10 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   private setupMap(): void {
+    const coordinates = this.getCoordinates()
     this.map = L.map("map", {
-      center: [39.8282, -98.5795],
-      zoom: 2,
+      center: [coordinates.lat, coordinates.lng],
+      zoom: coordinates.zoom,
     });
 
     // https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
