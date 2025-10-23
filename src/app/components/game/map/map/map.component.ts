@@ -250,6 +250,10 @@ export class MapComponent implements AfterViewInit, OnChanges {
     // this.map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
     const countryCode = e.target.feature.properties.code.toLowerCase() as CountryCode;
     console.log("Country code clicked:", e.target.feature.properties.name);
+    if (this.foundCountries.includes(countryCode)) {
+      console.log("Country already found:", countryCode);
+      return;
+    }
     this.onAnswerSelect(countryCode);
   }
 
