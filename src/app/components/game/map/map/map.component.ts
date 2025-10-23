@@ -19,10 +19,10 @@ import { ApiService } from "../../../../services/api.service";
 export class MapComponent implements AfterViewInit, OnChanges {
   private map!: L.Map;
   private geojson!: L.GeoJSON;
-  geoJsonData: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
-  foundCountries: CountryCode[] = [];
-  countries: Country[] = [];
-  selectedCountry: string = "";
+  private geoJsonData: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
+  private foundCountries: CountryCode[] = [];
+  private countries: Country[] = [];
+  protected selectedCountry: string = "";
 
   @Input() turn!: number; // new input to track round changes
   @Input() endRound!: boolean; // new input to track end of round
