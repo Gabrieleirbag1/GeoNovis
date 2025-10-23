@@ -93,11 +93,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   private getCoordinates(): Coordinates {
     let coordinates: Coordinates = { lat: 0, lng: 0, zoom: 0 };
-    const regionCoordinates = this.regions[0].map_coordinates;
-    if (this.regions.length > 1 || this.regions[0].region == "world") {
+    if (this.regions.length > 1 || this.regions.length < 1) {
       coordinates = {"lat": 39.8282, "lng": -98.5795, "zoom": 2};
     }
     else {
+      const regionCoordinates = this.regions[0].map_coordinates || { lat: 39.8282, lng: -98.5795, zoom: 2 };
       coordinates = {
         "lat": regionCoordinates.lat,
         "lng": regionCoordinates.lng,
