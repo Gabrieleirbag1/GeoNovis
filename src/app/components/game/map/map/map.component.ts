@@ -22,6 +22,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private geoJsonData: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
   private foundCountries: CountryCode[] = [];
   private countries: Country[] = [];
+  private regions: Regions[] = [];
+
   protected selectedCountry: string = "";
 
   @Input() turn!: number; // new input to track round changes
@@ -49,10 +51,48 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   private initializeMap(): void {
+    this.setRegions();
     this.setupMap();
     this.setupMapEvents()
     this.addGeoJsonLayer();
     this.initHighlightCountries();
+  }
+
+  private setRegions(): void {
+    const gameSaveRegions: string[] = this.gameService.getRegions();
+
+    for (const regionCode of gameSaveRegions) {
+      const regionData = regionsInfos[regionCode as keyof typeof regionsInfos];
+      
+      if (regionData && regionData.map_coordinates) {
+        this.regions.push({
+          region: regionCode,
+          map_coordinates: {
+            lat: regionData.map_coordinates.lat,
+            lng: regionData.map_coordinates.lng,
+            zoom: regionData.map_coordinates.zoom
+          }
+        });
+      } else {
+        console.warn(`Region data not found for: ${regionCode}`);
+      }
+    }
+  }
+
+  private getCoordinates(): Coordinates {
+    let coordinates: Coordinates = { lat: 0, lng: 0, zoom: 0 };
+    const regionCoordinates = this.regions[0].map_coordinates;
+    if (this.regions.length > 1 || this.regions[0].region == "world") {
+      coordinates = {"lat": 39.8282, "lng": -98.5795, "zoom": 2};
+    }
+    else {
+      coordinates = {
+        "lat": regionCoordinates.lat,
+        "lng": regionCoordinates.lng,
+        "zoom": regionCoordinates.zoom
+      };
+    }
+    return coordinates;
   }
 
   private loadGeoJsonData(): Promise<void> {
