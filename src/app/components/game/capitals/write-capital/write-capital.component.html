@@ -15,6 +15,16 @@
     {{ language === 'fr' ? 'Confirmer' : 'Confirm' }}
   </button>
   </div>
-  <p *ngIf="showCorrectAnswerFlag">You could say {{ selectedCapitals.join(', ') }}</p>
-
+  <div class="correct-answer-container modeal-content" *ngIf="showCorrectAnswerFlag">
+    <div class="correct-answer-box">
+      <div class="answer-label">
+        {{ language === 'fr' ? 'Réponse(s) possible(s) :' : 'Possible answer(s):' }}
+      </div>
+      <div class="answer-list">
+        <span class="answer-item" *ngFor="let capital of selectedCapitals; let last = last">
+          {{ capital }}<span *ngIf="!last" class="answer-separator">, </span>
+        </span>
+      </div>
+    </div>
+  </div>
 </section>

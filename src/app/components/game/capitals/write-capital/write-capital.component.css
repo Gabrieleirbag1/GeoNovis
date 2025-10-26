@@ -4,4 +4,96 @@
     align-items: center;
     gap: 30px;
     margin-top: 20px;
+}.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Correct Answer Styling */
+.correct-answer-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    animation: fadeInAnswer 0.5s ease-out;
+}
+
+.correct-answer-box {
+    background: linear-gradient(145deg, rgba(40, 167, 69, 0.15), rgba(46, 125, 50, 0.15));
+    border: 1px solid rgba(40, 167, 69, 0.4);
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(40, 167, 69, 0.1);
+    text-align: center;
+    max-width: 90%;
+    backdrop-filter: blur(5px);
+}
+
+.answer-label {
+    font-family: 'RadioSpace', sans-serif;
+    font-size: 16px;
+    color: #4caf50;
+    text-shadow: 0 0 6px rgba(76, 175, 80, 0.6);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.answer-list {
+    font-family: 'RadioSpace', sans-serif;
+    font-size: 20px;
+    color: #e9f6ff;
+    text-shadow: 0 0 8px rgba(233, 246, 255, 0.7);
+    line-height: 1.4;
+}
+
+.answer-item {
+    font-weight: bold;
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(129, 199, 132, 0.2));
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin: 2px;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.answer-separator {
+    color: rgba(233, 246, 255, 0.7);
+    font-weight: normal;
+    margin: 0 4px;
+}
+
+/* Animation */
+@keyframes fadeInAnswer {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .correct-answer-box {
+        padding: 15px 20px;
+        margin: 0 10px;
+    }
+    
+    .answer-label {
+        font-size: 14px;
+    }
+    
+    .answer-list {
+        font-size: 18px;
+    }
+    
+    .answer-item {
+        padding: 3px 6px;
+        margin: 1px;
+    }
 }
