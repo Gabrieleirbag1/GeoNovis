@@ -49,6 +49,20 @@ export class App implements OnInit, AfterViewInit {
       )
     ).subscribe(event => {
       if (event instanceof NavigationStart) {
+        // Check if navigating to rules component
+        const targetUrl = event.url;
+        const isNavigatingToRules = targetUrl.includes('/rules');
+        const isMenuNavigation = this.isMenuToMenuNavigation(targetUrl);
+        
+        if (isNavigatingToRules) {
+          // Always show loader for rules
+          this.loadingService.forceShowLoader();
+        } else if (isMenuNavigation) {
+          // Skip loader for menu-to-menu transitions
+          this.loadingService.skipNextLoader();
+        }
+        
+        // Call showLoader which will respect the skipNextLoader setting
         this.loadingService.showLoader();
         this.navigationLoaded = false;
       } else {
@@ -56,19 +70,18 @@ export class App implements OnInit, AfterViewInit {
         setTimeout(() => {
           this.navigationLoaded = true;
           this.checkAllLoaded();
-        }, 200); // Short delay for DOM to render
+        }, 200);
       }
     });
   }
 
   ngAfterViewInit(): void {
-    // Use requestAnimationFrame to detect when everything is rendered
     requestAnimationFrame(() => {
       this.ngZone.run(() => {
         setTimeout(() => {
           this.navigationLoaded = true;
           this.checkAllLoaded();
-        }, 200); // Small delay to ensure everything is rendered
+        }, 200);
       });
     });
   }
@@ -77,5 +90,16 @@ export class App implements OnInit, AfterViewInit {
     if (this.contentLoaded && this.navigationLoaded) {
       this.loadingService.hideLoader();
     }
+  }
+  
+  // Helper method to determine if this is a menu-to-menu navigation
+  private isMenuToMenuNavigation(targetUrl: string): boolean {
+    const currentUrl = this.router.url;
+    const menuRoutes = ['region', 'gamemode', 'subgamemode', 'difficulty'];
+    
+    const currentIsMenu = menuRoutes.some(route => currentUrl.includes(route)) || currentUrl === '/';
+    const targetIsMenu = menuRoutes.some(route => targetUrl.includes(route)) || targetUrl === '/';
+    
+    return currentIsMenu && targetIsMenu;
   }
 }
