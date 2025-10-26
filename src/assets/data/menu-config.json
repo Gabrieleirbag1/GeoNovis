@@ -49,7 +49,7 @@
           },
           "submenu_content": {
             "en": ["Arab World", "Balkans", "Caribbean", "Caucasus and Central Asia", "Central America", "Central and Southern Africa", "Eastern Europe", "Middle East", "Sahel", "South Asia", "Southeast Asia", "West Africa"],
-            "fr": ["Afrique centrale et australe", "Afrique de l'Ouest", "Amérique centrale", "Asie du Sud", "Asie du Sud-Est", "Balkans", "Caraïbes", "Caucase et Asie centrale", "Europe de l'Est", "Moyen-Orient", "Monde arabe", "Sahel"],
+            "fr": ["Monde arabe", "Balkans", "Caraïbes", "Caucase et Asie centrale", "Amérique centrale", "Afrique centrale et australe", "Europe de l'Est", "Moyen-Orient", "Sahel", "Asie du Sud", "Asie du Sud-Est", "Afrique de l'Ouest"],
             "id": ["arab_world", "balkans", "caribbean", "caucasus_central_asia", "central_america", "central_southern_africa", "east_europe", "middle_east", "sahel", "south_asia", "southeast_asia", "west_africa"]
           }
         },
@@ -67,7 +67,7 @@
           },
           "submenu_content": {
             "en": ["Africa", "Arab World", "Asia", "Balkans", "Caribbean", "Caucasus and Central Asia", "Central America", "Central and Southern Africa", "Eastern Europe", "Europe", "Middle East", "North America", "Oceania", "Sahel", "South America", "South Asia", "Southeast Asia", "West Africa"],
-            "fr": ["Afrique", "Afrique centrale et australe", "Afrique de l'Ouest", "Amérique centrale", "Amérique du Nord", "Amérique du Sud", "Asie", "Asie du Sud", "Asie du Sud-Est", "Balkans", "Caraïbes", "Caucase et Asie centrale", "Europe", "Europe de l'Est", "Monde arabe", "Moyen-Orient", "Océanie", "Sahel"],
+            "fr": ["Afrique", "Monde arabe", "Asie", "Balkans", "Caraïbes", "Caucase et Asie centrale", "Amérique centrale", "Afrique centrale et australe", "Europe de l'Est", "Europe", "Moyen-Orient", "Amérique du Nord", "Océanie", "Sahel", "Amérique du Sud", "Asie du Sud", "Asie du Sud-Est", "Afrique de l'Ouest"],
             "id": ["africa", "arab_world", "asia", "balkans", "caribbean", "caucasus_central_asia", "central_america", "central_southern_africa", "east_europe", "europe", "middle_east", "north_america", "oceania", "sahel", "south_america", "south_asia", "southeast_asia", "west_africa"]
           }
         }
