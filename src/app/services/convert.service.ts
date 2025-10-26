@@ -38,13 +38,11 @@ export class ConvertService {
 
   convertCapitalToCountry(capital: string): CountryInfo | null {
     if (!capital) return null;
-    
-    const lowercaseCapital = capital.toLowerCase().trim();
-    
-    const countryInfo = worldInfos.find((info) => {
-      return info.capital[this.language].some(
-        (capitalName: string) => capitalName.toLowerCase().trim() === lowercaseCapital
-      );
+      const normalizedCapital = this.normalizeText(capital)    
+      const countryInfo = worldInfos.find((info) => {
+        return info.capital[this.language].some(
+          (capitalName: string) => this.normalizeText(capitalName) === normalizedCapital
+        );
     });
     
     console.log('Converted capital to country:', countryInfo);
@@ -57,9 +55,10 @@ export class ConvertService {
   }
 
   normalizeText(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove accents/diacritics
-    .replace(/\s+/g, ''); // Remove all whitespace
-}
+    return text
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove accents/diacritics
+      .replace(/[^a-z0-9]/g, '') // Remove all non-alphanumeric characters (including #*$%&-_ etc.)
+      .trim();
+  }
 }
