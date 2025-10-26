@@ -1,3 +1,0 @@
-- recentrer map par zone
-- endround window afficher les réponses
-- logo
