@@ -1109,8 +1109,8 @@
       "fr": "Guatemala"
     },
     "capital": {
-      "en": ["Guatemala City"],
-      "fr": ["Guatemala City"]
+      "en": ["Guatemala", "Guatemala City"],
+      "fr": ["Guatemala", "Guatemala City"]
     },
     "continent": {
       "en": "North America",
@@ -1461,8 +1461,8 @@
       "fr": "Koweït"
     },
     "capital": {
-      "en": ["Kuwait City"],
-      "fr": ["Koweït City"]
+      "en": ["Kuwait", "Kuwait City"],
+      "fr": ["Koweït", "Koweït City"]
     },
     "continent": {
       "en": "Asia",
@@ -1797,7 +1797,7 @@
       "fr": "Mexique"
     },
     "capital": {
-      "en": ["Mexico City"],
+      "en": ["Mexico", "Mexico City"],
       "fr": ["Mexico"]
     },
     "continent": {
@@ -2165,8 +2165,8 @@
       "fr": "Panama"
     },
     "capital": {
-      "en": ["Panama City"],
-      "fr": ["Panama City"]
+      "en": ["Panama", "Panama City"],
+      "fr": ["Panama", "Panama City"]
     },
     "continent": {
       "en": "North America",
@@ -3104,12 +3104,12 @@
   {
     "flag": "va",
     "country": {
-      "en": "Vatican City (Holy See)",
-      "fr": "Cité du Vatican"
+      "en": "Vatican",
+      "fr": "Vatican"
     },
     "capital": {
-      "en": ["Vatican City"],
-      "fr": ["Cité du Vatican"]
+      "en": ["Vatican", "Vatican City"],
+      "fr": ["Vatican", "Cité du Vatican"]
     },
     "continent": {
       "en": "Europe",
