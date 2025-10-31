@@ -2,6 +2,6 @@ CURRENT_DIR=$(pwd)
 
 ng build --configuration=production
 
-sudo cp .htaccess $CURRENT_DIR/dist/Geonovis/browser/
+sudo cp .htaccess $CURRENT_DIR/dist/GeoNovis/browser/
 
-sudo cp -r $CURRENT_DIR/dist/Geonovis/* /var/www/Geonovis/
+sudo cp -r $CURRENT_DIR/dist/GeoNovis/* /var/www/GeoNovis/
