@@ -267,6 +267,8 @@ export class Game implements OnInit, OnDestroy {
     if (isMultiRoundEnded) {
       this.changeRound();
     }
+    
+    this.gameSessionService.setSessionItem("userAnswer", "");
   }
 
 }
