@@ -86,7 +86,7 @@ canvas {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  margin: 20px 0 0 10vw;
+  margin: 0 0 0 10vw;
 }
 
 .menu-title {
@@ -209,7 +209,7 @@ canvas {
 }
 
 .join-game-btn {
-  margin-top: 30px;
+  margin-top: 15px;
   border-color: rgba(40, 167, 69, 0.7);
   box-shadow: 0 0 6px 1px #28a745aa, 0 0 18px 4px #28a74555, inset 0 0 10px 2px #1b6f32;
   text-shadow: 0 0 4px #7aff9d, 0 0 14px #28a745;
