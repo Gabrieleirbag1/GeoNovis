@@ -89,6 +89,10 @@ canvas {
   margin: 0 0 0 10vw;
 }
 
+.logo-img {
+  width: 80vh;
+}
+
 .menu-title {
   font-family: "RadioSpace", sans-serif;
   font-size: 100px;
@@ -535,6 +539,10 @@ canvas {
     justify-content: center;
     align-items: center;
     font-size: 28px;
+  }
+
+  .logo-img {
+    width: 90vw;
   }
   
   .menu-title {
