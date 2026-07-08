@@ -1,8 +1,14 @@
 <section>
   <div class="country-name">
-    <span>
-    {{ selectedCountry }}
-    </span>
+    @if (selectedCountry) {
+      <span>
+      {{ selectedCountry }}
+      </span>
+    } @else {
+      <span>
+      {{ language === 'fr' ? 'Chargement de la carte...' : 'Loading the map...' }}
+      </span>
+    }
   </div>
   <div class="map-container">
     <div class="map-frame">

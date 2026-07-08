@@ -51,6 +51,14 @@ export class Game implements OnInit, OnDestroy {
     this.subgamemode = gameSave.subgamemode.current || "map";
     this.currentRound = gameSave.roundState.current;
     this.totalRounds = gameSave.roundState.total;
+
+    if (!this.endRound && this.subgamemode !== "map") {
+      this.initializeCountdown();
+    }
+    // If subgamemode === 'map', initializeCountdown() is deferred to onMapReady()
+  }
+
+  onMapReady(): void {
     if (!this.endRound) {
       this.initializeCountdown();
     }

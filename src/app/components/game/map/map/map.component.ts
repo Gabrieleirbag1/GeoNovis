@@ -9,6 +9,7 @@ import { CountryCode } from "../../../../types/code.type";
 import { CountryInfo } from "../../../../types/country-info.type";
 import { ApiService } from "../../../../services/api.service";
 import regionsInfos from '../../../../../assets/data/regions/regions.json';
+import { LanguageService } from "../../../../services/language.service";
 
 interface Coordinates {
   lat: number,
@@ -36,20 +37,26 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private countries: Country[] = [];
   private regions: Regions[] = [];
 
-  protected selectedCountry: string = "";
+  protected language = "fr";
+  protected selectedCountry: string = '';
 
   @Input() turn!: number; // new input to track round changes
   @Input() endRound!: boolean; // new input to track end of round
   @Input() countryCode!: CountryCode; // new input to track country code the user has selected
 
   @Output() answerSelected = new EventEmitter<{ selectedCode: CountryCode; correctCode: CountryCode }>();
+  @Output() mapReady = new EventEmitter<void>();
 
-  constructor(private gameService: GameService, 
+  constructor(
+    private gameService: GameService, 
     private convertService: ConvertService, 
     private gameStateService: GameStateService, 
-    private apiService: ApiService) {}
+    private apiService: ApiService,
+    private languageService: LanguageService
+  ) {}
 
   ngAfterViewInit(): void {
+    this.language = this.languageService.getLanguage();
     this.loadGeoJsonData()
       .then(() => {
         this.init();
@@ -191,17 +198,21 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   private setupMap(): void {
-    const coordinates = this.getCoordinates()
+    const coordinates = this.getCoordinates();
     this.map = L.map("map", {
       center: [coordinates.lat, coordinates.lng],
       zoom: coordinates.zoom,
     });
 
-    // https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
     const tiles = L.tileLayer("http://a.basemaps.cartocdn.com/_nolabels/{z}/{x}/{y}.png", {
       maxZoom: 18,
       minZoom: 2,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    });
+
+    // Fires once when all tiles currently in view have finished loading
+    tiles.on("load", () => {
+      this.mapReady.emit();
     });
 
     this.map.addLayer(tiles);
