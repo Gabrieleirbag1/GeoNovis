@@ -32,11 +32,24 @@
 /* Game Header */
 .game-header {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.game-tour-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.game-tour {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  gap: 30px;
   max-width: 30vw;
-  margin-bottom: 30px;
   padding: 15px 25px;
   background: linear-gradient(145deg, rgba(14, 28, 52, 0.8), rgba(19, 43, 78, 0.8));
   border-radius: 10px;
@@ -44,10 +57,55 @@
   border: 1px solid rgba(94, 144, 241, 0.2);
 }
 
-.game-header p {
+.game-tour p {
   margin: 0;
   font-size: 18px;
   text-shadow: 0 0 5px rgba(83, 200, 255, 0.6);
+}
+
+.next-button {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.next-button button {
+  height: 100%;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1fa65a, #2ce28f);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.45);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px rgba(46, 204, 113, 0.9);
+}
+
+.next-button button:hover {
+  background: linear-gradient(135deg, #15914a, #1ed678);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(46, 204, 113, 0.8),
+    0 0 30px rgba(46, 204, 113, 0.45);
+  text-shadow:
+    0 0 4px rgba(46, 204, 113, 0.9),
+    0 0 10px rgba(22, 160, 133, 0.9),
+    0 0 22px rgba(46, 204, 113, 0.8);
+}
+
+.next-button button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 4px 1px rgba(46, 204, 113, 0.35),
+    inset 0 0 14px 4px rgba(2, 70, 32, 0.45);
 }
 
 .countdown {

@@ -6,6 +6,9 @@
     <p *ngIf="!isCorrect" class="incorrect">
       {{ language === "fr" ? "Incorrect!" : "Incorrect!" }}
     </p>
+    <button *ngIf="!isCorrect" (click)="showCorrectAnswer()" id="show-correct-answer-btn">
+      {{ language === "fr" ? "Voir la bonne réponse" : "Show Correct Answer" }}
+    </button>
     <button (click)="nextTurn()">
       {{ language === "fr" ? "Suivant" : "Next" }}
     </button>

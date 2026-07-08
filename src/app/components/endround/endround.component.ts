@@ -12,6 +12,7 @@ import { LanguageService } from '../../services/language.service';
 export class EndRoundComponent implements OnInit {
   @Input() isCorrect: boolean = false;
   @Output() nextClicked = new EventEmitter<void>();
+  @Output() showCorrectAnswerClicked = new EventEmitter<void>();
   
   protected language: string = 'fr';
   showModal: boolean = false;
@@ -28,6 +29,10 @@ export class EndRoundComponent implements OnInit {
   
   nextTurn(): void {
     this.nextClicked.emit();
+  }
+
+  showCorrectAnswer(): void {
+    this.showCorrectAnswerClicked.emit();
   }
   
   preventModalClose(event: MouseEvent): void {

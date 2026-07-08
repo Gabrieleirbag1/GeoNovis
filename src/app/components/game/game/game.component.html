@@ -1,8 +1,17 @@
 <section class="game-section">
   @if (!endGame) {
     <div class="game-header">
-      <p>{{ language === "fr" ? "Tour" : "Round" }} {{ currentRound }} {{ language === "fr" ? "sur" : "of" }} {{ totalRounds }}</p>
-      <p class="countdown" *ngIf="remainingTime">{{ language === "fr" ? "Temps restant" : "Time remaining" }}: {{ remainingTime }}</p>
+      <div class="game-tour-wrapper">
+        <div class="game-tour">
+          <p>{{ language === "fr" ? "Tour" : "Round" }} {{ currentRound }} {{ language === "fr" ? "sur" : "of" }} {{ totalRounds }}</p>
+          <p class="countdown" *ngIf="remainingTime">{{ language === "fr" ? "Temps restant" : "Time remaining" }}: {{ remainingTime }}</p>
+        </div>
+        <div class="next-button">
+          <button *ngIf="endRound && showCorrectAnswerModal" (click)="nextTurn()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M411-481 213-679l42-42 240 240-240 240-42-42 198-198Zm253 0L466-679l42-42 240 240-240 240-42-42 198-198Z"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- GAME INJECTION SECTION -->
@@ -56,9 +65,10 @@
 
     <!-- END ROUND COMPONENT -->
     <app-endround 
-      *ngIf="endRound" 
+      *ngIf="endRound && !showCorrectAnswerModal" 
       [isCorrect]="isCorrect" 
-      (nextClicked)="nextTurn()">
+      (nextClicked)="nextTurn()"
+      (showCorrectAnswerClicked)="showCorrectAnswer()">
     </app-endround>
 
   } @else {

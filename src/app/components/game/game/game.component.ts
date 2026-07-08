@@ -29,6 +29,7 @@ export class Game implements OnInit, OnDestroy {
   totalRounds: number | null = null;
   endRound: boolean = false;
   endGame: boolean = false;
+  showCorrectAnswerModal: boolean = false;
   isCorrect: boolean = false;
   countryCode: CountryCode = "";
 
@@ -261,7 +262,13 @@ export class Game implements OnInit, OnDestroy {
     }
   }
 
+  showCorrectAnswer(): void {
+    console.log("Show correct answer clicked");
+    this.showCorrectAnswerModal = true;
+  }
+
   nextTurn(): void {
+    this.showCorrectAnswerModal = false;
     const isMultiRoundEnded: boolean = this.isMultiRoundEnded();
 
     if (isMultiRoundEnded) {

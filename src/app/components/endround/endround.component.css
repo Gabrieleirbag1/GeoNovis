@@ -78,6 +78,20 @@
     inset 0 0 14px 4px #003b63;
 }
 
+#show-correct-answer-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+  text-shadow: 0 0 4px #ff6b6b;
+  margin-bottom: 20px;
+}
+
+#show-correct-answer-btn:hover {
+  background: linear-gradient(135deg, #ff7b7b, #ff5c5c);
+  box-shadow: 
+    0 0 15px rgba(255, 71, 87, 0.7),
+    0 0 30px rgba(255, 71, 87, 0.4);
+}
+
 /* Additional animations */
 @keyframes scaleIn {
   0% { opacity: 0; transform: scale(0.8); }
